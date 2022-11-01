@@ -1,0 +1,11 @@
+Node
+Node2D
+PointLight2D
+AnimationPlayer
+Camera2D
+CanvasModulate
+DirectionalLight2D
+TileMap
+CollisionShape2D
+AnimatedSprite2D
+CharacterBody2D
