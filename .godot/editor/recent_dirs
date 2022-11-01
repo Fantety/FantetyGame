@@ -1,4 +1,11 @@
-res://src/player
-res://scene/player
+res://src
+res://src/scene/OverheadDoor
+res://src/furniture
+res://scene/component
+res://asset/img/furniture
 res://asset/player
+res://resource
 res://scene
+res://asset/img/scene
+res://src/animation
+res://src/player

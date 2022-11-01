@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://dvdj8dp1rtqsc"
+path="res://.godot/imported/bed.dialogue-07e917388893497e92330f202ac19c98.tres"
+
+[deps]
+
+source_file="res://dialog/bedroom/bed.dialogue"
+dest_files=["res://.godot/imported/bed.dialogue-07e917388893497e92330f202ac19c98.tres"]
+
+[params]
+

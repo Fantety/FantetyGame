@@ -1,5 +1,6 @@
-[gd_scene load_steps=49 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=94 format=3 uid="uid://brmvhvdusrh7o"]
 
+[ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Texture2D" uid="uid://c142e803717m" path="res://asset/img/scene/map.png" id="1_t4p37"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
 [ext_resource type="Texture2D" uid="uid://eh1oocwgq418" path="res://asset/img/furniture/bed.png" id="2_exkfg"]
@@ -7,8 +8,31 @@
 [ext_resource type="Texture2D" uid="uid://cwjsb86382ix2" path="res://asset/player/stand-Sheet.png" id="3_0pkxm"]
 [ext_resource type="Texture2D" uid="uid://c7g0rk6x7ui45" path="res://asset/img/furniture/tube_light.png" id="3_d3cys"]
 [ext_resource type="Texture2D" uid="uid://dljvsfhins3ou" path="res://asset/img/furniture/desk.png" id="4_kkvok"]
+[ext_resource type="Texture2D" uid="uid://dfgbec3rruml" path="res://asset/img/furniture/bedroom_window/BedroomWindow1.png" id="5_sypii"]
+[ext_resource type="Texture2D" uid="uid://bq3u5umfawidp" path="res://asset/img/furniture/door_flap.png" id="6_i4qi5"]
+[ext_resource type="Texture2D" uid="uid://b1daxebj2mbjk" path="res://asset/img/furniture/bedroom_window/BedroomWindow2.png" id="6_r22py"]
+[ext_resource type="Texture2D" uid="uid://br73nfiqhndeu" path="res://asset/img/furniture/lab_terminal/lab_terminal1.png" id="7_51uhy"]
 [ext_resource type="Texture2D" uid="uid://c21yurn4mlhbx" path="res://asset/img/light/light4.png" id="7_m3rpb"]
 [ext_resource type="Texture2D" uid="uid://ctoc1vlg3f1ma" path="res://asset/img/light/light_screen.png" id="8_8ursp"]
+[ext_resource type="AudioStream" uid="uid://bf5jwd6e54cd2" path="res://asset/sound/run.wav" id="8_gmaps"]
+[ext_resource type="Texture2D" uid="uid://5gvtydj55fjy" path="res://asset/img/furniture/lab_terminal/lab_terminal2.png" id="8_iqvij"]
+[ext_resource type="Texture2D" uid="uid://bwhmm4hn7efn8" path="res://asset/img/furniture/lab_terminal/lab_terminal3.png" id="9_edn87"]
+[ext_resource type="Texture2D" uid="uid://dc85o4rvohrnq" path="res://asset/img/furniture/lab_terminal/lab_terminal4.png" id="10_oil7y"]
+[ext_resource type="Texture2D" uid="uid://dbbhxe8qqaesb" path="res://asset/img/furniture/lab_terminal/lab_terminal5.png" id="11_tb810"]
+[ext_resource type="Texture2D" uid="uid://djlkes8idv534" path="res://asset/img/furniture/lab_terminal/lab_terminal6.png" id="12_jkgiy"]
+[ext_resource type="Script" path="res://src/animation/BedroomAnimation.gd" id="13_6fawm"]
+[ext_resource type="Texture2D" uid="uid://crsfueou7cdyb" path="res://asset/img/furniture/lab_terminal/lab_terminal7.png" id="13_uvo5g"]
+[ext_resource type="Texture2D" uid="uid://dlolg3360b1po" path="res://asset/img/furniture/lab_terminal/lab_terminal8.png" id="14_7idox"]
+[ext_resource type="Texture2D" uid="uid://v0r7uanvrywt" path="res://asset/img/furniture/lab_terminal/lab_terminal9.png" id="15_4cp7b"]
+[ext_resource type="Texture2D" uid="uid://x83i82pfuaki" path="res://asset/img/furniture/lab_terminal/lab_terminal10.png" id="16_285qu"]
+[ext_resource type="Texture2D" uid="uid://sc3mboa2oj8k" path="res://asset/img/furniture/vending_machines.png" id="18_a5eug"]
+[ext_resource type="Texture2D" uid="uid://cirlrxvc7gsrm" path="res://asset/player/kui_animation-Sheet.png" id="19_8n533"]
+[ext_resource type="PackedScene" uid="uid://d13dn51yjw1vk" path="res://scene/component/overhead_door.tscn" id="27_1sr34"]
+[ext_resource type="Script" path="res://src/furniture/overhead_door.gd" id="28_6kayb"]
+[ext_resource type="PackedScene" uid="uid://byc6h3rll8svx" path="res://scene/component/door_ctrl.tscn" id="28_englk"]
+[ext_resource type="AudioStream" uid="uid://ckvhfetgseaa7" path="res://asset/sound/paper.wav" id="28_hkt4y"]
+[ext_resource type="AudioStream" uid="uid://c4ijumm32dh4v" path="res://asset/sound/air_operated.wav" id="32_nxs1r"]
+[ext_resource type="AudioStream" uid="uid://678etq3k5gex" path="res://asset/sound/terminal_ui.wav" id="33_5jc16"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -21,14 +45,14 @@ tile_data = PackedInt32Array(0, 458752, 0, 1, 524288, 0, 2, 589824, 0)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i8171"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_csogp"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7bydq"]
+polygon = PackedVector2Array(-16, -11, 16, -11, 16, 16, -16, 16)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y2oc7"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0r4xj"]
+polygon = PackedVector2Array(-16, -11, 16, -11, 16, 16, -16, 16)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_st2oi"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oagua"]
+polygon = PackedVector2Array(-16, -11, 16, -11, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vw86w"]
 texture = ExtResource("1_t4p37")
@@ -37,17 +61,17 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
-1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_csogp")
+1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_7bydq")
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_y2oc7")
+2:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_0r4xj")
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
-3:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_st2oi")
+3:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_oagua")
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -80,25 +104,25 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_53ef0"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v4l22"]
-polygon = PackedVector2Array(-16, -1.5, 16, -1.5, 16, 16, -16, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6ykra"]
+polygon = PackedVector2Array(-16, -0.5, 0.5, -5, 16, -5, 16, 16, -16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qirx3"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_48vtp"]
-polygon = PackedVector2Array(-16, -1.5, 16, -1.5, 16, 16, -16, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_slb30"]
+polygon = PackedVector2Array(-16, -5, 0.5, -5, 16, -5.5, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jh4n"]
 texture = ExtResource("2_exkfg")
 texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_53ef0")
-0:1/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_v4l22")
+0:1/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_6ykra")
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
 1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qirx3")
-1:1/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_48vtp")
+1:1/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_slb30")
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 
@@ -120,6 +144,73 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_phnuw"]
+polygon = PackedVector2Array(-4, -16, 4.5, -16, 4.5, 16, -4, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbi3l"]
+texture = ExtResource("6_i4qi5")
+texture_region_size = Vector2i(8, 32)
+0:0/0 = 0
+0:0/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_phnuw")
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ur3s5"]
+frames = 2
+frame_0/texture = ExtResource("5_sypii")
+frame_1/texture = ExtResource("6_r22py")
+frame_1/duration = 1.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82jbw"]
+resource_name = "BedroomWindow"
+texture = SubResource("AnimatedTexture_ur3s5")
+texture_region_size = Vector2i(64, 32)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_jq2p4"]
+frames = 10
+speed_scale = 5.0
+frame_0/texture = ExtResource("7_51uhy")
+frame_1/texture = ExtResource("8_iqvij")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("9_edn87")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("10_oil7y")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("11_tb810")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("12_jkgiy")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("13_uvo5g")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("14_7idox")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("15_4cp7b")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("16_285qu")
+frame_9/duration = 1.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3kos"]
+texture = SubResource("AnimatedTexture_jq2p4")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owbtr"]
+texture = ExtResource("18_a5eug")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_2s2fx"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
@@ -132,40 +223,218 @@ sources/0 = SubResource("TileSetAtlasSource_vw86w")
 sources/1 = SubResource("TileSetAtlasSource_7jh4n")
 sources/2 = SubResource("TileSetAtlasSource_upbrf")
 sources/3 = SubResource("TileSetAtlasSource_s5vmu")
+sources/5 = SubResource("TileSetAtlasSource_82jbw")
+sources/6 = SubResource("TileSetAtlasSource_c3kos")
+sources/7 = SubResource("TileSetAtlasSource_owbtr")
+sources/4 = SubResource("TileSetAtlasSource_gbi3l")
 pattern_0 = SubResource("TileMapPattern_ui0fq")
 pattern_1 = SubResource("TileMapPattern_gujvv")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya2jw"]
-atlas = ExtResource("2_pkois")
-region = Rect2(0, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_otvg8"]
+atlas = ExtResource("19_8n533")
+region = Rect2(0, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q55gi"]
-atlas = ExtResource("2_pkois")
-region = Rect2(248, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf8hs"]
+atlas = ExtResource("19_8n533")
+region = Rect2(320, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybwsf"]
-atlas = ExtResource("2_pkois")
-region = Rect2(496, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r686"]
+atlas = ExtResource("19_8n533")
+region = Rect2(640, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bg5q2"]
-atlas = ExtResource("2_pkois")
-region = Rect2(744, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe3l3"]
+atlas = ExtResource("19_8n533")
+region = Rect2(960, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jh7qd"]
-atlas = ExtResource("2_pkois")
-region = Rect2(992, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tfnj"]
+atlas = ExtResource("19_8n533")
+region = Rect2(1280, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_30v4c"]
-atlas = ExtResource("2_pkois")
-region = Rect2(1240, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs6rv"]
+atlas = ExtResource("19_8n533")
+region = Rect2(1600, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8njrf"]
-atlas = ExtResource("2_pkois")
-region = Rect2(1488, 0, 248, 280)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8253"]
+atlas = ExtResource("19_8n533")
+region = Rect2(1920, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i56pd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lim6i"]
+atlas = ExtResource("19_8n533")
+region = Rect2(2240, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6hwr"]
+animations = [{
+"frames": [SubResource("AtlasTexture_otvg8"), SubResource("AtlasTexture_kf8hs"), SubResource("AtlasTexture_2r686"), SubResource("AtlasTexture_pe3l3"), SubResource("AtlasTexture_1tfnj"), SubResource("AtlasTexture_cs6rv"), SubResource("AtlasTexture_i8253"), SubResource("AtlasTexture_lim6i")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_jnl4w"]
+offsets = PackedFloat32Array(0.245283, 1)
+colors = PackedColorArray(0.988974, 0.969279, 0.969279, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_303lh"]
+gradient = SubResource("Gradient_jnl4w")
+fill = 1
+fill_from = Vector2(0.517094, 0.482906)
+fill_to = Vector2(1, 0.017094)
+
+[sub_resource type="Animation" id="Animation_1bdc4"]
+resource_name = "BedBreathLight"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bedroom/BedroomLight/BedLight:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.7, 0.3, 0.7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bedroom/BedroomLight/BedLight2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.7, 0.3, 0.7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bedroom/BedroomLight/WindowLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.8, 0.9, 0.5, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bedroom/BedroomLight/TopLight4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3n515"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bedroom/BedroomLight/BedLight:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bedroom/BedroomLight/BedLight2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bedroom/BedroomLight/WindowLight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bedroom/BedroomLight/TopLight4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqgn5"]
+_data = {
+"BedBreathLight": SubResource("Animation_1bdc4"),
+"RESET": SubResource("Animation_3n515")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsd00"]
+size = Vector2(27, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dwjeb"]
+b = Vector2(0, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p76bf"]
+size = Vector2(11, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqqfl"]
+size = Vector2(11, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcm0x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu1vn"]
 atlas = ExtResource("2_pkois")
-region = Rect2(1736, 0, 248, 280)
+region = Rect2(0, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyujf"]
+atlas = ExtResource("2_pkois")
+region = Rect2(248, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w07x"]
+atlas = ExtResource("2_pkois")
+region = Rect2(496, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwufi"]
+atlas = ExtResource("2_pkois")
+region = Rect2(744, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cspgr"]
+atlas = ExtResource("2_pkois")
+region = Rect2(992, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sckiw"]
+atlas = ExtResource("2_pkois")
+region = Rect2(1240, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi1t0"]
+atlas = ExtResource("2_pkois")
+region = Rect2(1488, 0, 248, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q33pe"]
+atlas = ExtResource("2_pkois")
+region = Rect2(1736, 0, 248, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_op6rn"]
 atlas = ExtResource("3_0pkxm")
@@ -197,7 +466,7 @@ region = Rect2(1020, 0, 170, 250)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ea4y3"]
 animations = [{
-"frames": [SubResource("AtlasTexture_ya2jw"), SubResource("AtlasTexture_q55gi"), SubResource("AtlasTexture_ybwsf"), SubResource("AtlasTexture_bg5q2"), SubResource("AtlasTexture_jh7qd"), SubResource("AtlasTexture_30v4c"), SubResource("AtlasTexture_8njrf"), SubResource("AtlasTexture_i56pd")],
+"frames": [SubResource("AtlasTexture_nu1vn"), SubResource("AtlasTexture_nyujf"), SubResource("AtlasTexture_8w07x"), SubResource("AtlasTexture_wwufi"), SubResource("AtlasTexture_cspgr"), SubResource("AtlasTexture_sckiw"), SubResource("AtlasTexture_pi1t0"), SubResource("AtlasTexture_q33pe")],
 "loop": true,
 "name": &"run",
 "speed": 16.0
@@ -212,79 +481,8 @@ animations = [{
 radius = 8.0
 height = 34.0
 
-[sub_resource type="Gradient" id="Gradient_jnl4w"]
-offsets = PackedFloat32Array(0.245283, 1)
-colors = PackedColorArray(0.988974, 0.969279, 0.969279, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_303lh"]
-gradient = SubResource("Gradient_jnl4w")
-fill = 1
-fill_from = Vector2(0.517094, 0.482906)
-fill_to = Vector2(1, 0.017094)
-
-[sub_resource type="Animation" id="Animation_1bdc4"]
-resource_name = "BedBreathLight"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BedroomLight/BedLight:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.7, 0.3, 0.7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BedroomLight/BedLight2:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.7, 0.3, 0.7]
-}
-
-[sub_resource type="Animation" id="Animation_3n515"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BedroomLight/BedLight:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BedroomLight/BedLight2:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqgn5"]
-_data = {
-"BedBreathLight": SubResource("Animation_1bdc4"),
-"RESET": SubResource("Animation_3n515")
-}
-
 [node name="main" type="Node2D"]
+script = ExtResource("1_s3vct")
 
 [node name="Map" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2s2fx")
@@ -304,10 +502,238 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -458697, 2, 0, -458700, 2, 0, -458703, 2, 0, -458706, 2, 0, -458709, 2, 0, -327627, 3, 0)
+layer_2/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -458697, 2, 0, -458700, 2, 0, -458703, 2, 0, -458706, 2, 0, -458709, 2, 0, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0)
+
+[node name="EnvShadow" type="CanvasModulate" parent="."]
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="KuiKui" type="AnimatedSprite2D" parent="."]
+position = Vector2(1678, -142)
+scale = Vector2(0.1, 0.1)
+frames = SubResource("SpriteFrames_i6hwr")
+playing = true
+
+[node name="Bedroom" type="Node" parent="."]
+
+[node name="BedroomLight" type="Node" parent="Bedroom"]
+
+[node name="TopLight" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1488, -222)
+scale = Vector2(1, 0.253425)
+color = Color(0.988235, 0.988235, 0.988235, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+shadow_filter_smooth = 1.0
+shadow_item_cull_mask = 3
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopEffectLight" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight"]
+position = Vector2(0, 3.15686)
+scale = Vector2(0.343752, 0.431587)
+energy = 0.7
+shadow_enabled = true
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_303lh")
+offset = Vector2(0, 6.39969)
+
+[node name="TopLight_" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight"]
+energy = 0.4
+shadow_enabled = true
+shadow_filter_smooth = 1.0
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopLight2" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1584, -222)
+scale = Vector2(1, 0.253425)
+energy = 0.5
+shadow_enabled = true
+shadow_filter_smooth = 1.0
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopEffectLight2" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight2"]
+position = Vector2(0, 5.52441)
+scale = Vector2(0.343752, 0.369932)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_303lh")
+offset = Vector2(0, 6.39969)
+
+[node name="TopLight2_" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight2"]
+energy = 0.5
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopLight3" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1680, -222)
+scale = Vector2(1, 0.253425)
+energy = 0.5
+shadow_enabled = true
+shadow_filter_smooth = 1.0
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopEffectLight3" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight3"]
+position = Vector2(0.00012207, 5.52441)
+scale = Vector2(0.343752, 0.369931)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_303lh")
+offset = Vector2(0, 6.39969)
+
+[node name="TopLight3_" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight3"]
+energy = 0.5
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopLight4" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1776, -222)
+scale = Vector2(1, 0.253425)
+energy = 0.5
+shadow_enabled = true
+shadow_filter_smooth = 1.0
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="TopEffectLight4" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight4"]
+position = Vector2(0, 5.52448)
+scale = Vector2(0.343752, 0.369932)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_303lh")
+offset = Vector2(0, 6.39969)
+
+[node name="TopLight4_" type="PointLight2D" parent="Bedroom/BedroomLight/TopLight4"]
+position = Vector2(10, 47.3513)
+energy = 0.5
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("7_m3rpb")
+offset = Vector2(-3, 288.054)
+
+[node name="BedLight" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1778, -131)
+scale = Vector2(0.155, 0.0425)
+color = Color(0, 1, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="BedLight2" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1806, -131)
+scale = Vector2(0.155, 0.0425)
+color = Color(0, 1, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="WindowLight" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1774, -175.5)
+scale = Vector2(0.292994, 0.206422)
+color = Color(0.309804, 0.309804, 0.784314, 1)
+texture = ExtResource("8_8ursp")
+texture_scale = 2.0
+
+[node name="TerminalLight" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1744, -145)
+scale = Vector2(0.254778, 0.275229)
+color = Color(0, 0.490196, 1, 1)
+energy = 0.5
+texture = ExtResource("8_8ursp")
+
+[node name="DoorCtrlLight" type="PointLight2D" parent="Bedroom/BedroomLight"]
+position = Vector2(1454, -158.5)
+scale = Vector2(0.267517, 0.229358)
+color = Color(0, 1, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="SignLightRed" type="PointLight2D" parent="Bedroom/BedroomLight/DoorCtrlLight"]
+position = Vector2(26.167, 2.17999)
+scale = Vector2(0.353282, 0.503847)
+color = Color(0.992157, 0, 0, 1)
+texture = ExtResource("8_8ursp")
+
+[node name="SignLightGreen" type="PointLight2D" parent="Bedroom/BedroomLight/DoorCtrlLight"]
+position = Vector2(26.167, 2.17999)
+scale = Vector2(0.353282, 0.503847)
+enabled = false
+color = Color(0, 0.988235, 0, 1)
+texture = ExtResource("8_8ursp")
+
+[node name="OverheadDoor" parent="Bedroom" instance=ExtResource("27_1sr34")]
+position = Vector2(1420, -192)
+script = ExtResource("28_6kayb")
+
+[node name="DoorCtrl" parent="Bedroom" instance=ExtResource("28_englk")]
+position = Vector2(1440, -167)
+scale = Vector2(0.3, 0.3)
+
+[node name="BedroomOut" type="Node" parent="."]
+
+[node name="VendingMachineLight" type="PointLight2D" parent="BedroomOut"]
+position = Vector2(1358.5, -166.5)
+scale = Vector2(0.33758, 0.724771)
+color = Color(0.631373, 0.568627, 1, 1)
+texture = ExtResource("8_8ursp")
+
+[node name="BedroomAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tqgn5")
+}
+script = ExtResource("13_6fawm")
+
+[node name="Area" type="Node" parent="."]
+
+[node name="Bedroom" type="Node" parent="Area"]
+
+[node name="Bed" type="Area2D" parent="Area/Bedroom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Bedroom/Bed"]
+position = Vector2(1808.5, -140)
+shape = SubResource("RectangleShape2D_xsd00")
+
+[node name="BedroomTerminal" type="Area2D" parent="Area/Bedroom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Bedroom/BedroomTerminal"]
+position = Vector2(1744, -153)
+shape = SubResource("SegmentShape2D_dwjeb")
+
+[node name="BedroomDesk" type="Area2D" parent="Area/Bedroom"]
+position = Vector2(1676, -148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Bedroom/BedroomDesk"]
+position = Vector2(36.3381, 9.24365)
+shape = SubResource("RectangleShape2D_p76bf")
+
+[node name="KuiKui" type="Area2D" parent="Area/Bedroom"]
+position = Vector2(1667, -159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Bedroom/KuiKui"]
+position = Vector2(9.74146, 18.783)
+shape = SubResource("RectangleShape2D_eqqfl")
+
+[node name="BedroomDoorCtrl" type="Area2D" parent="Area/Bedroom"]
+position = Vector2(1455.07, -159.899)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Bedroom/BedroomDoorCtrl"]
+position = Vector2(-0.067627, 0.8992)
+shape = SubResource("RectangleShape2D_lcm0x")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(1165, -292)
+position = Vector2(1049, -293)
+z_index = 1
 script = ExtResource("2_8cdtn")
 
 [node name="PlayerView" type="AnimatedSprite2D" parent="Player"]
@@ -322,7 +748,7 @@ position = Vector2(471, 147)
 shape = SubResource("CapsuleShape2D_lkkrw")
 
 [node name="Camera" type="Camera2D" parent="Player"]
-position = Vector2(472, 111)
+position = Vector2(471, 100)
 current = true
 limit_top = -256
 limit_right = 1856
@@ -330,141 +756,31 @@ limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="BedroomLight" type="Node" parent="."]
+[node name="RunSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("8_gmaps")
+bus = &"Effect"
 
-[node name="TopLight" type="PointLight2D" parent="BedroomLight"]
-position = Vector2(1488, -222)
-scale = Vector2(1, 0.253425)
-color = Color(0.988235, 0.988235, 0.988235, 1)
-energy = 0.4
-shadow_enabled = true
-shadow_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
+[node name="Sound" type="Node" parent="."]
 
-[node name="TopEffectLight" type="PointLight2D" parent="BedroomLight/TopLight"]
-position = Vector2(0, 3.15686)
-scale = Vector2(0.343752, 0.431587)
-energy = 0.7
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = SubResource("GradientTexture2D_303lh")
-offset = Vector2(0, 6.39969)
+[node name="PaperSound" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("28_hkt4y")
+bus = &"Effect"
 
-[node name="TopLight_" type="PointLight2D" parent="BedroomLight/TopLight"]
-energy = 0.4
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
+[node name="DoorSound" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("32_nxs1r")
+bus = &"Effect"
 
-[node name="TopLight2" type="PointLight2D" parent="BedroomLight"]
-position = Vector2(1584, -222)
-scale = Vector2(1, 0.253425)
-energy = 0.4
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
+[node name="TerminalUi" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("33_5jc16")
 
-[node name="TopEffectLight2" type="PointLight2D" parent="BedroomLight/TopLight2"]
-position = Vector2(0, 5.52441)
-scale = Vector2(0.343752, 0.369932)
-energy = 0.7
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = SubResource("GradientTexture2D_303lh")
-offset = Vector2(0, 6.39969)
-
-[node name="TopLight2_" type="PointLight2D" parent="BedroomLight/TopLight2"]
-energy = 0.5
-shadow_enabled = true
-shadow_filter = 1
-shadow_item_cull_mask = 3
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
-
-[node name="TopLight3" type="PointLight2D" parent="BedroomLight"]
-position = Vector2(1680, -222)
-scale = Vector2(1, 0.253425)
-energy = 0.4
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
-
-[node name="TopEffectLight3" type="PointLight2D" parent="BedroomLight/TopLight3"]
-position = Vector2(0.00012207, 5.52441)
-scale = Vector2(0.343752, 0.369931)
-energy = 0.7
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = SubResource("GradientTexture2D_303lh")
-offset = Vector2(0, 6.39969)
-
-[node name="TopLight3_" type="PointLight2D" parent="BedroomLight/TopLight3"]
-energy = 0.5
-shadow_enabled = true
-shadow_filter = 1
-shadow_item_cull_mask = 3
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
-
-[node name="TopLight4" type="PointLight2D" parent="BedroomLight"]
-position = Vector2(1776, -222)
-scale = Vector2(1, 0.253425)
-energy = 0.4
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
-
-[node name="TopEffectLight4" type="PointLight2D" parent="BedroomLight/TopLight4"]
-position = Vector2(0, 5.52448)
-scale = Vector2(0.343752, 0.369932)
-energy = 0.7
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 1.0
-texture = SubResource("GradientTexture2D_303lh")
-offset = Vector2(0, 6.39969)
-
-[node name="TopLight4_" type="PointLight2D" parent="BedroomLight/TopLight4"]
-position = Vector2(10, 47.3513)
-energy = 0.5
-shadow_enabled = true
-shadow_filter = 1
-shadow_item_cull_mask = 3
-texture = ExtResource("7_m3rpb")
-offset = Vector2(-3, 288.054)
-
-[node name="BedLight" type="PointLight2D" parent="BedroomLight"]
-position = Vector2(1778, -131)
-scale = Vector2(0.155, 0.0425)
-color = Color(0, 1, 1, 1)
-energy = 0.7
-texture = ExtResource("8_8ursp")
-
-[node name="BedLight2" type="PointLight2D" parent="BedroomLight"]
-position = Vector2(1806, -131)
-scale = Vector2(0.155, 0.0425)
-color = Color(0, 1, 1, 1)
-energy = 0.7
-texture = ExtResource("8_8ursp")
-
-[node name="EnvShadow" type="CanvasModulate" parent="."]
-color = Color(0.0784314, 0.0784314, 0.0784314, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_tqgn5")
-}
+[connection signal="body_entered" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_entered"]
+[connection signal="body_exited" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_exited"]
+[connection signal="body_entered" from="Area/Bedroom/BedroomTerminal" to="Player" method="_on_bedroom_terminal_body_entered"]
+[connection signal="body_exited" from="Area/Bedroom/BedroomTerminal" to="Player" method="_on_bedroom_terminal_body_exited"]
+[connection signal="body_entered" from="Area/Bedroom/BedroomDesk" to="Player" method="_on_bedroom_desk_body_entered"]
+[connection signal="body_exited" from="Area/Bedroom/BedroomDesk" to="Player" method="_on_bedroom_desk_body_exited"]
+[connection signal="body_entered" from="Area/Bedroom/KuiKui" to="Player" method="_on_kui_kui_body_entered"]
+[connection signal="body_exited" from="Area/Bedroom/KuiKui" to="Player" method="_on_kui_kui_body_exited"]
+[connection signal="body_entered" from="Area/Bedroom/BedroomDoorCtrl" to="Player" method="_on_bedroom_door_ctrl_body_entered"]
+[connection signal="body_exited" from="Area/Bedroom/BedroomDoorCtrl" to="Player" method="_on_bedroom_door_ctrl_body_exited"]
+[connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]

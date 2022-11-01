@@ -1,0 +1,73 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+metadata/dialogue_manager_version = "2.3.0"
+metadata/titles = {
+"next": "7",
+"start": "2"
+}
+metadata/first_title = "2"
+metadata/lines = {
+"1": {
+"next_id": "2",
+"text": "start",
+"type": "title"
+},
+"2": {
+"character": "我",
+"character_replacements": [],
+"next_id": "3",
+"text": "地上一个向日葵",
+"text_replacements": [],
+"translation_key": "地上一个向日葵",
+"type": "dialogue"
+},
+"3": {
+"next_id": "7",
+"next_id_after": "7",
+"responses": PackedStringArray("3", "4"),
+"text": "查看",
+"text_replacements": [],
+"translation_key": "查看",
+"type": "response"
+},
+"4": {
+"next_id": "end",
+"next_id_after": "7",
+"text": "离开",
+"text_replacements": [],
+"translation_key": "离开",
+"type": "response"
+},
+"6": {
+"next_id": "7",
+"text": "next",
+"type": "title"
+},
+"7": {
+"character": "向日葵",
+"character_replacements": [],
+"next_id": "8",
+"text": "这个脑袋上又白又黑又红的家伙怎么一直盯着我看，好像不太聪明的样子",
+"text_replacements": [],
+"translation_key": "这个脑袋上又白又黑又红的家伙怎么一直盯着我看，好像不太聪明的样子",
+"type": "dialogue"
+},
+"8": {
+"next_id": "end!",
+"next_id_after": "end!",
+"responses": PackedStringArray("8", "9"),
+"text": "草，扔了吧",
+"text_replacements": [],
+"translation_key": "草，扔了吧",
+"type": "response"
+},
+"9": {
+"next_id": "end",
+"next_id_after": "end!",
+"text": "草",
+"text_replacements": [],
+"translation_key": "草",
+"type": "response"
+}
+}

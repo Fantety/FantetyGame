@@ -1,0 +1,10 @@
+~ start
+我: 检查一下枕头下面
+- 移开枕头 => paper
+- 离开 => END
+
+~ paper
+我: 发下一张纸条
+- 查看
+	do play_check_bed_paper_sound()
+- 离开 => END

@@ -1,1 +1,6 @@
+res://scene/component/door_ctrl.tscn
+res://scene/component/overhead_door.tscn
+res://scene/component/dialog_bubble.tscn
+res://src/player/Player.gd
 res://scene/main.tscn
+res://src/SignalBus.gd

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://byc6h3rll8svx"]
+
+[ext_resource type="Texture2D" uid="uid://dd5quqjnkf7yv" path="res://asset/img/furniture/door_ctrl/door_ctrl_error.png" id="1_bvaxh"]
+
+[node name="DoorCtrl" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bvaxh")
+offset = Vector2(47, 26)
