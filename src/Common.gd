@@ -1,7 +1,7 @@
 extends Node
 
 
-signal reset_re_bedroom_door_ctrl
+@export var bedroomDoorCtrlAllow = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

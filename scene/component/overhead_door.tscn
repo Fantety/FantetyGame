@@ -200,12 +200,12 @@ animations = [{
 "frames": [SubResource("AtlasTexture_mv6xn"), SubResource("AtlasTexture_a7inb"), SubResource("AtlasTexture_54hpr"), SubResource("AtlasTexture_dx24x"), SubResource("AtlasTexture_jtahf"), SubResource("AtlasTexture_qd1wr"), SubResource("AtlasTexture_0y51c"), SubResource("AtlasTexture_qvbtu"), SubResource("AtlasTexture_rooph"), SubResource("AtlasTexture_btkew"), SubResource("AtlasTexture_bueqf"), SubResource("AtlasTexture_5sxbp"), SubResource("AtlasTexture_ecsw4"), SubResource("AtlasTexture_jawmb"), SubResource("AtlasTexture_abphm"), SubResource("AtlasTexture_pgcvp"), SubResource("AtlasTexture_jt22v"), SubResource("AtlasTexture_yup1v"), SubResource("AtlasTexture_54jbc"), SubResource("AtlasTexture_6smj1"), SubResource("AtlasTexture_tqquj"), SubResource("AtlasTexture_grxg2"), SubResource("AtlasTexture_15s0w"), SubResource("AtlasTexture_fpsec")],
 "loop": true,
 "name": &"close",
-"speed": 16.0
+"speed": 24.0
 }, {
 "frames": [SubResource("AtlasTexture_1as2b"), SubResource("AtlasTexture_o165w"), SubResource("AtlasTexture_3gqcc"), SubResource("AtlasTexture_4e44a"), SubResource("AtlasTexture_cxt3m"), SubResource("AtlasTexture_0qrix"), SubResource("AtlasTexture_02tjo"), SubResource("AtlasTexture_4rtf7"), SubResource("AtlasTexture_jmpsm"), SubResource("AtlasTexture_uchc0"), SubResource("AtlasTexture_80bsl"), SubResource("AtlasTexture_0x8xg"), SubResource("AtlasTexture_pov2v"), SubResource("AtlasTexture_brqo1"), SubResource("AtlasTexture_kk8bw"), SubResource("AtlasTexture_iobv1"), SubResource("AtlasTexture_cj3ov"), SubResource("AtlasTexture_xghl0"), SubResource("AtlasTexture_boxee"), SubResource("AtlasTexture_7iouv"), SubResource("AtlasTexture_u03uj"), SubResource("AtlasTexture_30u5d"), SubResource("AtlasTexture_gkrmf"), SubResource("AtlasTexture_1g4jn")],
 "loop": true,
 "name": &"open",
-"speed": 16.0
+"speed": 24.0
 }]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ak8lf"]
@@ -240,7 +240,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_7cuua"]
 resource_name = "close"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -248,7 +247,7 @@ tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4, -32), Vector2(4, 32)]
@@ -260,7 +259,7 @@ tracks/1/path = NodePath("LightOccluder2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -64), Vector2(0, 0)]
@@ -268,7 +267,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_a5ceg"]
 resource_name = "open"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -276,7 +274,7 @@ tracks/0/path = NodePath("LightOccluder2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -64)]
@@ -288,7 +286,7 @@ tracks/1/path = NodePath("CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4, 32), Vector2(4, -32)]

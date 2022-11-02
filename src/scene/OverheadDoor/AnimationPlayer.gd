@@ -17,9 +17,8 @@ func _on_animation_finished():
 	if animation == "open":
 		set_animation("close")
 		stop()
-		SignalBus.emit_signal("reset_re_bedroom_door_ctrl")
 	elif animation == "close":
 		set_animation("open")
 		stop()
-		SignalBus.emit_signal("reset_re_bedroom_door_ctrl")
+	Common.bedroomDoorCtrlAllow = true
 	pass # Replace with function body.

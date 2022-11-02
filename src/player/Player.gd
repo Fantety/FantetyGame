@@ -12,7 +12,7 @@ var bedroomTerminalReady = false
 var bedroomDeskReady = false
 var kuiKuiReady = false
 var bedroomDoorCtrlReady = false
-@export var reBedroomDoorCtrl = true
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -48,7 +48,7 @@ func _physics_process(delta):
 			start_bedroom_desk_ready()
 		elif kuiKuiReady:
 			start_kuikui_ready()
-		elif bedroomDoorCtrlReady and reBedroomDoorCtrl:
+		elif bedroomDoorCtrlReady and Common.bedroomDoorCtrlAllow:
 			start_bedroom_door_ctrl_ready()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

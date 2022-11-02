@@ -17,8 +17,8 @@ func _process(delta):
 
 func _on_player_change_bedroom_door_status():
 	doorStatus = !doorStatus
+	Common.bedroomDoorCtrlAllow = false
 	if doorStatus:
-		get_parent().get_parent().get_node("Player").reBedroomDoorCtrl = false
 		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(doorCtrlRight)
 		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightRed").set_enabled(false)
 		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightGreen").set_enabled(true)
@@ -29,7 +29,6 @@ func _on_player_change_bedroom_door_status():
 		get_node("AnimationPlayer").play("open")
 		get_parent().get_parent().get_node("Sound/DoorSound").play()
 	else:
-		get_parent().get_parent().get_node("Player").reBedroomDoorCtrl = false
 		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(doorCtrlError)
 		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightRed").set_enabled(true)
 		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightGreen").set_enabled(false)
