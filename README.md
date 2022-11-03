@@ -2,7 +2,7 @@
 
 > My OC Game
 
-![Game Picture](./docs/img1.png)
+![Game Picture](https://fantety.oss-cn-hangzhou.aliyuncs.com/Github/Fantety/img1.png)
 
 <!--
 **Fantety/Fantety** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
