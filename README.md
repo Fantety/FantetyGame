@@ -1,4 +1,8 @@
-### Hi there 👋
+## Fantety
+
+> My OC Game
+
+![Game Picture](./docs/img1.png)
 
 <!--
 **Fantety/Fantety** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
