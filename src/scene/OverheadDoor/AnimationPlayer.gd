@@ -21,4 +21,6 @@ func _on_animation_finished():
 		set_animation("open")
 		stop()
 	Common.bedroomDoorCtrlAllow = true
+	Common.balconyDoorCtrlAllow = true
+	
 	pass # Replace with function body.

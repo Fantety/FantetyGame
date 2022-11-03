@@ -1,9 +1,8 @@
 extends Node2D
 
-var doorCtrlError = load("res://asset/img/furniture/door_ctrl/door_ctrl_error.png")
-var doorCtrlRight = load("res://asset/img/furniture/door_ctrl/door_ctrl_right.png")
 
-var doorStatus = false
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,28 +15,18 @@ func _process(delta):
 
 
 func _on_player_change_bedroom_door_status():
-	doorStatus = !doorStatus
+	Common.bedroomDoorStatus = !Common.bedroomDoorStatus
 	Common.bedroomDoorCtrlAllow = false
-	if doorStatus:
-		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(doorCtrlRight)
-		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightRed").set_enabled(false)
-		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightGreen").set_enabled(true)
-		
-		await get_parent().get_parent().get_node("Sound/TerminalUi").play()
-			
+	get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightRed").set_enabled(!Common.bedroomDoorStatus)
+	get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightGreen").set_enabled(Common.bedroomDoorStatus)
+	if Common.bedroomDoorStatus:
+		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(Common.doorCardUnlock)	
 		get_node("AnimatedSprite2D").play("open")
-		get_node("AnimationPlayer").play("open")
-		get_parent().get_parent().get_node("Sound/DoorSound").play()
 	else:
-		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(doorCtrlError)
-		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightRed").set_enabled(true)
-		get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightGreen").set_enabled(false)
-		
-		await get_parent().get_parent().get_node("Sound/TerminalUi").play()
-		
+		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(Common.doorCardLock)		
 		get_node("AnimatedSprite2D").play("close")
-		get_node("AnimationPlayer").play("close")
-		get_parent().get_parent().get_node("Sound/DoorSound").play()
+	get_node("AnimationPlayer").play("open", 1.0, Common.bedroomDoorStatus)
+	get_parent().get_parent().get_node("Sound/DoorSound").play(4.6)
 	pass # Replace with function body.
 
 

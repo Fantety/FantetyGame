@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://d13dn51yjw1vk"]
+[gd_scene load_steps=57 format=3 uid="uid://d13dn51yjw1vk"]
 
 [ext_resource type="Texture2D" uid="uid://c6rg7ea7yggb" path="res://asset/img/furniture/overhead_door.png" id="1_xk3v7"]
 [ext_resource type="Script" path="res://src/scene/OverheadDoor/AnimationPlayer.gd" id="2_c2i0v"]
@@ -238,33 +238,6 @@ tracks/1/keys = {
 "values": [Vector2(4, 32)]
 }
 
-[sub_resource type="Animation" id="Animation_7cuua"]
-resource_name = "close"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(4, -32), Vector2(4, 32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LightOccluder2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -64), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_a5ceg"]
 resource_name = "open"
 tracks/0/type = "value"
@@ -295,7 +268,6 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4n4x"]
 _data = {
 "RESET": SubResource("Animation_8ijsr"),
-"close": SubResource("Animation_7cuua"),
 "open": SubResource("Animation_a5ceg")
 }
 

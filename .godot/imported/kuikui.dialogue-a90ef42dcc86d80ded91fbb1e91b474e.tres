@@ -13,6 +13,34 @@ metadata/lines = {
 "text": "start",
 "type": "title"
 },
+"10": {
+"next_id": "11",
+"next_id_after": "end!",
+"text": "抱起来",
+"text_replacements": [],
+"translation_key": "抱起来",
+"type": "response"
+},
+"11": {
+"mutation": {
+"expression": [{
+"function": "hug_kuikui",
+"type": "function",
+"value": []
+}]
+},
+"next_id": "end!",
+"parent_id": "10",
+"type": "mutation"
+},
+"12": {
+"next_id": "end",
+"next_id_after": "end!",
+"text": "草",
+"text_replacements": [],
+"translation_key": "草",
+"type": "response"
+},
 "2": {
 "character": "我",
 "character_replacements": [],
@@ -54,20 +82,24 @@ metadata/lines = {
 "type": "dialogue"
 },
 "8": {
-"next_id": "end!",
+"next_id": "9",
 "next_id_after": "end!",
-"responses": PackedStringArray("8", "9"),
+"responses": PackedStringArray("8", "10", "12"),
 "text": "草，扔了吧",
 "text_replacements": [],
 "translation_key": "草，扔了吧",
 "type": "response"
 },
 "9": {
-"next_id": "end",
-"next_id_after": "end!",
-"text": "草",
-"text_replacements": [],
-"translation_key": "草",
-"type": "response"
+"mutation": {
+"expression": [{
+"function": "remove_kuikui",
+"type": "function",
+"value": []
+}]
+},
+"next_id": "end!",
+"parent_id": "8",
+"type": "mutation"
 }
 }

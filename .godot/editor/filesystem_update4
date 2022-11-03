@@ -1,3 +1,6 @@
-res://src/Common.gd
+res://default_bus_layout.tres
 res://scene/component/overhead_door.tscn
 res://scene/component/door_ctrl.tscn
+res://scene/component/dialog_bubble.tscn
+res://scene/death.tscn
+res://scene/main.tscn
