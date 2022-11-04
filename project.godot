@@ -13,7 +13,9 @@ config_version=5
 config/name="Fantety"
 run/main_scene="res://scene/main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Fantety.png"
+config/macos_native_icon="res://Fantety.icns"
+config/windows_native_icon="res://Fantety.ico"
 
 [autoload]
 
@@ -28,8 +30,9 @@ states=["DialogScript", "Main"]
 
 window/size/viewport_width=1440
 window/size/viewport_height=810
+window/size/window_width_override=1440
+window/size/window_height_override=810
 window/stretch/mode="canvas_items"
-window/stretch/scale=4.5
 
 [editor_plugins]
 

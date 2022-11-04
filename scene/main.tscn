@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=140 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Texture2D" uid="uid://c142e803717m" path="res://asset/img/scene/map.png" id="1_t4p37"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://djlkes8idv534" path="res://asset/img/furniture/lab_terminal/lab_terminal6.png" id="12_jkgiy"]
 [ext_resource type="Texture2D" uid="uid://kj4ecyxtibfo" path="res://asset/img/furniture/rail_end.png" id="12_ofy0u"]
 [ext_resource type="Script" path="res://src/animation/BedroomAnimation.gd" id="13_6fawm"]
+[ext_resource type="Texture2D" uid="uid://dneh7pv10ggju" path="res://asset/img/furniture/wardrobe.png" id="13_b55fw"]
 [ext_resource type="Texture2D" uid="uid://crsfueou7cdyb" path="res://asset/img/furniture/lab_terminal/lab_terminal7.png" id="13_uvo5g"]
 [ext_resource type="Texture2D" uid="uid://dlolg3360b1po" path="res://asset/img/furniture/lab_terminal/lab_terminal8.png" id="14_7idox"]
 [ext_resource type="Texture2D" uid="uid://v0r7uanvrywt" path="res://asset/img/furniture/lab_terminal/lab_terminal9.png" id="15_4cp7b"]
@@ -51,7 +52,9 @@
 [ext_resource type="AudioStream" uid="uid://d2vk0ven6x2yt" path="res://asset/sound/input_passwd_error.wav" id="39_xmjmy"]
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="40_y5s2v"]
 [ext_resource type="Script" path="res://src/furniture/lpc_door.gd" id="42_7h032"]
+[ext_resource type="AudioStream" uid="uid://baw274ky322so" path="res://asset/sound/jump.wav" id="48_vsoqd"]
 [ext_resource type="AudioStream" uid="uid://cmkqgtuxpi6lq" path="res://asset/sound/bgm/fantety01.wav" id="49_hjote"]
+[ext_resource type="Script" path="res://src/sound/JumpSound.gd" id="49_q4web"]
 [ext_resource type="Script" path="res://src/sound/Bgm.gd" id="50_58jlv"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
@@ -194,6 +197,22 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, 0, -14, 16, -16, 16, -16, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53jgj"]
+texture = ExtResource("13_b55fw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upbrf"]
 texture = ExtResource("3_d3cys")
@@ -411,6 +430,7 @@ sources/11 = SubResource("TileSetAtlasSource_2la0t")
 sources/12 = SubResource("TileSetAtlasSource_x4xms")
 sources/13 = SubResource("TileSetAtlasSource_kmojo")
 sources/14 = SubResource("TileSetAtlasSource_ekg6m")
+sources/17 = SubResource("TileSetAtlasSource_53jgj")
 pattern_0 = SubResource("TileMapPattern_ui0fq")
 pattern_1 = SubResource("TileMapPattern_gujvv")
 pattern_2 = SubResource("TileMapPattern_ko4ou")
@@ -833,7 +853,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -458709, 2, 0, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -458709, 2, 0, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393166, 17, 0, -393165, 65553, 0)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -1057,18 +1077,19 @@ texture = ExtResource("36_vw2il")
 texture_scale = 0.4
 
 [node name="RainParticles" type="CPUParticles2D" parent="Balcony"]
-position = Vector2(-3, -327)
+position = Vector2(38, -332)
 z_index = -1
-amount = 200
+amount = 300
 lifetime = 2.0
 preprocess = 9.0
 speed_scale = 2.0
+randomness = 1.0
 lifetime_randomness = 0.33
 local_coords = true
-emission_shape = 2
-emission_sphere_radius = 128.0
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
 particle_flag_align_y = true
-spread = 90.0
+gravity = Vector2(-200, 980)
 angular_velocity_min = 2.0
 angular_velocity_max = 2.0
 radial_accel_min = -10.0
@@ -1084,9 +1105,10 @@ hue_variation_max = 0.3
 [node name="RainSound" type="AudioStreamPlayer2D" parent="Balcony"]
 position = Vector2(0, -174)
 stream = ExtResource("38_q40kf")
+volume_db = -8.0
 autoplay = true
-max_distance = 250.0
-attenuation = 0.217638
+max_distance = 180.0
+attenuation = 0.297302
 script = ExtResource("39_02mg1")
 
 [node name="DoorCtrl" parent="Balcony" instance=ExtResource("28_englk")]
@@ -1184,6 +1206,7 @@ shape = SubResource("CapsuleShape2D_lkkrw")
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(2, -48)
 current = true
+zoom = Vector2(4.5, 4.5)
 limit_top = -256
 limit_right = 1856
 limit_smoothed = true
@@ -1193,6 +1216,11 @@ rotation_smoothing_enabled = true
 [node name="RunSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("8_gmaps")
 bus = &"Effect"
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("48_vsoqd")
+bus = &"Effect"
+script = ExtResource("49_q4web")
 
 [node name="Sound" type="Node" parent="."]
 
@@ -1210,13 +1238,15 @@ stream = ExtResource("33_5jc16")
 
 [node name="InputPasswdSoundError" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("39_xmjmy")
+volume_db = -3.0
 
 [node name="InputPasswdSoundRight" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("40_y5s2v")
+volume_db = -3.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("49_hjote")
-volume_db = -5.0
+volume_db = -8.0
 autoplay = true
 bus = &"Bgm"
 script = ExtResource("50_58jlv")
@@ -1243,4 +1273,5 @@ script = ExtResource("50_58jlv")
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
+[connection signal="finished" from="Player/JumpSound" to="Player/JumpSound" method="_on_finished"]
 [connection signal="finished" from="Sound/Bgm" to="Sound/Bgm" method="_on_finished"]

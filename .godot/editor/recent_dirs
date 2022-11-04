@@ -1,8 +1,10 @@
+res://src/scene/StartGameUI
+res://scene
+res://src/sound
+res://
 res://src/furniture
 res://asset/img/furniture
-res://src/sound
 res://src/scene/Death
-res://scene
 res://src/animation
 res://src/scene/BackGround
 res://src
