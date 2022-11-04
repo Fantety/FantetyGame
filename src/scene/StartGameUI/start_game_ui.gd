@@ -49,3 +49,8 @@ func _on_timer_timeout():
 func _on_timer_2_timeout():
 	get_node("ThunderSound").play()
 	pass # Replace with function body.
+
+
+func _on_start_pressed():
+	ChangeScene.change_scene("res://scene/main.tscn")
+	pass # Replace with function body.

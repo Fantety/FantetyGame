@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqqo3aoptvl4g"]
+
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_uos14"]
+
+[sub_resource type="Animation" id="Animation_i4ivu"]
+resource_name = "Text"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_elc73"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_by8tw"]
+_data = {
+"RESET": SubResource("Animation_elc73"),
+"Text": SubResource("Animation_i4ivu")
+}
+
+[node name="InfoScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 808.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 171.0
+offset_right = 618.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("1_uos14")
+theme_override_font_sizes/font_size = 42
+text = "Fantety"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+offset_left = 194.0
+offset_top = 233.0
+offset_right = 614.0
+offset_bottom = 274.0
+theme_override_fonts/font = ExtResource("1_uos14")
+theme_override_font_sizes/font_size = 32
+text = "这是一个关于我设定的游戏"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 730.0
+offset_right = 579.0
+offset_bottom = 802.0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_right = 576.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("1_uos14")
+theme_override_font_sizes/font_size = 26
+text = "开源地址：https://github.com/Fantety/Fantety"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 38.0
+offset_right = 576.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("1_uos14")
+theme_override_font_sizes/font_size = 26
+text = "引擎许可：https://godotengine.org/license"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Text"
+libraries = {
+"": SubResource("AnimationLibrary_by8tw")
+}
