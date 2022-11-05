@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://7srpswdn36up"
+path="res://.godot/imported/bed_eggs.dialogue-3f1b2d491709b3f50a9301130d5de938.tres"
+
+[deps]
+
+source_file="res://dialog/bedroom/bed_eggs.dialogue"
+dest_files=["res://.godot/imported/bed_eggs.dialogue-3f1b2d491709b3f50a9301130d5de938.tres"]
+
+[params]
+

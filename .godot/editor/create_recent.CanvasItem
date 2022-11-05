@@ -1,6 +1,7 @@
-Control
 CollisionShape2D
 Area2D
+ColorRect
+Control
 PointLight2D
 StaticBody2D
 LightOccluder2D

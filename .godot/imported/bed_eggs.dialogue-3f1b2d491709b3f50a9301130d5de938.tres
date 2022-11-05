@@ -1,0 +1,70 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+metadata/dialogue_manager_version = "2.3.0"
+metadata/titles = {
+"start": "3"
+}
+metadata/first_title = "3"
+metadata/lines = {
+"1": {
+"next_id": "3",
+"text": "start",
+"type": "title"
+},
+"3": {
+"character": "我",
+"character_replacements": [],
+"next_id": "4",
+"text": "[[怎么会这样|草|天呐]], 床单上怎么会有奇怪的痕迹.",
+"text_replacements": [],
+"translation_key": "[[怎么会这样|草|天呐]], 床单上怎么会有奇怪的痕迹.",
+"type": "dialogue"
+},
+"4": {
+"character": "我",
+"character_replacements": [],
+"next_id": "5",
+"text": "www（脸红）.",
+"text_replacements": [],
+"translation_key": "www（脸红）.",
+"type": "dialogue"
+},
+"5": {
+"next_id": "6",
+"next_id_after": "end!",
+"responses": PackedStringArray("5", "8"),
+"text": "继续思考",
+"text_replacements": [],
+"translation_key": "继续思考",
+"type": "response"
+},
+"6": {
+"character": "我",
+"character_replacements": [],
+"next_id": "7",
+"parent_id": "5",
+"text": "拿到说我和某人做过不可名状的事情",
+"text_replacements": [],
+"translation_key": "拿到说我和某人做过不可名状的事情",
+"type": "dialogue"
+},
+"7": {
+"character": "我",
+"character_replacements": [],
+"next_id": "end!",
+"parent_id": "5",
+"text": "呜啊啊啊啊，怎会如此",
+"text_replacements": [],
+"translation_key": "呜啊啊啊啊，怎会如此",
+"type": "dialogue"
+},
+"8": {
+"next_id": "end",
+"next_id_after": "end!",
+"text": "因为过于害羞而离开",
+"text_replacements": [],
+"translation_key": "因为过于害羞而离开",
+"type": "response"
+}
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=145 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Texture2D" uid="uid://c142e803717m" path="res://asset/img/scene/map.png" id="1_t4p37"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://src/animation/BedroomAnimation.gd" id="13_6fawm"]
 [ext_resource type="Texture2D" uid="uid://dneh7pv10ggju" path="res://asset/img/furniture/wardrobe.png" id="13_b55fw"]
 [ext_resource type="Texture2D" uid="uid://crsfueou7cdyb" path="res://asset/img/furniture/lab_terminal/lab_terminal7.png" id="13_uvo5g"]
+[ext_resource type="Texture2D" uid="uid://donp4ildtvnma" path="res://asset/img/furniture/bedroom_light_switch.png" id="13_vwwrv"]
 [ext_resource type="Texture2D" uid="uid://dlolg3360b1po" path="res://asset/img/furniture/lab_terminal/lab_terminal8.png" id="14_7idox"]
 [ext_resource type="Texture2D" uid="uid://v0r7uanvrywt" path="res://asset/img/furniture/lab_terminal/lab_terminal9.png" id="15_4cp7b"]
 [ext_resource type="Texture2D" uid="uid://x83i82pfuaki" path="res://asset/img/furniture/lab_terminal/lab_terminal10.png" id="16_285qu"]
@@ -49,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://bu8jvlljwaoch" path="res://asset/sound/env/rain_sound.wav" id="38_q40kf"]
 [ext_resource type="Script" path="res://src/animation/BalconyLightAnimation.gd" id="39_1gchv"]
 [ext_resource type="Script" path="res://src/sound/RainSound.gd" id="39_02mg1"]
+[ext_resource type="Script" path="res://src/furniture/bedroom_light_switch.gd" id="39_u8f5g"]
 [ext_resource type="AudioStream" uid="uid://d2vk0ven6x2yt" path="res://asset/sound/input_passwd_error.wav" id="39_xmjmy"]
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="40_y5s2v"]
 [ext_resource type="Script" path="res://src/furniture/lpc_door.gd" id="42_7h032"]
@@ -56,6 +58,7 @@
 [ext_resource type="AudioStream" uid="uid://cmkqgtuxpi6lq" path="res://asset/sound/bgm/fantety01.wav" id="49_hjote"]
 [ext_resource type="Script" path="res://src/sound/JumpSound.gd" id="49_q4web"]
 [ext_resource type="Script" path="res://src/sound/Bgm.gd" id="50_58jlv"]
+[ext_resource type="AudioStream" uid="uid://b400xjunlgtn6" path="res://asset/sound/light_switch.wav" id="59_rx7j2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -197,6 +200,13 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, 0, -14, 16, -16, 16, -16, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o700l"]
+texture = ExtResource("13_vwwrv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53jgj"]
 texture = ExtResource("13_b55fw")
@@ -431,6 +441,7 @@ sources/12 = SubResource("TileSetAtlasSource_x4xms")
 sources/13 = SubResource("TileSetAtlasSource_kmojo")
 sources/14 = SubResource("TileSetAtlasSource_ekg6m")
 sources/17 = SubResource("TileSetAtlasSource_53jgj")
+sources/16 = SubResource("TileSetAtlasSource_o700l")
 pattern_0 = SubResource("TileMapPattern_ui0fq")
 pattern_1 = SubResource("TileMapPattern_gujvv")
 pattern_2 = SubResource("TileMapPattern_ko4ou")
@@ -488,6 +499,9 @@ fill = 1
 fill_from = Vector2(0.517094, 0.482906)
 fill_to = Vector2(1, 0.017094)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o62p6"]
+b = Vector2(-17, 0)
+
 [sub_resource type="Animation" id="Animation_1bdc4"]
 resource_name = "BedBreathLight"
 length = 2.0
@@ -527,18 +541,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [1.0, 0.8, 0.9, 0.5, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Bedroom/BedroomLight/TopLight4:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false, true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_3n515"]
@@ -582,34 +584,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Bedroom/BedroomLight/TopLight4:visible")
+tracks/3/path = NodePath("KuiKui:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(1678, -142)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("KuiKui:position")
+tracks/4/path = NodePath("KuiKui:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1678, -142)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("KuiKui:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -853,7 +843,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -458709, 2, 0, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393166, 17, 0, -393165, 65553, 0)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -458709, 2, 0, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393166, 17, 0, -393165, 65553, 0, -327634, 16, 0)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -1046,6 +1036,44 @@ script = ExtResource("28_6kayb")
 [node name="DoorCtrl" parent="Bedroom" instance=ExtResource("28_englk")]
 position = Vector2(1440, -171)
 scale = Vector2(0.5, 0.5)
+
+[node name="BedroomLightSwitch" type="Node" parent="Bedroom"]
+script = ExtResource("39_u8f5g")
+
+[node name="Switch1" type="ColorRect" parent="Bedroom/BedroomLightSwitch"]
+offset_left = 1480.0
+offset_top = -157.0
+offset_right = 1483.0
+offset_bottom = -155.0
+color = Color(0.00784314, 1, 0, 1)
+
+[node name="Switch2" type="ColorRect" parent="Bedroom/BedroomLightSwitch"]
+offset_left = 1484.0
+offset_top = -157.0
+offset_right = 1487.0
+offset_bottom = -155.0
+color = Color(0, 1, 0, 1)
+
+[node name="Switch3" type="ColorRect" parent="Bedroom/BedroomLightSwitch"]
+offset_left = 1488.0
+offset_top = -157.0
+offset_right = 1491.0
+offset_bottom = -155.0
+color = Color(0, 1, 0, 1)
+
+[node name="Switch4" type="ColorRect" parent="Bedroom/BedroomLightSwitch"]
+offset_left = 1492.0
+offset_top = -157.0
+offset_right = 1495.0
+offset_bottom = -155.0
+color = Color(0, 1, 0, 1)
+
+[node name="BedroomLightSwitchArea" type="Area2D" parent="Bedroom/BedroomLightSwitch"]
+position = Vector2(1487.49, -156.851)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea"]
+position = Vector2(8.51086, -0.148621)
+shape = SubResource("SegmentShape2D_o62p6")
 
 [node name="BedroomOut" type="Node" parent="."]
 
@@ -1251,10 +1279,15 @@ autoplay = true
 bus = &"Bgm"
 script = ExtResource("50_58jlv")
 
+[node name="LightSwitchSound" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("59_rx7j2")
+
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="balcony_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
 [connection signal="bedroom_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_bedroom_door_ctrl_input_finished"]
+[connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_entered"]
+[connection signal="body_exited" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_exited"]
 [connection signal="finished" from="Balcony/RainSound" to="Balcony/RainSound" method="_on_finished"]
 [connection signal="balcony_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
 [connection signal="bedroom_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_bedroom_door_ctrl_input_finished"]
@@ -1273,5 +1306,6 @@ script = ExtResource("50_58jlv")
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
+[connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]
 [connection signal="finished" from="Player/JumpSound" to="Player/JumpSound" method="_on_finished"]
 [connection signal="finished" from="Sound/Bgm" to="Sound/Bgm" method="_on_finished"]

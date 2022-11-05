@@ -18,6 +18,7 @@ var isJumped = false
 
 signal change_bedroom_door_status()
 signal change_balcony_door_status()
+signal change_bedroom_light_status(num:int)
 #signal bedroom_door_ctrl_pressed()
 #signal bedroom_door_ctrl_released()
 
@@ -54,6 +55,8 @@ func _physics_process(delta):
 			start_bedroom_desk_ready()
 		elif Common.kuiKuiReady:
 			start_kuikui_ready()
+	elif Common.bedroomLightSwitchReady:
+		start_bedroom_light_switch_ready()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("act_left", "act_right")
@@ -86,7 +89,11 @@ func _on_bed_body_exited(body):
 	
 	
 func start_bed_dialog():
-	DialogueManager.show_example_dialogue_balloon(get_node("..").bedDialog, "start")
+	if Common.bedroomSwitch4Status:
+		DialogueManager.show_example_dialogue_balloon(Common.bedDialog, "start")
+	else:
+		DialogueManager.show_example_dialogue_balloon(Common.bedDialogEgg, "start")
+		
 #	print("xx")
 	
 func start_bedroom_terminal_ready():
@@ -186,3 +193,29 @@ func _on_balcony_door_ctrl_area_body_exited(body):
 func _on_door_ctrl_balcony_door_ctrl_input_finished():
 	start_balcony_door_ctrl_ready()
 	pass # Replace with function body.
+
+
+func _on_bedroom_light_switch_area_body_entered(body):
+	if body == get_node("."):
+		dialogBubble.show()
+		Common.bedroomLightSwitchReady = true
+	pass # Replace with function body.
+
+
+func _on_bedroom_light_switch_area_body_exited(body):
+	if body == get_node("."):
+		dialogBubble.hide()
+		Common.bedroomLightSwitchReady = false
+	pass # Replace with function body.
+
+
+func start_bedroom_light_switch_ready():
+	if Input.is_action_just_pressed("num_one"):
+		emit_signal("change_bedroom_light_status",1)
+	elif Input.is_action_just_pressed("num_two"):
+		emit_signal("change_bedroom_light_status",2)
+	elif Input.is_action_just_pressed("num_three"):
+		emit_signal("change_bedroom_light_status",3)
+	elif Input.is_action_just_pressed("num_four"):
+		emit_signal("change_bedroom_light_status",4)
+	pass
