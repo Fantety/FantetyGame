@@ -38,3 +38,15 @@ func _on_player_change_bedroom_light_status(num):
 		bedroomLight4.set_visible(!Common.bedroomSwitch4Status)
 		Common.bedroomSwitch4Status = !Common.bedroomSwitch4Status
 	pass # Replace with function body.
+
+
+func _on_bedroom_light_switch_area_body_entered(body):
+	if body == get_parent().get_parent().get_node("Player"):
+		get_node("Hint").set_visible(true)
+	pass # Replace with function body.
+
+
+func _on_bedroom_light_switch_area_body_exited(body):
+	if body == get_parent().get_parent().get_node("Player"):
+		get_node("Hint").set_visible(false)
+	pass # Replace with function body.

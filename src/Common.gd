@@ -23,6 +23,10 @@ var bedroomDeskReady = false
 var kuiKuiReady = false
 var bedroomLightSwitchReady = false
 
+var elevatorReady = false
+var elevatorDoorStatus = false
+var elecatorCtrlStatus = false
+
 var bedroomDoorCtrlReady = false
 var bedroomDoorStatus = false
 var balconyDoorCtrlReady = false

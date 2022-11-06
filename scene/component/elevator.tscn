@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhtqenmvrc0nj"]
+
+[ext_resource type="Script" path="res://src/furniture/elevator.gd" id="1_i72uc"]
+[ext_resource type="Texture2D" uid="uid://d2ci1m7hjotnc" path="res://asset/img/furniture/elevator/elevator_inner.png" id="1_n2otk"]
+[ext_resource type="Texture2D" uid="uid://c21yurn4mlhbx" path="res://asset/img/light/light4.png" id="2_ew8an"]
+[ext_resource type="Texture2D" uid="uid://bw5hweasn6vi1" path="res://asset/img/furniture/elevator/elevator_door_left.png" id="3_rwye4"]
+[ext_resource type="Texture2D" uid="uid://lrn3wdsmdwvs" path="res://asset/img/light/light.png" id="3_thhxu"]
+[ext_resource type="Texture2D" uid="uid://blin6dqtktkum" path="res://asset/img/furniture/elevator/elevator_door_right.png" id="4_l26kh"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_attn3"]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[sub_resource type="Animation" id="Animation_fyvfn"]
+resource_name = "OpenElevatorDoor"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorDoorLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-32, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElevatorDoorRight:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(32, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iirpi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorDoorLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElevatorDoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kc83j"]
+_data = {
+"OpenElevatorDoor": SubResource("Animation_fyvfn"),
+"RESET": SubResource("Animation_iirpi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv5ix"]
+size = Vector2(60, 64)
+
+[node name="Elevator" type="Node2D"]
+script = ExtResource("1_i72uc")
+
+[node name="ElevatorInner" type="Sprite2D" parent="."]
+texture = ExtResource("1_n2otk")
+
+[node name="PointLight2D" type="PointLight2D" parent="ElevatorInner"]
+position = Vector2(0, -26)
+scale = Vector2(0.35, 0.158904)
+color = Color(0.65098, 1, 1, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("2_ew8an")
+offset = Vector2(-2.88135, 290.192)
+
+[node name="PointLight2D2" type="PointLight2D" parent="ElevatorInner"]
+position = Vector2(-22, -9.99999)
+scale = Vector2(0.35, 0.353244)
+color = Color(0.65098, 1, 1, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("3_thhxu")
+offset = Vector2(-2.88135, 1.43982)
+
+[node name="PointLight2D3" type="PointLight2D" parent="ElevatorInner"]
+position = Vector2(24, -11)
+scale = Vector2(0.35, 0.353244)
+color = Color(0.65098, 1, 1, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("3_thhxu")
+offset = Vector2(-2.88135, 4.27075)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="ElevatorInner"]
+occluder = SubResource("OccluderPolygon2D_attn3")
+occluder_light_mask = 2
+
+[node name="ElevatorDoorLeft" type="Sprite2D" parent="."]
+light_mask = 2
+z_index = 1
+texture = ExtResource("3_rwye4")
+
+[node name="ElevatorDoorRight" type="Sprite2D" parent="."]
+light_mask = 2
+z_index = 1
+texture = ExtResource("4_l26kh")
+
+[node name="ElevatorAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kc83j")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iv5ix")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

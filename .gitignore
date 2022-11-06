@@ -1,4 +1,11 @@
 
+# cpp-plugin ignores
+*.obj
+*.dll
+*.lib
+*.exp
+*.dblite
+
 # Godot-specific ignores
 .import/
 export.cfg

@@ -7,11 +7,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	pass
-
 func play_check_bed_paper_sound():
 	paperSound.play()
 
