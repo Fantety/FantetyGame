@@ -14,6 +14,8 @@ var inputPasswdSoundError
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var currentFloor = 3
+
 var isJumped = false
 
 signal change_bedroom_door_status()
@@ -118,13 +120,13 @@ func start_balcony_door_ctrl_ready():
 
 func start_elevator_ready():
 	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
-	emit_signal("change_elevator_door_status",Common.elevatorDoorStatus)
+	emit_signal("change_elevator_door_status",Common.elevatorDoorStatus, 1)
 	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
 	pass
 
 func start_elevator2_ready():
 	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
-	emit_signal("change_elevator_door_status",Common.elevator2DoorStatus)
+	emit_signal("change_elevator_door_status",Common.elevator2DoorStatus, 2)
 	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
 	pass
 func _on_bedroom_terminal_body_entered(body):
@@ -260,7 +262,7 @@ func _on_elevator_change_elevator_ctrl_status():
 
 func _on_elevator_2_player_enter(body):
 	if body == get_node("."):
-		dialogBubble.hide()
+		dialogBubble.show()
 		Common.elevator2Ready = true
 		get_node("ElevatorCtrlUi").hide()
 	pass # Replace with function body.
@@ -269,6 +271,35 @@ func _on_elevator_2_player_enter(body):
 func _on_elevator_2_player_exit(body):
 	if body == get_node("."):
 		dialogBubble.hide()
-		Common.elevato2rReady = false
+		Common.elevator2Ready = false
 		get_node("ElevatorCtrlUi").hide()
+	pass # Replace with function body.
+
+
+func _on_elevator_2_change_elevator_ctrl_status():
+	if !Common.elecator2CtrlStatus:
+		get_node("ElevatorCtrlUi").show()
+	else:
+		get_node("ElevatorCtrlUi").hide()
+	Common.elecator2CtrlStatus = !Common.elecator2CtrlStatus
+	pass # Replace with function body.
+
+
+func _on_elevator_ctrl_ui_elevator_floor_selected(index):
+	print(index)
+	if index != currentFloor:
+		set_position(Vector2(position.x,position.y+32*4*(currentFloor-index)))
+#		velocity.y = move_toward(velocity.y, velocity.y+32*(currentFloor-index), Common.ELEVATOR_SPEED)
+		if index == 0:
+			currentFloor = 0
+			pass
+		elif index == 1:
+			currentFloor = 1
+			pass
+		elif index == 2:
+			currentFloor = 2
+			pass
+		elif index == 3:
+			currentFloor = 3
+			pass
 	pass # Replace with function body.

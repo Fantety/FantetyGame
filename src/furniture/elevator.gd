@@ -7,6 +7,7 @@ extends Node2D
 @onready var elevatorInnerLight1 = $ElevatorInner/PointLight2D
 @onready var elevatorInnerLight2 = $ElevatorInner/PointLight2D2
 @onready var elevatorInnerLight3 = $ElevatorInner/PointLight2D3
+@onready var elevatorSound = $AudioStreamPlayer
 signal player_enter(body)
 signal player_exit(body)
 signal change_elevator_ctrl_status
@@ -32,18 +33,30 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	emit_signal("player_exit",body)
-	elevatorAnimation.play_backwards("OpenElevatorDoor")
-	Common.elevatorDoorStatus = false
+	if Common.elevatorDoorStatus:
+		elevatorAnimation.play_backwards("OpenElevatorDoor")
+		elevatorSound.play()
+	elif Common.elevator2DoorStatus:
+		elevatorAnimation.play_backwards("OpenElevatorDoor")
+		elevatorSound.play()
+	if self.name == "Elevator":
+		Common.elevatorDoorStatus = false
+	elif self.name == "Elevator2":
+		Common.elevator2DoorStatus = false
 	await elevatorAnimation.animation_finished
 	set_elevator_light_status(false)
 	pass # Replace with function body.
 
 
-func _on_player_change_elevator_door_status(status):
+func _on_player_change_elevator_door_status(status, index):
 	if status:
 		emit_signal("change_elevator_ctrl_status")
 	else:
 		elevatorAnimation.play("OpenElevatorDoor")
+		elevatorSound.play()
 		set_elevator_light_status(true)
-		Common.elevatorDoorStatus = !Common.elevatorDoorStatus
+		if index == 1:
+			Common.elevatorDoorStatus = !Common.elevatorDoorStatus
+		elif index == 2:
+			Common.elevator2DoorStatus = !Common.elevator2DoorStatus
 	pass # Replace with function body.

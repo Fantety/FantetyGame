@@ -1,6 +1,7 @@
-res://scene/component/overhead_door.tscn
 res://scene/component/door_ctrl.tscn
 res://scene/death.tscn
+res://scene/start_game_ui.tscn
 res://scene/component/elevator.tscn
 res://scene/component/elevator_ctrl_ui.tscn
-res://src/player/Player.gd
+res://scene/component/dialog_bubble.tscn
+res://scene/component/overhead_door.tscn

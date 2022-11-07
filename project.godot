@@ -116,6 +116,19 @@ num_four={
 2d_render/layer_3="None"
 2d_physics/layer_1="FloorPhy"
 
+[network]
+
+limits/packet_peer_stream/max_buffer_po2=32
+
+[physics]
+
+2d/solver/solver_iterations=32
+
 [rendering]
 
+reflections/sky_reflections/roughness_layers=16
+environment/ssao/quality=3
+environment/volumetric_fog/volume_size=128
+environment/volumetric_fog/volume_depth=128
+limits/opengl/max_renderable_lights=128
 textures/canvas_textures/default_texture_filter=0

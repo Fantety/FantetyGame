@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhtqenmvrc0nj"]
+[gd_scene load_steps=13 format=3 uid="uid://bhtqenmvrc0nj"]
 
 [ext_resource type="Script" path="res://src/furniture/elevator.gd" id="1_i72uc"]
 [ext_resource type="Texture2D" uid="uid://d2ci1m7hjotnc" path="res://asset/img/furniture/elevator/elevator_inner.png" id="1_n2otk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bw5hweasn6vi1" path="res://asset/img/furniture/elevator/elevator_door_left.png" id="3_rwye4"]
 [ext_resource type="Texture2D" uid="uid://lrn3wdsmdwvs" path="res://asset/img/light/light.png" id="3_thhxu"]
 [ext_resource type="Texture2D" uid="uid://blin6dqtktkum" path="res://asset/img/furniture/elevator/elevator_door_right.png" id="4_l26kh"]
+[ext_resource type="AudioStream" uid="uid://02hbnav4yxfy" path="res://asset/sound/auto_door.wav" id="7_kk2o8"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_attn3"]
 polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
@@ -130,6 +131,9 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_iv5ix")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_kk2o8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

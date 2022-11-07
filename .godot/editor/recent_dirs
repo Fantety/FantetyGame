@@ -1,12 +1,12 @@
+res://
+E:/project/godot/Fantety/build
 res://src/scene/ElevatorCtrlUi
 res://src/scene/StartGameUI
 res://scene/component
-res://shader
 res://src/furniture
 res://scene
 res://src/scene
 res://src/sound
-res://
 res://asset/img/furniture
 res://src/scene/Death
 res://src/animation
