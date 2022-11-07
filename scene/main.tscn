@@ -1292,7 +1292,7 @@ shape = SubResource("CapsuleShape2D_lkkrw")
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(2, -48)
 current = true
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(2, 2)
 limit_top = -256
 limit_right = 1856
 limit_smoothed = true
@@ -1356,6 +1356,9 @@ stream = ExtResource("59_rx7j2")
 light_mask = 0
 position = Vector2(960, -160)
 
+[node name="Elevator2" parent="Elevator" instance=ExtResource("62_nq4lk")]
+position = Vector2(960, -32)
+
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="balcony_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
@@ -1383,9 +1386,10 @@ position = Vector2(960, -160)
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
 [connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]
-[connection signal="change_elevator_door_status" from="Player" to="Elevator/Elevator" method="_on_player_change_elevator_door_status"]
 [connection signal="finished" from="Player/JumpSound" to="Player/JumpSound" method="_on_finished"]
 [connection signal="finished" from="Sound/Bgm" to="Sound/Bgm" method="_on_finished"]
 [connection signal="change_elevator_ctrl_status" from="Elevator/Elevator" to="Player" method="_on_elevator_change_elevator_ctrl_status"]
 [connection signal="player_enter" from="Elevator/Elevator" to="Player" method="_on_elevator_player_enter"]
 [connection signal="player_exit" from="Elevator/Elevator" to="Player" method="_on_elevator_player_exit"]
+[connection signal="player_enter" from="Elevator/Elevator2" to="Player" method="_on_elevator_2_player_enter"]
+[connection signal="player_exit" from="Elevator/Elevator2" to="Player" method="_on_elevator_2_player_exit"]

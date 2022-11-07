@@ -3,3 +3,4 @@ res://scene/component/door_ctrl.tscn
 res://scene/death.tscn
 res://scene/component/elevator.tscn
 res://scene/component/elevator_ctrl_ui.tscn
+res://src/player/Player.gd

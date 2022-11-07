@@ -53,6 +53,8 @@ func _physics_process(delta):
 			start_kuikui_ready()
 		elif Common.elevatorReady:
 			start_elevator_ready()
+		elif Common.elevator2Ready:
+			start_elevator2_ready()
 	elif Common.bedroomLightSwitchReady:
 		start_bedroom_light_switch_ready()
 	# Get the input direction and handle the movement/deceleration.
@@ -115,9 +117,16 @@ func start_balcony_door_ctrl_ready():
 	pass
 
 func start_elevator_ready():
+	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
 	emit_signal("change_elevator_door_status",Common.elevatorDoorStatus)
+	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
 	pass
 
+func start_elevator2_ready():
+	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
+	emit_signal("change_elevator_door_status",Common.elevator2DoorStatus)
+	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
+	pass
 func _on_bedroom_terminal_body_entered(body):
 	if body == get_node("."):
 		dialogBubble.show()
@@ -246,4 +255,20 @@ func _on_elevator_change_elevator_ctrl_status():
 	else:
 		get_node("ElevatorCtrlUi").hide()
 	Common.elecatorCtrlStatus = !Common.elecatorCtrlStatus
+	pass # Replace with function body.
+
+
+func _on_elevator_2_player_enter(body):
+	if body == get_node("."):
+		dialogBubble.hide()
+		Common.elevator2Ready = true
+		get_node("ElevatorCtrlUi").hide()
+	pass # Replace with function body.
+
+
+func _on_elevator_2_player_exit(body):
+	if body == get_node("."):
+		dialogBubble.hide()
+		Common.elevato2rReady = false
+		get_node("ElevatorCtrlUi").hide()
 	pass # Replace with function body.

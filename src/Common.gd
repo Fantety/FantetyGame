@@ -27,6 +27,9 @@ var elevatorReady = false
 var elevatorDoorStatus = false
 var elecatorCtrlStatus = false
 
+var elevator2Ready = false
+var elevator2DoorStatus = false
+
 var bedroomDoorCtrlReady = false
 var bedroomDoorStatus = false
 var balconyDoorCtrlReady = false
