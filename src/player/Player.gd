@@ -40,38 +40,43 @@ func _physics_process(delta):
 			get_node("JumpSound").play()
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("act_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		isJumped = true
+	if !Common.inputLock:
+		if Input.is_action_just_pressed("act_jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			isJumped = true
 	
-	if Input.is_action_just_pressed("action"):
-		if Common.bedReady:
-			start_bed_dialog()
-		elif Common.bedroomTerminalReady:
-			start_bedroom_terminal_ready()
-		elif Common.bedroomDeskReady:
-			start_bedroom_desk_ready()
-		elif Common.kuiKuiReady:
-			start_kuikui_ready()
-		elif Common.elevatorReady:
-			start_elevator_ready()
-		elif Common.elevator2Ready:
-			start_elevator2_ready()
-	elif Common.bedroomLightSwitchReady:
-		start_bedroom_light_switch_ready()
+		if Input.is_action_just_pressed("action"):
+			if Common.bedReady:
+				start_bed_dialog()
+			elif Common.bedroomTerminalReady:
+				start_bedroom_terminal_ready()
+			elif Common.bedroomDeskReady:
+				start_bedroom_desk_ready()
+			elif Common.kuiKuiReady:
+				start_kuikui_ready()
+			elif Common.elevatorReady:
+				start_elevator_ready()
+			elif Common.elevator2Ready:
+				start_elevator2_ready()
+			elif Common.elevator3Ready:
+				start_elevator3_ready()
+			elif Common.elevator4Ready:
+				start_elevator4_ready()
+		elif Common.bedroomLightSwitchReady:
+			start_bedroom_light_switch_ready()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("act_left", "act_right")
-	if direction:
-		velocity.x = direction * SPEED
-		playerView.play("run")
-		playerView.set_flip_h(direction == -1)
-		if !runSound.playing:
-			runSound.play()
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		playerView.play("stand")
-		runSound.stop()
+		var direction = Input.get_axis("act_left", "act_right")
+		if direction:
+			velocity.x = direction * SPEED
+			playerView.play("run")
+			playerView.set_flip_h(direction == -1)
+			if !runSound.playing:
+				runSound.play()
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			playerView.play("stand")
+			runSound.stop()
 
 	move_and_slide()
 
@@ -129,6 +134,18 @@ func start_elevator2_ready():
 	emit_signal("change_elevator_door_status",Common.elevator2DoorStatus, 2)
 	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
 	pass
+	
+func start_elevator3_ready():
+	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
+	emit_signal("change_elevator_door_status",Common.elevator3DoorStatus, 3)
+	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
+	pass
+	
+func start_elevator4_ready():
+	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
+	emit_signal("change_elevator_door_status",Common.elevator4DoorStatus, 4)
+	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
+
 func _on_bedroom_terminal_body_entered(body):
 	if body == get_node("."):
 		dialogBubble.show()
@@ -264,7 +281,6 @@ func _on_elevator_2_player_enter(body):
 	if body == get_node("."):
 		dialogBubble.show()
 		Common.elevator2Ready = true
-		get_node("ElevatorCtrlUi").hide()
 	pass # Replace with function body.
 
 
@@ -288,18 +304,95 @@ func _on_elevator_2_change_elevator_ctrl_status():
 func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 	print(index)
 	if index != currentFloor:
-		set_position(Vector2(position.x,position.y+32*4*(currentFloor-index)))
+		init_elevator_animation(currentFloor, index)
+		set_z_index(-1)
+		Common.elevatorCtrlTrigger = true
+		if currentFloor == 3:
+			get_parent().get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
+		elif currentFloor == 2:
+			get_parent().get_node("Elevator/Elevator2")._on_player_change_elevator_door_status(Common.elevator2DoorStatus, 2)
+		elif currentFloor == 1:
+			get_parent().get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
+		elif currentFloor == 0:
+			get_parent().get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
+		get_node("Timer").start()
+		await get_node("Timer").timeout
+		get_node("CollisionShape").set_deferred("disabled",true)
+		get_node("PlayerAnimation").play("PlayerUpDown")
+		Common.inputLock = true
+		await get_node("PlayerAnimation").animation_finished
+#		set_position(Vector2(position.x,position.y+32*4*(currentFloor-index)))
 #		velocity.y = move_toward(velocity.y, velocity.y+32*(currentFloor-index), Common.ELEVATOR_SPEED)
-		if index == 0:
-			currentFloor = 0
-			pass
-		elif index == 1:
-			currentFloor = 1
-			pass
-		elif index == 2:
-			currentFloor = 2
-			pass
-		elif index == 3:
-			currentFloor = 3
-			pass
+		currentFloor = index
+		if currentFloor == 3:
+			get_parent().get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
+		elif currentFloor == 2:
+			get_parent().get_node("Elevator/Elevator2")._on_player_change_elevator_door_status(Common.elevator2DoorStatus, 2)
+		elif currentFloor == 1:
+			get_parent().get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
+		elif currentFloor == 0:
+			get_parent().get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
+		get_node("CollisionShape").set_deferred("disabled",false)
+		get_node("Timer").start()
+		await get_node("Timer").timeout
+		set_z_index(2)
+		Common.inputLock = false
+		Common.elevatorCtrlTrigger = false
+	pass # Replace with function body.
+
+
+func init_elevator_animation(currentFloor, targetFloor):
+	var animation = get_node("PlayerAnimation").get_animation("PlayerUpDown")
+	animation.set_length(abs(currentFloor - targetFloor))
+	animation.track_set_key_value(0, 0, position)
+	animation.track_set_key_value(0, 1, Vector2(position.x,position.y+32*4*(currentFloor-targetFloor)))
+	animation.track_set_key_time(0,1,animation.get_length())
+	pass
+
+
+func _on_elevator_3_player_enter(body):
+	if body == get_node("."):
+		dialogBubble.show()
+		Common.elevator3Ready = true
+	pass # Replace with function body.
+
+
+func _on_elevator_3_player_exit(body):
+	if body == get_node("."):
+		dialogBubble.hide()
+		Common.elevator3Ready = false
+		get_node("ElevatorCtrlUi").hide()
+	pass # Replace with function body.
+
+
+func _on_elevator_3_change_elevator_ctrl_status():
+	if !Common.elecator3CtrlStatus:
+		get_node("ElevatorCtrlUi").show()
+	else:
+		get_node("ElevatorCtrlUi").hide()
+	Common.elecator3CtrlStatus = !Common.elecator3CtrlStatus
+	pass # Replace with function body.
+
+
+func _on_elevator_4_player_enter(body):
+	if body == get_node("."):
+		dialogBubble.show()
+		Common.elevator4Ready = true
+	pass # Replace with function body.
+
+
+func _on_elevator_4_player_exit(body):
+	if body == get_node("."):
+		dialogBubble.hide()
+		Common.elevator4Ready = false
+		get_node("ElevatorCtrlUi").hide()
+	pass # Replace with function body.
+
+
+func _on_elevator_4_change_elevator_ctrl_status():
+	if !Common.elecator4CtrlStatus:
+		get_node("ElevatorCtrlUi").show()
+	else:
+		get_node("ElevatorCtrlUi").hide()
+	Common.elecator4CtrlStatus = !Common.elecator4CtrlStatus
 	pass # Replace with function body.

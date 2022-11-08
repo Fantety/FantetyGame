@@ -33,30 +33,57 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	emit_signal("player_exit",body)
-	if Common.elevatorDoorStatus:
-		elevatorAnimation.play_backwards("OpenElevatorDoor")
-		elevatorSound.play()
-	elif Common.elevator2DoorStatus:
-		elevatorAnimation.play_backwards("OpenElevatorDoor")
-		elevatorSound.play()
 	if self.name == "Elevator":
-		Common.elevatorDoorStatus = false
+		if Common.elevatorDoorStatus:
+			elevatorAnimation.play_backwards("OpenElevatorDoor")
+			elevatorSound.play()
+			await elevatorAnimation.animation_finished
+			Common.elevatorDoorStatus = false
+			set_elevator_light_status(false)
 	elif self.name == "Elevator2":
-		Common.elevator2DoorStatus = false
-	await elevatorAnimation.animation_finished
-	set_elevator_light_status(false)
+		if Common.elevator2DoorStatus:
+			elevatorAnimation.play_backwards("OpenElevatorDoor")
+			elevatorSound.play()
+			await elevatorAnimation.animation_finished
+			Common.elevator2DoorStatus = false
+			set_elevator_light_status(false)
+	elif self.name == "Elevator3":
+		if Common.elevator3DoorStatus:
+			elevatorAnimation.play_backwards("OpenElevatorDoor")
+			elevatorSound.play()
+			await elevatorAnimation.animation_finished
+			Common.elevator3DoorStatus = false
+			set_elevator_light_status(false)
+	elif self.name == "Elevator4":
+		if Common.elevator4DoorStatus:
+			elevatorAnimation.play_backwards("OpenElevatorDoor")
+			elevatorSound.play()
+			await elevatorAnimation.animation_finished
+			Common.elevator4DoorStatus = false
+			set_elevator_light_status(false)
+	
 	pass # Replace with function body.
 
 
 func _on_player_change_elevator_door_status(status, index):
-	if status:
+	if status and !Common.elevatorCtrlTrigger:
 		emit_signal("change_elevator_ctrl_status")
 	else:
-		elevatorAnimation.play("OpenElevatorDoor")
+		Common.inputLock = true
+		if status:			
+			elevatorAnimation.play_backwards("OpenElevatorDoor")
+		else:
+			elevatorAnimation.play("OpenElevatorDoor")
 		elevatorSound.play()
 		set_elevator_light_status(true)
+		await elevatorAnimation.animation_finished
+		Common.inputLock = false
 		if index == 1:
 			Common.elevatorDoorStatus = !Common.elevatorDoorStatus
 		elif index == 2:
 			Common.elevator2DoorStatus = !Common.elevator2DoorStatus
+		elif index == 3:
+			Common.elevator3DoorStatus = !Common.elevator3DoorStatus
+		elif index == 4:
+			Common.elevator4DoorStatus = !Common.elevator4DoorStatus
 	pass # Replace with function body.

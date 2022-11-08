@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6l3dy386lge4"
+path="res://.godot/imported/register_types.windows.template_debug.x86_64.obj-435113c5efe462cc31189cd4b8c10e32.mesh"
+
+[deps]
+
+files=["res://.godot/imported/register_types.windows.template_debug.x86_64.obj-435113c5efe462cc31189cd4b8c10e32.mesh"]
+
+source_file="res://cpp-plugin/src/register_types.windows.template_debug.x86_64.obj"
+dest_files=["res://.godot/imported/register_types.windows.template_debug.x86_64.obj-435113c5efe462cc31189cd4b8c10e32.mesh", "res://.godot/imported/register_types.windows.template_debug.x86_64.obj-435113c5efe462cc31189cd4b8c10e32.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

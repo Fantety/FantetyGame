@@ -2,6 +2,8 @@ extends Node
 
 const ELEVATOR_SPEED = 200
 
+var inputLock = false
+
 @onready var bedDialog = load("res://dialog/bedroom/bed.dialogue")
 @onready var bedDialogEgg = load("res://dialog/bedroom/bed_eggs.dialogue")
 @onready var kuikuiDialog = load("res://dialog/bedroom/kuikui.dialogue")
@@ -25,6 +27,8 @@ var bedroomDeskReady = false
 var kuiKuiReady = false
 var bedroomLightSwitchReady = false
 
+var elevatorCtrlTrigger = false
+
 var elevatorReady = false
 var elevatorDoorStatus = false
 var elecatorCtrlStatus = false
@@ -32,6 +36,14 @@ var elecatorCtrlStatus = false
 var elevator2Ready = false
 var elevator2DoorStatus = false
 var elecator2CtrlStatus = false
+
+var elevator3Ready = false
+var elevator3DoorStatus = false
+var elecator3CtrlStatus = false
+
+var elevator4Ready = false
+var elevator4DoorStatus = false
+var elecator4CtrlStatus = false
 
 var bedroomDoorCtrlReady = false
 var bedroomDoorStatus = false

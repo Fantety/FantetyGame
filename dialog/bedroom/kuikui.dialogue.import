@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bm5ed1cgn02sa"
+path="res://.godot/imported/kuikui.dialogue-a90ef42dcc86d80ded91fbb1e91b474e.tres"
+
+[deps]
+
+source_file="res://dialog/bedroom/kuikui.dialogue"
+dest_files=["res://.godot/imported/kuikui.dialogue-a90ef42dcc86d80ded91fbb1e91b474e.tres"]
+
+[params]
+
