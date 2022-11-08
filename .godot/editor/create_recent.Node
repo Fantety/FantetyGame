@@ -1,3 +1,4 @@
+AudioStreamPlayer
 PointLight2D
 CanvasModulate
 CPUParticles2D
@@ -6,7 +7,6 @@ AnimationPlayer
 LightOccluder2D
 Node2D
 Node
-AudioStreamPlayer
 ItemList
 MenuBar
 Button

@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=158 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -63,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://ci2xckiqqy8dc" path="res://scene/component/elevator_ctrl_ui.tscn" id="54_d1m6m"]
 [ext_resource type="AudioStream" uid="uid://b400xjunlgtn6" path="res://asset/sound/light_switch.wav" id="59_rx7j2"]
 [ext_resource type="PackedScene" uid="uid://bhtqenmvrc0nj" path="res://scene/component/elevator.tscn" id="62_nq4lk"]
+[ext_resource type="AudioStream" uid="uid://c7cbxanuw65ew" path="res://asset/sound/elevator_arrived.wav" id="63_xpv6i"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -1303,6 +1304,9 @@ script = ExtResource("50_58jlv")
 
 [node name="LightSwitchSound" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("59_rx7j2")
+
+[node name="ElevatorArrived" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("63_xpv6i")
 
 [node name="Elevator" type="Node" parent="."]
 

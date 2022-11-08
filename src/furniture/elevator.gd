@@ -77,7 +77,6 @@ func _on_player_change_elevator_door_status(status, index):
 		elevatorSound.play()
 		set_elevator_light_status(true)
 		await elevatorAnimation.animation_finished
-		Common.inputLock = false
 		if index == 1:
 			Common.elevatorDoorStatus = !Common.elevatorDoorStatus
 		elif index == 2:
@@ -86,4 +85,5 @@ func _on_player_change_elevator_door_status(status, index):
 			Common.elevator3DoorStatus = !Common.elevator3DoorStatus
 		elif index == 4:
 			Common.elevator4DoorStatus = !Common.elevator4DoorStatus
+		Common.inputLock = false
 	pass # Replace with function body.

@@ -8,6 +8,9 @@ const PROGRESS_SPEED = 20
 @onready var playerView = $PlayerView
 @onready var runSound = $RunSound
 @onready var parent = get_parent()
+@onready var elevatorArrivedSound = get_parent().get_node("Sound/ElevatorArrived")
+
+
 
 var inputPasswdSoundRight
 var inputPasswdSoundError
@@ -304,10 +307,16 @@ func _on_elevator_2_change_elevator_ctrl_status():
 
 func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 	print(index)
+	print("重力", gravity)
 	if index != currentFloor:
-		init_elevator_animation(currentFloor, index)
+		gravity = 0
+		
 		set_z_index(-1)
 		Common.elevatorCtrlTrigger = true
+		print("重力1", gravity)
+		print("当前楼层", currentFloor)
+		print("目标楼层", index)
+		print("============================")
 		if currentFloor == 3:
 			parent.get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
 		elif currentFloor == 2:
@@ -319,11 +328,13 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 		get_node("Timer").start()
 		await get_node("Timer").timeout
 		get_node("CollisionShape").set_deferred("disabled",true)
-		get_node("PlayerAnimation").play("PlayerUpDown")
+#		get_node("PlayerAnimation").play("PlayerUpDown")
 		Common.inputLock = true
-		await get_node("PlayerAnimation").animation_finished
-#		set_position(Vector2(position.x,position.y+32*4*(currentFloor-index)))
-#		velocity.y = move_toward(velocity.y, velocity.y+32*(currentFloor-index), Common.ELEVATOR_SPEED)
+		var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(self, "position", Vector2(position.x,position.y+32*4*(currentFloor-index)), abs(currentFloor-index)*2)
+		tween.play()
+		await tween.finished
+		tween.kill()
 		currentFloor = index
 		if currentFloor == 3:
 			parent.get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
@@ -333,21 +344,31 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 			parent.get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
 		elif currentFloor == 0:
 			parent.get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
-		get_node("CollisionShape").set_deferred("disabled",false)
 		get_node("Timer").start()
+		elevatorArrivedSound.play()
 		await get_node("Timer").timeout
+		get_node("CollisionShape").set_deferred("disabled",false)
 		set_z_index(2)
 		Common.inputLock = false
 		Common.elevatorCtrlTrigger = false
+		gravity = 980
 	pass # Replace with function body.
 
 
 func init_elevator_animation(currentFloor, targetFloor):
-	var animation = get_node("PlayerAnimation").get_animation("PlayerUpDown")
-	animation.set_length(abs(currentFloor - targetFloor))
-	animation.track_set_key_value(0, 0, position)
-	animation.track_set_key_value(0, 1, Vector2(position.x,position.y+32*4*(currentFloor-targetFloor)))
-	animation.track_set_key_time(0,1,animation.get_length())
+#	tween.tween_method(look_at.bind(Vector2.UP), Vector2(position.x, position.y), Vector2(position.x, position.y+32*4*(currentFloor-targetFloor)), 1) 
+	
+#	var animation = get_node("PlayerAnimation").get_animation("PlayerUpDown")
+#	animation.clear()
+#	var track_index = animation.add_track(Animation.TYPE_VALUE)
+#	animation.track_set_path(track_index, "position:y")
+#	var key1=animation.track_insert_key(track_index, 0.0, 0)
+#	var key2=animation.track_insert_key(track_index, abs(currentFloor - targetFloor), 1)
+#
+#	animation.track_set_key_value(track_index, key1, position.y)
+#	animation.track_set_key_value(track_index, key2, position.y+32*4*(currentFloor-targetFloor))
+#	animation.set_length(abs(currentFloor - targetFloor))
+#	print("动画长度", animation.get_length())
 	pass
 
 
