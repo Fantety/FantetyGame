@@ -7,6 +7,7 @@ const PROGRESS_SPEED = 20
 @onready var dialogBubble = preload("res://scene/component/dialog_bubble.tscn").instantiate()
 @onready var playerView = $PlayerView
 @onready var runSound = $RunSound
+@onready var parent = get_parent()
 
 var inputPasswdSoundRight
 var inputPasswdSoundError
@@ -308,13 +309,13 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 		set_z_index(-1)
 		Common.elevatorCtrlTrigger = true
 		if currentFloor == 3:
-			get_parent().get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
+			parent.get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
 		elif currentFloor == 2:
-			get_parent().get_node("Elevator/Elevator2")._on_player_change_elevator_door_status(Common.elevator2DoorStatus, 2)
+			parent.get_node("Elevator/Elevator2")._on_player_change_elevator_door_status(Common.elevator2DoorStatus, 2)
 		elif currentFloor == 1:
-			get_parent().get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
+			parent.get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
 		elif currentFloor == 0:
-			get_parent().get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
+			parent.get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
 		get_node("Timer").start()
 		await get_node("Timer").timeout
 		get_node("CollisionShape").set_deferred("disabled",true)
@@ -325,13 +326,13 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 #		velocity.y = move_toward(velocity.y, velocity.y+32*(currentFloor-index), Common.ELEVATOR_SPEED)
 		currentFloor = index
 		if currentFloor == 3:
-			get_parent().get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
+			parent.get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
 		elif currentFloor == 2:
-			get_parent().get_node("Elevator/Elevator2")._on_player_change_elevator_door_status(Common.elevator2DoorStatus, 2)
+			parent.get_node("Elevator/Elevator2")._on_player_change_elevator_door_status(Common.elevator2DoorStatus, 2)
 		elif currentFloor == 1:
-			get_parent().get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
+			parent.get_node("Elevator/Elevator3")._on_player_change_elevator_door_status(Common.elevator3DoorStatus, 3)
 		elif currentFloor == 0:
-			get_parent().get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
+			parent.get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
 		get_node("CollisionShape").set_deferred("disabled",false)
 		get_node("Timer").start()
 		await get_node("Timer").timeout

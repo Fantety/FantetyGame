@@ -1,9 +1,9 @@
+PointLight2D
+CanvasModulate
 CPUParticles2D
 Timer
 AnimationPlayer
 LightOccluder2D
-PointLight2D
-CanvasModulate
 Node2D
 Node
 AudioStreamPlayer
