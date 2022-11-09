@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.ftl": "html",
-        "xutility": "cpp"
-    }
-}
