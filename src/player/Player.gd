@@ -307,16 +307,10 @@ func _on_elevator_2_change_elevator_ctrl_status():
 
 func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 	print(index)
-	print("重力", gravity)
 	if index != currentFloor:
 		gravity = 0
-		
 		set_z_index(-1)
 		Common.elevatorCtrlTrigger = true
-		print("重力1", gravity)
-		print("当前楼层", currentFloor)
-		print("目标楼层", index)
-		print("============================")
 		if currentFloor == 3:
 			parent.get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
 		elif currentFloor == 2:
@@ -328,7 +322,6 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 		get_node("Timer").start()
 		await get_node("Timer").timeout
 		get_node("CollisionShape").set_deferred("disabled",true)
-#		get_node("PlayerAnimation").play("PlayerUpDown")
 		Common.inputLock = true
 		var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "position", Vector2(position.x,position.y+32*4*(currentFloor-index)), abs(currentFloor-index)*2)

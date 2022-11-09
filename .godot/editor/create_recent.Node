@@ -1,3 +1,5 @@
+Node2D
+BalconyBackground
 AudioStreamPlayer
 PointLight2D
 CanvasModulate
@@ -5,7 +7,6 @@ CPUParticles2D
 Timer
 AnimationPlayer
 LightOccluder2D
-Node2D
 Node
 ItemList
 MenuBar

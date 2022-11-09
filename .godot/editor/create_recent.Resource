@@ -1,3 +1,4 @@
+NativeExtension
 FontVariation
 SystemFont
 FontFile

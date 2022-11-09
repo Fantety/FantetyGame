@@ -17,3 +17,7 @@ icon.svg
 data_*/
 asset/
 addons/
+bin/
+cpp-plugin/build/
+cpp-plugin/.vscode/
+cpp-plugin/bin/

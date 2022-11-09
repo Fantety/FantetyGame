@@ -20,7 +20,7 @@ void initialize_fantety_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
-
+	ClassDB::register_class<BalconyBackground>();
 	// ClassDB::register_class<ExampleRef>();
 	// ClassDB::register_class<ExampleMin>();
 	// ClassDB::register_class<Example>();
