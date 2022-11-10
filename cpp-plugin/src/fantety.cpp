@@ -13,25 +13,6 @@
 
 using namespace godot;
 
-void BalconyBackground::physics_process(double delta, bool backgroundMove)
-{
-    if(backgroundMove)
-    {
-		double direction = Input().get_axis("act_left", "act_right");
-		if(direction)
-        {
-            TextureRect* back = get_node<TextureRect>("Back");
-            TextureRect* front = get_node<TextureRect>("Front");
-			back->set_position(back->get_position()+Vector2(-direction*0.4,0));
-			front->set_position(back->get_position()+Vector2(-direction*0.8,0));
-        }
-    }
-}
-
-void BalconyBackground::_bind_methods()
-{
-    ClassDB::bind_method(D_METHOD("physics_process", "delta", "backgroundMove"), &BalconyBackground::physics_process);
-}
 // ExampleRef::ExampleRef() {
 // 	UtilityFunctions::print("ExampleRef created.");
 // }

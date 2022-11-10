@@ -15,27 +15,12 @@
 #endif
 
 #include <godot_cpp/classes/input.hpp>
-
-#include <godot_cpp/classes/character_body2d.hpp>
 #include <godot_cpp/classes/control.hpp>
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/viewport.hpp>
 #include <godot_cpp/classes/texture_rect.hpp>
 #include <godot_cpp/core/binder_common.hpp>
 
-using namespace godot;
-
-class BalconyBackground : public Node2D{
-    GDCLASS(BalconyBackground, Node2D)
-
-    public:
-    void physics_process(double delta, bool backgroundMove);
-
-    protected:
- 	static void _bind_methods();
-
-
-};
 
 // class ExampleRef : public RefCounted {
 // 	GDCLASS(ExampleRef, RefCounted);

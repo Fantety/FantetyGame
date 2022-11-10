@@ -1,9 +1,5 @@
 extends Node2D
 
-func _ready():
-	get_parent().get_node("DoorCtrl/TextureProgressBar").hide()
-
-
 func _on_player_change_bedroom_door_status():
 	Common.bedroomDoorStatus = !Common.bedroomDoorStatus
 	get_parent().get_node("DoorCtrl/TextureProgressBar").hide()

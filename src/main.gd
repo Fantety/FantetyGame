@@ -20,6 +20,7 @@ func hug_kuikui():
 
 
 
+
 func _on_dead_area_body_entered(body):
 	if body == get_node("Player"):
 		get_tree().paused = true

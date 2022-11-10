@@ -1,8 +1,9 @@
-project(godot-cpp-test)
+project(godot-cpp-fantety)
 cmake_minimum_required(VERSION 3.6)
 
 set(GODOT_HEADERS_PATH ../../godot-cpp/godot-headers/ CACHE STRING "Path to Godot headers")
 set(CPP_BINDINGS_PATH ../../godot-cpp/ CACHE STRING "Path to C++ bindings")
+
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	set(TARGET_PATH x11)
