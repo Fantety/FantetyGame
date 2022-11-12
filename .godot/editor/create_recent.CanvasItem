@@ -1,3 +1,6 @@
+RichTextLabel
+Button
+BaseButton
 PointLight2D
 Label
 CollisionShape2D

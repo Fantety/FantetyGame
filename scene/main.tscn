@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=163 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -65,6 +65,7 @@
 [ext_resource type="AudioStream" uid="uid://b400xjunlgtn6" path="res://asset/sound/light_switch.wav" id="59_rx7j2"]
 [ext_resource type="PackedScene" uid="uid://bhtqenmvrc0nj" path="res://scene/component/elevator.tscn" id="62_nq4lk"]
 [ext_resource type="AudioStream" uid="uid://c7cbxanuw65ew" path="res://asset/sound/elevator_arrived.wav" id="63_xpv6i"]
+[ext_resource type="AudioStream" uid="uid://bgyuu2jqawyag" path="res://asset/sound/bubble.wav" id="65_ichm4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -1340,6 +1341,9 @@ stream = ExtResource("59_rx7j2")
 
 [node name="ElevatorArrived" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("63_xpv6i")
+
+[node name="Bubble" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("65_ichm4")
 
 [node name="Elevator" type="Node" parent="."]
 

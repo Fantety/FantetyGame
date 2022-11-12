@@ -14,6 +14,18 @@ metadata/lines = {
 "type": "title"
 },
 "10": {
+"mutation": {
+"expression": [{
+"function": "new_bedpaper",
+"type": "function",
+"value": []
+}]
+},
+"next_id": "end!",
+"parent_id": "8",
+"type": "mutation"
+},
+"11": {
 "next_id": "end",
 "next_id_after": "end!",
 "text": "离开",
@@ -64,7 +76,7 @@ metadata/lines = {
 "8": {
 "next_id": "9",
 "next_id_after": "end!",
-"responses": PackedStringArray("8", "10"),
+"responses": PackedStringArray("8", "11"),
 "text": "查看",
 "text_replacements": [],
 "translation_key": "查看",
@@ -78,7 +90,7 @@ metadata/lines = {
 "value": []
 }]
 },
-"next_id": "end!",
+"next_id": "10",
 "parent_id": "8",
 "type": "mutation"
 }

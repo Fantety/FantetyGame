@@ -7,4 +7,5 @@
 我: 发下一张纸条
 - 查看
 	do play_check_bed_paper_sound()
+	do new_bedpaper()
 - 离开 => END

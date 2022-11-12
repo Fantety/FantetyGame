@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://cht7jb3aels0s"]
+
+[ext_resource type="Script" path="res://src/tips.gd" id="1_8o8jo"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_i8xj6"]
+[ext_resource type="AudioStream" uid="uid://dy7dvv4xlcb6d" path="res://asset/sound/tip_sound.wav" id="3_0f8ny"]
+
+[sub_resource type="Animation" id="Animation_nrrcg"]
+resource_name = "tips"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8v7ky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cyan1"]
+_data = {
+"RESET": SubResource("Animation_8v7ky"),
+"tips": SubResource("Animation_nrrcg")
+}
+
+[node name="Tips" type="CanvasLayer"]
+script = ExtResource("1_8o8jo")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_i8xj6")
+theme_override_font_sizes/font_size = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cyan1")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0f8ny")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
