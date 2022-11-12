@@ -22,10 +22,12 @@ config/windows_native_icon="res://Fantety.ico"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Common="*res://src/Common.gd"
 ChangeScene="*res://scene/change_scene.tscn"
+DialogScript="*res://src/DialogScript.gd"
+Backpack="*res://src/Backpack.gd"
 
 [dialogue_manager]
 
-states=["DialogScript", "Main"]
+states=["DialogScript", "Main", "Backpack"]
 
 [display]
 

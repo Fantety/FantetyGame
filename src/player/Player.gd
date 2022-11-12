@@ -66,10 +66,10 @@ func _physics_process(delta):
 				start_elevator3_ready()
 			elif Common.elevator4Ready:
 				start_elevator4_ready()
+			elif Common.bedroomComputerReady:
+				start_bedroom_computer_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("act_left", "act_right")
 		if direction:
 			velocity.x = direction * SPEED
@@ -86,14 +86,14 @@ func _physics_process(delta):
 
 
 func _on_bed_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.bedReady = true
 	pass # Replace with function body.
 
 
 func _on_bed_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.bedReady = false
 	pass # Replace with function body.
@@ -104,10 +104,6 @@ func start_bed_dialog():
 		DialogueManager.show_example_dialogue_balloon(Common.bedDialog, "start")
 	else:
 		DialogueManager.show_example_dialogue_balloon(Common.bedDialogEgg, "start")
-		
-#	print("xx")
-	
-	
 	
 func start_bedroom_terminal_ready():
 	pass
@@ -151,56 +147,56 @@ func start_elevator4_ready():
 	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
 
 func _on_bedroom_terminal_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.bedroomTerminalReady = true
 	pass # Replace with function body.
 
 
 func _on_bedroom_terminal_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.bedroomTerminalReady = false
 	pass # Replace with function body.
 
 
 func _on_bedroom_desk_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.bedroomDeskReady = true
 	pass # Replace with function body.
 
 
 func _on_bedroom_desk_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.bedroomDeskReady = false
 	pass # Replace with function body.
 
 
 func _on_kui_kui_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.kuiKuiReady = true
 	pass # Replace with function body.
 
 
 func _on_kui_kui_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.kuiKuiReady = false
 	pass # Replace with function body.
 
 
 func _on_bedroom_door_ctrl_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.bedroomDoorCtrlReady = true
 	pass # Replace with function body.
 
 
 func _on_bedroom_door_ctrl_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.bedroomDoorCtrlReady = false
 	pass # Replace with function body.
@@ -213,14 +209,14 @@ func _on_door_ctrl_bedroom_door_ctrl_input_finished():
 
 
 func _on_balcony_door_ctrl_area_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.balconyDoorCtrlReady = true
 	pass # Replace with function body.
 
 
 func _on_balcony_door_ctrl_area_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.balconyDoorCtrlReady = false
 	pass # Replace with function body.
@@ -232,14 +228,14 @@ func _on_door_ctrl_balcony_door_ctrl_input_finished():
 
 
 func _on_bedroom_light_switch_area_body_entered(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.bedroomLightSwitchReady = true
 	pass # Replace with function body.
 
 
 func _on_bedroom_light_switch_area_body_exited(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.bedroomLightSwitchReady = false
 	pass # Replace with function body.
@@ -258,14 +254,14 @@ func start_bedroom_light_switch_ready():
 
 
 func _on_elevator_player_enter(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.elevatorReady = true
 	pass # Replace with function body.
 
 
 func _on_elevator_player_exit(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.elevatorReady = false
 		get_node("ElevatorCtrlUi").hide()
@@ -282,14 +278,14 @@ func _on_elevator_change_elevator_ctrl_status():
 
 
 func _on_elevator_2_player_enter(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.elevator2Ready = true
 	pass # Replace with function body.
 
 
 func _on_elevator_2_player_exit(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.elevator2Ready = false
 		get_node("ElevatorCtrlUi").hide()
@@ -348,32 +344,15 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 	pass # Replace with function body.
 
 
-func init_elevator_animation(currentFloor, targetFloor):
-#	tween.tween_method(look_at.bind(Vector2.UP), Vector2(position.x, position.y), Vector2(position.x, position.y+32*4*(currentFloor-targetFloor)), 1) 
-	
-#	var animation = get_node("PlayerAnimation").get_animation("PlayerUpDown")
-#	animation.clear()
-#	var track_index = animation.add_track(Animation.TYPE_VALUE)
-#	animation.track_set_path(track_index, "position:y")
-#	var key1=animation.track_insert_key(track_index, 0.0, 0)
-#	var key2=animation.track_insert_key(track_index, abs(currentFloor - targetFloor), 1)
-#
-#	animation.track_set_key_value(track_index, key1, position.y)
-#	animation.track_set_key_value(track_index, key2, position.y+32*4*(currentFloor-targetFloor))
-#	animation.set_length(abs(currentFloor - targetFloor))
-#	print("动画长度", animation.get_length())
-	pass
-
-
 func _on_elevator_3_player_enter(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.elevator3Ready = true
 	pass # Replace with function body.
 
 
 func _on_elevator_3_player_exit(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.elevator3Ready = false
 		get_node("ElevatorCtrlUi").hide()
@@ -390,14 +369,14 @@ func _on_elevator_3_change_elevator_ctrl_status():
 
 
 func _on_elevator_4_player_enter(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.show()
 		Common.elevator4Ready = true
 	pass # Replace with function body.
 
 
 func _on_elevator_4_player_exit(body):
-	if body == get_node("."):
+	if body == self:
 		dialogBubble.hide()
 		Common.elevator4Ready = false
 		get_node("ElevatorCtrlUi").hide()
@@ -411,3 +390,21 @@ func _on_elevator_4_change_elevator_ctrl_status():
 		get_node("ElevatorCtrlUi").hide()
 	Common.elecator4CtrlStatus = !Common.elecator4CtrlStatus
 	pass # Replace with function body.
+
+
+func _on_bedroom_cumputer_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.bedroomComputerReady = true
+	pass # Replace with function body.
+
+
+func _on_bedroom_cumputer_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.bedroomComputerReady = false
+	pass # Replace with function body.
+
+func start_bedroom_computer_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.bedroomComputerDialog, "start")
+	pass

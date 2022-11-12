@@ -1,0 +1,6 @@
+~ start
+
+我: 应该就是这个电脑桌吧
+- 寻找门禁卡 [if accessControlCard == false]
+	do search_access_control_card()
+- 查看电脑

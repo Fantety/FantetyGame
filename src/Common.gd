@@ -7,6 +7,7 @@ var inputLock = false
 @onready var bedDialog = load("res://dialog/bedroom/bed.dialogue")
 @onready var bedDialogEgg = load("res://dialog/bedroom/bed_eggs.dialogue")
 @onready var kuikuiDialog = load("res://dialog/bedroom/kuikui.dialogue")
+@onready var bedroomComputerDialog = load("res://dialog/bedroom/computer.dialogue")
 
 var doorCardLock = load("res://asset/img/furniture/door_ctrl/door_card_lock.png")
 var doorCardUnlock = load("res://asset/img/furniture/door_ctrl/door_card_unlock.png")
@@ -26,6 +27,7 @@ var bedroomTerminalReady = false
 var bedroomDeskReady = false
 var kuiKuiReady = false
 var bedroomLightSwitchReady = false
+var bedroomComputerReady = false
 
 var elevatorCtrlTrigger = false
 

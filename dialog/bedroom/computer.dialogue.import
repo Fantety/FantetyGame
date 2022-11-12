@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bv4p70b6eagh7"
+path="res://.godot/imported/computer.dialogue-045097d48282160d6b2f1d58eb27206f.tres"
+
+[deps]
+
+source_file="res://dialog/bedroom/computer.dialogue"
+dest_files=["res://.godot/imported/computer.dialogue-045097d48282160d6b2f1d58eb27206f.tres"]
+
+[params]
+

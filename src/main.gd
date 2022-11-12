@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var paperSound = get_node("Sound/PaperSound")
 @onready var bubbleSound = get_node("Sound/Bubble")
+var tips
 var bedpaper
 # var dialogue_line = await DialogueManager.get_next_dialogue_line(bed_dialog, "start")
 
@@ -21,6 +22,13 @@ func play_bubble_sound():
 func remove_kuikui():
 	get_node("Animation/BedroomAnimation").play("RemoveKuikui")
 	pass
+	
+func search_access_control_card():
+	Backpack.accessControlCard = true;
+	tips = load("res://scene/tips.tscn").instantiate()
+	add_child(tips)
+	tips.show_tip("获得：门禁卡")
+	
 
 func _on_dead_area_body_entered(body):
 	if body == get_node("Player"):

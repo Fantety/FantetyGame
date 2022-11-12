@@ -1,3 +1,7 @@
+res://scene/death.tscn
 res://scene/start_game_ui.tscn
 res://scene/component/elevator.tscn
 res://scene/component/elevator_ctrl_ui.tscn
+res://scene/main.tscn
+res://scene/plot/bed_paper.tscn
+res://scene/tips.tscn

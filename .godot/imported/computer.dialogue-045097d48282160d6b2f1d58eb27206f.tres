@@ -1,0 +1,65 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+metadata/dialogue_manager_version = "2.3.0"
+metadata/titles = {
+"start": "3"
+}
+metadata/first_title = "3"
+metadata/lines = {
+"1": {
+"next_id": "3",
+"text": "start",
+"type": "title"
+},
+"3": {
+"character": "我",
+"character_replacements": [],
+"next_id": "4",
+"text": "应该就是这个电脑桌吧",
+"text_replacements": [],
+"translation_key": "应该就是这个电脑桌吧",
+"type": "dialogue"
+},
+"4": {
+"condition": {
+"expression": [{
+"type": "variable",
+"value": "accessControlCard"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+}]
+},
+"next_id": "5",
+"next_id_after": "end!",
+"responses": PackedStringArray("4", "6"),
+"text": "寻找门禁卡",
+"text_replacements": [],
+"translation_key": "寻找门禁卡",
+"type": "response"
+},
+"5": {
+"mutation": {
+"expression": [{
+"function": "search_access_control_card",
+"type": "function",
+"value": []
+}]
+},
+"next_id": "end!",
+"parent_id": "4",
+"type": "mutation"
+},
+"6": {
+"next_id": "",
+"next_id_after": "end!",
+"text": "查看电脑",
+"text_replacements": [],
+"translation_key": "查看电脑",
+"type": "response"
+}
+}

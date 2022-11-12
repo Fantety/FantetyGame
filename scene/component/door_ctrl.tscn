@@ -32,13 +32,19 @@ texture = ExtResource("5_xakm3")
 
 [node name="Error" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lvfyu")
+pitch_scale = 1.5
 
 [node name="Right" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_uiqq6")
+pitch_scale = 1.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(15, 21)
 scale = Vector2(0.267516, 0.449541)
 texture = ExtResource("8_kv48c")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

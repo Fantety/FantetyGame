@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=164 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -696,6 +696,9 @@ size = Vector2(11, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcm0x"]
 size = Vector2(10, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4bb"]
+size = Vector2(20, 30.5786)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m7ov"]
 size = Vector2(331, 54)
 
@@ -1231,6 +1234,13 @@ position = Vector2(1455.07, -159.899)
 position = Vector2(-10.0699, -1.101)
 shape = SubResource("RectangleShape2D_lcm0x")
 
+[node name="BedroomCumputer" type="Area2D" parent="Area/Bedroom"]
+position = Vector2(1568.16, -166.727)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Bedroom/BedroomCumputer"]
+position = Vector2(-0.148682, 5.43794)
+shape = SubResource("RectangleShape2D_uu4bb")
+
 [node name="Balcony" type="Node" parent="Area"]
 
 [node name="BalconyArea" type="Area2D" parent="Area/Balcony"]
@@ -1379,6 +1389,8 @@ position = Vector2(960, 224)
 [connection signal="body_exited" from="Area/Bedroom/BedroomDesk" to="Player" method="_on_bedroom_desk_body_exited"]
 [connection signal="body_entered" from="Area/Bedroom/BedroomDoorCtrl" to="Player" method="_on_bedroom_door_ctrl_body_entered"]
 [connection signal="body_exited" from="Area/Bedroom/BedroomDoorCtrl" to="Player" method="_on_bedroom_door_ctrl_body_exited"]
+[connection signal="body_entered" from="Area/Bedroom/BedroomCumputer" to="Player" method="_on_bedroom_cumputer_body_entered"]
+[connection signal="body_exited" from="Area/Bedroom/BedroomCumputer" to="Player" method="_on_bedroom_cumputer_body_exited"]
 [connection signal="body_entered" from="Area/Balcony/BalconyArea" to="Background" method="_on_balcony_area_body_entered"]
 [connection signal="body_exited" from="Area/Balcony/BalconyArea" to="Background" method="_on_balcony_area_body_exited"]
 [connection signal="body_entered" from="Area/Balcony/DeadArea" to="." method="_on_dead_area_body_entered"]
