@@ -28,6 +28,7 @@ var bedroomDeskReady = false
 var kuiKuiReady = false
 var bedroomLightSwitchReady = false
 var bedroomComputerReady = false
+var wardrobeReady = false
 
 var elevatorCtrlTrigger = false
 

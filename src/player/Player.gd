@@ -408,3 +408,17 @@ func _on_bedroom_cumputer_body_exited(body):
 func start_bedroom_computer_ready():
 	DialogueManager.show_example_dialogue_balloon(Common.bedroomComputerDialog, "start")
 	pass
+
+
+func _on_wardrobe_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.wardrobeReady = true
+	pass # Replace with function body.
+
+
+func _on_wardrobe_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.wardrobeReady = false
+	pass # Replace with function body.
