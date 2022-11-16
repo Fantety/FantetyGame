@@ -13,6 +13,17 @@
 
 using namespace godot;
 
+int Fantety::random(int a, int b)
+{
+    std::uniform_int_distribution<int> u(a,b);
+    std::default_random_engine e(time(0));
+    return u(e);
+}
+
+void Fantety::_bind_methods()
+{
+    ClassDB::bind_static_method("Fantety", D_METHOD("random", "a", "b"), &Fantety::random);
+}
 // ExampleRef::ExampleRef() {
 // 	UtilityFunctions::print("ExampleRef created.");
 // }

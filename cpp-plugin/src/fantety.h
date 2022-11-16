@@ -20,7 +20,20 @@
 #include <godot_cpp/classes/viewport.hpp>
 #include <godot_cpp/classes/texture_rect.hpp>
 #include <godot_cpp/core/binder_common.hpp>
+#include <random>
+#include <ctime>
 
+using namespace godot;
+class Fantety : public Object{
+    GDCLASS(Fantety, Object);
+
+protected:
+ 	static void _bind_methods();
+
+    static int random(int a, int b);
+
+
+};
 
 // class ExampleRef : public RefCounted {
 // 	GDCLASS(ExampleRef, RefCounted);

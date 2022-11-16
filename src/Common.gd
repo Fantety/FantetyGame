@@ -29,6 +29,7 @@ var kuiKuiReady = false
 var bedroomLightSwitchReady = false
 var bedroomComputerReady = false
 var wardrobeReady = false
+var VendingMachineReady = false
 
 var elevatorCtrlTrigger = false
 

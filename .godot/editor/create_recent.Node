@@ -1,3 +1,4 @@
+Node
 Timer
 AudioStreamPlayer
 AnimationPlayer
@@ -13,7 +14,6 @@ PointLight2D
 CanvasModulate
 CPUParticles2D
 LightOccluder2D
-Node
 ItemList
 MenuBar
 Button

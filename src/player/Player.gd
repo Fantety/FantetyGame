@@ -422,3 +422,17 @@ func _on_wardrobe_body_exited(body):
 		dialogBubble.hide()
 		Common.wardrobeReady = false
 	pass # Replace with function body.
+
+
+func _on_vending_machines_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.VendingMachineReady = true
+	pass # Replace with function body.
+
+
+func _on_vending_machines_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.VendingMachineReady = false
+	pass # Replace with function body.

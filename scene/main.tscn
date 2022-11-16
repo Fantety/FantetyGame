@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=166 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -710,6 +710,8 @@ b = Vector2(-273, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlo0b"]
 size = Vector2(14, 19.9394)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0faig"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_25p0y"]
 atlas = ExtResource("2_pkois")
 region = Rect2(0, 0, 34, 50)
@@ -1273,6 +1275,15 @@ position = Vector2(140.313, -163.939)
 position = Vector2(-1.31346, -0.0303192)
 shape = SubResource("RectangleShape2D_jlo0b")
 
+[node name="BedroomOut" type="Node" parent="Area"]
+
+[node name="VendingMachines" type="Area2D" parent="Area/BedroomOut"]
+position = Vector2(1360.46, -157.147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/BedroomOut/VendingMachines"]
+position = Vector2(0.561279, 1.40308)
+shape = SubResource("RectangleShape2D_0faig")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 light_mask = 2
 position = Vector2(1521, -149)
@@ -1407,6 +1418,8 @@ position = Vector2(960, 224)
 [connection signal="body_entered" from="Area/Balcony/DeadArea" to="." method="_on_dead_area_body_entered"]
 [connection signal="body_entered" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_entered"]
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
+[connection signal="body_entered" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_entered"]
+[connection signal="body_exited" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_exited"]
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
 [connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]
