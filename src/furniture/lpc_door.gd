@@ -1,5 +1,7 @@
 extends Node2D
 
+signal balcony_plot_start
+
 func _on_player_change_balcony_door_status():
 	Common.balconyDoorStatus = !Common.balconyDoorStatus
 	get_parent().get_node("DoorCtrl/TextureProgressBar").hide()
@@ -14,3 +16,10 @@ func _on_player_change_balcony_door_status():
 		get_parent().get_node("RainSound").volume_db = -10.0
 	get_node("AnimationPlayer").play("open", 1.0, Common.balconyDoorStatus)
 	get_parent().get_parent().get_node("Sound/DoorSound").play(4.6)
+	if Common.balconyPlot == false:
+		if Common.balconyDoorStatus:
+			await get_node("AnimationPlayer").animation_finished
+			get_node("Timer").start()
+			await get_node("Timer").timeout
+			emit_signal("balcony_plot_start")
+			Common.inputLock = true

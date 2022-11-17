@@ -55,3 +55,6 @@ var balconyDoorCtrlReady = false
 var balconyDoorStatus = false
 # Called when the node enters the scene tree for the first time.
 
+
+var balconyPlot = false
+

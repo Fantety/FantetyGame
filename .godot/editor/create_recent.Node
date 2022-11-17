@@ -1,5 +1,8 @@
-Node
 Timer
+CollisionShape2D
+Node
+AnimatedSprite2D
+AnimatableBody2D
 AudioStreamPlayer
 AnimationPlayer
 Label
@@ -18,14 +21,12 @@ MenuBar
 Button
 MenuButton
 ColorRect
-CollisionShape2D
 Area2D
 Sprite2D
 VBoxContainer
 BaseButton
 AudioListener2D
 CharacterBody2D
-AnimatedSprite2D
 Camera2D
 DirectionalLight2D
 TileMap

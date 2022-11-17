@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=192 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -70,6 +70,7 @@
 [ext_resource type="PackedScene" uid="uid://bhtqenmvrc0nj" path="res://scene/component/elevator.tscn" id="62_nq4lk"]
 [ext_resource type="AudioStream" uid="uid://c7cbxanuw65ew" path="res://asset/sound/elevator_arrived.wav" id="63_xpv6i"]
 [ext_resource type="AudioStream" uid="uid://bgyuu2jqawyag" path="res://asset/sound/bubble.wav" id="65_ichm4"]
+[ext_resource type="PackedScene" uid="uid://bu3itnq6oeck4" path="res://scene/NPC/balcony_npc.tscn" id="71_o8bdh"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -810,6 +811,9 @@ size = Vector2(14, 19.9394)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0faig"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xvwtt"]
+b = Vector2(0.0534058, 18.0229)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_25p0y"]
 atlas = ExtResource("2_pkois")
 region = Rect2(0, 0, 34, 50)
@@ -870,6 +874,38 @@ region = Rect2(170, 0, 34, 50)
 atlas = ExtResource("3_0pkxm")
 region = Rect2(204, 0, 34, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3amd"]
+atlas = ExtResource("2_pkois")
+region = Rect2(0, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odc3a"]
+atlas = ExtResource("2_pkois")
+region = Rect2(34, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi0ms"]
+atlas = ExtResource("2_pkois")
+region = Rect2(68, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wjj5"]
+atlas = ExtResource("2_pkois")
+region = Rect2(102, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av721"]
+atlas = ExtResource("2_pkois")
+region = Rect2(136, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6bio"]
+atlas = ExtResource("2_pkois")
+region = Rect2(170, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmrq3"]
+atlas = ExtResource("2_pkois")
+region = Rect2(204, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jv1v"]
+atlas = ExtResource("2_pkois")
+region = Rect2(238, 0, 34, 50)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ea4y3"]
 animations = [{
 "frames": [SubResource("AtlasTexture_25p0y"), SubResource("AtlasTexture_j5hno"), SubResource("AtlasTexture_flr6s"), SubResource("AtlasTexture_7ls53"), SubResource("AtlasTexture_lhoy1"), SubResource("AtlasTexture_4g2kx"), SubResource("AtlasTexture_8116g"), SubResource("AtlasTexture_q07w6")],
@@ -881,6 +917,11 @@ animations = [{
 "loop": true,
 "name": &"stand",
 "speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_m3amd"), SubResource("AtlasTexture_odc3a"), SubResource("AtlasTexture_hi0ms"), SubResource("AtlasTexture_1wjj5"), SubResource("AtlasTexture_av721"), SubResource("AtlasTexture_p6bio"), SubResource("AtlasTexture_gmrq3"), SubResource("AtlasTexture_6jv1v")],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkkrw"]
@@ -1299,6 +1340,9 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(96, -192)
 script = ExtResource("42_7h032")
 
+[node name="Timer" type="Timer" parent="Balcony/OverheadDoor"]
+one_shot = true
+
 [node name="Medical" type="Node" parent="."]
 
 [node name="MedicvalLight" type="Node" parent="Medical"]
@@ -1452,6 +1496,15 @@ position = Vector2(1360.46, -157.147)
 position = Vector2(0.561279, 1.40308)
 shape = SubResource("RectangleShape2D_0faig")
 
+[node name="Plots" type="Node" parent="Area"]
+
+[node name="BalconyPlotArea" type="Area2D" parent="Area/Plots"]
+position = Vector2(30.6545, -146.967)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Plots/BalconyPlotArea"]
+position = Vector2(-0.707909, 0.943863)
+shape = SubResource("SegmentShape2D_xvwtt")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 light_mask = 2
 position = Vector2(1521, -149)
@@ -1462,7 +1515,7 @@ script = ExtResource("2_8cdtn")
 position = Vector2(2, -3)
 scale = Vector2(0.8, 0.8)
 frames = SubResource("SpriteFrames_ea4y3")
-animation = &"stand"
+animation = &"walk"
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Player"]
@@ -1558,6 +1611,9 @@ position = Vector2(960, 96)
 [node name="Elevator4" parent="Elevator" instance=ExtResource("62_nq4lk")]
 position = Vector2(960, 224)
 
+[node name="BalconyNPC" parent="." instance=ExtResource("71_o8bdh")]
+position = Vector2(-80, -148)
+
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="balcony_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
@@ -1569,6 +1625,7 @@ position = Vector2(960, 224)
 [connection signal="finished" from="Balcony/RainSound" to="Balcony/RainSound" method="_on_finished"]
 [connection signal="balcony_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
 [connection signal="bedroom_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_bedroom_door_ctrl_input_finished"]
+[connection signal="balcony_plot_start" from="Balcony/OverheadDoor" to="Player" method="_on_overhead_door_balcony_plot_start"]
 [connection signal="body_entered" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_entered"]
 [connection signal="body_exited" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_exited"]
 [connection signal="body_entered" from="Area/Bedroom/BedroomTerminal" to="Player" method="_on_bedroom_terminal_body_entered"]
@@ -1588,6 +1645,8 @@ position = Vector2(960, 224)
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
 [connection signal="body_entered" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_entered"]
 [connection signal="body_exited" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_exited"]
+[connection signal="body_entered" from="Area/Plots/BalconyPlotArea" to="Player" method="_on_balcony_plot_area_body_entered"]
+[connection signal="balcony_plot_player_arrived" from="Player" to="BalconyNPC" method="_on_player_balcony_plot_player_arrived"]
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
 [connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]

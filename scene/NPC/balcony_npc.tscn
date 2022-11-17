@@ -1,0 +1,98 @@
+[gd_scene load_steps=21 format=3 uid="uid://bu3itnq6oeck4"]
+
+[ext_resource type="Script" path="res://src/player/NPC/BalconyNPC.gd" id="1_msu8o"]
+[ext_resource type="Texture2D" uid="uid://8m0m2e4ttuwv" path="res://asset/player/run-Sheet.png" id="2_ug02v"]
+[ext_resource type="Texture2D" uid="uid://ds8iuwell83qc" path="res://asset/player/stand-Sheet.png" id="3_wlyvf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50mpd"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(0, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nwie"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(34, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcro0"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(68, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meoy2"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(102, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqpu7"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(136, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4nby"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(170, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h23sq"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(204, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffedl"]
+atlas = ExtResource("2_ug02v")
+region = Rect2(238, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twl04"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(0, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bk1t"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(34, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7anyb"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(68, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oenat"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(102, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuqcx"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(136, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nqir"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(170, 0, 34, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3x83"]
+atlas = ExtResource("3_wlyvf")
+region = Rect2(204, 0, 34, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4psm3"]
+animations = [{
+"frames": [SubResource("AtlasTexture_50mpd"), SubResource("AtlasTexture_4nwie"), SubResource("AtlasTexture_gcro0"), SubResource("AtlasTexture_meoy2"), SubResource("AtlasTexture_cqpu7"), SubResource("AtlasTexture_i4nby"), SubResource("AtlasTexture_h23sq"), SubResource("AtlasTexture_ffedl")],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_twl04"), SubResource("AtlasTexture_8bk1t"), SubResource("AtlasTexture_7anyb"), SubResource("AtlasTexture_oenat"), SubResource("AtlasTexture_cuqcx"), SubResource("AtlasTexture_0nqir"), SubResource("AtlasTexture_e3x83")],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kc1vt"]
+height = 38.0
+
+[node name="BalconyNPC" type="AnimatableBody2D"]
+script = ExtResource("1_msu8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+frames = SubResource("SpriteFrames_4psm3")
+animation = &"stand"
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_kc1vt")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

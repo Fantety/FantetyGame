@@ -11,6 +11,9 @@ const PROGRESS_SPEED = 20
 @onready var elevatorArrivedSound = get_parent().get_node("Sound/ElevatorArrived")
 
 
+var balconyPlotStart = false
+var balconyPlotArrived = false
+
 
 var inputPasswdSoundRight
 var inputPasswdSoundError
@@ -82,6 +85,12 @@ func _physics_process(delta):
 			playerView.play("stand")
 			runSound.stop()
 
+	elif Common.balconyPlot == false and balconyPlotStart and balconyPlotArrived == false:
+		move_and_collide(Vector2(-1,0))
+		playerView.play("walk")
+		if !runSound.playing:
+			runSound.play()
+		pass
 	move_and_slide()
 
 
@@ -435,4 +444,23 @@ func _on_vending_machines_body_exited(body):
 	if body == self:
 		dialogBubble.hide()
 		Common.VendingMachineReady = false
+	pass # Replace with function body.
+
+
+signal balcony_plot_player_arrived
+func _on_balcony_plot_area_body_entered(body):
+	if body == self and Common.balconyPlot == false:
+		balconyPlotArrived = true
+		playerView.play("stand")
+		var tween = create_tween().bind_node($Camera).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property($Camera, "position", Vector2(get_node("Camera").position.x-50,get_node("Camera").position.y),2)
+		tween.play()
+		await tween.finished
+		tween.kill()
+		emit_signal("balcony_plot_player_arrived")
+	pass # Replace with function body.
+
+
+func _on_overhead_door_balcony_plot_start():
+	balconyPlotStart = true
 	pass # Replace with function body.

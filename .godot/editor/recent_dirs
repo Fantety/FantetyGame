@@ -1,3 +1,6 @@
+res://asset/player
+res://scene/NPC
+res://src/player/NPC
 res://src
 res://src/scene/BedPaper
 res://scene
@@ -15,8 +18,5 @@ res://asset/img/furniture
 res://src/scene/Death
 res://src/animation
 res://src/scene/BackGround
-res://asset/player
 res://src/scene/OverheadDoor
 res://resource
-res://asset/img/scene
-res://src/player

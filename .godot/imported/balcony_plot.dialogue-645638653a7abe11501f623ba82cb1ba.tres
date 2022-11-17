@@ -1,0 +1,51 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+metadata/dialogue_manager_version = "2.3.0"
+metadata/titles = {
+"start": "2"
+}
+metadata/first_title = "2"
+metadata/lines = {
+"1": {
+"next_id": "2",
+"text": "start",
+"type": "title"
+},
+"2": {
+"character": "???",
+"character_replacements": [],
+"next_id": "3",
+"text": "你醒啦！",
+"text_replacements": [],
+"translation_key": "你醒啦！",
+"type": "dialogue"
+},
+"3": {
+"next_id": "4",
+"next_id_after": "4",
+"responses": PackedStringArray("3"),
+"text": "你是？",
+"text_replacements": [],
+"translation_key": "你是？",
+"type": "response"
+},
+"4": {
+"character": "???",
+"character_replacements": [],
+"next_id": "5",
+"text": "我嘛，emmmm，我是你的特化。",
+"text_replacements": [],
+"translation_key": "我嘛，emmmm，我是你的特化。",
+"type": "dialogue"
+},
+"5": {
+"next_id": "",
+"next_id_after": "end!",
+"responses": PackedStringArray("5"),
+"text": "特化？",
+"text_replacements": [],
+"translation_key": "特化？",
+"type": "response"
+}
+}
