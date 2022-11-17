@@ -1,9 +1,9 @@
+PointLight2D
 CollisionShape2D
 Area2D
 RichTextLabel
 Button
 BaseButton
-PointLight2D
 Label
 ColorRect
 Control

@@ -9,7 +9,6 @@ CanvasLayer
 TextureRect
 Control
 Node2D
-BalconyBackground
 PointLight2D
 CanvasModulate
 CPUParticles2D
