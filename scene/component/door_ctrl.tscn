@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://byc6h3rll8svx"]
+[gd_scene load_steps=9 format=3 uid="uid://dhkdg4eiqu11a"]
 
 [ext_resource type="Texture2D" uid="uid://hucspk1shob0" path="res://asset/img/furniture/door_ctrl/door_card_lock.png" id="1_56610"]
-[ext_resource type="Script" path="res://src/furniture/door_ctrl.gd" id="1_ep1jp"]
+[ext_resource type="Script" path="res://src/furniture/DoorCtrl.gd" id="1_ep1jp"]
 [ext_resource type="Texture2D" uid="uid://bga00elvgfeps" path="res://asset/img/ui/progress_bar_over.png" id="3_be23f"]
 [ext_resource type="Texture2D" uid="uid://dib0gwnimm4pg" path="res://asset/img/ui/progress_bar_progress.png" id="4_t4fx3"]
 [ext_resource type="Texture2D" uid="uid://c4pcxrp37netx" path="res://asset/img/ui/progress_bar_over_light.png" id="5_xakm3"]

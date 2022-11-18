@@ -27,7 +27,7 @@ func search_access_control_card():
 	Backpack.accessControlCard = true;
 	tips = load("res://scene/tips.tscn").instantiate()
 	add_child(tips)
-	tips.show_tip("获得：门禁卡")
+	tips.show_tip("获得：门禁卡", true)
 	
 
 func _on_dead_area_body_entered(body):
@@ -36,4 +36,11 @@ func _on_dead_area_body_entered(body):
 		var death = load("res://scene/death.tscn").instantiate()
 		add_child(death)
 		pass
+	pass # Replace with function body.
+
+
+func _on_bedroom_out_show_vending_machine_result(result):
+	tips = load("res://scene/tips.tscn").instantiate()
+	add_child(tips)
+	tips.show_tip("获得："+result, true)
 	pass # Replace with function body.

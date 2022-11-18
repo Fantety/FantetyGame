@@ -84,6 +84,7 @@ height = 38.0
 script = ExtResource("1_msu8o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 3
 scale = Vector2(0.8, 0.8)
 frames = SubResource("SpriteFrames_4psm3")
 animation = &"stand"

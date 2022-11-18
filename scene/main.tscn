@@ -1,4 +1,4 @@
-[gd_scene load_steps=192 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=206 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://d0r7fw3vrlo3o" path="res://asset/img/furniture/tube_light_center.png" id="21_8s32r"]
 [ext_resource type="PackedScene" uid="uid://d13dn51yjw1vk" path="res://scene/component/overhead_door.tscn" id="27_1sr34"]
 [ext_resource type="Script" path="res://src/furniture/overhead_door.gd" id="28_6kayb"]
-[ext_resource type="PackedScene" uid="uid://byc6h3rll8svx" path="res://scene/component/door_ctrl.tscn" id="28_englk"]
+[ext_resource type="PackedScene" uid="uid://dhkdg4eiqu11a" path="res://scene/component/door_ctrl.tscn" id="28_englk"]
 [ext_resource type="AudioStream" uid="uid://ckvhfetgseaa7" path="res://asset/sound/paper.wav" id="28_hkt4y"]
 [ext_resource type="AudioStream" uid="uid://678etq3k5gex" path="res://asset/sound/terminal_ui.wav" id="33_5jc16"]
 [ext_resource type="AudioStream" uid="uid://d3w0h1dwp8kwe" path="res://asset/sound/door_act.wav" id="34_gw6bn"]
@@ -56,21 +56,25 @@
 [ext_resource type="AudioStream" uid="uid://bu8jvlljwaoch" path="res://asset/sound/env/rain_sound.wav" id="38_q40kf"]
 [ext_resource type="Script" path="res://src/animation/BalconyLightAnimation.gd" id="39_1gchv"]
 [ext_resource type="Script" path="res://src/sound/RainSound.gd" id="39_02mg1"]
-[ext_resource type="Script" path="res://src/furniture/bedroom_light_switch.gd" id="39_u8f5g"]
+[ext_resource type="Script" path="res://src/furniture/BedroomLightSwitch.gd" id="39_u8f5g"]
 [ext_resource type="AudioStream" uid="uid://d2vk0ven6x2yt" path="res://asset/sound/input_passwd_error.wav" id="39_xmjmy"]
 [ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="40_1wpef"]
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="40_y5s2v"]
-[ext_resource type="Script" path="res://src/furniture/lpc_door.gd" id="42_7h032"]
+[ext_resource type="Texture2D" uid="uid://dgyrbphkqiyn6" path="res://asset/img/furniture/lab_desk/lab_desk-Sheet.png" id="41_3ebl7"]
+[ext_resource type="Script" path="res://src/furniture/OverheadDoor.gd" id="42_7h032"]
 [ext_resource type="AudioStream" uid="uid://baw274ky322so" path="res://asset/sound/jump.wav" id="48_vsoqd"]
 [ext_resource type="AudioStream" uid="uid://cmkqgtuxpi6lq" path="res://asset/sound/bgm/fantety01.wav" id="49_hjote"]
 [ext_resource type="Script" path="res://src/sound/JumpSound.gd" id="49_q4web"]
 [ext_resource type="Script" path="res://src/sound/Bgm.gd" id="50_58jlv"]
-[ext_resource type="PackedScene" uid="uid://ci2xckiqqy8dc" path="res://scene/component/elevator_ctrl_ui.tscn" id="54_d1m6m"]
+[ext_resource type="Script" path="res://src/furniture/BedroomOut.gd" id="53_th30r"]
+[ext_resource type="PackedScene" uid="uid://dr1oj8wp5aahb" path="res://scene/component/elevator_ctrl_ui.tscn" id="54_d1m6m"]
 [ext_resource type="AudioStream" uid="uid://b400xjunlgtn6" path="res://asset/sound/light_switch.wav" id="59_rx7j2"]
+[ext_resource type="AudioStream" uid="uid://catspfyykncce" path="res://asset/sound/rain_walk.wav" id="62_gi3ow"]
 [ext_resource type="PackedScene" uid="uid://bhtqenmvrc0nj" path="res://scene/component/elevator.tscn" id="62_nq4lk"]
 [ext_resource type="AudioStream" uid="uid://c7cbxanuw65ew" path="res://asset/sound/elevator_arrived.wav" id="63_xpv6i"]
 [ext_resource type="AudioStream" uid="uid://bgyuu2jqawyag" path="res://asset/sound/bubble.wav" id="65_ichm4"]
 [ext_resource type="PackedScene" uid="uid://bu3itnq6oeck4" path="res://scene/NPC/balcony_npc.tscn" id="71_o8bdh"]
+[ext_resource type="AudioStream" uid="uid://hujhip2potqc" path="res://asset/sound/env/thunder.wav" id="72_6gpu7"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -652,6 +656,62 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqqfl"]
 size = Vector2(11, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uydys"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jehky"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fircy"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb4xt"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr2of"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8mfy"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1wq1"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwrxj"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dh06"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y55v"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(576, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5fk3"]
+atlas = ExtResource("41_3ebl7")
+region = Rect2(640, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1jcr"]
+animations = [{
+"frames": [SubResource("AtlasTexture_uydys"), SubResource("AtlasTexture_jehky"), SubResource("AtlasTexture_fircy"), SubResource("AtlasTexture_yb4xt"), SubResource("AtlasTexture_kr2of"), SubResource("AtlasTexture_y8mfy"), SubResource("AtlasTexture_k1wq1"), SubResource("AtlasTexture_rwrxj"), SubResource("AtlasTexture_1dh06"), SubResource("AtlasTexture_4y55v"), SubResource("AtlasTexture_p5fk3")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_30bc6"]
+cull_mode = 2
+polygon = PackedVector2Array(31.9999, 2.66667, 31.9999, 16, -32.0001, 16, -32.0001, 2.66667)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o62p6"]
 b = Vector2(-17, 0)
 
@@ -928,42 +988,6 @@ animations = [{
 radius = 8.0
 height = 34.0
 
-[sub_resource type="Animation" id="Animation_sxfa8"]
-resource_name = "PlayerUpDown"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1521, -149), Vector2(1521, -149)]
-}
-
-[sub_resource type="Animation" id="Animation_tyo65"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1521, -149)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kiuso"]
-_data = {
-"PlayerUpDown": SubResource("Animation_sxfa8"),
-"RESET": SubResource("Animation_tyo65")
-}
-
 [node name="main" type="Node2D"]
 script = ExtResource("1_s3vct")
 
@@ -971,7 +995,7 @@ script = ExtResource("1_s3vct")
 light_mask = 2
 position = Vector2(-45, -39)
 scale = Vector2(0.5, 0.5)
-z_index = -1
+z_index = -2
 script = ExtResource("2_gteu2")
 
 [node name="Sky" type="TextureRect" parent="Background"]
@@ -1002,7 +1026,7 @@ texture = ExtResource("4_13mqy")
 light_mask = 0
 position = Vector2(84, -293.5)
 scale = Vector2(3.23333, 1.06375)
-energy = 2.3
+energy = 1.5
 range_item_cull_mask = 2
 texture = ExtResource("2_nqyiv")
 
@@ -1035,13 +1059,13 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -65485, 262144, 1, -65484, 327680, 1, -131021, 262144, 0, -131020, 327680, 0, -65487, 65536, 1, -65488, 0, 1, -131024, 0, 0, -131023, 65536, 0, -65491, 131072, 1, -65490, 196608, 1, -131027, 131072, 0, -131026, 196608, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
 layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
-layer_4/z_index = 2
+layer_4/z_index = 4
 layer_4/tile_data = PackedInt32Array(-327678, 13, 0, -327679, 13, 0, -327680, 13, 0, -262145, 13, 0, -262146, 13, 0, -262147, 14, 0)
 layer_5/name = "BackFurniture"
 layer_5/enabled = true
@@ -1080,6 +1104,14 @@ shape = SubResource("RectangleShape2D_eqqfl")
 
 [node name="PointLight2D1" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
 position = Vector2(1393, -111)
+scale = Vector2(0.25, 0.25)
+energy = 1.2
+shadow_enabled = true
+texture = ExtResource("36_lg4vx")
+offset = Vector2(-5.93652, 404.35)
+
+[node name="PointLight2D0" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
+position = Vector2(1296, -110)
 scale = Vector2(0.25, 0.25)
 energy = 1.2
 shadow_enabled = true
@@ -1126,6 +1158,28 @@ scale = Vector2(0.181016, 0.205624)
 color = Color(0.231373, 1, 0.301961, 1)
 energy = 0.5
 texture = ExtResource("8_8ursp")
+
+[node name="PointLight2D6" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
+position = Vector2(1472, -11)
+scale = Vector2(0.181016, 0.205624)
+color = Color(0.231373, 1, 0.301961, 1)
+energy = 0.5
+texture = ExtResource("8_8ursp")
+
+[node name="LabDeskScreenLight" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
+position = Vector2(1331, -32)
+scale = Vector2(0.229299, 0.220183)
+color = Color(0.0705882, 1, 0.141176, 1)
+texture = ExtResource("8_8ursp")
+
+[node name="LabDesk" type="AnimatedSprite2D" parent="GreenHouse"]
+position = Vector2(1316, -24)
+scale = Vector2(1.5, 1.5)
+frames = SubResource("SpriteFrames_w1jcr")
+playing = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="GreenHouse/LabDesk"]
+occluder = SubResource("OccluderPolygon2D_30bc6")
 
 [node name="Bedroom" type="Node2D" parent="."]
 
@@ -1292,6 +1346,7 @@ texture = ExtResource("36_vw2il")
 [node name="BalconySideLight2" type="PointLight2D" parent="Balcony/BalconyLight"]
 position = Vector2(88, -208)
 scale = Vector2(1.2, 1.2)
+energy = 1.6
 shadow_enabled = true
 shadow_filter_smooth = 6.9
 texture = ExtResource("36_vw2il")
@@ -1299,16 +1354,16 @@ texture_scale = 0.4
 
 [node name="RainParticles" type="CPUParticles2D" parent="Balcony"]
 position = Vector2(38, -332)
-z_index = -1
-amount = 300
+z_index = -2
+amount = 500
 lifetime = 2.0
 preprocess = 9.0
 speed_scale = 2.0
 randomness = 1.0
 lifetime_randomness = 0.33
 local_coords = true
-emission_shape = 3
-emission_rect_extents = Vector2(100, 1)
+emission_shape = 1
+emission_sphere_radius = 128.0
 particle_flag_align_y = true
 gravity = Vector2(-200, 980)
 angular_velocity_min = 2.0
@@ -1488,6 +1543,7 @@ position = Vector2(-1.31346, -0.0303192)
 shape = SubResource("RectangleShape2D_jlo0b")
 
 [node name="BedroomOut" type="Node" parent="Area"]
+script = ExtResource("53_th30r")
 
 [node name="VendingMachines" type="Area2D" parent="Area/BedroomOut"]
 position = Vector2(1360.46, -157.147)
@@ -1507,7 +1563,7 @@ shape = SubResource("SegmentShape2D_xvwtt")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 light_mask = 2
-position = Vector2(1521, -149)
+position = Vector2(1773, -145)
 z_index = 3
 script = ExtResource("2_8cdtn")
 
@@ -1515,7 +1571,7 @@ script = ExtResource("2_8cdtn")
 position = Vector2(2, -3)
 scale = Vector2(0.8, 0.8)
 frames = SubResource("SpriteFrames_ea4y3")
-animation = &"walk"
+animation = &"stand"
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Player"]
@@ -1549,14 +1605,12 @@ offset_right = 16.0
 offset_bottom = -15.0
 scale = Vector2(0.3, 0.3)
 
-[node name="PlayerAnimation" type="AnimationPlayer" parent="Player"]
-libraries = {
-"": SubResource("AnimationLibrary_kiuso")
-}
-
 [node name="Timer" type="Timer" parent="Player"]
 wait_time = 2.0
 one_shot = true
+
+[node name="RainWalkSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("62_gi3ow")
 
 [node name="Sound" type="Node" parent="."]
 
@@ -1596,6 +1650,10 @@ stream = ExtResource("63_xpv6i")
 [node name="Bubble" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("65_ichm4")
 
+[node name="Thunder" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("72_6gpu7")
+volume_db = -5.0
+
 [node name="Elevator" type="Node" parent="."]
 
 [node name="Elevator" parent="Elevator" instance=ExtResource("62_nq4lk")]
@@ -1612,6 +1670,7 @@ position = Vector2(960, 96)
 position = Vector2(960, 224)
 
 [node name="BalconyNPC" parent="." instance=ExtResource("71_o8bdh")]
+light_mask = 2
 position = Vector2(-80, -148)
 
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
@@ -1643,6 +1702,7 @@ position = Vector2(-80, -148)
 [connection signal="body_entered" from="Area/Balcony/DeadArea" to="." method="_on_dead_area_body_entered"]
 [connection signal="body_entered" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_entered"]
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
+[connection signal="show_vending_machine_result" from="Area/BedroomOut" to="." method="_on_bedroom_out_show_vending_machine_result"]
 [connection signal="body_entered" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_entered"]
 [connection signal="body_exited" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_exited"]
 [connection signal="body_entered" from="Area/Plots/BalconyPlotArea" to="Player" method="_on_balcony_plot_area_body_entered"]
@@ -1650,6 +1710,7 @@ position = Vector2(-80, -148)
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
 [connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]
+[connection signal="use_vending_machine" from="Player" to="Area/BedroomOut" method="_on_player_use_vending_machine"]
 [connection signal="finished" from="Player/JumpSound" to="Player/JumpSound" method="_on_finished"]
 [connection signal="elevator_floor_selected" from="Player/ElevatorCtrlUi" to="Player" method="_on_elevator_ctrl_ui_elevator_floor_selected"]
 [connection signal="finished" from="Sound/Bgm" to="Sound/Bgm" method="_on_finished"]

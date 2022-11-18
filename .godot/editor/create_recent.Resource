@@ -1,3 +1,4 @@
+Resource
 NativeExtension
 FontVariation
 SystemFont

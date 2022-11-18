@@ -89,11 +89,18 @@ metadata/lines = {
 "type": "response"
 },
 "19": {
+"condition": {
+"expression": [{
+"function": "balcony_finish",
+"type": "function",
+"value": []
+}]
+},
 "next_id": "48",
 "next_id_after": "22",
-"text": "那我应该怎么离开这里.[if balcony_finish()]",
+"text": "那我应该怎么离开这里",
 "text_replacements": [],
-"translation_key": "那我应该怎么离开这里.[if balcony_finish()]",
+"translation_key": "那我应该怎么离开这里",
 "type": "response"
 },
 "2": {
@@ -139,9 +146,9 @@ metadata/lines = {
 "character": "复制品",
 "character_replacements": [],
 "next_id": "25",
-"text": "而我的任务很简单，告诉你我知道的..[speed=0.2]...[speed=1]真相。",
+"text": "而我的任务很简单，告诉你我知道的 [speed=0.2]真相。",
 "text_replacements": [],
-"translation_key": "而我的任务很简单，告诉你我知道的..[speed=0.2]...[speed=1]真相。",
+"translation_key": "而我的任务很简单，告诉你我知道的 [speed=0.2]真相。",
 "type": "dialogue"
 },
 "25": {
@@ -175,9 +182,9 @@ metadata/lines = {
 "next_id": "33",
 "next_id_after": "33",
 "responses": PackedStringArray("28", "29"),
-"text": "母亲？为什么我没有印象，只有..[wait=1]..纸条！",
+"text": "母亲？为什么我没有印象，只有纸条！",
 "text_replacements": [],
-"translation_key": "母亲？为什么我没有印象，只有..[wait=1]..纸条！",
+"translation_key": "母亲？为什么我没有印象，只有纸条！",
 "type": "response"
 },
 "29": {
@@ -245,11 +252,18 @@ metadata/lines = {
 "type": "response"
 },
 "37": {
+"condition": {
+"expression": [{
+"function": "balcony_finish",
+"type": "function",
+"value": []
+}]
+},
 "next_id": "48",
 "next_id_after": "40",
-"text": "那我应该怎么离开这里.[if balcony_finish()]",
+"text": "那我应该怎么离开这里.",
 "text_replacements": [],
-"translation_key": "那我应该怎么离开这里.[if balcony_finish()]",
+"translation_key": "那我应该怎么离开这里.",
 "type": "response"
 },
 "39": {
@@ -262,9 +276,9 @@ metadata/lines = {
 "character_replacements": [],
 "next_id": "5",
 "parent_id": "3",
-"text": "我嘛，[speed=0.2]emmmm[speed=1]，是你的复制品。",
+"text": "我嘛， [speed=0.2]emmmm [speed=1]，是你的复制品。",
 "text_replacements": [],
-"translation_key": "我嘛，[speed=0.2]emmmm[speed=1]，是你的复制品。",
+"translation_key": "我嘛， [speed=0.2]emmmm [speed=1]，是你的复制品。",
 "type": "dialogue"
 },
 "40": {
@@ -305,9 +319,9 @@ metadata/lines = {
 "next_id": "33",
 "next_id_after": "48",
 "responses": PackedStringArray("43", "44", "45"),
-"text": "那母亲呢？为什么我没有印象，只有[wait=1]纸条！",
+"text": "那母亲呢？为什么我没有印象，只有纸条！",
 "text_replacements": [],
-"translation_key": "那母亲呢？为什么我没有印象，只有[wait=1]纸条！",
+"translation_key": "那母亲呢？为什么我没有印象，只有纸条！",
 "type": "response"
 },
 "44": {
@@ -319,11 +333,18 @@ metadata/lines = {
 "type": "response"
 },
 "45": {
+"condition": {
+"expression": [{
+"function": "balcony_finish",
+"type": "function",
+"value": []
+}]
+},
 "next_id": "48",
 "next_id_after": "48",
-"text": "那我应该怎么离开这里.[if balcony_finish()]",
+"text": "那我应该怎么离开这里.",
 "text_replacements": [],
-"translation_key": "那我应该怎么离开这里.[if balcony_finish()]",
+"translation_key": "那我应该怎么离开这里.",
 "type": "response"
 },
 "47": {
@@ -381,9 +402,9 @@ metadata/lines = {
 "character_replacements": [],
 "next_id": "8",
 "parent_id": "6",
-"text": "别那么激动嘛，我？[wait=1]是你的复制品。",
+"text": "别那么激动嘛，我？ [wait=1]是你的复制品。",
 "text_replacements": [],
-"translation_key": "别那么激动嘛，我？[wait=1]是你的复制品。",
+"translation_key": "别那么激动嘛，我？ [wait=1]是你的复制品。",
 "type": "dialogue"
 },
 "8": {

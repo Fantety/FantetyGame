@@ -1,10 +1,10 @@
 ~ start
 ???: 你醒啦！
 - 你是？
-	???: 我嘛，[speed=0.2]emmmm[speed=1]，是你的复制品。
+	???: 我嘛， [speed=0.2]emmmm [speed=1]，是你的复制品。
 	- 复制品？ => first
 - 你是谁！
-	???: 别那么激动嘛，我？[wait=1]是你的复制品。
+	???: 别那么激动嘛，我？ [wait=1]是你的复制品。
 	- 复制品？ => first
 
 ~ first
@@ -16,16 +16,16 @@
 do balconyFirstChoise += 1
 复制品: 就是...[wait=1]你的复制品并不止我一个，他们各司其职，我并不保证他们都友善。
 - 那什么叫我没有的？ => question1_2
-- 那我应该怎么离开这里.[if balcony_finish()] => finish
+- 那我应该怎么离开这里 [if balcony_finish()] => finish
 
 ~ question1_2
 do balconyFirstChoise += 1
 复制品: 你是原型，为了完成某些任务我们被赋予了某些特殊技能。
-复制品: 而我的任务很简单，告诉你我知道的..[speed=0.2]...[speed=1]真相。
+复制品: 而我的任务很简单，告诉你我知道的 [speed=0.2]真相。
 - 真相？
 复制品: 首先，这里是座早已被抛弃的实验室，名为“白止”，当然还有被遗弃的我们。
 复制品: 但是你是特殊的，是母亲真正的孩子，他希望一切结束之后你能从这里出去，所以诞生了我。
-- 母亲？为什么我没有印象，只有..[wait=1]..纸条！ => question2_1
+- 母亲？为什么我没有印象，只有纸条！ => question2_1
 - 被遗弃？ => question2_2
 	
 
@@ -34,15 +34,15 @@ do balconySecondChoise+=1
 复制品: 抱歉，关于这个我不能告诉你，其实在我的大脑里也没有这一段内容。
 - 那被遗弃是什么意思？ => question2_2
 - 那你前面说得不保证所有是什么意思 => question1_1
-- 那我应该怎么离开这里.[if balcony_finish()] => finish
+- 那我应该怎么离开这里. [if balcony_finish()] => finish
 
 ~ question2_2
 do balconySecondChoise+=1
 复制品: 正如前面所说，我们是为了实验室而存在，但是现在我们存在的意义已经不在了。
 复制品: 但是你不一样，你是真正的你。
-- 那母亲呢？为什么我没有印象，只有[wait=1]纸条！ => question2_1
+- 那母亲呢？为什么我没有印象，只有纸条！ => question2_1
 - 那你前面说得不保证所有是什么意思 => question1_1
-- 那我应该怎么离开这里.[if balcony_finish()] => finish
+- 那我应该怎么离开这里. [if balcony_finish()] => finish
 
 ~ finish
 复制品: 你不属于实验室的一部分，很多东西你没法使用。

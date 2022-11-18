@@ -1,3 +1,6 @@
+res://asset/img/furniture/lab_desk
+E:/project/godot/Fantety/Fantety/src
+res://src/furniture
 res://asset/player
 res://scene/NPC
 res://src/player/NPC
@@ -11,12 +14,9 @@ res://
 res://src/scene/ElevatorCtrlUi
 res://src/scene/StartGameUI
 res://scene/component
-res://src/furniture
 res://src/scene
 res://src/sound
 res://asset/img/furniture
 res://src/scene/Death
 res://src/animation
 res://src/scene/BackGround
-res://src/scene/OverheadDoor
-res://resource

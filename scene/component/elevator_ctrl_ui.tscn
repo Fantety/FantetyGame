@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci2xckiqqy8dc"]
+[gd_scene load_steps=4 format=3 uid="uid://dr1oj8wp5aahb"]
 
 [ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_a7ulk"]
-[ext_resource type="Script" path="res://src/scene/ElevatorCtrlUi/elevator_ctrl_ui.gd" id="1_xx06p"]
+[ext_resource type="Script" path="res://src/scene/ElevatorCtrlUi/ElevatorCtrlUi.gd" id="1_xx06p"]
 [ext_resource type="Texture2D" uid="uid://bacnm5am173u" path="res://asset/img/icon/elevator_ctrl_icon.png" id="2_o30yi"]
 
 [node name="ElevatorCtrlUi" type="Control"]

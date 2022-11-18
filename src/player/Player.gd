@@ -7,6 +7,7 @@ const PROGRESS_SPEED = 20
 @onready var dialogBubble = preload("res://scene/component/dialog_bubble.tscn").instantiate()
 @onready var playerView = $PlayerView
 @onready var runSound = $RunSound
+@onready var rainWalkSound = $RainWalkSound
 @onready var parent = get_parent()
 @onready var elevatorArrivedSound = get_parent().get_node("Sound/ElevatorArrived")
 
@@ -71,6 +72,8 @@ func _physics_process(delta):
 				start_elevator4_ready()
 			elif Common.bedroomComputerReady:
 				start_bedroom_computer_ready()
+			elif Common.VendingMachineReady:
+				start_vending_machine_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -88,8 +91,8 @@ func _physics_process(delta):
 	elif Common.balconyPlot == false and balconyPlotStart and balconyPlotArrived == false:
 		move_and_collide(Vector2(-1,0))
 		playerView.play("walk")
-		if !runSound.playing:
-			runSound.play()
+		if !rainWalkSound.playing:
+			rainWalkSound.play()
 		pass
 	move_and_slide()
 
@@ -314,7 +317,7 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 	print(index)
 	if index != currentFloor:
 		gravity = 0
-		set_z_index(-1)
+		set_z_index(-2)
 		Common.elevatorCtrlTrigger = true
 		if currentFloor == 3:
 			parent.get_node("Elevator/Elevator")._on_player_change_elevator_door_status(Common.elevatorDoorStatus, 1)
@@ -344,6 +347,14 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 			parent.get_node("Elevator/Elevator4")._on_player_change_elevator_door_status(Common.elevator4DoorStatus, 4)
 		get_node("Timer").start()
 		elevatorArrivedSound.play()
+		if currentFloor == 3:
+			Common.show_tips("四楼", false)
+		elif currentFloor == 2:
+			Common.show_tips("三楼", false)
+		elif currentFloor == 1:
+			Common.show_tips("二楼", false)
+		elif currentFloor == 0:
+			Common.show_tips("一楼", false)		
 		await get_node("Timer").timeout
 		get_node("CollisionShape").set_deferred("disabled",false)
 		set_z_index(2)
@@ -446,10 +457,16 @@ func _on_vending_machines_body_exited(body):
 		Common.VendingMachineReady = false
 	pass # Replace with function body.
 
+signal use_vending_machine
+func start_vending_machine_ready():
+	emit_signal("use_vending_machine")
+	pass
 
 signal balcony_plot_player_arrived
 func _on_balcony_plot_area_body_entered(body):
 	if body == self and Common.balconyPlot == false:
+		if rainWalkSound.playing:
+			rainWalkSound.stop()
 		balconyPlotArrived = true
 		playerView.play("stand")
 		var tween = create_tween().bind_node($Camera).set_trans(Tween.TRANS_LINEAR)

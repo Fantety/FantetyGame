@@ -1,9 +1,10 @@
 extends CanvasLayer
 
 	
-func show_tip(text:String):
+func show_tip(text:String, audio:bool):
 	get_node("Label").set_text(text)
-	get_node("AudioStreamPlayer").play()
+	if audio:
+		get_node("AudioStreamPlayer").play()
 	get_node("Label").set_visible(true)
 	get_node("Timer").start()
 	await get_node("Timer").timeout

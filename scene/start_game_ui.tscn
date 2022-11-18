@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dmkyds0exx6sw"]
 
-[ext_resource type="Script" path="res://src/scene/StartGameUI/start_game_ui.gd" id="1_dasvu"]
+[ext_resource type="Script" path="res://src/scene/StartGameUI/StartGameUi.gd" id="1_dasvu"]
 [ext_resource type="Texture2D" uid="uid://dxh4wjqeb5wua" path="res://asset/img/background/Sky.png" id="1_si5qa"]
 [ext_resource type="Texture2D" uid="uid://gdrhdrktglqd" path="res://asset/img/background/City Background.png" id="2_k501m"]
 [ext_resource type="Texture2D" uid="uid://boonm2atslgm0" path="res://asset/img/background/City Foreground.png" id="3_mromn"]

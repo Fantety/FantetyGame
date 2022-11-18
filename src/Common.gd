@@ -58,3 +58,9 @@ var balconyDoorStatus = false
 
 var balconyPlot = false
 
+
+func show_tips(text, audio):
+	var tips = load("res://scene/tips.tscn").instantiate()
+	add_child(tips)
+	tips.show_tip(text, audio)
+
