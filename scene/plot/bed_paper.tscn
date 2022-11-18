@@ -46,6 +46,7 @@ show_behind_parent = false
 top_level = false
 clip_children = 0
 light_mask = 1
+visibility_layer = 1
 texture_filter = 0
 texture_repeat = 0
 material = null
@@ -93,6 +94,7 @@ action_mode = 1
 button_mask = 1
 keep_pressed_outside = false
 shortcut = null
+shortcut_feedback = true
 button_group = null
 script = null
 

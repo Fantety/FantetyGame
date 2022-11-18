@@ -12,18 +12,16 @@ config_version=5
 
 config/name="Fantety"
 run/main_scene="res://scene/start_game_ui.tscn"
-config/features=PackedStringArray("4.0", "Forward Plus")
+config/features=PackedStringArray("4.0")
 config/icon="res://Fantety.png"
-config/macos_native_icon="res://Fantety.icns"
-config/windows_native_icon="res://Fantety.ico"
 
 [autoload]
 
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Common="*res://src/Common.gd"
 ChangeScene="*res://scene/change_scene.tscn"
 DialogScript="*res://src/DialogScript.gd"
 Backpack="*res://src/Backpack.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
 
