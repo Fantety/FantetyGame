@@ -1,4 +1,4 @@
-[gd_scene load_steps=206 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=215 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -45,6 +45,10 @@
 [ext_resource type="Texture2D" uid="uid://4g4srps6vos2" path="res://asset/img/furniture/medical/desk2.png" id="20_tqvdn"]
 [ext_resource type="Texture2D" uid="uid://2qy86p6rg7rb" path="res://asset/img/fantety_tile.png" id="20_vthn4"]
 [ext_resource type="Texture2D" uid="uid://d0r7fw3vrlo3o" path="res://asset/img/furniture/tube_light_center.png" id="21_8s32r"]
+[ext_resource type="Texture2D" uid="uid://2l64o311eofp" path="res://asset/img/furniture/sofa/sofa1.png" id="21_ckjp2"]
+[ext_resource type="Texture2D" uid="uid://cyunqsfmuw6c7" path="res://asset/img/furniture/sofa/sofa2.png" id="22_10ry2"]
+[ext_resource type="Texture2D" uid="uid://b7df4jur1hqxl" path="res://asset/img/furniture/sofa/sofa3.png" id="23_jrfm7"]
+[ext_resource type="Texture2D" uid="uid://dktdh8c4a6q6d" path="res://asset/img/furniture/sofa/sofa4.png" id="24_eto73"]
 [ext_resource type="PackedScene" uid="uid://d13dn51yjw1vk" path="res://scene/component/overhead_door.tscn" id="27_1sr34"]
 [ext_resource type="Script" path="res://src/furniture/overhead_door.gd" id="28_6kayb"]
 [ext_resource type="PackedScene" uid="uid://dhkdg4eiqu11a" path="res://scene/component/door_ctrl.tscn" id="28_englk"]
@@ -75,6 +79,7 @@
 [ext_resource type="AudioStream" uid="uid://bgyuu2jqawyag" path="res://asset/sound/bubble.wav" id="65_ichm4"]
 [ext_resource type="PackedScene" uid="uid://bu3itnq6oeck4" path="res://scene/NPC/balcony_npc.tscn" id="71_o8bdh"]
 [ext_resource type="AudioStream" uid="uid://hujhip2potqc" path="res://asset/sound/env/thunder.wav" id="72_6gpu7"]
+[ext_resource type="PackedScene" uid="uid://besbdnqtlgpxl" path="res://scene/furniture/clock.tscn" id="80_adw5a"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -393,6 +398,46 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfpci"]
+texture = ExtResource("21_ckjp2")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt6gs"]
+texture = ExtResource("22_10ry2")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_08ikp"]
+texture = ExtResource("23_jrfm7")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jm6y8"]
+texture = ExtResource("24_eto73")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0b0ii"]
 polygon = PackedVector2Array(-16, 2, -16, -1, 16, -1, 16, 2.5, 4, 16, -16, 16, -3.5, 2.5)
 
@@ -609,6 +654,10 @@ sources/18 = SubResource("TileSetAtlasSource_rrfsh")
 sources/19 = SubResource("TileSetAtlasSource_po6cr")
 sources/20 = SubResource("TileSetAtlasSource_dvalj")
 sources/21 = SubResource("TileSetAtlasSource_6n0ti")
+sources/23 = SubResource("TileSetAtlasSource_xfpci")
+sources/24 = SubResource("TileSetAtlasSource_wt6gs")
+sources/25 = SubResource("TileSetAtlasSource_08ikp")
+sources/26 = SubResource("TileSetAtlasSource_jm6y8")
 pattern_0 = SubResource("TileMapPattern_ui0fq")
 pattern_1 = SubResource("TileMapPattern_gujvv")
 pattern_2 = SubResource("TileMapPattern_ko4ou")
@@ -1059,7 +1108,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -1672,6 +1721,10 @@ position = Vector2(960, 224)
 [node name="BalconyNPC" parent="." instance=ExtResource("71_o8bdh")]
 light_mask = 2
 position = Vector2(-80, -148)
+
+[node name="Clock" parent="." instance=ExtResource("80_adw5a")]
+position = Vector2(1520, -176)
+scale = Vector2(0.7, 0.7)
 
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]

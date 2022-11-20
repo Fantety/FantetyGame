@@ -1,0 +1,59 @@
+[gd_scene load_steps=14 format=3 uid="uid://besbdnqtlgpxl"]
+
+[ext_resource type="Texture2D" uid="uid://bbs180ng6oyjv" path="res://asset/img/furniture/clock.png" id="1_2r2ne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyr01"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ygas"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axk5l"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4dlr"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dggrx"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcs1o"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsjfi"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8idtj"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60t5g"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbcwj"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xufi6"]
+atlas = ExtResource("1_2r2ne")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qbnp"]
+animations = [{
+"frames": [SubResource("AtlasTexture_wyr01"), SubResource("AtlasTexture_8ygas"), SubResource("AtlasTexture_axk5l"), SubResource("AtlasTexture_w4dlr"), SubResource("AtlasTexture_dggrx"), SubResource("AtlasTexture_bcs1o"), SubResource("AtlasTexture_qsjfi"), SubResource("AtlasTexture_8idtj"), SubResource("AtlasTexture_60t5g"), SubResource("AtlasTexture_qbcwj"), SubResource("AtlasTexture_xufi6")],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Clock" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_8qbnp")
+playing = true
