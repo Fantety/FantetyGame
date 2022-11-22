@@ -8,5 +8,5 @@ var balconyFirstChoise = 0
 var balconySecondChoise = 0
 
 func balcony_finish() -> bool:
-	return balconyFirstChoise==2 and balconySecondChoise==2
+	return balconyFirstChoise>=2 and balconySecondChoise>=2
 	
