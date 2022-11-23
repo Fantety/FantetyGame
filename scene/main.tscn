@@ -1094,7 +1094,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-524244, 4, 0, -262133, 4, 0, -196597, 4, 0)
+layer_1/tile_data = PackedInt32Array(-524244, 4, 0, -262133, 4, 0, -196597, 4, 0, -262109, 4, 0, -196573, 4, 0)
 layer_2/name = "Floor"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -1108,7 +1108,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1, -262107, 9, 0)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -1151,16 +1151,25 @@ shape = SubResource("RectangleShape2D_eqqfl")
 
 [node name="GreenHouseLight" type="Node2D" parent="GreenHouse"]
 
-[node name="PointLight2D1" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
-position = Vector2(1393, -111)
+[node name="PointLight2D0" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
+position = Vector2(1296, -110)
 scale = Vector2(0.25, 0.25)
 energy = 1.2
 shadow_enabled = true
 texture = ExtResource("36_lg4vx")
 offset = Vector2(-5.93652, 404.35)
 
-[node name="PointLight2D0" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
-position = Vector2(1296, -110)
+[node name="PointLight2D7" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
+position = Vector2(1201, -111)
+scale = Vector2(0.25, 0.25)
+energy = 1.2
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("36_lg4vx")
+offset = Vector2(-5.93652, 404.35)
+
+[node name="PointLight2D1" type="PointLight2D" parent="GreenHouse/GreenHouseLight"]
+position = Vector2(1393, -111)
 scale = Vector2(0.25, 0.25)
 energy = 1.2
 shadow_enabled = true
@@ -1229,6 +1238,9 @@ playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="GreenHouse/LabDesk"]
 occluder = SubResource("OccluderPolygon2D_30bc6")
+
+[node name="OverheadDoor" parent="GreenHouse" instance=ExtResource("27_1sr34")]
+position = Vector2(1132, -64)
 
 [node name="Bedroom" type="Node2D" parent="."]
 
