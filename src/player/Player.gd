@@ -26,8 +26,7 @@ var currentFloor = 3
 
 var isJumped = false
 
-signal change_bedroom_door_status()
-signal change_balcony_door_status()
+
 signal change_elevator_door_status(status)
 signal change_bedroom_light_status(num:int)
 
@@ -126,13 +125,20 @@ func start_bedroom_desk_ready():
 func start_kuikui_ready():
 	DialogueManager.show_example_dialogue_balloon(get_node("..").kuikuiDialog, "start")
 	pass
-
+	
+signal change_bedroom_door_status
 func start_bedroom_door_ctrl_ready():
 	emit_signal("change_bedroom_door_status")
 	pass
 
+signal change_balcony_door_status
 func start_balcony_door_ctrl_ready():
 	emit_signal("change_balcony_door_status")
+	pass
+	
+signal change_greenhouse_door_status	
+func start_greenhouse_door_ctrl_ready():
+	emit_signal("change_greenhouse_door_status")
 	pass
 
 func start_elevator_ready():
@@ -480,4 +486,23 @@ func _on_balcony_plot_area_body_entered(body):
 
 func _on_overhead_door_balcony_plot_start():
 	balconyPlotStart = true
+	pass # Replace with function body.
+
+
+func _on_door_ctrl_greenhouse_door_ctrl_input_finished():
+	start_greenhouse_door_ctrl_ready()
+	pass # Replace with function body.
+
+
+func _on_greenhouse_door_ctrl_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.greenhouseDoorCtrlReady = true
+	pass # Replace with function body.
+
+
+func _on_greenhouse_door_ctrl_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.greenhouseDoorCtrlReady = false
 	pass # Replace with function body.

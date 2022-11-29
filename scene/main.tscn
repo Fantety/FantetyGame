@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=217 format=3 uid="uid://brmvhvdusrh7o"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -66,6 +66,7 @@
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="40_y5s2v"]
 [ext_resource type="Texture2D" uid="uid://dgyrbphkqiyn6" path="res://asset/img/furniture/lab_desk/lab_desk-Sheet.png" id="41_3ebl7"]
 [ext_resource type="Script" path="res://src/furniture/OverheadDoor.gd" id="42_7h032"]
+[ext_resource type="Script" path="res://src/furniture/GreenhouseOverheadDoor.gd" id="47_s7xfd"]
 [ext_resource type="AudioStream" uid="uid://baw274ky322so" path="res://asset/sound/jump.wav" id="48_vsoqd"]
 [ext_resource type="AudioStream" uid="uid://cmkqgtuxpi6lq" path="res://asset/sound/bgm/fantety01.wav" id="49_hjote"]
 [ext_resource type="Script" path="res://src/sound/JumpSound.gd" id="49_q4web"]
@@ -923,6 +924,8 @@ size = Vector2(14, 19.9394)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xvwtt"]
 b = Vector2(0.0534058, 18.0229)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq0p8"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_25p0y"]
 atlas = ExtResource("2_pkois")
 region = Rect2(0, 0, 34, 50)
@@ -1241,6 +1244,11 @@ occluder = SubResource("OccluderPolygon2D_30bc6")
 
 [node name="OverheadDoor" parent="GreenHouse" instance=ExtResource("27_1sr34")]
 position = Vector2(1132, -64)
+script = ExtResource("47_s7xfd")
+
+[node name="DoorCtrl" parent="GreenHouse" instance=ExtResource("28_englk")]
+position = Vector2(1106, -45)
+scale = Vector2(0.5, 0.5)
 
 [node name="Bedroom" type="Node2D" parent="."]
 
@@ -1622,6 +1630,15 @@ position = Vector2(30.6545, -146.967)
 position = Vector2(-0.707909, 0.943863)
 shape = SubResource("SegmentShape2D_xvwtt")
 
+[node name="Greenhouse" type="Node" parent="Area"]
+
+[node name="GreenhouseDoorCtrl" type="Area2D" parent="Area/Greenhouse"]
+position = Vector2(1113.54, -45.7937)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Greenhouse/GreenhouseDoorCtrl"]
+position = Vector2(1.46265, 11.7937)
+shape = SubResource("RectangleShape2D_bq0p8")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 light_mask = 2
 position = Vector2(1773, -145)
@@ -1740,8 +1757,10 @@ scale = Vector2(0.7, 0.7)
 
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
+[connection signal="greenhouse_door_ctrl_input_finished" from="GreenHouse/DoorCtrl" to="Player" method="_on_door_ctrl_greenhouse_door_ctrl_input_finished"]
 [connection signal="balcony_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
 [connection signal="bedroom_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_bedroom_door_ctrl_input_finished"]
+[connection signal="greenhouse_door_ctrl_input_finished" from="Bedroom/DoorCtrl" to="Player" method="_on_door_ctrl_greenhouse_door_ctrl_input_finished"]
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Bedroom/BedroomLightSwitch" method="_on_bedroom_light_switch_area_body_entered"]
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_entered"]
 [connection signal="body_exited" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Bedroom/BedroomLightSwitch" method="_on_bedroom_light_switch_area_body_exited"]
@@ -1749,6 +1768,7 @@ scale = Vector2(0.7, 0.7)
 [connection signal="finished" from="Balcony/RainSound" to="Balcony/RainSound" method="_on_finished"]
 [connection signal="balcony_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
 [connection signal="bedroom_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_bedroom_door_ctrl_input_finished"]
+[connection signal="greenhouse_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_greenhouse_door_ctrl_input_finished"]
 [connection signal="balcony_plot_start" from="Balcony/OverheadDoor" to="Player" method="_on_overhead_door_balcony_plot_start"]
 [connection signal="body_entered" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_entered"]
 [connection signal="body_exited" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_exited"]
@@ -1771,10 +1791,13 @@ scale = Vector2(0.7, 0.7)
 [connection signal="body_entered" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_entered"]
 [connection signal="body_exited" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_exited"]
 [connection signal="body_entered" from="Area/Plots/BalconyPlotArea" to="Player" method="_on_balcony_plot_area_body_entered"]
+[connection signal="body_entered" from="Area/Greenhouse/GreenhouseDoorCtrl" to="Player" method="_on_greenhouse_door_ctrl_body_entered"]
+[connection signal="body_exited" from="Area/Greenhouse/GreenhouseDoorCtrl" to="Player" method="_on_greenhouse_door_ctrl_body_exited"]
 [connection signal="balcony_plot_player_arrived" from="Player" to="BalconyNPC" method="_on_player_balcony_plot_player_arrived"]
 [connection signal="change_balcony_door_status" from="Player" to="Balcony/OverheadDoor" method="_on_player_change_balcony_door_status"]
 [connection signal="change_bedroom_door_status" from="Player" to="Bedroom/OverheadDoor" method="_on_player_change_bedroom_door_status"]
 [connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]
+[connection signal="change_greenhouse_door_status" from="Player" to="GreenHouse/OverheadDoor" method="_on_player_change_greenhouse_door_status"]
 [connection signal="use_vending_machine" from="Player" to="Area/BedroomOut" method="_on_player_use_vending_machine"]
 [connection signal="finished" from="Player/JumpSound" to="Player/JumpSound" method="_on_finished"]
 [connection signal="elevator_floor_selected" from="Player/ElevatorCtrlUi" to="Player" method="_on_elevator_ctrl_ui_elevator_floor_selected"]

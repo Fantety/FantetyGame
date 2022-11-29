@@ -21,6 +21,8 @@ var bedroomSwitch4Status = true
 @export var bedroomDoorCtrlValue = 0.0
 @export var balconyDoorCtrlAllow = true
 @export var balconyDoorCtrlValue = 0.0
+@export var greenhouseDoorCtrlAllow = true
+@export var greenhouseDoorCtrlValue = 0.0
 
 var bedReady = false
 var bedroomTerminalReady = false
@@ -53,6 +55,8 @@ var bedroomDoorCtrlReady = false
 var bedroomDoorStatus = false
 var balconyDoorCtrlReady = false
 var balconyDoorStatus = false
+var greenhouseDoorCtrlReady = false
+var greenhouseDoorStatus = false
 # Called when the node enters the scene tree for the first time.
 
 
