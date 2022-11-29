@@ -1,4 +1,4 @@
-[gd_scene load_steps=217 format=3 uid="uid://brmvhvdusrh7o"]
+[gd_scene load_steps=217 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -50,7 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://b7df4jur1hqxl" path="res://asset/img/furniture/sofa/sofa3.png" id="23_jrfm7"]
 [ext_resource type="Texture2D" uid="uid://dktdh8c4a6q6d" path="res://asset/img/furniture/sofa/sofa4.png" id="24_eto73"]
 [ext_resource type="PackedScene" uid="uid://d13dn51yjw1vk" path="res://scene/component/overhead_door.tscn" id="27_1sr34"]
-[ext_resource type="Script" path="res://src/furniture/overhead_door.gd" id="28_6kayb"]
+[ext_resource type="Script" path="res://src/furniture/BedroomOverheadDoor.gd" id="28_6kayb"]
 [ext_resource type="PackedScene" uid="uid://dhkdg4eiqu11a" path="res://scene/component/door_ctrl.tscn" id="28_englk"]
 [ext_resource type="AudioStream" uid="uid://ckvhfetgseaa7" path="res://asset/sound/paper.wav" id="28_hkt4y"]
 [ext_resource type="AudioStream" uid="uid://678etq3k5gex" path="res://asset/sound/terminal_ui.wav" id="33_5jc16"]
@@ -65,7 +65,7 @@
 [ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="40_1wpef"]
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="40_y5s2v"]
 [ext_resource type="Texture2D" uid="uid://dgyrbphkqiyn6" path="res://asset/img/furniture/lab_desk/lab_desk-Sheet.png" id="41_3ebl7"]
-[ext_resource type="Script" path="res://src/furniture/OverheadDoor.gd" id="42_7h032"]
+[ext_resource type="Script" path="res://src/furniture/BalconyOverheadDoor.gd" id="42_7h032"]
 [ext_resource type="Script" path="res://src/furniture/GreenhouseOverheadDoor.gd" id="47_s7xfd"]
 [ext_resource type="AudioStream" uid="uid://baw274ky322so" path="res://asset/sound/jump.wav" id="48_vsoqd"]
 [ext_resource type="AudioStream" uid="uid://cmkqgtuxpi6lq" path="res://asset/sound/bgm/fantety01.wav" id="49_hjote"]
