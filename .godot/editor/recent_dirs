@@ -1,3 +1,5 @@
+res://src
+res://scene
 res://src/furniture
 res://scene/furniture
 res://asset/img/furniture
@@ -6,9 +8,7 @@ E:/project/godot/Fantety/Fantety/src
 res://asset/player
 res://scene/NPC
 res://src/player/NPC
-res://src
 res://src/scene/BedPaper
-res://scene
 res://scene/plot
 D:/Microsoft VS Code
 E:/project/godot/Fantety/Fantety/bin

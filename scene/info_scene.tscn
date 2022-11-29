@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqqo3aoptvl4g"]
+[gd_scene load_steps=7 format=3 uid="uid://cqqo3aoptvl4g"]
 
+[ext_resource type="Script" path="res://src/InfoScene.gd" id="1_fmye4"]
 [ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_uos14"]
 [ext_resource type="Texture2D" uid="uid://brx1id4eh3dmr" path="res://asset/img/Fantety.png" id="2_51jkp"]
 
@@ -67,6 +68,7 @@ _data = {
 [node name="InfoScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_fmye4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -136,3 +138,10 @@ offset_right = 2611.0
 offset_bottom = 1919.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_51jkp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

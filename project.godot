@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fantety"
-run/main_scene="res://scene/start_game_ui.tscn"
+run/main_scene="res://scene/start.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://Fantety.png"
 
