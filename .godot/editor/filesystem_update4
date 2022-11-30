@@ -8,3 +8,9 @@ res://addons/dialogue_manager/example_balloon/example_balloon.tscn
 res://scene/furniture/clock.tscn
 res://scene/component/door_ctrl.tscn
 res://scene/start.tscn
+res://scene/death.tscn
+res://scene/start_game_ui.tscn
+res://scene/component/dialog_bubble.tscn
+res://shader/info_scene.gdshader
+res://shader/info_scene2.gdshader
+res://scene/component/overhead_door.tscn

@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqqo3aoptvl4g"]
+[gd_scene load_steps=14 format=3 uid="uid://cqqo3aoptvl4g"]
 
 [ext_resource type="Script" path="res://src/InfoScene.gd" id="1_fmye4"]
-[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_uos14"]
 [ext_resource type="Texture2D" uid="uid://brx1id4eh3dmr" path="res://asset/img/Fantety.png" id="2_51jkp"]
+[ext_resource type="FontFile" uid="uid://12sem1xey4xj" path="res://asset/font/Default.ttf" id="2_gevwn"]
+[ext_resource type="Shader" path="res://shader/info_scene.gdshader" id="3_4nja5"]
+[ext_resource type="AudioStream" uid="uid://dxnh0nwhvux38" path="res://asset/sound/typing.mp3" id="4_i6d5q"]
+[ext_resource type="Shader" path="res://shader/info_scene2.gdshader" id="5_0kor7"]
 
 [sub_resource type="Animation" id="Animation_elc73"]
 length = 0.001
@@ -30,10 +33,70 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label4:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label5:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label6:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label7:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_i4ivu"]
 resource_name = "Text"
-length = 2.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,12 +121,88 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label4:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label5:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5, 6.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label6:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6.1, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label7:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by8tw"]
 _data = {
 "RESET": SubResource("Animation_elc73"),
 "Text": SubResource("Animation_i4ivu")
 }
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ny0jj"]
+noise_type = 4
+seed = 6
+frequency = 0.001
+offset = Vector3(4.7619e+08, 1.90476e+08, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eicku"]
+noise = SubResource("FastNoiseLite_ny0jj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqegd"]
+shader = ExtResource("3_4nja5")
+shader_parameter/noise = SubResource("NoiseTexture2D_eicku")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7dl7"]
+shader = ExtResource("5_0kor7")
 
 [node name="InfoScene" type="Control"]
 layout_mode = 3
@@ -74,7 +213,6 @@ script = ExtResource("1_fmye4")
 layout_mode = 0
 offset_right = 1440.0
 offset_bottom = 808.0
-color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -82,7 +220,8 @@ offset_left = 198.0
 offset_top = 171.0
 offset_right = 618.0
 offset_bottom = 223.0
-theme_override_fonts/font = ExtResource("1_uos14")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
 theme_override_font_sizes/font_size = 42
 text = "Fantety"
 visible_characters = 0
@@ -94,33 +233,101 @@ offset_left = 194.0
 offset_top = 233.0
 offset_right = 614.0
 offset_bottom = 274.0
-theme_override_fonts/font = ExtResource("1_uos14")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
 theme_override_font_sizes/font_size = 32
-text = "这是一个关于我设定的游戏"
+text = "这是一个关于饭饭设定的游戏"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+offset_left = 194.0
+offset_top = 283.0
+offset_right = 614.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
+theme_override_font_sizes/font_size = 32
+text = "也算是给大家的一个周年礼物"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+offset_left = 192.0
+offset_top = 340.0
+offset_right = 893.0
+offset_bottom = 381.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
+theme_override_font_sizes/font_size = 32
+text = "在此感谢为这个Fantety提供各种资源的小伙伴"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 1
+offset_left = 192.0
+offset_top = 394.0
+offset_right = 893.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
+theme_override_font_sizes/font_size = 32
+text = "当然当中还有许多的瑕疵"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 1
+offset_left = 192.0
+offset_top = 443.0
+offset_right = 893.0
+offset_bottom = 484.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
+theme_override_font_sizes/font_size = 32
+text = "也有很多bug"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 1
+offset_left = 193.0
+offset_top = 495.0
+offset_right = 894.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
+theme_override_font_sizes/font_size = 32
+text = "不过依旧希望大家能喜欢"
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 730.0
-offset_right = 579.0
-offset_bottom = 802.0
+offset_left = 32.0
+offset_top = 728.0
+offset_right = 608.0
+offset_bottom = 800.0
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 offset_right = 576.0
-offset_bottom = 34.0
-theme_override_fonts/font = ExtResource("1_uos14")
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
 theme_override_font_sizes/font_size = 26
 text = "开源地址：https://github.com/Fantety/Fantety"
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-offset_top = 38.0
+offset_top = 34.0
 offset_right = 576.0
-offset_bottom = 72.0
-theme_override_fonts/font = ExtResource("1_uos14")
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gevwn")
 theme_override_font_sizes/font_size = 26
 text = "引擎许可：https://godotengine.org/license"
 
@@ -130,18 +337,27 @@ libraries = {
 "": SubResource("AnimationLibrary_by8tw")
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 811.0
-offset_top = 119.0
-offset_right = 2611.0
-offset_bottom = 1919.0
-scale = Vector2(0.3, 0.3)
+[node name="TextureRect" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_oqegd")
+position = Vector2(1139, 412)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_51jkp")
+
+[node name="TextureRect2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_b7dl7")
+position = Vector2(1139, 412)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_51jkp")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i6d5q")
+volume_db = 5.0
+autoplay = true
+bus = &"Effect"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

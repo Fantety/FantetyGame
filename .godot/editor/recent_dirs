@@ -1,3 +1,4 @@
+res://shader
 res://src
 res://scene
 res://src/furniture
@@ -19,4 +20,3 @@ res://scene/component
 res://src/scene
 res://src/sound
 res://src/scene/Death
-res://src/animation
