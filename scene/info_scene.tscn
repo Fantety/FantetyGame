@@ -210,12 +210,10 @@ anchors_preset = 0
 script = ExtResource("1_fmye4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_right = 1440.0
 offset_bottom = 808.0
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_left = 198.0
 offset_top = 171.0
 offset_right = 618.0
@@ -228,7 +226,6 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label2" type="Label" parent="."]
-layout_mode = 1
 offset_left = 194.0
 offset_top = 233.0
 offset_right = 614.0
@@ -241,7 +238,6 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label3" type="Label" parent="."]
-layout_mode = 1
 offset_left = 194.0
 offset_top = 283.0
 offset_right = 614.0
@@ -254,7 +250,6 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label4" type="Label" parent="."]
-layout_mode = 1
 offset_left = 192.0
 offset_top = 340.0
 offset_right = 893.0
@@ -267,7 +262,6 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label5" type="Label" parent="."]
-layout_mode = 1
 offset_left = 192.0
 offset_top = 394.0
 offset_right = 893.0
@@ -280,7 +274,6 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label6" type="Label" parent="."]
-layout_mode = 1
 offset_left = 192.0
 offset_top = 443.0
 offset_right = 893.0
@@ -293,7 +286,6 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label7" type="Label" parent="."]
-layout_mode = 1
 offset_left = 193.0
 offset_top = 495.0
 offset_right = 894.0
@@ -306,14 +298,12 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
 offset_left = 32.0
 offset_top = 728.0
 offset_right = 608.0
 offset_bottom = 800.0
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-layout_mode = 2
 offset_right = 576.0
 offset_bottom = 30.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -322,7 +312,6 @@ theme_override_font_sizes/font_size = 26
 text = "开源地址：https://github.com/Fantety/Fantety"
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 34.0
 offset_right = 576.0
 offset_bottom = 64.0

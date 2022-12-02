@@ -1,5 +1,6 @@
 CollisionShape2D
 Area2D
+Node2D
 PointLight2D
 AnimatedSprite2D
 RichTextLabel

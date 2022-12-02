@@ -1,10 +1,10 @@
+Node
 Sprite2D
 AudioStreamPlayer
 Timer
 Label
 ColorRect
 Control
-Node
 PointLight2D
 CanvasModulate
 AnimatedSprite2D

@@ -141,6 +141,11 @@ func start_greenhouse_door_ctrl_ready():
 	emit_signal("change_greenhouse_door_status")
 	pass
 
+signal change_medical_door_status
+func start_medical_door_ctrl_ready():
+	emit_signal("change_medical_door_status")
+	pass
+	
 func start_elevator_ready():
 	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
 	emit_signal("change_elevator_door_status",Common.elevatorDoorStatus, 1)
@@ -505,4 +510,23 @@ func _on_greenhouse_door_ctrl_body_exited(body):
 	if body == self:
 		dialogBubble.hide()
 		Common.greenhouseDoorCtrlReady = false
+	pass # Replace with function body.
+
+
+func _on_medical_door_ctrl_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.medicalDoorCtrlReady = true
+	pass # Replace with function body.
+
+
+func _on_medical_door_ctrl_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.medicalDoorCtrlReady = false
+	pass # Replace with function body.
+
+
+func _on_door_ctrl_medical_door_ctrl_input_finished():
+	start_medical_door_ctrl_ready()
 	pass # Replace with function body.

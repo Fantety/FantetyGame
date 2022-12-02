@@ -11,5 +11,6 @@ func _on_animation_finished():
 	Common.bedroomDoorCtrlAllow = true
 	Common.balconyDoorCtrlAllow = true
 	Common.greenhouseDoorCtrlAllow = true
+	Common.medicalDoorCtrlAllow = true
 	
 	pass # Replace with function body.
