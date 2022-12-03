@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=237 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -49,14 +49,26 @@
 [ext_resource type="Texture2D" uid="uid://cyunqsfmuw6c7" path="res://asset/img/furniture/sofa/sofa2.png" id="22_10ry2"]
 [ext_resource type="Texture2D" uid="uid://b7df4jur1hqxl" path="res://asset/img/furniture/sofa/sofa3.png" id="23_jrfm7"]
 [ext_resource type="Texture2D" uid="uid://dktdh8c4a6q6d" path="res://asset/img/furniture/sofa/sofa4.png" id="24_eto73"]
+[ext_resource type="Texture2D" uid="uid://c1rbmmdjxd1l1" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet1.png" id="25_kkhmc"]
+[ext_resource type="Texture2D" uid="uid://c3m7eqfbcmpqg" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet2.png" id="26_7ko66"]
 [ext_resource type="PackedScene" uid="uid://d13dn51yjw1vk" path="res://scene/component/overhead_door.tscn" id="27_1sr34"]
+[ext_resource type="Texture2D" uid="uid://cgmklh8bls0bq" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet3.png" id="27_85mdb"]
 [ext_resource type="Script" path="res://src/furniture/BedroomOverheadDoor.gd" id="28_6kayb"]
 [ext_resource type="PackedScene" uid="uid://dhkdg4eiqu11a" path="res://scene/component/door_ctrl.tscn" id="28_englk"]
 [ext_resource type="AudioStream" uid="uid://ckvhfetgseaa7" path="res://asset/sound/paper.wav" id="28_hkt4y"]
+[ext_resource type="Texture2D" uid="uid://cwejh3alepb5m" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet4.png" id="28_yomjn"]
+[ext_resource type="Texture2D" uid="uid://cylbsa7jfr5nj" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet5.png" id="29_iua81"]
+[ext_resource type="Texture2D" uid="uid://cux236ltxk1eq" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet6.png" id="30_piddd"]
+[ext_resource type="Texture2D" uid="uid://b1j3m1wq2fck8" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet7.png" id="31_mkj56"]
+[ext_resource type="Texture2D" uid="uid://bvayt25p1fmy6" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet8.png" id="32_okyl7"]
 [ext_resource type="AudioStream" uid="uid://678etq3k5gex" path="res://asset/sound/terminal_ui.wav" id="33_5jc16"]
+[ext_resource type="Texture2D" uid="uid://cr6do2krsn5ht" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet9.png" id="33_nshfn"]
+[ext_resource type="Texture2D" uid="uid://cug28slsojyvr" path="res://asset/img/furniture/fantety_lab/lab_terminal/terminal1-sheet10.png" id="34_7dkim"]
 [ext_resource type="AudioStream" uid="uid://d3w0h1dwp8kwe" path="res://asset/sound/door_act.wav" id="34_gw6bn"]
+[ext_resource type="Texture2D" uid="uid://clerruqgdh7a0" path="res://asset/img/furniture/fantety_lab/lab_terminal_warning/terminal1-Sheet1.png" id="36_ftlh5"]
 [ext_resource type="Texture2D" uid="uid://dtv6u8b3qfs7a" path="res://asset/img/light/light8.png" id="36_lg4vx"]
 [ext_resource type="Texture2D" uid="uid://lrn3wdsmdwvs" path="res://asset/img/light/light.png" id="36_vw2il"]
+[ext_resource type="Texture2D" uid="uid://d4nd33ke3tcx2" path="res://asset/img/furniture/fantety_lab/lab_terminal_warning/terminal1-Sheet2.png" id="37_33o54"]
 [ext_resource type="AudioStream" uid="uid://bu8jvlljwaoch" path="res://asset/sound/env/rain_sound.wav" id="38_q40kf"]
 [ext_resource type="Script" path="res://src/animation/BalconyLightAnimation.gd" id="39_1gchv"]
 [ext_resource type="Script" path="res://src/sound/RainSound.gd" id="39_02mg1"]
@@ -82,6 +94,8 @@
 [ext_resource type="PackedScene" uid="uid://bu3itnq6oeck4" path="res://scene/NPC/balcony_npc.tscn" id="71_o8bdh"]
 [ext_resource type="AudioStream" uid="uid://hujhip2potqc" path="res://asset/sound/env/thunder.wav" id="72_6gpu7"]
 [ext_resource type="PackedScene" uid="uid://besbdnqtlgpxl" path="res://scene/furniture/clock.tscn" id="80_adw5a"]
+[ext_resource type="PackedScene" uid="uid://cxn5c84lbaqmw" path="res://scene/furniture/fantety_lab.tscn" id="83_ha0b5"]
+[ext_resource type="PackedScene" uid="uid://cuuliw22oq6tb" path="res://scene/furniture/fantety_jar_broken.tscn" id="94_6unu2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -440,6 +454,37 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_hoh1a"]
+frames = 10
+speed_scale = 7.0
+frame_0/texture = ExtResource("25_kkhmc")
+frame_1/texture = ExtResource("26_7ko66")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("27_85mdb")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("28_yomjn")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("29_iua81")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("30_piddd")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("31_mkj56")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("32_okyl7")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("33_nshfn")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("34_7dkim")
+frame_9/duration = 1.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ppp"]
+texture = SubResource("AnimatedTexture_hoh1a")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0b0ii"]
 polygon = PackedVector2Array(-16, 2, -16, -1, 16, -1, 16, 2.5, 4, 16, -16, 16, -3.5, 2.5)
 
@@ -448,6 +493,20 @@ texture = ExtResource("4_kkvok")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_0b0ii")
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ko7vd"]
+frames = 2
+frame_0/texture = ExtResource("36_ftlh5")
+frame_1/texture = ExtResource("37_33o54")
+frame_1/duration = 1.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1a0x4"]
+texture = SubResource("AnimatedTexture_ko7vd")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
@@ -660,6 +719,8 @@ sources/23 = SubResource("TileSetAtlasSource_xfpci")
 sources/24 = SubResource("TileSetAtlasSource_wt6gs")
 sources/25 = SubResource("TileSetAtlasSource_08ikp")
 sources/26 = SubResource("TileSetAtlasSource_jm6y8")
+sources/27 = SubResource("TileSetAtlasSource_h4ppp")
+sources/30 = SubResource("TileSetAtlasSource_1a0x4")
 pattern_0 = SubResource("TileMapPattern_ui0fq")
 pattern_1 = SubResource("TileMapPattern_gujvv")
 pattern_2 = SubResource("TileMapPattern_ko4ou")
@@ -1115,7 +1176,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1, -262107, 9, 0)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1, -262107, 9, 0, -65523, 25, 1, -65522, 65561, 1, -65521, 26, 1, -65520, 65562, 1, 524279, 27, 0, 524282, 27, 0, 524285, 27, 0, 458752, 30, 0, 458755, 27, 0, 458758, 27, 0)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -1772,6 +1833,74 @@ position = Vector2(-80, -148)
 [node name="Clock" parent="." instance=ExtResource("80_adw5a")]
 position = Vector2(1520, -176)
 scale = Vector2(0.7, 0.7)
+
+[node name="FantetyLab" type="Node" parent="."]
+
+[node name="FantetyJar" type="Node" parent="FantetyLab"]
+
+[node name="FantetyLab" parent="FantetyLab/FantetyJar" instance=ExtResource("83_ha0b5")]
+position = Vector2(-312, 221)
+
+[node name="FantetyLab2" parent="FantetyLab/FantetyJar" instance=ExtResource("83_ha0b5")]
+position = Vector2(-216, 221)
+
+[node name="FantetyLab3" parent="FantetyLab/FantetyJar" instance=ExtResource("83_ha0b5")]
+position = Vector2(-120, 221)
+
+[node name="FantetyLab4" parent="FantetyLab/FantetyJar" instance=ExtResource("83_ha0b5")]
+position = Vector2(72, 221)
+
+[node name="FantetyLab5" parent="FantetyLab/FantetyJar" instance=ExtResource("83_ha0b5")]
+position = Vector2(168, 221)
+
+[node name="FantetyJarBroken" type="Node" parent="FantetyLab"]
+
+[node name="FantetyJarBroken" parent="FantetyLab/FantetyJarBroken" instance=ExtResource("94_6unu2")]
+position = Vector2(-24, 221)
+
+[node name="TerminalLight" type="Node" parent="FantetyLab"]
+
+[node name="PointLight2D" type="PointLight2D" parent="FantetyLab/TerminalLight"]
+position = Vector2(-272.5, 240)
+scale = Vector2(0.235669, 0.238532)
+color = Color(0.427451, 0.780392, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="PointLight2D2" type="PointLight2D" parent="FantetyLab/TerminalLight"]
+position = Vector2(-176, 240)
+scale = Vector2(0.235669, 0.238532)
+color = Color(0.427451, 0.780392, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="PointLight2D3" type="PointLight2D" parent="FantetyLab/TerminalLight"]
+position = Vector2(-80, 240)
+scale = Vector2(0.235669, 0.238532)
+color = Color(0.427451, 0.780392, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="PointLight2D5" type="PointLight2D" parent="FantetyLab/TerminalLight"]
+position = Vector2(111, 240)
+scale = Vector2(0.235669, 0.238532)
+color = Color(0.427451, 0.780392, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="PointLight2D6" type="PointLight2D" parent="FantetyLab/TerminalLight"]
+position = Vector2(208, 240)
+scale = Vector2(0.235669, 0.238532)
+color = Color(0.427451, 0.780392, 1, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
+
+[node name="PointLight2D4" type="PointLight2D" parent="FantetyLab/TerminalLight"]
+position = Vector2(15, 240)
+scale = Vector2(0.235669, 0.238532)
+color = Color(0.92549, 0.501961, 0.690196, 1)
+energy = 0.7
+texture = ExtResource("8_8ursp")
 
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuuliw22oq6tb"]
+
+[ext_resource type="Texture2D" uid="uid://dwf1u5sd6qxy5" path="res://asset/img/furniture/fantety_lab/lab_broken.png" id="1_xcep8"]
+[ext_resource type="Texture2D" uid="uid://ctoc1vlg3f1ma" path="res://asset/img/light/light_screen.png" id="2_tri8q"]
+
+[node name="FantetyJarBroken" type="Sprite2D"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_xcep8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2.74181e-06, -1.33333)
+scale = Vector2(0.169851, 0.366972)
+color = Color(0.713726, 0.988235, 0.552941, 1)
+energy = 0.7
+texture = ExtResource("2_tri8q")
