@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://8nae1eaary30"]
+
+[ext_resource type="Texture2D" uid="uid://cgxbyy2bvkiq6" path="res://asset/img/furniture/floor_lamp.png" id="1_5ci37"]
+[ext_resource type="Texture2D" uid="uid://lrn3wdsmdwvs" path="res://asset/img/light/light.png" id="2_680hw"]
+[ext_resource type="Script" path="res://src/furniture/FloorLampA.gd" id="2_ypqif"]
+[ext_resource type="AudioStream" uid="uid://b400xjunlgtn6" path="res://asset/sound/light_switch.wav" id="4_6bkti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8gcm"]
+size = Vector2(14, 49)
+
+[node name="FloorLampA" type="Sprite2D"]
+texture = ExtResource("1_5ci37")
+script = ExtResource("2_ypqif")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.25075, 0.404595)
+color = Color(0.627451, 1, 1, 1)
+energy = 1.4
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("2_680hw")
+
+[node name="FloorLampAArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorLampAArea2D"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_w8gcm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6bkti")
+
+[connection signal="body_entered" from="FloorLampAArea2D" to="." method="_on_floor_lamp_a_area_2d_body_entered"]
+[connection signal="body_exited" from="FloorLampAArea2D" to="." method="_on_floor_lamp_a_area_2d_body_exited"]

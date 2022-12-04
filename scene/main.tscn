@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=238 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -90,6 +90,7 @@
 [ext_resource type="AudioStream" uid="uid://catspfyykncce" path="res://asset/sound/rain_walk.wav" id="62_gi3ow"]
 [ext_resource type="PackedScene" uid="uid://bhtqenmvrc0nj" path="res://scene/component/elevator.tscn" id="62_nq4lk"]
 [ext_resource type="AudioStream" uid="uid://c7cbxanuw65ew" path="res://asset/sound/elevator_arrived.wav" id="63_xpv6i"]
+[ext_resource type="PackedScene" uid="uid://8nae1eaary30" path="res://scene/furniture/floor_lamp.tscn" id="65_5rsu0"]
 [ext_resource type="AudioStream" uid="uid://bgyuu2jqawyag" path="res://asset/sound/bubble.wav" id="65_ichm4"]
 [ext_resource type="PackedScene" uid="uid://bu3itnq6oeck4" path="res://scene/NPC/balcony_npc.tscn" id="71_o8bdh"]
 [ext_resource type="AudioStream" uid="uid://hujhip2potqc" path="res://asset/sound/env/thunder.wav" id="72_6gpu7"]
@@ -1176,7 +1177,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1, -262107, 9, 0, -65523, 25, 1, -65522, 65561, 1, -65521, 26, 1, -65520, 65562, 1, 524279, 27, 0, 524282, 27, 0, 524285, 27, 0, 458752, 30, 0, 458755, 27, 0, 458758, 27, 0)
+layer_3/tile_data = PackedInt32Array(-327625, 1, 1, -327624, 65537, 1, -327627, 3, 0, -393161, 5, 0, -327626, 6, 0, -327638, 7, 1, -393174, 7, 0, -458708, 4, 0, -524242, 9, 0, -524239, 9, 0, -524236, 9, 0, -524233, 9, 0, -458749, 65544, 1, -458750, 12, 0, -327630, 17, 1, -327629, 65553, 1, -393165, 65553, 0, -327634, 16, 0, -327632, 15, 1, -327631, 65551, 1, -393168, 15, 0, -393167, 65551, 0, -262098, 9, 0, -262095, 9, 0, -262092, 9, 0, -262089, 9, 0, -393166, 17, 0, -65481, 327680, 1, -65482, 262144, 1, -131017, 327680, 0, -131018, 262144, 0, -262101, 9, 0, -65492, 65538, 1, -65493, 2, 1, -131029, 2, 0, -131028, 65538, 0, -262143, 9, 0, -196610, 9, 0, -262140, 9, 0, -262137, 9, 0, -262134, 9, 0, -2, 18, 1, -1, 65554, 1, -65538, 18, 0, -65537, 65554, 0, -65536, 20, 1, -65535, 65556, 1, -131072, 20, 0, -131071, 65556, 0, -65534, 21, 1, -65533, 65557, 1, -131070, 21, 0, -131069, 65557, 0, -65532, 19, 1, -65531, 65555, 1, -262104, 9, 0, -65483, 327680, 1, -65484, 262144, 1, -131019, 327680, 0, -131020, 262144, 0, -65486, 196608, 1, -65487, 131072, 1, -131023, 131072, 0, -131022, 196608, 0, -65488, 65536, 1, -65489, 0, 1, -131025, 0, 0, -131024, 65536, 0, -65491, 2, 1, -65490, 65538, 1, -131027, 2, 0, -131026, 65538, 0, -65485, 196616, 3, -65480, 196616, 3, -327640, 23, 1, -327639, 65559, 1, -327642, 24, 1, -327641, 65560, 1, -262107, 9, 0, -65523, 25, 1, -65522, 65561, 1, -65521, 26, 1, -65520, 65562, 1, 524279, 27, 0, 524282, 27, 0, 524285, 27, 0, 458752, 30, 0, 458755, 27, 0, 458758, 27, 0, -327643, 65561, 1, -327644, 25, 1)
 layer_4/name = "FrontFurniture"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -1463,6 +1464,12 @@ position = Vector2(1356.5, -162)
 scale = Vector2(0.286624, 0.642202)
 color = Color(0.631373, 0.568627, 1, 1)
 texture = ExtResource("8_8ursp")
+
+[node name="FloorLampA" parent="BedroomOut" instance=ExtResource("65_5rsu0")]
+position = Vector2(1142, -160)
+
+[node name="FloorLampA2" parent="BedroomOut" instance=ExtResource("65_5rsu0")]
+position = Vector2(1394, -160)
 
 [node name="Balcony" type="Node" parent="."]
 
@@ -1902,6 +1909,8 @@ color = Color(0.92549, 0.501961, 0.690196, 1)
 energy = 0.7
 texture = ExtResource("8_8ursp")
 
+[node name="ChargeRoom" type="Node" parent="."]
+
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="balcony_door_ctrl_input_finished" from="GreenHouse/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
@@ -1916,6 +1925,8 @@ texture = ExtResource("8_8ursp")
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_entered"]
 [connection signal="body_exited" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Bedroom/BedroomLightSwitch" method="_on_bedroom_light_switch_area_body_exited"]
 [connection signal="body_exited" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_exited"]
+[connection signal="body_change_floor_lamp_area" from="BedroomOut/FloorLampA" to="Player" method="_on_floor_lamp_a_body_change_floor_lamp_area"]
+[connection signal="body_change_floor_lamp_area" from="BedroomOut/FloorLampA2" to="Player" method="_on_floor_lamp_a_2_body_change_floor_lamp_area"]
 [connection signal="finished" from="Balcony/RainSound" to="Balcony/RainSound" method="_on_finished"]
 [connection signal="balcony_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]
 [connection signal="bedroom_door_ctrl_input_finished" from="Balcony/DoorCtrl" to="Player" method="_on_door_ctrl_bedroom_door_ctrl_input_finished"]

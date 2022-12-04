@@ -1,9 +1,11 @@
-Node
-PointLight2D
-LightmapGI
-Sprite2D
-AnimatedSprite2D
 AudioStreamPlayer
+CollisionShape2D
+Area2D
+PointLight2D
+Sprite2D
+Node
+AnimatedSprite2D
+LightmapGI
 Timer
 Label
 ColorRect
@@ -11,7 +13,6 @@ Control
 CanvasModulate
 AnimationPlayer
 LightOccluder2D
-CollisionShape2D
 AnimatableBody2D
 DialogueLabel
 Panel
@@ -23,7 +24,6 @@ ItemList
 MenuBar
 Button
 MenuButton
-Area2D
 VBoxContainer
 BaseButton
 AudioListener2D

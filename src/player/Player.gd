@@ -123,7 +123,7 @@ func start_bedroom_desk_ready():
 	pass
 
 func start_kuikui_ready():
-	DialogueManager.show_example_dialogue_balloon(get_node("..").kuikuiDialog, "start")
+	DialogueManager.show_example_dialogue_balloon(Common.kuikuiDialog, "start")
 	pass
 	
 signal change_bedroom_door_status
@@ -529,4 +529,26 @@ func _on_medical_door_ctrl_body_exited(body):
 
 func _on_door_ctrl_medical_door_ctrl_input_finished():
 	start_medical_door_ctrl_ready()
+	pass # Replace with function body.
+
+
+func _on_floor_lamp_a_body_change_floor_lamp_area(status, body):
+	if body == self:
+		if status:
+			Common.FloorLampAReady = true
+			dialogBubble.show()
+		else:
+			Common.FloorLampAReady = false
+			dialogBubble.hide()
+	pass # Replace with function body.
+
+
+func _on_floor_lamp_a_2_body_change_floor_lamp_area(status, body):
+	if body == self:
+		if status:
+			Common.FloorLampAReady = true
+			dialogBubble.show()
+		else:
+			Common.FloorLampAReady = false
+			dialogBubble.hide()
 	pass # Replace with function body.
