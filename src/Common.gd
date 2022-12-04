@@ -2,6 +2,8 @@ extends Node
 
 const ELEVATOR_SPEED = 200
 
+enum accessCardLevels{LEVEL1 = 1, LEVEL2, LEVEL3, LEVEL4, LEVEL5, LEVEL6}
+
 var inputLock = false
 
 @onready var bedDialog = load("res://dialog/bedroom/bed.dialogue")

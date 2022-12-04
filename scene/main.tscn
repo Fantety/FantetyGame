@@ -1,4 +1,4 @@
-[gd_scene load_steps=238 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=239 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -97,6 +97,7 @@
 [ext_resource type="PackedScene" uid="uid://besbdnqtlgpxl" path="res://scene/furniture/clock.tscn" id="80_adw5a"]
 [ext_resource type="PackedScene" uid="uid://cxn5c84lbaqmw" path="res://scene/furniture/fantety_lab.tscn" id="83_ha0b5"]
 [ext_resource type="PackedScene" uid="uid://cuuliw22oq6tb" path="res://scene/furniture/fantety_jar_broken.tscn" id="94_6unu2"]
+[ext_resource type="PackedScene" uid="uid://blj2u1qjppeus" path="res://scene/furniture/access_card.tscn" id="98_y8omd"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 65536, 0, 2, 131072, 0)
@@ -1911,6 +1912,9 @@ texture = ExtResource("8_8ursp")
 
 [node name="ChargeRoom" type="Node" parent="."]
 
+[node name="AccessCard" parent="." instance=ExtResource("98_y8omd")]
+
+[connection signal="signal_get_accress_card_level2" from="." to="AccessCard" method="_on_main_signal_get_accress_card_level_2"]
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="balcony_door_ctrl_input_finished" from="GreenHouse/DoorCtrl" to="Player" method="_on_door_ctrl_balcony_door_ctrl_input_finished"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://blj2u1qjppeus"]
+
+[ext_resource type="Script" path="res://src/furniture/AccessCard.gd" id="1_fpoan"]
+[ext_resource type="Texture2D" uid="uid://c2bvx4dt0xty3" path="res://asset/img/furniture/access_card/access_card.png" id="1_tbugy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa7j7"]
+atlas = ExtResource("1_tbugy")
+region = Rect2(96, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20ics"]
+atlas = ExtResource("1_tbugy")
+region = Rect2(72, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd0ku"]
+atlas = ExtResource("1_tbugy")
+region = Rect2(48, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvvn7"]
+atlas = ExtResource("1_tbugy")
+region = Rect2(0, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao46a"]
+atlas = ExtResource("1_tbugy")
+region = Rect2(24, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3te2"]
+atlas = ExtResource("1_tbugy")
+region = Rect2(120, 0, 24, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ls0v"]
+animations = [{
+"frames": [SubResource("AtlasTexture_pa7j7"), SubResource("AtlasTexture_20ics"), SubResource("AtlasTexture_qd0ku"), SubResource("AtlasTexture_jvvn7"), SubResource("AtlasTexture_ao46a"), SubResource("AtlasTexture_x3te2")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5myo3"]
+
+[node name="AccessCard" type="CanvasLayer"]
+layer = 2
+visible = false
+script = ExtResource("1_fpoan")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1335, 742)
+scale = Vector2(4, 4)
+frames = SubResource("SpriteFrames_7ls0v")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(10, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -106.0
+offset_right = -71.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5myo3")

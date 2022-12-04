@@ -27,7 +27,15 @@ func search_access_control_card():
 	Backpack.accessControlCard = true;
 	tips = load("res://scene/tips.tscn").instantiate()
 	add_child(tips)
-	tips.show_tip("获得：门禁卡", true)
+	tips.show_tip("获得：门禁卡（等级一）", true)
+	$AccessCard.show()
+	
+signal signal_get_accress_card_level2
+func get_accress_card_level2():
+	emit_signal("signal_get_accress_card_level2")
+	tips = load("res://scene/tips.tscn").instantiate()
+	add_child(tips)
+	tips.show_tip("获得：门禁卡（等级二）", true)
 	
 
 func _on_dead_area_body_entered(body):

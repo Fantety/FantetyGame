@@ -47,4 +47,6 @@ do balconySecondChoise+=1
 ~ finish
 复制品: 你不属于实验室的一部分，很多东西你没法使用。
 复制品: 这个东西给你，它能给你我所拥有的权限。
+do get_accress_card_level2()
 复制品: 我能帮你的就只有这么多了，剩下靠你自己了。
+do Common.inputLock = false

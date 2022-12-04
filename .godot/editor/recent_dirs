@@ -1,5 +1,6 @@
 res://src/furniture
 res://scene/furniture
+res://asset/img/furniture/access_card
 res://asset/img/furniture/fantety_lab
 res://shader
 res://src
@@ -19,4 +20,3 @@ res://src/scene/ElevatorCtrlUi
 res://src/scene/StartGameUI
 res://scene/component
 res://src/scene
-res://src/sound

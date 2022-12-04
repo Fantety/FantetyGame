@@ -1,13 +1,15 @@
+Label
+PanelContainer
+CanvasLayer
+AnimatedSprite2D
 AudioStreamPlayer
 CollisionShape2D
 Area2D
 PointLight2D
 Sprite2D
 Node
-AnimatedSprite2D
 LightmapGI
 Timer
-Label
 ColorRect
 Control
 CanvasModulate
@@ -16,7 +18,6 @@ LightOccluder2D
 AnimatableBody2D
 DialogueLabel
 Panel
-CanvasLayer
 TextureRect
 Node2D
 CPUParticles2D
@@ -29,4 +30,3 @@ BaseButton
 AudioListener2D
 CharacterBody2D
 Camera2D
-DirectionalLight2D

@@ -381,13 +381,45 @@ metadata/lines = {
 "type": "response"
 },
 "50": {
+"mutation": {
+"expression": [{
+"function": "get_accress_card_level2",
+"type": "function",
+"value": []
+}]
+},
+"next_id": "51",
+"type": "mutation"
+},
+"51": {
 "character": "复制品",
 "character_replacements": [],
-"next_id": "",
+"next_id": "52",
 "text": "我能帮你的就只有这么多了，剩下靠你自己了。",
 "text_replacements": [],
 "translation_key": "我能帮你的就只有这么多了，剩下靠你自己了。",
 "type": "dialogue"
+},
+"52": {
+"mutation": {
+"expression": [{
+"type": "variable",
+"value": "Common"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "inputLock"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+}]
+},
+"next_id": "",
+"type": "mutation"
 },
 "6": {
 "next_id": "7",
