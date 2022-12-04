@@ -1,5 +1,0 @@
-Resource
-NativeExtension
-FontVariation
-SystemFont
-FontFile
