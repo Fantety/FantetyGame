@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://ctoc1vlg3f1ma" path="res://asset/img/light/light_screen.png" id="2_tri8q"]
 
 [node name="FantetyJarBroken" type="Sprite2D"]
-scale = Vector2(1.5, 1.5)
+position = Vector2(-1.25, 0)
+scale = Vector2(1.41667, 1.5)
 texture = ExtResource("1_xcep8")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(2.74181e-06, -1.33333)
-scale = Vector2(0.169851, 0.366972)
+position = Vector2(-0.578416, -1.33333)
+scale = Vector2(0.162483, 0.366972)
 color = Color(0.713726, 0.988235, 0.552941, 1)
 energy = 0.7
 texture = ExtResource("2_tri8q")
