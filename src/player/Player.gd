@@ -30,6 +30,7 @@ var isJumped = false
 signal change_elevator_door_status(status)
 signal change_bedroom_light_status(num:int)
 
+
 func _ready():
 	add_child(dialogBubble)
 	dialogBubble.set_position(playerView.position + Vector2(15,-18))
@@ -147,27 +148,31 @@ func start_medical_door_ctrl_ready():
 	pass
 	
 func start_elevator_ready():
-	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
-	emit_signal("change_elevator_door_status",Common.elevatorDoorStatus, 1)
-	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
+	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
+		emit_signal("change_elevator_door_status",Common.elevatorDoorStatus, 1)
+		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
 	pass
 
 func start_elevator2_ready():
-	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
-	emit_signal("change_elevator_door_status",Common.elevator2DoorStatus, 2)
-	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
+	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
+		emit_signal("change_elevator_door_status",Common.elevator2DoorStatus, 2)
+		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
 	pass
 	
 func start_elevator3_ready():
-	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
-	emit_signal("change_elevator_door_status",Common.elevator3DoorStatus, 3)
-	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
+	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
+		emit_signal("change_elevator_door_status",Common.elevator3DoorStatus, 3)
+		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
 	pass
 	
 func start_elevator4_ready():
-	self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
-	emit_signal("change_elevator_door_status",Common.elevator4DoorStatus, 4)
-	self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
+	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
+		emit_signal("change_elevator_door_status",Common.elevator4DoorStatus, 4)
+		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
 
 func _on_bedroom_terminal_body_entered(body):
 	if body == self:

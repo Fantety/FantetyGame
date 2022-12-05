@@ -28,7 +28,7 @@ func bedroom_door_ctrl_function():
 			if Common.bedroomDoorStatus:
 				emit_signal("bedroom_door_ctrl_input_finished")
 			else :
-				if Backpack.accessControlCard:
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
 					if !get_node("Right").playing:
 						get_node("Right").play()
 				else:
@@ -54,8 +54,12 @@ func balcony_door_ctrl_function():
 			if Common.balconyDoorStatus:
 				emit_signal("balcony_door_ctrl_input_finished")
 			else :
-				if !get_node("Right").playing:
-					get_node("Right").play()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
+					if !get_node("Right").playing:
+						get_node("Right").play()
+				else:
+					if !get_node("Error").playing:
+						get_node("Error").play()
 				get_node("TextureProgressBar").set_visible(true)
 				Common.balconyDoorCtrlValue = Common.balconyDoorCtrlValue + 1
 				get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
@@ -78,8 +82,12 @@ func greenhouse_door_ctrl_function():
 				print(Common.greenhouseDoorStatus)
 				emit_signal("greenhouse_door_ctrl_input_finished")
 			else :
-				if !get_node("Right").playing:
-					get_node("Right").play()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
+					if !get_node("Right").playing:
+						get_node("Right").play()
+				else:
+					if !get_node("Error").playing:
+						get_node("Error").play()
 				get_node("TextureProgressBar").set_visible(true)
 				Common.greenhouseDoorCtrlValue = Common.greenhouseDoorCtrlValue + 1
 				get_node("TextureProgressBar").set_value(Common.greenhouseDoorCtrlValue)
@@ -101,8 +109,12 @@ func medical_door_ctrl_function():
 				print(Common.medicalDoorStatus)
 				emit_signal("medical_door_ctrl_input_finished")
 			else :
-				if !get_node("Right").playing:
-					get_node("Right").play()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
+					if !get_node("Right").playing:
+						get_node("Right").play()
+				else:
+					if !get_node("Error").playing:
+						get_node("Error").play()
 				get_node("TextureProgressBar").set_visible(true)
 				Common.medicalDoorCtrlValue = Common.medicalDoorCtrlValue + 1
 				get_node("TextureProgressBar").set_value(Common.medicalDoorCtrlValue)
@@ -118,7 +130,7 @@ func medical_door_ctrl_function():
 			get_node("Timer").start()
 
 func _on_texture_progress_bar_value_changed(value):
-	if Backpack.accessControlCard:
+	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
 		if value == 200:
 			if Common.bedroomDoorCtrlReady:
 				Common.bedroomDoorCtrlValue = 0.0

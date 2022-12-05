@@ -1,7 +1,7 @@
 extends Sprite2D
 
 
-var lightStatus = true
+var lightStatus = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Common.FloorLampAReady:
