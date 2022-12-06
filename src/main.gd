@@ -53,3 +53,10 @@ func _on_bedroom_out_show_vending_machine_result(result):
 	add_child(tips)
 	tips.show_tip("获得："+result, true)
 	pass # Replace with function body.
+
+
+func _on_player_lack_of_authority():
+	tips = load("res://scene/tips.tscn").instantiate()
+	add_child(tips)
+	tips.show_tip("权限不足", true)
+	pass # Replace with function body.

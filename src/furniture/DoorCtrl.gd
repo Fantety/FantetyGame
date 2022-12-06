@@ -7,7 +7,11 @@ signal greenhouse_door_ctrl_input_finished
 signal medical_door_ctrl_input_finished
 # Called when the node enters the scene tree for the first time.
 var theTrigger = true
+signal lack_of_authority
 
+func _ready():
+	self.lack_of_authority.connect(Callable(get_parent().get_parent(),"_on_player_lack_of_authority"))
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if Common.bedroomDoorCtrlReady and Common.bedroomDoorCtrlAllow:
@@ -129,25 +133,31 @@ func medical_door_ctrl_function():
 				get_node("Error").stop()
 			get_node("Timer").start()
 
+
 func _on_texture_progress_bar_value_changed(value):
-	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-		if value == 200:
+	if value == 200:
+		if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
 			if Common.bedroomDoorCtrlReady:
 				Common.bedroomDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.bedroomDoorCtrlValue)
 				emit_signal("bedroom_door_ctrl_input_finished")
-			elif Common.balconyDoorCtrlReady:
+		elif Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
+			if Common.balconyDoorCtrlReady:
 				Common.balconyDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
 				emit_signal("balcony_door_ctrl_input_finished")
-			elif Common.greenhouseDoorCtrlReady:
+		elif Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+			if Common.greenhouseDoorCtrlReady:
 				Common.greenhouseDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.greenhouseDoorCtrlValue)
 				emit_signal("greenhouse_door_ctrl_input_finished")
-			elif Common.medicalDoorCtrlReady:
+		elif Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+			if Common.medicalDoorCtrlReady:
 				Common.medicalDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.medicalDoorCtrlValue)
 				emit_signal("medical_door_ctrl_input_finished")
+		else:
+			emit_signal("lack_of_authority")
 #	else:
 #		if value == 95:
 #			theTrigger = false

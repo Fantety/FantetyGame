@@ -29,7 +29,7 @@ var isJumped = false
 
 signal change_elevator_door_status(status)
 signal change_bedroom_light_status(num:int)
-
+signal lack_of_authority
 
 func _ready():
 	add_child(dialogBubble)
@@ -152,6 +152,8 @@ func start_elevator_ready():
 		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
 		emit_signal("change_elevator_door_status",Common.elevatorDoorStatus, 1)
 		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
+	else:
+		emit_signal("lack_of_authority")
 	pass
 
 func start_elevator2_ready():
@@ -159,6 +161,8 @@ func start_elevator2_ready():
 		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
 		emit_signal("change_elevator_door_status",Common.elevator2DoorStatus, 2)
 		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator2"),"_on_player_change_elevator_door_status"))
+	else:
+		emit_signal("lack_of_authority")
 	pass
 	
 func start_elevator3_ready():
@@ -166,6 +170,8 @@ func start_elevator3_ready():
 		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
 		emit_signal("change_elevator_door_status",Common.elevator3DoorStatus, 3)
 		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator3"),"_on_player_change_elevator_door_status"))
+	else:
+		emit_signal("lack_of_authority")
 	pass
 	
 func start_elevator4_ready():
@@ -173,7 +179,10 @@ func start_elevator4_ready():
 		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
 		emit_signal("change_elevator_door_status",Common.elevator4DoorStatus, 4)
 		self.change_elevator_door_status.disconnect(Callable(get_parent().get_node("Elevator/Elevator4"),"_on_player_change_elevator_door_status"))
-
+	else:
+		emit_signal("lack_of_authority")
+		
+		
 func _on_bedroom_terminal_body_entered(body):
 	if body == self:
 		dialogBubble.show()

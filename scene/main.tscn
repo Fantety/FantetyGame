@@ -1972,6 +1972,7 @@ texture = ExtResource("8_8ursp")
 [connection signal="change_bedroom_light_status" from="Player" to="Bedroom/BedroomLightSwitch" method="_on_player_change_bedroom_light_status"]
 [connection signal="change_greenhouse_door_status" from="Player" to="GreenHouse/OverheadDoor" method="_on_player_change_greenhouse_door_status"]
 [connection signal="change_medical_door_status" from="Player" to="Medical/OverheadDoor" method="_on_player_change_medical_door_status"]
+[connection signal="lack_of_authority" from="Player" to="." method="_on_player_lack_of_authority"]
 [connection signal="use_vending_machine" from="Player" to="Area/BedroomOut" method="_on_player_use_vending_machine"]
 [connection signal="finished" from="Player/JumpSound" to="Player/JumpSound" method="_on_finished"]
 [connection signal="elevator_floor_selected" from="Player/ElevatorCtrlUi" to="Player" method="_on_elevator_ctrl_ui_elevator_floor_selected"]
