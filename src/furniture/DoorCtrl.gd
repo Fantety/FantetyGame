@@ -136,28 +136,35 @@ func medical_door_ctrl_function():
 
 func _on_texture_progress_bar_value_changed(value):
 	if value == 200:
-		if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-			if Common.bedroomDoorCtrlReady:
+		if Common.bedroomDoorCtrlReady:
+			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
 				Common.bedroomDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.bedroomDoorCtrlValue)
 				emit_signal("bedroom_door_ctrl_input_finished")
-		elif Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-			if Common.balconyDoorCtrlReady:
+			else:
+				emit_signal("lack_of_authority")
+		elif Common.balconyDoorCtrlReady:
+			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
 				Common.balconyDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
 				emit_signal("balcony_door_ctrl_input_finished")
-		elif Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
-			if Common.greenhouseDoorCtrlReady:
+			else:
+				emit_signal("lack_of_authority")
+		elif Common.greenhouseDoorCtrlReady:
+			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
 				Common.greenhouseDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.greenhouseDoorCtrlValue)
 				emit_signal("greenhouse_door_ctrl_input_finished")
-		elif Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
-			if Common.medicalDoorCtrlReady:
+			else:
+				emit_signal("lack_of_authority")
+		elif Common.medicalDoorCtrlReady:
+			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
 				Common.medicalDoorCtrlValue = 0.0
 				get_node("TextureProgressBar").set_value(Common.medicalDoorCtrlValue)
 				emit_signal("medical_door_ctrl_input_finished")
-		else:
-			emit_signal("lack_of_authority")
+			else:
+				emit_signal("lack_of_authority")
+		
 #	else:
 #		if value == 95:
 #			theTrigger = false

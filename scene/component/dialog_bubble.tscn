@@ -3,25 +3,25 @@
 [ext_resource type="Texture2D" uid="uid://y2hiw8ogw4i" path="res://asset/img/scene/dialog_bubble.png" id="1_ai8gy"]
 [ext_resource type="Texture2D" uid="uid://b85as6om2ju6b" path="res://asset/img/light/dialog_bubble_light.png" id="2_7dci2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5gd4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh2tw"]
 atlas = ExtResource("1_ai8gy")
 region = Rect2(33, 0, 11, 7)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_75rge"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_unxko"]
 atlas = ExtResource("1_ai8gy")
 region = Rect2(22, 0, 11, 7)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qw234"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x23g"]
 atlas = ExtResource("1_ai8gy")
 region = Rect2(11, 0, 11, 7)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8np4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofnk2"]
 atlas = ExtResource("1_ai8gy")
 region = Rect2(0, 0, 11, 7)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pgcpg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_duxbo"]
 animations = [{
-"frames": [SubResource("AtlasTexture_u5gd4"), SubResource("AtlasTexture_75rge"), SubResource("AtlasTexture_qw234"), SubResource("AtlasTexture_a8np4")],
+"frames": [SubResource("AtlasTexture_nh2tw"), SubResource("AtlasTexture_unxko"), SubResource("AtlasTexture_0x23g"), SubResource("AtlasTexture_ofnk2")],
 "loop": true,
 "name": &"default",
 "speed": 4.0
@@ -31,7 +31,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 4
-frames = SubResource("SpriteFrames_pgcpg")
+frames = SubResource("SpriteFrames_duxbo")
 playing = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
