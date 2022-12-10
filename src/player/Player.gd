@@ -546,13 +546,13 @@ func _on_door_ctrl_medical_door_ctrl_input_finished():
 	pass # Replace with function body.
 
 
-func _on_floor_lamp_a_body_change_floor_lamp_area(status, body):
+func _on_floor_lamp_a_body_change_floor_lamp_area(status, body, name):
 	if body == self:
 		if status:
-			Common.FloorLampAReady = true
+			Common.floorLampReady = true
 			dialogBubble.show()
 		else:
-			Common.FloorLampAReady = false
+			Common.floorLampReady = false
 			dialogBubble.hide()
 	pass # Replace with function body.
 
@@ -560,9 +560,9 @@ func _on_floor_lamp_a_body_change_floor_lamp_area(status, body):
 func _on_floor_lamp_a_2_body_change_floor_lamp_area(status, body):
 	if body == self:
 		if status:
-			Common.FloorLampAReady = true
+			Common.floorLampReady = true
 			dialogBubble.show()
 		else:
-			Common.FloorLampAReady = false
+			Common.floorLampReady = false
 			dialogBubble.hide()
 	pass # Replace with function body.

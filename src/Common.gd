@@ -67,8 +67,9 @@ var medicalDoorStatus = false
 
 
 var balconyPlot = false
-
-var FloorLampAReady = false
+var floorLampReady = false
+var currentFloorLamp:String = "none"
+var currentArriveRoom:String = "none"
 
 
 func show_tips(text, audio):

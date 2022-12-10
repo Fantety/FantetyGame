@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b8j3q4tnradts"]
+
+[ext_resource type="Texture2D" uid="uid://b2nijqy7j2ega" path="res://asset/img/alpha.png" id="1_b07sb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5udad"]
+texture = ExtResource("1_b07sb")
+region_rect = Rect2(0, 0, 1080, 1080)
+modulate_color = Color(0, 0, 0, 1)
+
+[resource]
+/styles/color = SubResource("StyleBoxTexture_5udad")

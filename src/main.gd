@@ -8,6 +8,13 @@ var bedpaper
 # var dialogue_line = await DialogueManager.get_next_dialogue_line(bed_dialog, "start")
 
 # Called when the node enters the scene tree for the first time.
+func _ready():
+	var greenhouseLigths = $GreenHouse/GreenHouseLight.get_children()
+	for greenhouseLigth in greenhouseLigths:
+		greenhouseLigth.set_enabled(false)
+		pass
+	pass
+
 
 func play_check_bed_paper_sound():
 	paperSound.play()
