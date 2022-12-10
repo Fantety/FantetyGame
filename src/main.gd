@@ -36,6 +36,7 @@ func search_access_control_card():
 	add_child(tips)
 	tips.show_tip("获得：门禁卡（等级一）", true)
 	$AccessCard.show()
+	$AccessCard/AnimationPlayer.play("default")
 	
 signal signal_get_accress_card_level2
 func get_accress_card_level2():
