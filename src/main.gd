@@ -68,3 +68,10 @@ func _on_player_lack_of_authority():
 	add_child(tips)
 	tips.show_tip("权限不足", true)
 	pass # Replace with function body.
+
+
+func _on_door_ctrl_inner_door_ctrl_inner_lock():
+	tips = load("res://scene/tips.tscn").instantiate()
+	add_child(tips)
+	tips.show_tip("权限不足", true)
+	pass # Replace with function body.

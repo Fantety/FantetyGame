@@ -4,8 +4,6 @@ func _on_player_change_bedroom_door_status():
 	Common.bedroomDoorStatus = !Common.bedroomDoorStatus
 	get_parent().get_node("DoorCtrl/TextureProgressBar").hide()
 	Common.bedroomDoorCtrlAllow = false
-	get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightRed").set_enabled(!Common.bedroomDoorStatus)
-	get_parent().get_node("BedroomLight/DoorCtrlLight/SignLightGreen").set_enabled(Common.bedroomDoorStatus)
 	if Common.bedroomDoorStatus:
 		get_parent().get_node("DoorCtrl/Sprite2D").set_texture(Common.doorCardUnlock)	
 		get_node("AnimatedSprite2D").play("open")

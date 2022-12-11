@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://sdwn4qt7mxbn"]
+
+[ext_resource type="Texture2D" uid="uid://bx1g2c7os3o5n" path="res://asset/img/furniture/charge_room/electric_generator.png" id="1_epa7l"]
+[ext_resource type="Texture2D" uid="uid://c86v5ertebhji" path="res://asset/img/light/electric_generator_light.png" id="2_4515d"]
+
+[node name="ChargeMechine" type="Sprite2D"]
+position = Vector2(-1, 0)
+texture = ExtResource("1_epa7l")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+position = Vector2(0, -2.98023e-08)
+scale = Vector2(0.1, 0.1)
+color = Color(0, 1, 1, 1)
+texture = ExtResource("2_4515d")

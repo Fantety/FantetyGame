@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
 const PROGRESS_SPEED = 20
 
@@ -565,4 +565,20 @@ func _on_floor_lamp_a_2_body_change_floor_lamp_area(status, body):
 		else:
 			Common.floorLampReady = false
 			dialogBubble.hide()
+	pass # Replace with function body.
+
+
+func _on_door_ctrl_inner_door_ctrl_inner_entered():
+	dialogBubble.show()
+	pass # Replace with function body.
+
+
+func _on_door_ctrl_inner_door_ctrl_inner_exited():
+	dialogBubble.hide()
+	pass # Replace with function body.
+
+
+func _on_door_ctrl_inner_door_ctrl_inner_name(name):
+	if name == "Bedroom":
+		emit_signal("change_bedroom_door_status")
 	pass # Replace with function body.
