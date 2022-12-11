@@ -72,6 +72,9 @@ var currentFloorLamp:String = "none"
 var currentArriveRoom:String = "none"
 
 
+var powerRoomTerminalReady = false
+
+
 func show_tips(text, audio):
 	var tips = load("res://scene/tips.tscn").instantiate()
 	add_child(tips)

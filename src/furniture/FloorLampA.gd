@@ -12,13 +12,15 @@ func _process(delta):
 		pass
 	pass
 
-signal body_change_floor_lamp_area(status:bool, body)
+signal body_change_floor_lamp_area(status:bool)
 func _on_floor_lamp_a_area_2d_body_entered(body):
-	emit_signal("body_change_floor_lamp_area", true, body)
-	Common.currentFloorLamp = self.name
+	if body.name == "Player":
+		emit_signal("body_change_floor_lamp_area", true)
+		Common.currentFloorLamp = self.name
 	pass # Replace with function body.
 
 func _on_floor_lamp_a_area_2d_body_exited(body):
-	emit_signal("body_change_floor_lamp2_area", false, body)
-	Common.currentFloorLamp = "none"
+	if body.name == "Player":
+		emit_signal("body_change_floor_lamp_area", false)
+		Common.currentFloorLamp = "none"
 	pass # Replace with function body.

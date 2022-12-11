@@ -546,25 +546,23 @@ func _on_door_ctrl_medical_door_ctrl_input_finished():
 	pass # Replace with function body.
 
 
-func _on_floor_lamp_a_body_change_floor_lamp_area(status, body, name):
-	if body == self:
-		if status:
-			Common.floorLampReady = true
-			dialogBubble.show()
-		else:
-			Common.floorLampReady = false
-			dialogBubble.hide()
+func _on_floor_lamp_a_body_change_floor_lamp_area(status):
+	if status:
+		Common.floorLampReady = true
+		dialogBubble.show()
+	else:
+		Common.floorLampReady = false
+		dialogBubble.hide()
 	pass # Replace with function body.
 
 
-func _on_floor_lamp_a_2_body_change_floor_lamp_area(status, body):
-	if body == self:
-		if status:
-			Common.floorLampReady = true
-			dialogBubble.show()
-		else:
-			Common.floorLampReady = false
-			dialogBubble.hide()
+func _on_floor_lamp_a_2_body_change_floor_lamp_area(status):
+	if status:
+		Common.floorLampReady = true
+		dialogBubble.show()
+	else:
+		Common.floorLampReady = false
+		dialogBubble.hide()
 	pass # Replace with function body.
 
 
@@ -581,4 +579,18 @@ func _on_door_ctrl_inner_door_ctrl_inner_exited():
 func _on_door_ctrl_inner_door_ctrl_inner_name(name):
 	if name == "Bedroom":
 		emit_signal("change_bedroom_door_status")
+	pass # Replace with function body.
+
+
+func _on_power_room_terminal_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.powerRoomTerminalReady = true
+	pass # Replace with function body.
+
+
+func _on_power_room_terminal_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.powerRoomTerminalReady = false
 	pass # Replace with function body.
