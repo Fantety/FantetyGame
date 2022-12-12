@@ -137,7 +137,8 @@
 background_mode = 3
 glow_enabled = true
 glow_bloom = 1.0
-fog_height = 508.03
+volumetric_fog_emission_energy = 333.64
+volumetric_fog_gi_inject = 1.99
 adjustment_enabled = true
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ui0fq"]
@@ -1816,6 +1817,7 @@ scale = Vector2(1.2, 1.2)
 energy = 1.6
 shadow_enabled = true
 shadow_filter_smooth = 6.9
+shadow_item_cull_mask = 3
 texture = ExtResource("36_vw2il")
 texture_scale = 0.4
 
@@ -2210,7 +2212,6 @@ volume_db = -3.0
 [node name="Bgm" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("49_hjote")
 volume_db = -8.0
-autoplay = true
 bus = &"Bgm"
 script = ExtResource("50_58jlv")
 
