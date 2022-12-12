@@ -127,26 +127,6 @@ func start_kuikui_ready():
 	DialogueManager.show_example_dialogue_balloon(Common.kuikuiDialog, "start")
 	pass
 	
-signal change_bedroom_door_status
-func start_bedroom_door_ctrl_ready():
-	emit_signal("change_bedroom_door_status")
-	pass
-
-signal change_balcony_door_status
-func start_balcony_door_ctrl_ready():
-	emit_signal("change_balcony_door_status")
-	pass
-	
-signal change_greenhouse_door_status	
-func start_greenhouse_door_ctrl_ready():
-	emit_signal("change_greenhouse_door_status")
-	pass
-
-signal change_medical_door_status
-func start_medical_door_ctrl_ready():
-	emit_signal("change_medical_door_status")
-	pass
-	
 func start_elevator_ready():
 	if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
 		self.change_elevator_door_status.connect(Callable(get_parent().get_node("Elevator/Elevator"),"_on_player_change_elevator_door_status"))
@@ -240,10 +220,6 @@ func _on_bedroom_door_ctrl_body_exited(body):
 
 
 
-func _on_door_ctrl_bedroom_door_ctrl_input_finished():
-	start_bedroom_door_ctrl_ready()
-	pass # Replace with function body.
-
 
 func _on_balcony_door_ctrl_area_body_entered(body):
 	if body == self:
@@ -259,9 +235,6 @@ func _on_balcony_door_ctrl_area_body_exited(body):
 	pass # Replace with function body.
 
 
-func _on_door_ctrl_balcony_door_ctrl_input_finished():
-	start_balcony_door_ctrl_ready()
-	pass # Replace with function body.
 
 
 func _on_bedroom_light_switch_area_body_entered(body):
@@ -508,10 +481,6 @@ func _on_overhead_door_balcony_plot_start():
 	pass # Replace with function body.
 
 
-func _on_door_ctrl_greenhouse_door_ctrl_input_finished():
-	start_greenhouse_door_ctrl_ready()
-	pass # Replace with function body.
-
 
 func _on_greenhouse_door_ctrl_body_entered(body):
 	if body == self:
@@ -541,9 +510,6 @@ func _on_medical_door_ctrl_body_exited(body):
 	pass # Replace with function body.
 
 
-func _on_door_ctrl_medical_door_ctrl_input_finished():
-	start_medical_door_ctrl_ready()
-	pass # Replace with function body.
 
 
 func _on_floor_lamp_a_body_change_floor_lamp_area(status):
@@ -594,3 +560,18 @@ func _on_power_room_terminal_body_exited(body):
 		dialogBubble.hide()
 		Common.powerRoomTerminalReady = false
 	pass # Replace with function body.
+
+
+func _on_power_room_door_ctrl_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.powerRoomDoorCtrlReady = true
+	pass # Replace with function body.
+
+
+func _on_power_room_door_ctrl_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.powerRoomDoorCtrlReady = false
+	pass # Replace with function body.
+

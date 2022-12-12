@@ -20,13 +20,12 @@ var bedroomSwitch3Status = true
 var bedroomSwitch4Status = true
 
 @export var bedroomDoorCtrlAllow = true
-@export var bedroomDoorCtrlValue = 0.0
 @export var balconyDoorCtrlAllow = true
-@export var balconyDoorCtrlValue = 0.0
 @export var greenhouseDoorCtrlAllow = true
-@export var greenhouseDoorCtrlValue = 0.0
 @export var medicalDoorCtrlAllow = true
-@export var medicalDoorCtrlValue = 0.0
+@export var powerRoomDoorCtrlAllow = true
+@export var dataRoomDoorCtrlAllow = true
+@export var fantetyLabDoorCtrlAllow = true
 
 var bedReady = false
 var bedroomTerminalReady = false
@@ -63,6 +62,12 @@ var greenhouseDoorCtrlReady = false
 var greenhouseDoorStatus = false
 var medicalDoorCtrlReady = false
 var medicalDoorStatus = false
+var powerRoomDoorCtrlReady = false
+var powerRoomDoorStatus = false
+var dataRoomDoorCtrlReady = false
+var dataRoomDoorStatus = false
+var fantetyLabDoorCtrlReady = false
+var fantetyLabDoorStatus = false
 # Called when the node enters the scene tree for the first time.
 
 
@@ -77,6 +82,6 @@ var powerRoomTerminalReady = false
 
 func show_tips(text, audio):
 	var tips = load("res://scene/tips.tscn").instantiate()
-	add_child(tips)
+	get_tree().get_root().add_child(tips)
 	tips.show_tip(text, audio)
 

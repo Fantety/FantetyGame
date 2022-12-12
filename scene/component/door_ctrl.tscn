@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhkdg4eiqu11a"]
+[gd_scene load_steps=7 format=3 uid="uid://dhkdg4eiqu11a"]
 
 [ext_resource type="Texture2D" uid="uid://hucspk1shob0" path="res://asset/img/furniture/door_ctrl/door_card_lock.png" id="1_56610"]
 [ext_resource type="Script" path="res://src/furniture/DoorCtrl.gd" id="1_ep1jp"]
-[ext_resource type="Texture2D" uid="uid://bga00elvgfeps" path="res://asset/img/ui/progress_bar_over.png" id="3_be23f"]
-[ext_resource type="Texture2D" uid="uid://dib0gwnimm4pg" path="res://asset/img/ui/progress_bar_progress.png" id="4_t4fx3"]
-[ext_resource type="Texture2D" uid="uid://c4pcxrp37netx" path="res://asset/img/ui/progress_bar_over_light.png" id="5_xakm3"]
 [ext_resource type="AudioStream" uid="uid://d2vk0ven6x2yt" path="res://asset/sound/input_passwd_error.wav" id="6_lvfyu"]
+[ext_resource type="PackedScene" uid="uid://c4d2t4cj84c11" path="res://scene/component/door_ctrl_ui.tscn" id="6_ypc2e"]
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="7_uiqq6"]
 [ext_resource type="Texture2D" uid="uid://ctoc1vlg3f1ma" path="res://asset/img/light/light_screen.png" id="8_kv48c"]
 
@@ -15,21 +13,6 @@ script = ExtResource("1_ep1jp")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_56610")
 offset = Vector2(16, 32)
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-visible = false
-offset_left = -1.0
-offset_top = -12.0
-offset_right = 39.0
-offset_bottom = 28.0
-max_value = 200.0
-texture_over = ExtResource("3_be23f")
-texture_progress = ExtResource("4_t4fx3")
-
-[node name="PointLight2D" type="PointLight2D" parent="TextureProgressBar"]
-position = Vector2(16, 2.75)
-energy = 0.3
-texture = ExtResource("5_xakm3")
 
 [node name="Error" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lvfyu")
@@ -47,5 +30,7 @@ texture = ExtResource("8_kv48c")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
+[node name="DoorCtrlUi" parent="." instance=ExtResource("6_ypc2e")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="door_ctrl_ui_input_finished" from="DoorCtrlUi" to="." method="_on_door_ctrl_ui_door_ctrl_ui_input_finished"]

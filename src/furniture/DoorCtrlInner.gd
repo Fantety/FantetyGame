@@ -5,18 +5,18 @@ var doorCtrlInnerReady = false
 var needLevel
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
+	set_frame(1)
 	if get_parent().name == "Bedroom":
 		needLevel = Common.accessCardLevels.LEVEL1
 
 signal door_ctrl_inner_name(name:String)
-signal door_ctrl_inner_lock
 func _process(delta):
 	if doorCtrlInnerReady:
 		if Input.is_action_just_pressed("action"):
 			if Backpack.playerLevel >= needLevel:
-				emit_signal("door_ctrl_inner_name",get_parent().name)
+				emit_signal("door_ctrl_inner_name",self.name)
 			else:
-				emit_signal("door_ctrl_inner_lock")
+				Common.show_tips("权限不足", true)
 			pass
 	pass
 

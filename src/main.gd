@@ -32,18 +32,14 @@ func remove_kuikui():
 	
 func search_access_control_card():
 	Backpack.playerLevel = Common.accessCardLevels.LEVEL1;
-	tips = load("res://scene/tips.tscn").instantiate()
-	add_child(tips)
-	tips.show_tip("获得：门禁卡（等级一）", true)
+	Common.show_tips("获得：门禁卡（等级一）", true)
 	$AccessCard.show()
 	$AccessCard/AnimationPlayer.play("default")
 	
 signal signal_get_accress_card_level2
 func get_accress_card_level2():
 	emit_signal("signal_get_accress_card_level2")
-	tips = load("res://scene/tips.tscn").instantiate()
-	add_child(tips)
-	tips.show_tip("获得：门禁卡（等级二）", true)
+	Common.show_tips("获得：门禁卡（等级二）", true)
 	Backpack.playerLevel = Common.accessCardLevels.LEVEL2;
 	
 
@@ -57,21 +53,14 @@ func _on_dead_area_body_entered(body):
 
 
 func _on_bedroom_out_show_vending_machine_result(result):
-	tips = load("res://scene/tips.tscn").instantiate()
-	add_child(tips)
-	tips.show_tip("获得："+result, true)
+	Common.show_tips("获得："+result, true)
 	pass # Replace with function body.
 
 
 func _on_player_lack_of_authority():
-	tips = load("res://scene/tips.tscn").instantiate()
-	add_child(tips)
-	tips.show_tip("权限不足", true)
+	Common.show_tips("权限不足", true)
 	pass # Replace with function body.
 
-
-func _on_door_ctrl_inner_door_ctrl_inner_lock():
-	tips = load("res://scene/tips.tscn").instantiate()
-	add_child(tips)
-	tips.show_tip("权限不足", true)
-	pass # Replace with function body.
+func _on_player_passwd_error():
+	Common.show_tips("密码错误", true)
+	

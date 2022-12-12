@@ -5,12 +5,16 @@ signal bedroom_door_ctrl_input_finished
 signal balcony_door_ctrl_input_finished
 signal greenhouse_door_ctrl_input_finished
 signal medical_door_ctrl_input_finished
+signal power_room_door_ctrl_input_finished
+signal door_ctrl_input_finished(doorName:String)
 # Called when the node enters the scene tree for the first time.
 var theTrigger = true
 signal lack_of_authority
+signal passwd_error
 
 func _ready():
 	self.lack_of_authority.connect(Callable(get_parent().get_parent(),"_on_player_lack_of_authority"))
+	self.passwd_error.connect(Callable(get_parent().get_parent(),"_on_player_passwd_error"))
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -22,163 +26,130 @@ func _physics_process(delta):
 		greenhouse_door_ctrl_function()
 	elif Common.medicalDoorCtrlReady and Common.medicalDoorCtrlAllow:
 		medical_door_ctrl_function()
+	elif Common.powerRoomDoorCtrlReady and Common.powerRoomDoorCtrlAllow:
+		power_room_door_ctrl_function()
+	elif Common.dataRoomDoorCtrlReady and Common.dataRoomDoorCtrlAllow:
+		data_room_door_ctrl_function()
+	elif Common.fantetyLabDoorCtrlReady and Common.fantetyLabDoorCtrlAllow:
+		fantety_lab_door_ctrl_function()
 		pass
 	pass
 	
 	
 func bedroom_door_ctrl_function():
-	if theTrigger:
+	if self.name == "BedroomDoorCtrl":
 		if Input.is_action_pressed("action"):
 			if Common.bedroomDoorStatus:
-				emit_signal("bedroom_door_ctrl_input_finished")
+				emit_signal("door_ctrl_input_finished",self.name)
 			else :
-				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-					if !get_node("Right").playing:
-						get_node("Right").play()
-				else:
-					if !get_node("Error").playing:
-						get_node("Error").play()
-				get_node("TextureProgressBar").set_visible(true)
-				Common.bedroomDoorCtrlValue = Common.bedroomDoorCtrlValue + 1.0
-				get_node("TextureProgressBar").set_value(Common.bedroomDoorCtrlValue)
-		if Input.is_action_just_released("action"):
-			Common.bedroomDoorCtrlValue = 0.0
-			theTrigger = false
-			get_node("TextureProgressBar").set_value(Common.bedroomDoorCtrlValue)
-			get_node("TextureProgressBar").set_visible(false)
-			if get_node("Right").playing:
-					get_node("Right").stop()
-			elif get_node("Error").playing:
-					get_node("Error").stop()
-			get_node("Timer").start()
+				$DoorCtrlUi.door_ctrl_ui_show()
 
 func balcony_door_ctrl_function():
-	if theTrigger:
+	if self.name == "BalconyDoorCtrl":
 		if Input.is_action_pressed("action"):
 			if Common.balconyDoorStatus:
-				emit_signal("balcony_door_ctrl_input_finished")
+				emit_signal("door_ctrl_input_finished",self.name)
 			else :
-				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-					if !get_node("Right").playing:
-						get_node("Right").play()
-				else:
-					if !get_node("Error").playing:
-						get_node("Error").play()
-				get_node("TextureProgressBar").set_visible(true)
-				Common.balconyDoorCtrlValue = Common.balconyDoorCtrlValue + 1
-				get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
-		if Input.is_action_just_released("action"):
-			theTrigger = false
-			Common.balconyDoorCtrlValue = 0.0
-			get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
-			get_node("TextureProgressBar").set_visible(false)
-			if get_node("Right").playing:
-				get_node("Right").stop()
-			elif get_node("Error").playing:
-				get_node("Error").stop()
-			get_node("Timer").start()
+				$DoorCtrlUi.door_ctrl_ui_show()
 
 
 func greenhouse_door_ctrl_function():
-	if theTrigger:
+	if self.name == "GreenHouseDoorCtrl":
 		if Input.is_action_pressed("action"):
 			if Common.greenhouseDoorStatus:
-				print(Common.greenhouseDoorStatus)
-				emit_signal("greenhouse_door_ctrl_input_finished")
+				#print(Common.greenhouseDoorStatus)
+				emit_signal("door_ctrl_input_finished",self.name)
 			else :
-				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-					if !get_node("Right").playing:
-						get_node("Right").play()
-				else:
-					if !get_node("Error").playing:
-						get_node("Error").play()
-				get_node("TextureProgressBar").set_visible(true)
-				Common.greenhouseDoorCtrlValue = Common.greenhouseDoorCtrlValue + 1
-				get_node("TextureProgressBar").set_value(Common.greenhouseDoorCtrlValue)
-		if Input.is_action_just_released("action"):
-			theTrigger = false
-			Common.greenhouseDoorCtrlValue = 0.0
-			get_node("TextureProgressBar").set_value(Common.greenhouseDoorCtrlValue)
-			get_node("TextureProgressBar").set_visible(false)
-			if get_node("Right").playing:
-				get_node("Right").stop()
-			elif get_node("Error").playing:
-				get_node("Error").stop()
-			get_node("Timer").start()
+				$DoorCtrlUi.door_ctrl_ui_show()
 			
 func medical_door_ctrl_function():
-	if theTrigger:
+	if self.name == "MedicalDoorCtrl":
 		if Input.is_action_pressed("action"):
 			if Common.medicalDoorStatus:
-				print(Common.medicalDoorStatus)
-				emit_signal("medical_door_ctrl_input_finished")
+				#print(Common.medicalDoorStatus)
+				emit_signal("door_ctrl_input_finished",self.name)
 			else :
-				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-					if !get_node("Right").playing:
-						get_node("Right").play()
-				else:
-					if !get_node("Error").playing:
-						get_node("Error").play()
-				get_node("TextureProgressBar").set_visible(true)
-				Common.medicalDoorCtrlValue = Common.medicalDoorCtrlValue + 1
-				get_node("TextureProgressBar").set_value(Common.medicalDoorCtrlValue)
-		if Input.is_action_just_released("action"):
-			theTrigger = false
-			Common.medicalDoorCtrlValue = 0.0
-			get_node("TextureProgressBar").set_value(Common.medicalDoorCtrlValue)
-			get_node("TextureProgressBar").set_visible(false)
-			if get_node("Right").playing:
-				get_node("Right").stop()
-			elif get_node("Error").playing:
-				get_node("Error").stop()
-			get_node("Timer").start()
+				$DoorCtrlUi.door_ctrl_ui_show()
 
+func power_room_door_ctrl_function():
+	if self.name == "PowerRoomDoorCtrl":
+		if Input.is_action_pressed("action"):
+			if Common.powerRoomDoorStatus:
+				#print(Common.medicalDoorStatus)
+				emit_signal("door_ctrl_input_finished",self.name)
+			else :
+				$DoorCtrlUi.door_ctrl_ui_show()
 
-func _on_texture_progress_bar_value_changed(value):
-	if value == 200:
-		if Common.bedroomDoorCtrlReady:
-			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-				Common.bedroomDoorCtrlValue = 0.0
-				get_node("TextureProgressBar").set_value(Common.bedroomDoorCtrlValue)
-				emit_signal("bedroom_door_ctrl_input_finished")
-			else:
-				emit_signal("lack_of_authority")
-		elif Common.balconyDoorCtrlReady:
-			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
-				Common.balconyDoorCtrlValue = 0.0
-				get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
-				emit_signal("balcony_door_ctrl_input_finished")
-			else:
-				emit_signal("lack_of_authority")
-		elif Common.greenhouseDoorCtrlReady:
-			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
-				Common.greenhouseDoorCtrlValue = 0.0
-				get_node("TextureProgressBar").set_value(Common.greenhouseDoorCtrlValue)
-				emit_signal("greenhouse_door_ctrl_input_finished")
-			else:
-				emit_signal("lack_of_authority")
-		elif Common.medicalDoorCtrlReady:
-			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
-				Common.medicalDoorCtrlValue = 0.0
-				get_node("TextureProgressBar").set_value(Common.medicalDoorCtrlValue)
-				emit_signal("medical_door_ctrl_input_finished")
-			else:
-				emit_signal("lack_of_authority")
-		
-#	else:
-#		if value == 95:
-#			theTrigger = false
-#			Common.balconyDoorCtrlValue = 0.0
-#			get_node("TextureProgressBar").set_value(Common.balconyDoorCtrlValue)
-#			get_node("TextureProgressBar").set_visible(false)
-#			get_node("Timer").start()
+func data_room_door_ctrl_function():
+	if self.name == "DataRoomDoorCtrl":
+		if Input.is_action_pressed("action"):
+			if Common.dataRoomDoorStatus:
+				#print(Common.medicalDoorStatus)
+				emit_signal("door_ctrl_input_finished",self.name)
+			else :
+				$DoorCtrlUi.door_ctrl_ui_show()
 
+func fantety_lab_door_ctrl_function():
+	if self.name == "FantetyLabDoorCtrl":
+		if Input.is_action_pressed("action"):
+			if Common.fantetyLabDoorStatus:
+				#print(Common.medicalDoorStatus)
+				emit_signal("door_ctrl_input_finished",self.name)
+			else :
+				$DoorCtrlUi.door_ctrl_ui_show()
 
 func _on_timer_timeout():
 	theTrigger = true
 	pass # Replace with function body.
 
 
-func _on_timer_2_timeout():
-	theTrigger = true
+func _on_door_ctrl_ui_door_ctrl_ui_input_finished(parentName, passward):
+	if parentName == "GreenHouseDoorCtrl":
+		if passward == "111111":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+	elif parentName == "BedroomDoorCtrl":
+		if passward == "123456":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+		pass
+	elif parentName == "BalconyDoorCtrl":
+		if passward == "123456":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+		pass
+	elif parentName == "MedicalDoorCtrl":
+		if passward == "123456":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+		pass
+	elif parentName == "PowerRoomDoorCtrl":
+		if passward == "123456":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+		pass
+	elif parentName == "DataRoomDoorCtrl":
+		if passward == "123456":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+		pass
+	elif parentName == "FantetyLabDoorCtrl":
+		if passward == "123456":
+			emit_signal("door_ctrl_input_finished",self.name)
+			$DoorCtrlUi.door_ctrl_ui_hide()
+		else:
+			emit_signal("passwd_error")
+		pass
 	pass # Replace with function body.
