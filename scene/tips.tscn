@@ -1,15 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://17wkmtlgmps1"]
+[gd_scene load_steps=10 format=3 uid="uid://17wkmtlgmps1"]
 
 [ext_resource type="Script" path="res://src/Tips.gd" id="1_8o8jo"]
 [ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_i8xj6"]
 [ext_resource type="AudioStream" uid="uid://dy7dvv4xlcb6d" path="res://asset/sound/tip_sound.wav" id="3_0f8ny"]
+[ext_resource type="Texture2D" uid="uid://c4taqnil562ty" path="res://asset/ui/Ancient/white.png" id="3_t85mw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10mnr"]
+texture = ExtResource("3_t85mw")
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eumua"]
+font = ExtResource("1_i8xj6")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_8v7ky"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/path = NodePath("Label:theme_override_styles/normal:modulate_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -18,6 +28,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_nrrcg"]
 resource_name = "tips"
@@ -25,14 +47,26 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:theme_override_colors/font_color")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Label:theme_override_styles/normal:modulate_color")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cyan1"]
@@ -49,13 +83,13 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -21.0
-offset_bottom = 21.0
+offset_top = -213.0
+offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_i8xj6")
-theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxTexture_10mnr")
+label_settings = SubResource("LabelSettings_eumua")
 horizontal_alignment = 1
 vertical_alignment = 1
 

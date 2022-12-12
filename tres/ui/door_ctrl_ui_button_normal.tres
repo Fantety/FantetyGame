@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dgnwx3klhxhnt"]
+
+[ext_resource type="Texture2D" uid="uid://c4taqnil562ty" path="res://asset/ui/Ancient/white.png" id="1_tgbjq"]
+
+[resource]
+texture = ExtResource("1_tgbjq")
+margin_left = 4.0
+margin_right = 4.0
+region_rect = Rect2(0, 0, 48, 48)
