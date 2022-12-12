@@ -1,4 +1,4 @@
-[gd_scene load_steps=293 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=297 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -132,6 +132,9 @@
 [ext_resource type="PackedScene" uid="uid://blj2u1qjppeus" path="res://scene/furniture/access_card.tscn" id="98_y8omd"]
 [ext_resource type="Script" path="res://src/Room/Medical.gd" id="101_mnevh"]
 [ext_resource type="Script" path="res://src/furniture/FantetyLabOverheadDoor.gd" id="103_chn0b"]
+[ext_resource type="Texture2D" uid="uid://dtquc7xiwii8m" path="res://asset/img/furniture/flashlight.png" id="118_oovlb"]
+[ext_resource type="Script" path="res://src/furniture/FlashLight.gd" id="119_ti8jk"]
+[ext_resource type="Texture2D" uid="uid://1s0elt0i60ag" path="res://asset/img/light/light9 .png" id="120_w8cpv"]
 
 [sub_resource type="Environment" id="Environment_vuosr"]
 background_mode = 3
@@ -711,14 +714,17 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_phnuw"]
-polygon = PackedVector2Array(-4, -16, 4.5, -16, 4.5, 16, -4, 16)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m1fkb"]
+polygon = PackedVector2Array(-4, -16, 4, -16, 4, 16, -4, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f4brv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbi3l"]
 texture = ExtResource("6_i4qi5")
 texture_region_size = Vector2i(8, 32)
 0:0/0 = 0
-0:0/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_phnuw")
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_m1fkb")
+0:0/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_f4brv")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
@@ -2186,6 +2192,23 @@ one_shot = true
 
 [node name="RainWalkSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("62_gi3ow")
+
+[node name="FlashLight" type="Sprite2D" parent="Player"]
+position = Vector2(13, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("118_oovlb")
+offset = Vector2(-6, -4)
+flip_h = true
+script = ExtResource("119_ti8jk")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player/FlashLight"]
+position = Vector2(-6, -20)
+rotation = -3.14159
+scale = Vector2(0.5, 1)
+shadow_enabled = true
+texture = ExtResource("120_w8cpv")
+offset = Vector2(-9.9353, 240.935)
+texture_scale = 0.5
 
 [node name="Sound" type="Node" parent="."]
 

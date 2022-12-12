@@ -209,7 +209,7 @@ animations = [{
 }]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ak8lf"]
-polygon = PackedVector2Array(0, 0, 0, 64, 8, 64, 8, 0)
+polygon = PackedVector2Array(0, 0, 0, 70, 8, 70, 8, 0)
 
 [sub_resource type="Animation" id="Animation_8ijsr"]
 length = 0.001
@@ -285,7 +285,6 @@ script = ExtResource("2_c2i0v")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ak8lf")
-occluder_light_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
