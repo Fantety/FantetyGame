@@ -4,7 +4,7 @@ func _ready():
 	set_visible(false)
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel") && visible == true:
 		door_ctrl_ui_hide()
 	pass

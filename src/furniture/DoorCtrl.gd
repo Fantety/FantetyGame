@@ -17,7 +17,7 @@ func _ready():
 	self.passwd_error.connect(Callable(get_parent().get_parent(),"_on_player_passwd_error"))
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Common.bedroomDoorCtrlReady and Common.bedroomDoorCtrlAllow:
 		bedroom_door_ctrl_function()
 	elif Common.balconyDoorCtrlReady and Common.balconyDoorCtrlAllow:

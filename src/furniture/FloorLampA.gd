@@ -3,7 +3,7 @@ extends Sprite2D
 
 var lightStatus = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if self.name == Common.currentFloorLamp and Common.floorLampReady:
 		if Input.is_action_just_pressed("action"):
 			$PointLight2D.set_enabled(!lightStatus)

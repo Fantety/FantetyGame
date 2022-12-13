@@ -121,6 +121,7 @@ func start_bedroom_terminal_ready():
 	pass
 
 func start_bedroom_desk_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.bedroomDeskDialog, "start")
 	pass
 
 func start_kuikui_ready():
@@ -539,12 +540,6 @@ func _on_door_ctrl_inner_door_ctrl_inner_entered():
 
 func _on_door_ctrl_inner_door_ctrl_inner_exited():
 	dialogBubble.hide()
-	pass # Replace with function body.
-
-
-func _on_door_ctrl_inner_door_ctrl_inner_name(name):
-	if name == "Bedroom":
-		emit_signal("change_bedroom_door_status")
 	pass # Replace with function body.
 
 

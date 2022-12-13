@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://cvgijew5nswbn"
+path="res://.godot/imported/bedroom_desk.dialogue-309b4b76eb7d7b0032fc5af231e2d17a.tres"
+
+[deps]
+
+source_file="res://dialog/bedroom/bedroom_desk.dialogue"
+dest_files=["res://.godot/imported/bedroom_desk.dialogue-309b4b76eb7d7b0032fc5af231e2d17a.tres"]
+
+[params]
+

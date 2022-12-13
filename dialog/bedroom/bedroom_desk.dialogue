@@ -1,0 +1,6 @@
+~ start
+我: 找找这张桌子上有些什么有用的东西
+- 好像只有一个手电筒 [if flashLight == false]
+	我: 先拿着吧
+	do search_falsh_light()
+- 离开

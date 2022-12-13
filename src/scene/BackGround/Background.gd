@@ -11,7 +11,7 @@ var backgroundMove = false
 #
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if backgroundMove and !Common.inputLock:
 		var direction = Input.get_axis("act_left", "act_right")
 		if direction:

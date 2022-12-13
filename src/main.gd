@@ -32,9 +32,16 @@ func remove_kuikui():
 	
 func search_access_control_card():
 	Backpack.playerLevel = Common.accessCardLevels.LEVEL1;
+	Backpack.accessControlCard = true
 	Common.show_tips("获得：门禁卡（等级一）", true)
-	$AccessCard.show()
-	$AccessCard/AnimationPlayer.play("default")
+	$BackPack/AccessCard.show()
+	$BackPack/AccessCard/AnimationPlayer.play("default")
+	
+func search_falsh_light():
+	Backpack.flashLight = true
+	Common.show_tips("获得：手电筒", true)
+	$BackPack/FlashLight.show()
+	$BackPack/FlashLight/AnimationPlayer.play("default")
 	
 signal signal_get_accress_card_level2
 func get_accress_card_level2():
@@ -64,3 +71,9 @@ func _on_player_lack_of_authority():
 func _on_player_passwd_error():
 	Common.show_tips("密码错误", true)
 	
+func show_bedroom_computer():
+	if find_child("BedroomComputer", false, false) != null:
+		get_node("BedroomComputer").show()
+	else:
+		var bedroomComputerUi = load("res://scene/furniture/bedroom_computer.tscn").instantiate()
+		add_child(bedroomComputerUi)

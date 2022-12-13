@@ -1,4 +1,4 @@
-[gd_scene load_steps=297 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=302 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -134,7 +134,9 @@
 [ext_resource type="Script" path="res://src/furniture/FantetyLabOverheadDoor.gd" id="103_chn0b"]
 [ext_resource type="Texture2D" uid="uid://dtquc7xiwii8m" path="res://asset/img/furniture/flashlight.png" id="118_oovlb"]
 [ext_resource type="Script" path="res://src/furniture/FlashLight.gd" id="119_ti8jk"]
-[ext_resource type="Texture2D" uid="uid://1s0elt0i60ag" path="res://asset/img/light/light9 .png" id="120_w8cpv"]
+[ext_resource type="Texture2D" uid="uid://nnlw48o18utf" path="res://asset/img/light/light3.png" id="120_gf8kc"]
+[ext_resource type="AudioStream" uid="uid://gd6bddbj3vq7" path="res://asset/sound/effect/backpack.wav" id="132_er8rs"]
+[ext_resource type="PackedScene" uid="uid://cc2h542yl3wek" path="res://scene/furniture/flash_light.tscn" id="135_6sasl"]
 
 [sub_resource type="Environment" id="Environment_vuosr"]
 background_mode = 3
@@ -1336,6 +1338,43 @@ animations = [{
 radius = 8.0
 height = 34.0
 
+[sub_resource type="Animation" id="Animation_hqcv5"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/FlashLight:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_gtjil"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/FlashLight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_io8cb"]
+_data = {
+"RESET": SubResource("Animation_gtjil"),
+"default": SubResource("Animation_hqcv5")
+}
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_s3vct")
 
@@ -2202,13 +2241,23 @@ flip_h = true
 script = ExtResource("119_ti8jk")
 
 [node name="PointLight2D" type="PointLight2D" parent="Player/FlashLight"]
-position = Vector2(-6, -20)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-6, -18)
 rotation = -3.14159
-scale = Vector2(0.5, 1)
+scale = Vector2(4.5, 2)
 shadow_enabled = true
-texture = ExtResource("120_w8cpv")
-offset = Vector2(-9.9353, 240.935)
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("120_gf8kc")
+offset = Vector2(-2.51831, 149.726)
 texture_scale = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/FlashLight"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_io8cb")
+}
 
 [node name="Sound" type="Node" parent="."]
 
@@ -2251,6 +2300,10 @@ stream = ExtResource("65_ichm4")
 stream = ExtResource("72_6gpu7")
 volume_db = -5.0
 
+[node name="BackPack" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("132_er8rs")
+bus = &"Effect"
+
 [node name="Elevator" type="Node" parent="."]
 
 [node name="Elevator" parent="Elevator" instance=ExtResource("62_nq4lk")]
@@ -2276,9 +2329,13 @@ scale = Vector2(0.7, 0.7)
 
 [node name="ChargeRoom" type="Node" parent="."]
 
-[node name="AccessCard" parent="." instance=ExtResource("98_y8omd")]
+[node name="BackPack" type="Node2D" parent="."]
 
-[connection signal="signal_get_accress_card_level2" from="." to="AccessCard" method="_on_main_signal_get_accress_card_level_2"]
+[node name="FlashLight" parent="BackPack" instance=ExtResource("135_6sasl")]
+
+[node name="AccessCard" parent="BackPack" instance=ExtResource("98_y8omd")]
+
+[connection signal="signal_get_accress_card_level2" from="." to="BackPack/AccessCard" method="_on_main_signal_get_accress_card_level_2"]
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="door_ctrl_input_finished" from="GreenHouse/GreenHouseDoorCtrl" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_door_ctrl_input_finished"]

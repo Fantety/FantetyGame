@@ -1,0 +1,290 @@
+[gd_scene load_steps=21 format=3 uid="uid://cgvi1lqkhr00t"]
+
+[ext_resource type="Texture2D" uid="uid://do4wpaycof2df" path="res://asset/ui/bk_tech_ui.png" id="1_asfdk"]
+[ext_resource type="Script" path="res://src/furniture/BedroomComputer.gd" id="1_u5taf"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="2_tipqs"]
+[ext_resource type="Texture2D" uid="uid://d3mniskqmlc62" path="res://asset/ui/tech_line_edit_ui.png" id="3_5l25n"]
+[ext_resource type="Texture2D" uid="uid://bvcpon7vrhidh" path="res://asset/ui/PixelIcon/find.png" id="4_kop20"]
+[ext_resource type="Texture2D" uid="uid://bga00elvgfeps" path="res://asset/img/ui/progress_bar_over.png" id="5_35wk5"]
+[ext_resource type="Texture2D" uid="uid://dib0gwnimm4pg" path="res://asset/img/ui/progress_bar_progress.png" id="6_qcvls"]
+[ext_resource type="Texture2D" uid="uid://dpbvuevjeuanv" path="res://asset/ui/PixelIcon/snd_file_1.png" id="6_sjhko"]
+[ext_resource type="Texture2D" uid="uid://dsheb3cnecmuc" path="res://asset/ui/PixelIcon/img_file_1.png" id="7_janwg"]
+[ext_resource type="Texture2D" uid="uid://r72qdpjo4534" path="res://asset/ui/PixelIcon/text_file32.png" id="8_o72ve"]
+[ext_resource type="AudioStream" uid="uid://dt772k3pi6a5k" path="res://asset/sound/effect/button_down.wav" id="11_67tuw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjkin"]
+texture = ExtResource("1_asfdk")
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+region_rect = Rect2(0, 0, 128, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or2ih"]
+texture = ExtResource("3_5l25n")
+region_rect = Rect2(0, 0, 67, 26)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6fiy"]
+
+[sub_resource type="Animation" id="Animation_enmu3"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.482969, 0.574353),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ah404"]
+resource_name = "login_progress"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="Animation" id="Animation_t7c8t"]
+resource_name = "desktop_show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xngvg"]
+resource_name = "passwd_error"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/LineEdit:theme_override_styles/normal:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0, 0, 1), Color(1, 1, 1, 1), Color(0.988235, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/LineEdit:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["密码错误", ""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/LineEdit:secret")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_10q10"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/LineEdit:theme_override_styles/normal:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/LineEdit:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/LineEdit:secret")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1gc0l"]
+_data = {
+"RESET": SubResource("Animation_10q10"),
+"desktop_show": SubResource("Animation_t7c8t"),
+"login_progress": SubResource("Animation_ah404"),
+"passwd_error": SubResource("Animation_xngvg"),
+"show": SubResource("Animation_enmu3")
+}
+
+[node name="BedroomComputer" type="CanvasLayer"]
+script = ExtResource("1_u5taf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.5
+offset_top = -319.5
+offset_right = 550.5
+offset_bottom = 319.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bjkin")
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.5
+offset_top = -69.5
+offset_right = 264.5
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tipqs")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_or2ih")
+placeholder_text = "密码"
+alignment = 1
+max_length = 6
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
+visible = false
+offset_left = 391.5
+offset_top = 427.5
+offset_right = 424.5
+offset_bottom = 433.5
+scale = Vector2(10, 10)
+nine_patch_stretch = true
+texture_over = ExtResource("5_35wk5")
+texture_progress = ExtResource("6_qcvls")
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.5
+offset_top = -319.5
+offset_right = 550.5
+offset_bottom = 319.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+theme_override_styles/panel = SubResource("StyleBoxTexture_bjkin")
+
+[node name="Button" type="Button" parent="Panel2"]
+offset_left = 86.5
+offset_top = 106.5
+offset_right = 214.5
+offset_bottom = 234.5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
+shortcut_in_tooltip = false
+icon = ExtResource("4_kop20")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel2"]
+offset_left = 279.5
+offset_top = 106.5
+offset_right = 407.5
+offset_bottom = 234.5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
+shortcut_in_tooltip = false
+icon = ExtResource("6_sjhko")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="Panel2"]
+offset_left = 471.5
+offset_top = 106.5
+offset_right = 599.5
+offset_bottom = 234.5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
+shortcut_in_tooltip = false
+icon = ExtResource("7_janwg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button4" type="Button" parent="Panel2"]
+offset_left = 663.5
+offset_top = 106.5
+offset_right = 791.5
+offset_bottom = 234.5
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
+shortcut_in_tooltip = false
+icon = ExtResource("8_o72ve")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1gc0l")
+}
+
+[node name="InputEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_67tuw")
+
+[connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]

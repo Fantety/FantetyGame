@@ -9,8 +9,8 @@ func _ready():
 	if get_parent().name == "Bedroom":
 		needLevel = Common.accessCardLevels.LEVEL1
 
-signal door_ctrl_inner_name(name:String)
-func _process(delta):
+signal door_ctrl_inner_name(doorCtrlName:String)
+func _process(_delta):
 	if doorCtrlInnerReady:
 		if Input.is_action_just_pressed("action"):
 			if Backpack.playerLevel >= needLevel:

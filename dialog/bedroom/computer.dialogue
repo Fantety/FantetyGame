@@ -4,3 +4,4 @@
 - 寻找门禁卡 [if accessControlCard == false]
 	do search_access_control_card()
 - 查看电脑
+	do show_bedroom_computer()

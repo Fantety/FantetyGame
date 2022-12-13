@@ -19,7 +19,7 @@ func _on_bedroom_door_ctrl_door_ctrl_input_finished(doorName):
 	pass # Replace with function body.
 
 
-func _on_bedroom_door_ctrl_inner_door_ctrl_inner_name(name):
-	if name == "BedroomDoorCtrlInner":
+func _on_bedroom_door_ctrl_inner_door_ctrl_inner_name(doorCtrlName):
+	if doorCtrlName == "BedroomDoorCtrlInner":
 		_on_bedroom_door_ctrl_door_ctrl_input_finished("BedroomDoorCtrl")
 	pass # Replace with function body.
