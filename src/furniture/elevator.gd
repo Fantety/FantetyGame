@@ -72,6 +72,8 @@ func _on_player_change_elevator_door_status(status, index):
 		Common.inputLock = true
 		if status:			
 			elevatorAnimation.play_backwards("OpenElevatorDoor")
+			await elevatorAnimation.animation_finished
+			set_elevator_light_status(false)
 		else:
 			elevatorAnimation.play("OpenElevatorDoor")
 		elevatorSound.play()

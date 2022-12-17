@@ -1338,6 +1338,21 @@ animations = [{
 radius = 8.0
 height = 34.0
 
+[sub_resource type="Animation" id="Animation_gtjil"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/FlashLight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
 [sub_resource type="Animation" id="Animation_hqcv5"]
 resource_name = "default"
 length = 0.5
@@ -1352,21 +1367,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(1e-05, 1e-05)]
-}
-
-[sub_resource type="Animation" id="Animation_gtjil"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/FlashLight:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_io8cb"]
@@ -2241,14 +2241,15 @@ flip_h = true
 script = ExtResource("119_ti8jk")
 
 [node name="PointLight2D" type="PointLight2D" parent="Player/FlashLight"]
-light_mask = 3
-visibility_layer = 3
+light_mask = 7
+visibility_layer = 7
 position = Vector2(-6, -18)
 rotation = -3.14159
 scale = Vector2(4.5, 2)
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.0
+shadow_item_cull_mask = 5
 texture = ExtResource("120_gf8kc")
 offset = Vector2(-2.51831, 149.726)
 texture_scale = 0.5
