@@ -12,6 +12,7 @@ var inputLock = false
 @onready var bedroomComputerDialog = load("res://dialog/bedroom/computer.dialogue")
 @onready var bedroomDeskDialog = load("res://dialog/bedroom/bedroom_desk.dialogue")
 @onready var bedroomClosetDialog = load("res://dialog/bedroom/closet.dialogue")
+@onready var bedroomHealthDialog = load("res://dialog/bedroom/bedroom_heath.dialogue")
 
 var doorCardLock = load("res://asset/img/furniture/door_ctrl/door_card_lock.png")
 var doorCardUnlock = load("res://asset/img/furniture/door_ctrl/door_card_unlock.png")

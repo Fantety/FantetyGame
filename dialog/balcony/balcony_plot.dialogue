@@ -21,4 +21,4 @@ do get_accress_card_level2()
 ~ question1_2
 捌: 我? 我和你不一样,至少对她来说是这样的
 捌: 好了,我的任务已经完成了,接下来就靠你自己了
-do Common.inputLock = false
+do repos_camera()

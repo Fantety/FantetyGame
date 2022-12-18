@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bp125w68d48jr"
+path="res://.godot/imported/bedroom_heath.dialogue-9cfc74aec472f09e9ba8dc816b6ac826.tres"
+
+[deps]
+
+source_file="res://dialog/bedroom/bedroom_heath.dialogue"
+dest_files=["res://.godot/imported/bedroom_heath.dialogue-9cfc74aec472f09e9ba8dc816b6ac826.tres"]
+
+[params]
+

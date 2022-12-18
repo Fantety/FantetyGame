@@ -15,9 +15,6 @@ const PROGRESS_SPEED = 20
 var balconyPlotStart = false
 var balconyPlotArrived = false
 
-
-var inputPasswdSoundRight
-var inputPasswdSoundError
 #var porgressBarValue = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -35,8 +32,6 @@ func _ready():
 	add_child(dialogBubble)
 	dialogBubble.set_position(playerView.position + Vector2(15,-18))
 	dialogBubble.hide()
-	inputPasswdSoundRight = get_parent().get_node("Sound/InputPasswdSoundRight")
-	inputPasswdSoundError = get_parent().get_node("Sound/InputPasswdSoundError")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -76,6 +71,7 @@ func _physics_process(delta):
 				start_vending_machine_ready()
 			elif Common.wardrobeReady:
 				start_bedroom_wardrobe_ready()
+				
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -120,6 +116,7 @@ func start_bed_dialog():
 		DialogueManager.show_example_dialogue_balloon(Common.bedDialogEgg, "start")
 	
 func start_bedroom_terminal_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.bedroomHealthDialog, "start")
 	pass
 
 func start_bedroom_desk_ready():

@@ -77,3 +77,11 @@ func show_bedroom_computer():
 	else:
 		var bedroomComputerUi = load("res://scene/furniture/bedroom_computer.tscn").instantiate()
 		add_child(bedroomComputerUi)
+
+func repos_camera():
+	Common.inputLock = true
+	var tween = create_tween().bind_node($Player/Camera).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Player/Camera, "position", Vector2(get_node("Player/Camera").position.x+50,get_node("Player/Camera").position.y),2)
+	tween.play()
+	await tween.finished
+	Common.inputLock = false

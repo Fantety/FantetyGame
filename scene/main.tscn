@@ -2268,6 +2268,7 @@ bus = &"Effect"
 
 [node name="DoorSound" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("34_gw6bn")
+volume_db = 10.0
 pitch_scale = 2.0
 bus = &"Effect"
 
