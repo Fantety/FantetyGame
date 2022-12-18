@@ -12,9 +12,12 @@ var theTrigger = true
 signal lack_of_authority
 signal passwd_error
 
+@onready var doorCtrlUi = preload("res://scene/component/door_ctrl_ui.tscn").instantiate()
+
 func _ready():
 	self.lack_of_authority.connect(Callable(get_parent().get_parent(),"_on_player_lack_of_authority"))
 	self.passwd_error.connect(Callable(get_parent().get_parent(),"_on_player_passwd_error"))
+	add_child(doorCtrlUi)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):

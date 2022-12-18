@@ -74,6 +74,8 @@ func _physics_process(delta):
 				start_bedroom_computer_ready()
 			elif Common.VendingMachineReady:
 				start_vending_machine_ready()
+			elif Common.wardrobeReady:
+				start_bedroom_wardrobe_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -442,7 +444,11 @@ func _on_wardrobe_body_exited(body):
 		Common.wardrobeReady = false
 	pass # Replace with function body.
 
-
+func start_bedroom_wardrobe_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.bedroomClosetDialog, "start")
+	pass
+	
+	
 func _on_vending_machines_body_entered(body):
 	if body == self:
 		dialogBubble.show()

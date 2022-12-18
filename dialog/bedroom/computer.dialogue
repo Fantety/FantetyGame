@@ -5,3 +5,4 @@
 	do search_access_control_card()
 - 查看电脑
 	do show_bedroom_computer()
+- 离开 => END

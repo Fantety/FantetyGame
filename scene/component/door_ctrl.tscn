@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhkdg4eiqu11a"]
+[gd_scene load_steps=6 format=3 uid="uid://dhkdg4eiqu11a"]
 
 [ext_resource type="Texture2D" uid="uid://hucspk1shob0" path="res://asset/img/furniture/door_ctrl/door_card_lock.png" id="1_56610"]
 [ext_resource type="Script" path="res://src/furniture/DoorCtrl.gd" id="1_ep1jp"]
 [ext_resource type="AudioStream" uid="uid://d2vk0ven6x2yt" path="res://asset/sound/input_passwd_error.wav" id="6_lvfyu"]
-[ext_resource type="PackedScene" uid="uid://c4d2t4cj84c11" path="res://scene/component/door_ctrl_ui.tscn" id="6_ypc2e"]
 [ext_resource type="AudioStream" uid="uid://cgee8oofc0763" path="res://asset/sound/input_passwd_right.wav" id="7_uiqq6"]
 [ext_resource type="Texture2D" uid="uid://ctoc1vlg3f1ma" path="res://asset/img/light/light_screen.png" id="8_kv48c"]
 
@@ -30,7 +29,4 @@ texture = ExtResource("8_kv48c")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="DoorCtrlUi" parent="." instance=ExtResource("6_ypc2e")]
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="door_ctrl_ui_input_finished" from="DoorCtrlUi" to="." method="_on_door_ctrl_ui_door_ctrl_ui_input_finished"]

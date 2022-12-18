@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgvi1lqkhr00t"]
+[gd_scene load_steps=26 format=3 uid="uid://cgvi1lqkhr00t"]
 
 [ext_resource type="Texture2D" uid="uid://do4wpaycof2df" path="res://asset/ui/bk_tech_ui.png" id="1_asfdk"]
 [ext_resource type="Script" path="res://src/furniture/BedroomComputer.gd" id="1_u5taf"]
@@ -11,20 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dsheb3cnecmuc" path="res://asset/ui/PixelIcon/img_file_1.png" id="7_janwg"]
 [ext_resource type="Texture2D" uid="uid://r72qdpjo4534" path="res://asset/ui/PixelIcon/text_file32.png" id="8_o72ve"]
 [ext_resource type="AudioStream" uid="uid://dt772k3pi6a5k" path="res://asset/sound/effect/button_down.wav" id="11_67tuw"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjkin"]
-texture = ExtResource("1_asfdk")
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 1.0
-margin_bottom = 1.0
-region_rect = Rect2(0, 0, 128, 132)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or2ih"]
-texture = ExtResource("3_5l25n")
-region_rect = Rect2(0, 0, 67, 26)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6fiy"]
+[ext_resource type="Texture2D" uid="uid://dbd2jq1c5q6kr" path="res://asset/ui/close-square.png" id="12_fngee"]
 
 [sub_resource type="Animation" id="Animation_10q10"]
 length = 0.001
@@ -162,6 +149,41 @@ _data = {
 "show": SubResource("Animation_enmu3")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjkin"]
+texture = ExtResource("1_asfdk")
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+region_rect = Rect2(0, 0, 128, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or2ih"]
+texture = ExtResource("3_5l25n")
+region_rect = Rect2(0, 0, 67, 26)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6fiy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqbs0"]
+texture = ExtResource("1_asfdk")
+region_rect = Rect2(0, 0, 128, 132)
+
+[sub_resource type="LabelSettings" id="LabelSettings_udhnr"]
+font = ExtResource("2_tipqs")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18wtr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0.933333, 0.752941, 1)
+shadow_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmm1v"]
+font = ExtResource("2_tipqs")
+font_size = 36
+
 [node name="BedroomComputer" type="CanvasLayer"]
 script = ExtResource("1_u5taf")
 
@@ -173,6 +195,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1gc0l")
+}
+
+[node name="InputEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_67tuw")
+
 [node name="Panel" type="Panel" parent="."]
 visible = false
 anchors_preset = 8
@@ -180,15 +210,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -550.5
-offset_top = -319.5
-offset_right = 550.5
-offset_bottom = 319.5
+offset_left = -550.0
+offset_top = -319.0
+offset_right = 554.0
+offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bjkin")
 
 [node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -209,6 +240,7 @@ max_length = 6
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
 visible = false
+layout_mode = 0
 offset_left = 391.5
 offset_top = 427.5
 offset_right = 424.5
@@ -225,20 +257,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -550.5
-offset_top = -319.5
-offset_right = 550.5
-offset_bottom = 319.5
+offset_left = -550.0
+offset_top = -319.0
+offset_right = 1.10399e+08
+offset_bottom = 6.42997e+07
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 theme_override_styles/panel = SubResource("StyleBoxTexture_bjkin")
 
 [node name="Button" type="Button" parent="Panel2"]
-offset_left = 86.5
-offset_top = 106.5
-offset_right = 214.5
-offset_bottom = 234.5
+layout_mode = 0
+offset_left = 8.65075e+06
+offset_top = 1.04858e+07
+offset_right = 2.14e+07
+offset_bottom = 2.34e+07
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
 shortcut_in_tooltip = false
 icon = ExtResource("4_kop20")
@@ -246,10 +279,11 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button2" type="Button" parent="Panel2"]
-offset_left = 279.5
-offset_top = 106.5
-offset_right = 407.5
-offset_bottom = 234.5
+layout_mode = 0
+offset_left = 2.78856e+07
+offset_top = 1.06004e+07
+offset_right = 4.06856e+07
+offset_bottom = 2.34005e+07
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
 shortcut_in_tooltip = false
 icon = ExtResource("6_sjhko")
@@ -257,10 +291,11 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button3" type="Button" parent="Panel2"]
-offset_left = 471.5
-offset_top = 106.5
-offset_right = 599.5
-offset_bottom = 234.5
+layout_mode = 0
+offset_left = 4.71e+07
+offset_top = 1.06e+07
+offset_right = 5.99e+07
+offset_bottom = 2.34e+07
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
 shortcut_in_tooltip = false
 icon = ExtResource("7_janwg")
@@ -268,23 +303,104 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button4" type="Button" parent="Panel2"]
-offset_left = 663.5
-offset_top = 106.5
-offset_right = 791.5
-offset_bottom = 234.5
+layout_mode = 0
+offset_left = 6.62897e+07
+offset_top = 1.06004e+07
+offset_right = 7.90897e+07
+offset_bottom = 2.34005e+07
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
 shortcut_in_tooltip = false
 icon = ExtResource("8_o72ve")
 icon_alignment = 1
 expand_icon = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1gc0l")
-}
+[node name="TextFile" type="Panel" parent="."]
+visible = false
+offset_left = 168.0
+offset_top = 80.0
+offset_right = 1274.0
+offset_bottom = 729.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rqbs0")
 
-[node name="InputEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_67tuw")
+[node name="TextFileCloseButton" type="Button" parent="TextFile"]
+layout_mode = 0
+offset_left = 969.0
+offset_top = 24.0
+offset_right = 1098.0
+offset_bottom = 168.0
+theme_override_colors/icon_normal_color = Color(0, 0.988235, 0.988235, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.988235, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("12_fngee")
+flat = true
+clip_text = true
+text_overrun_behavior = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="TextFile"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 72.0
+offset_right = 1023.0
+offset_bottom = 625.0
+text = "#卧室门禁:615237
+这里是实验室顶楼
+你需要去找一个人
+他会告诉你的
+这一层的另一个门禁密码:336178
+通过这个门禁会到达阳台
+他会在那等你"
+label_settings = SubResource("LabelSettings_udhnr")
+
+[node name="Seach" type="Panel" parent="."]
+offset_left = 168.0
+offset_top = 80.0
+offset_right = 1274.0
+offset_bottom = 729.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rqbs0")
+
+[node name="SearchCloseButton" type="Button" parent="Seach"]
+layout_mode = 1
+offset_left = 969.0
+offset_top = 24.0
+offset_right = 1098.0
+offset_bottom = 168.0
+theme_override_colors/icon_normal_color = Color(0, 0.988235, 0.988235, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.988235, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("12_fngee")
+flat = true
+clip_text = true
+text_overrun_behavior = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="SearchLineEdit" type="LineEdit" parent="Seach"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 72.0
+offset_right = 921.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("2_tipqs")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_18wtr")
+placeholder_text = "输入要查询的内容"
+
+[node name="Label" type="Label" parent="Seach"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 184.0
+offset_right = 921.0
+offset_bottom = 625.0
+label_settings = SubResource("LabelSettings_cmm1v")
 
 [connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Panel2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="TextFile/TextFileCloseButton" to="." method="_on_text_file_close_button_pressed"]
+[connection signal="pressed" from="Seach/SearchCloseButton" to="." method="_on_search_close_button_pressed"]
+[connection signal="text_submitted" from="Seach/SearchLineEdit" to="." method="_on_search_line_edit_text_submitted"]
