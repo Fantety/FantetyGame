@@ -1547,6 +1547,9 @@ script = ExtResource("47_s7xfd")
 position = Vector2(1106, -45)
 scale = Vector2(0.5, 0.5)
 
+[node name="GreenHouseDoorCtrlInner" parent="GreenHouse" instance=ExtResource("84_6ssbi")]
+position = Vector2(1167, -34)
+
 [node name="PowerRoom" type="Node2D" parent="."]
 script = ExtResource("82_bycuf")
 
@@ -1608,6 +1611,9 @@ position = Vector2(620.602, 85.5481)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PowerRoom/PowerRoomDoorCtrlArea"]
 position = Vector2(-1.16046, -0.561226)
 shape = SubResource("RectangleShape2D_grl6e")
+
+[node name="PowerRoomDoorCtrlInner" parent="PowerRoom" instance=ExtResource("84_6ssbi")]
+position = Vector2(565, 91)
 
 [node name="DataRoom" type="Node2D" parent="."]
 
@@ -1704,6 +1710,9 @@ script = ExtResource("88_h1e62")
 [node name="DataRoomDoorCtrl" parent="DataRoom" instance=ExtResource("28_englk")]
 position = Vector2(1040, 76)
 scale = Vector2(0.5, 0.5)
+
+[node name="DataRoomDoorCtrlInner" parent="DataRoom" instance=ExtResource("84_6ssbi")]
+position = Vector2(1096, 90)
 
 [node name="Bedroom" type="Node2D" parent="."]
 
@@ -2009,6 +2018,9 @@ script = ExtResource("103_chn0b")
 position = Vector2(833, 206)
 scale = Vector2(0.5, 0.5)
 
+[node name="FantetyLabDoorCtrlInner" parent="FantetyLab" instance=ExtResource("84_6ssbi")]
+position = Vector2(789, 222)
+
 [node name="Medical" type="Node" parent="."]
 script = ExtResource("101_mnevh")
 
@@ -2030,6 +2042,9 @@ script = ExtResource("57_jbs84")
 [node name="MedicalDoorCtrl" parent="Medical" instance=ExtResource("28_englk")]
 position = Vector2(383, -44)
 scale = Vector2(0.5, 0.5)
+
+[node name="MedicalDoorCtrlInner" parent="Medical" instance=ExtResource("84_6ssbi")]
+position = Vector2(341, -34)
 
 [node name="Animation" type="Node" parent="."]
 
@@ -2341,20 +2356,21 @@ scale = Vector2(0.7, 0.7)
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="door_ctrl_input_finished" from="GreenHouse/GreenHouseDoorCtrl" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_door_ctrl_input_finished"]
+[connection signal="door_ctrl_inner_name" from="GreenHouse/GreenHouseDoorCtrlInner" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="charge_machine_finish_charge" from="PowerRoom" to="PowerRoom" method="_on_charge_machine_finish_charge"]
 [connection signal="body_entered" from="PowerRoom/PowerRoomTerminal" to="Player" method="_on_power_room_terminal_body_entered"]
 [connection signal="body_exited" from="PowerRoom/PowerRoomTerminal" to="Player" method="_on_power_room_terminal_body_exited"]
 [connection signal="door_ctrl_input_finished" from="PowerRoom/PowerRoomDoorCtrl" to="PowerRoom/OverheadDoor" method="_on_power_room_door_ctrl_door_ctrl_input_finished"]
 [connection signal="body_entered" from="PowerRoom/PowerRoomDoorCtrlArea" to="Player" method="_on_power_room_door_ctrl_area_body_entered"]
 [connection signal="body_exited" from="PowerRoom/PowerRoomDoorCtrlArea" to="Player" method="_on_power_room_door_ctrl_area_body_exited"]
+[connection signal="door_ctrl_inner_name" from="PowerRoom/PowerRoomDoorCtrlInner" to="PowerRoom/OverheadDoor" method="_on_power_room_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="door_ctrl_input_finished" from="DataRoom/DataRoomDoorCtrl" to="DataRoom/OverheadDoor" method="_on_data_room_door_ctrl_door_ctrl_input_finished"]
+[connection signal="door_ctrl_inner_name" from="DataRoom/DataRoomDoorCtrlInner" to="DataRoom/OverheadDoor" method="_on_data_room_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="door_ctrl_input_finished" from="Bedroom/BedroomDoorCtrl" to="Bedroom/OverheadDoor" method="_on_bedroom_door_ctrl_door_ctrl_input_finished"]
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Bedroom/BedroomLightSwitch" method="_on_bedroom_light_switch_area_body_entered"]
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_entered"]
 [connection signal="body_exited" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Bedroom/BedroomLightSwitch" method="_on_bedroom_light_switch_area_body_exited"]
 [connection signal="body_exited" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_exited"]
-[connection signal="door_ctrl_inner_entered" from="Bedroom/BedroomDoorCtrlInner" to="Player" method="_on_door_ctrl_inner_door_ctrl_inner_entered"]
-[connection signal="door_ctrl_inner_exited" from="Bedroom/BedroomDoorCtrlInner" to="Player" method="_on_door_ctrl_inner_door_ctrl_inner_exited"]
 [connection signal="door_ctrl_inner_name" from="Bedroom/BedroomDoorCtrlInner" to="Bedroom/OverheadDoor" method="_on_bedroom_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="body_change_floor_lamp_area" from="BedroomOut/FloorLampA" to="Player" method="_on_floor_lamp_a_body_change_floor_lamp_area"]
 [connection signal="body_change_floor_lamp_area" from="BedroomOut/FloorLampA2" to="Player" method="_on_floor_lamp_a_2_body_change_floor_lamp_area"]
@@ -2362,7 +2378,9 @@ scale = Vector2(0.7, 0.7)
 [connection signal="door_ctrl_input_finished" from="Balcony/BalconyDoorCtrl" to="Balcony/OverheadDoor" method="_on_balcony_door_ctrl_door_ctrl_input_finished"]
 [connection signal="balcony_plot_start" from="Balcony/OverheadDoor" to="Player" method="_on_overhead_door_balcony_plot_start"]
 [connection signal="door_ctrl_input_finished" from="FantetyLab/FantetyLabDoorCtrl" to="FantetyLab/OverheadDoor" method="_on_fantety_lab_door_ctrl_door_ctrl_input_finished"]
+[connection signal="door_ctrl_inner_name" from="FantetyLab/FantetyLabDoorCtrlInner" to="FantetyLab/OverheadDoor" method="_on_fantety_lab_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="door_ctrl_input_finished" from="Medical/MedicalDoorCtrl" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_door_ctrl_input_finished"]
+[connection signal="door_ctrl_inner_name" from="Medical/MedicalDoorCtrlInner" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="body_entered" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_entered"]
 [connection signal="body_exited" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_exited"]
 [connection signal="body_entered" from="Area/Bedroom/BedroomTerminal" to="Player" method="_on_bedroom_terminal_body_entered"]

@@ -8,6 +8,8 @@ func _ready():
 	set_frame(1)
 	if get_parent().name == "Bedroom":
 		needLevel = Common.accessCardLevels.LEVEL1
+	self.door_ctrl_inner_entered.connect(Callable(get_parent().get_parent().get_node("Player"),"_on_door_ctrl_inner_door_ctrl_inner_entered"))
+	self.door_ctrl_inner_exited.connect(Callable(get_parent().get_parent().get_node("Player"),"_on_door_ctrl_inner_door_ctrl_inner_exited"))
 
 signal door_ctrl_inner_name(doorCtrlName:String)
 func _process(_delta):
