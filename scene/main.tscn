@@ -1,4 +1,4 @@
-[gd_scene load_steps=302 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=306 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -115,12 +115,14 @@
 [ext_resource type="PackedScene" uid="uid://bu3itnq6oeck4" path="res://scene/NPC/balcony_npc.tscn" id="71_o8bdh"]
 [ext_resource type="AudioStream" uid="uid://hujhip2potqc" path="res://asset/sound/env/thunder.wav" id="72_6gpu7"]
 [ext_resource type="PackedScene" uid="uid://dnafwafe71ue5" path="res://scene/component/room_shadow.tscn" id="74_wjqsu"]
+[ext_resource type="Script" path="res://src/Room/GreenHouse.gd" id="76_w4o03"]
 [ext_resource type="PackedScene" uid="uid://besbdnqtlgpxl" path="res://scene/furniture/clock.tscn" id="80_adw5a"]
 [ext_resource type="PackedScene" uid="uid://sdwn4qt7mxbn" path="res://scene/furniture/charge_mechine.tscn" id="81_f5kv2"]
 [ext_resource type="Texture2D" uid="uid://c8ki6exs7tuc7" path="res://asset/img/light/charge_lights.png" id="82_1hwj4"]
 [ext_resource type="Script" path="res://src/Room/PowerRoom.gd" id="82_bycuf"]
 [ext_resource type="PackedScene" uid="uid://cxn5c84lbaqmw" path="res://scene/furniture/fantety_lab.tscn" id="83_ha0b5"]
 [ext_resource type="PackedScene" uid="uid://5p767n5jpksc" path="res://scene/furniture/door_ctrl_inner.tscn" id="84_6ssbi"]
+[ext_resource type="PackedScene" uid="uid://d084ovt8j2rx7" path="res://scene/furniture/light_switch.tscn" id="84_o8wxg"]
 [ext_resource type="AudioStream" uid="uid://dwmvtcffpwf4c" path="res://asset/sound/effect/charge_light.wav" id="86_32gw0"]
 [ext_resource type="Script" path="res://src/furniture/PowerRoomOverheadDoor.gd" id="87_33qnm"]
 [ext_resource type="Script" path="res://src/furniture/DataRoomOverheadDoor.gd" id="88_h1e62"]
@@ -137,6 +139,7 @@
 [ext_resource type="Texture2D" uid="uid://nnlw48o18utf" path="res://asset/img/light/light3.png" id="120_gf8kc"]
 [ext_resource type="AudioStream" uid="uid://gd6bddbj3vq7" path="res://asset/sound/effect/backpack.wav" id="132_er8rs"]
 [ext_resource type="PackedScene" uid="uid://cc2h542yl3wek" path="res://scene/furniture/flash_light.tscn" id="135_6sasl"]
+[ext_resource type="PackedScene" uid="uid://5t7kgfrcdq58" path="res://scene/furniture/battery.tscn" id="138_5rsiy"]
 
 [sub_resource type="Environment" id="Environment_vuosr"]
 background_mode = 3
@@ -1210,6 +1213,8 @@ size = Vector2(14, 19.9394)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0faig"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sge1u"]
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xvwtt"]
 b = Vector2(0.0534058, 18.0229)
 
@@ -1489,6 +1494,7 @@ position = Vector2(10, 18)
 shape = SubResource("RectangleShape2D_eqqfl")
 
 [node name="GreenHouse" type="Node2D" parent="."]
+script = ExtResource("76_w4o03")
 
 [node name="GreenHouseLight" type="Node2D" parent="GreenHouse"]
 
@@ -1549,6 +1555,10 @@ scale = Vector2(0.5, 0.5)
 
 [node name="GreenHouseDoorCtrlInner" parent="GreenHouse" instance=ExtResource("84_6ssbi")]
 position = Vector2(1167, -34)
+
+[node name="GreenHouseLightSwitch" parent="GreenHouse" instance=ExtResource("84_o8wxg")]
+position = Vector2(1226, -33)
+scale = Vector2(0.6, 0.6)
 
 [node name="PowerRoom" type="Node2D" parent="."]
 script = ExtResource("82_bycuf")
@@ -2046,6 +2056,10 @@ scale = Vector2(0.5, 0.5)
 [node name="MedicalDoorCtrlInner" parent="Medical" instance=ExtResource("84_6ssbi")]
 position = Vector2(341, -34)
 
+[node name="MedicalLightSwitch" parent="Medical" instance=ExtResource("84_o8wxg")]
+position = Vector2(305, -33)
+scale = Vector2(0.6, 0.6)
+
 [node name="Animation" type="Node" parent="."]
 
 [node name="BedroomAnimation" type="AnimationPlayer" parent="Animation"]
@@ -2137,6 +2151,13 @@ position = Vector2(1360.46, -157.147)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area/BedroomOut/VendingMachines"]
 position = Vector2(-255.46, -1.85299)
 shape = SubResource("RectangleShape2D_0faig")
+
+[node name="BedroomOutSofa" type="Area2D" parent="Area/BedroomOut"]
+position = Vector2(1185.52, -139.948)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area/BedroomOut/BedroomOutSofa"]
+position = Vector2(9.47705, -0.0515747)
+shape = SubResource("RectangleShape2D_sge1u")
 
 [node name="Plots" type="Node" parent="Area"]
 
@@ -2352,11 +2373,14 @@ scale = Vector2(0.7, 0.7)
 
 [node name="AccessCard" parent="BackPack" instance=ExtResource("98_y8omd")]
 
+[node name="Battery" parent="BackPack" instance=ExtResource("138_5rsiy")]
+
 [connection signal="signal_get_accress_card_level2" from="." to="BackPack/AccessCard" method="_on_main_signal_get_accress_card_level_2"]
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="door_ctrl_input_finished" from="GreenHouse/GreenHouseDoorCtrl" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="GreenHouse/GreenHouseDoorCtrlInner" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_inner_door_ctrl_inner_name"]
+[connection signal="change_light_statue" from="GreenHouse/GreenHouseLightSwitch" to="GreenHouse" method="_on_green_house_light_switch_change_light_statue"]
 [connection signal="charge_machine_finish_charge" from="PowerRoom" to="PowerRoom" method="_on_charge_machine_finish_charge"]
 [connection signal="body_entered" from="PowerRoom/PowerRoomTerminal" to="Player" method="_on_power_room_terminal_body_entered"]
 [connection signal="body_exited" from="PowerRoom/PowerRoomTerminal" to="Player" method="_on_power_room_terminal_body_exited"]
@@ -2381,6 +2405,7 @@ scale = Vector2(0.7, 0.7)
 [connection signal="door_ctrl_inner_name" from="FantetyLab/FantetyLabDoorCtrlInner" to="FantetyLab/OverheadDoor" method="_on_fantety_lab_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="door_ctrl_input_finished" from="Medical/MedicalDoorCtrl" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="Medical/MedicalDoorCtrlInner" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_inner_door_ctrl_inner_name"]
+[connection signal="change_light_statue" from="Medical/MedicalLightSwitch" to="Medical" method="_on_medical_light_switch_change_light_statue"]
 [connection signal="body_entered" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_entered"]
 [connection signal="body_exited" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_exited"]
 [connection signal="body_entered" from="Area/Bedroom/BedroomTerminal" to="Player" method="_on_bedroom_terminal_body_entered"]
@@ -2398,9 +2423,10 @@ scale = Vector2(0.7, 0.7)
 [connection signal="body_entered" from="Area/Balcony/DeadArea" to="." method="_on_dead_area_body_entered"]
 [connection signal="body_entered" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_entered"]
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
-[connection signal="show_vending_machine_result" from="Area/BedroomOut" to="." method="_on_bedroom_out_show_vending_machine_result"]
 [connection signal="body_entered" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_entered"]
 [connection signal="body_exited" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_exited"]
+[connection signal="body_entered" from="Area/BedroomOut/BedroomOutSofa" to="Player" method="_on_bedroom_out_sofa_body_entered"]
+[connection signal="body_exited" from="Area/BedroomOut/BedroomOutSofa" to="Player" method="_on_bedroom_out_sofa_body_exited"]
 [connection signal="body_entered" from="Area/Plots/BalconyPlotArea" to="Player" method="_on_balcony_plot_area_body_entered"]
 [connection signal="body_entered" from="Area/Greenhouse/GreenhouseDoorCtrl" to="Player" method="_on_greenhouse_door_ctrl_body_entered"]
 [connection signal="body_exited" from="Area/Greenhouse/GreenhouseDoorCtrl" to="Player" method="_on_greenhouse_door_ctrl_body_exited"]

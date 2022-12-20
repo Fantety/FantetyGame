@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://d084ovt8j2rx7"]
+
+[ext_resource type="Texture2D" uid="uid://w205v3bfe4b6" path="res://asset/img/furniture/light_switch_sheet.png" id="1_416os"]
+[ext_resource type="Script" path="res://src/furniture/LightSwitch.gd" id="2_r2o40"]
+[ext_resource type="AudioStream" uid="uid://b400xjunlgtn6" path="res://asset/sound/light_switch.wav" id="3_4dgik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy8c7"]
+atlas = ExtResource("1_416os")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrooq"]
+atlas = ExtResource("1_416os")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0eku"]
+animations = [{
+"frames": [SubResource("AtlasTexture_jy8c7"), SubResource("AtlasTexture_vrooq")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l8w4"]
+
+[node name="LightSwitch" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_e0eku")
+script = ExtResource("2_r2o40")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3l8w4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4dgik")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

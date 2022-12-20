@@ -13,6 +13,7 @@ var inputLock = false
 @onready var bedroomDeskDialog = load("res://dialog/bedroom/bedroom_desk.dialogue")
 @onready var bedroomClosetDialog = load("res://dialog/bedroom/closet.dialogue")
 @onready var bedroomHealthDialog = load("res://dialog/bedroom/bedroom_heath.dialogue")
+@onready var bedroomOutSofaDialog = load("res://dialog/bedroom/bedroom_out_sofa.dialogue")
 
 var doorCardLock = load("res://asset/img/furniture/door_ctrl/door_card_lock.png")
 var doorCardUnlock = load("res://asset/img/furniture/door_ctrl/door_card_unlock.png")
@@ -38,6 +39,7 @@ var bedroomLightSwitchReady = false
 var bedroomComputerReady = false
 var wardrobeReady = false
 var VendingMachineReady = false
+var bedroomOutSofaReady = false
 
 var elevatorCtrlTrigger = false
 
@@ -81,6 +83,8 @@ var currentArriveRoom:String = "none"
 
 
 var powerRoomTerminalReady = false
+
+var ePower = false
 
 
 func show_tips(text, audio):

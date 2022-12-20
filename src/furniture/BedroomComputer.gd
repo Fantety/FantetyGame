@@ -55,7 +55,7 @@ func _on_search_line_edit_text_submitted(new_text):
 	elif new_text.contains("余芷"):
 		$Seach/Label.set_text("余芷\n性别:女\n生物学家,白止实验室负责人\n单身\n于3058年2月离世")
 	elif new_text.contains("余柒"):
-		$Seach/Label.set_text("余柒\n性别:男\n白止负责人余芷的儿子\n出生于3055年5月\n于3057年12月离世")
+		$Seach/Label.set_text("余柒\n性别:男\n白止负责人余芷的儿子\n出生于3055年5月\n于3057年12月离世\n供电室密码:984573")
 	else:
 		$Seach/Label.set_text("无法查询到任何相关信息或无相关访问权限")
 		pass

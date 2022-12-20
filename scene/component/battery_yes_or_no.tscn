@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhf2me6f4gwpg"]
+
+[ext_resource type="Script" path="res://src/furniture/BatteryYesOrNo.gd" id="1_fjre0"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_qks6s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ukxt"]
+font = ExtResource("1_qks6s")
+font_size = 36
+
+[node name="BatteryYesOrNo" type="CanvasLayer"]
+script = ExtResource("1_fjre0")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.5
+offset_top = -56.0
+offset_right = 331.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+offset_right = 663.0
+offset_bottom = 112.0
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+offset_right = 663.0
+offset_bottom = 45.0
+text = "是否使用电池为门禁供电（不可取出）"
+label_settings = SubResource("LabelSettings_3ukxt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+offset_top = 62.0
+offset_right = 663.0
+offset_bottom = 112.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+offset_left = 220.0
+offset_right = 291.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_qks6s")
+theme_override_font_sizes/font_size = 36
+shortcut_in_tooltip = false
+text = " 是 "
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+offset_left = 371.0
+offset_right = 442.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_qks6s")
+theme_override_font_sizes/font_size = 36
+shortcut_in_tooltip = false
+text = " 否 "
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

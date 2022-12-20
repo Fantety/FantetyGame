@@ -9,6 +9,9 @@ var bedpaper
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$BackPack/FlashLight.hide()
+	$BackPack/AccessCard.hide()
+	$BackPack/Battery.hide()
 	var greenhouseLigths = $GreenHouse/GreenHouseLight.get_children()
 	for greenhouseLigth in greenhouseLigths:
 		greenhouseLigth.set_enabled(false)
@@ -42,7 +45,14 @@ func search_falsh_light():
 	Common.show_tips("获得：手电筒", true)
 	$BackPack/FlashLight.show()
 	$BackPack/FlashLight/AnimationPlayer.play("default")
-	
+
+func search_battery():
+	Backpack.battery = true
+	Common.show_tips("获得：门禁外接电源", true)
+	$BackPack/Battery.show()
+	$BackPack/Battery/AnimationPlayer.play("default")
+
+
 signal signal_get_accress_card_level2
 func get_accress_card_level2():
 	emit_signal("signal_get_accress_card_level2")

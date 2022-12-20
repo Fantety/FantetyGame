@@ -71,7 +71,8 @@ func _physics_process(delta):
 				start_vending_machine_ready()
 			elif Common.wardrobeReady:
 				start_bedroom_wardrobe_ready()
-				
+			elif Common.bedroomOutSofaReady:
+				start_bedroom_out_sofa_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -314,6 +315,9 @@ func _on_elevator_2_change_elevator_ctrl_status():
 func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 	print(index)
 	if index != currentFloor:
+		Common.inputLock = true
+		if Backpack.flashLight:
+			$FlashLight/AnimationPlayer.play("default")
 		gravity = 0
 		set_z_index(-2)
 		Common.elevatorCtrlTrigger = true
@@ -328,7 +332,6 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 		get_node("Timer").start()
 		await get_node("Timer").timeout
 		get_node("CollisionShape").set_deferred("disabled",true)
-		Common.inputLock = true
 		var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "position", Vector2(position.x,position.y+32*4*(currentFloor-index)), abs(currentFloor-index)*2)
 		tween.play()
@@ -359,6 +362,8 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 		Common.inputLock = false
 		Common.elevatorCtrlTrigger = false
 		gravity = 980
+		if Backpack.flashLight:
+			$FlashLight/AnimationPlayer.play_backwards("default")
 	pass # Replace with function body.
 
 
@@ -573,3 +578,21 @@ func _on_power_room_door_ctrl_area_body_exited(body):
 		Common.powerRoomDoorCtrlReady = false
 	pass # Replace with function body.
 
+
+
+func _on_bedroom_out_sofa_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.bedroomOutSofaReady = true
+	pass # Replace with function body.
+
+
+func _on_bedroom_out_sofa_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.bedroomOutSofaReady = false
+	pass # Replace with function body.
+
+func start_bedroom_out_sofa_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.bedroomOutSofaDialog, "start")
+	pass

@@ -12,11 +12,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Common.powerRoomTerminalReady:
+	if Common.powerRoomTerminalReady && !Common.ePower:
 		if Input.is_action_just_pressed("action"):
-			charge_machine_start_charge()
+			start_charge_game()
 	pass
 
+
+
+func start_charge_game():
+	var chargeGame = load("res://scene/component/power_restore_game.tscn").instantiate()
+	add_child(chargeGame)
 
 signal charge_machine_finish_charge
 func charge_machine_start_charge():
@@ -29,6 +34,7 @@ func charge_machine_start_charge():
 
 
 func _on_charge_machine_finish_charge():
+	Common.ePower = true
 	$LightChargeSound.play()
 	var lights = $PowerRoomLight.get_children()
 	for light in lights:

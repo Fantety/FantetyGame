@@ -9,3 +9,11 @@ func _ready():
 	pass # Replace with function body.
 
 
+
+
+func _on_medical_light_switch_change_light_statue(roomName, status):
+	if roomName == "MedicalLightSwitch":
+		var lights = $MedicvalLight.get_children()
+		for light in lights:
+			light.set_enabled(status)
+	pass # Replace with function body.
