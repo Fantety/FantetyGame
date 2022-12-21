@@ -210,6 +210,7 @@ one_shot = true
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="mouse_exited" from="Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="finished" from="RainSound" to="RainSound" method="_on_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

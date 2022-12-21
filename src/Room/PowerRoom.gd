@@ -24,6 +24,7 @@ func _process(_delta):
 
 
 
+
 func start_charge_game():
 	var chargeGame = load("res://scene/component/power_restore_game.tscn").instantiate()
 	add_child(chargeGame)

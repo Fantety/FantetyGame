@@ -10,5 +10,6 @@ func _on_player_balcony_plot_player_arrived():
 	turn_around(false)
 	get_node("Timer").start()
 	await get_node("Timer").timeout
+	Common.balconyPlot = true
 	DialogueManager.show_example_dialogue_balloon(balconyDialog, "start")
 	pass # Replace with function body.

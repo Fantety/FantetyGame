@@ -140,7 +140,7 @@ func _on_timer_timeout():
 
 func _on_door_ctrl_ui_door_ctrl_ui_input_finished(parentName, passward):
 	if parentName == "GreenHouseDoorCtrl":
-		if passward == "111111":
+		if passward == "123456":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:

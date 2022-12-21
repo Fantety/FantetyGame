@@ -14,6 +14,7 @@ config/name="Fantety"
 run/main_scene="res://scene/start.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://Fantety.png"
+config/windows_native_icon="res://Fantety.ico"
 
 [autoload]
 

@@ -22,7 +22,6 @@ func _on_line_edit_text_submitted(new_text):
 		$AnimationPlayer.play_backwards("show")
 		await $AnimationPlayer.animation_finished
 		$Panel2.show()
-		$AnimationPlayer.play("desktop_show")
 		pass
 	else:
 		$AnimationPlayer.play("passwd_error")

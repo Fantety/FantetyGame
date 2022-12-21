@@ -2221,7 +2221,7 @@ scale = Vector2(0.1, 0.1)
 [node name="Player" type="CharacterBody2D" parent="."]
 light_mask = 2
 z_index = 3
-position = Vector2(425, 108)
+position = Vector2(1778, -146)
 script = ExtResource("2_8cdtn")
 
 [node name="PlayerView" type="AnimatedSprite2D" parent="Player"]

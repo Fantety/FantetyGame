@@ -43,5 +43,7 @@ func _ready():
 	await $Timer.timeout
 	$Label.set_text("不管了，先起来吧")
 	$AnimationPlayer.play_backwards("default")
+	await $AnimationPlayer.animation_finished
+	ChangeScene.change_scene("res://scene/main.tscn")
 	pass # Replace with function body.
 

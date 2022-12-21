@@ -52,5 +52,10 @@ func _on_timer_2_timeout():
 
 
 func _on_start_pressed():
-	ChangeScene.change_scene("res://scene/main.tscn")
+	ChangeScene.change_scene("res://scene/plot/start_plot.tscn")
+	pass # Replace with function body.
+
+
+func _on_exit_pressed():
+	get_tree().quit() 
 	pass # Replace with function body.
