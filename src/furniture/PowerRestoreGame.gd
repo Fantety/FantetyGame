@@ -26,7 +26,7 @@ func _on_texture_progress_bar_value_changed(value):
 		await $ChargeFailSound.finished
 		Common.inputLock = false
 		queue_free()
-	elif value >= 100:
+	elif value >= 95:
 		emit_signal("charge_opt_success")
 		Common.inputLock = false
 		queue_free()
