@@ -45,6 +45,7 @@ offset_right = 926.0
 offset_bottom = 117.0
 text = "你需要疯狂按空格"
 label_settings = SubResource("LabelSettings_m5xg4")
+horizontal_alignment = 1
 
 [connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
 [connection signal="finished" from="ChargeSound" to="." method="_on_charge_sound_finished"]
