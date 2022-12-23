@@ -1,0 +1,7 @@
+~ start
+
+我: 看来有根线似乎断了
+- 接线
+	do wiring_power_room_wiring()
+- 离开 => END
+Nathan: For more information see the online documentation.

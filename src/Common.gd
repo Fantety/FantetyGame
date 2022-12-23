@@ -14,6 +14,10 @@ var inputLock = false
 @onready var bedroomClosetDialog = load("res://dialog/bedroom/closet.dialogue")
 @onready var bedroomHealthDialog = load("res://dialog/bedroom/bedroom_heath.dialogue")
 @onready var bedroomOutSofaDialog = load("res://dialog/bedroom/bedroom_out_sofa.dialogue")
+@onready var powerroomWiringDialog = load("res://dialog/powerroom/powerroom_wiring_plot.dialogue")
+@onready var powerroomCtrlDialog = load("res://dialog/powerroom/powerroom_ctrl_plot.dialogue")
+@onready var powerroomCardDialog = load("res://dialog/powerroom/powerroom_card_plot.dialogue")
+@onready var medicalDialog = load("res://dialog/medical/medical_plot.dialogue")
 
 var doorCardLock = load("res://asset/img/furniture/door_ctrl/door_card_lock.png")
 var doorCardUnlock = load("res://asset/img/furniture/door_ctrl/door_card_unlock.png")
@@ -40,6 +44,9 @@ var bedroomComputerReady = false
 var wardrobeReady = false
 var VendingMachineReady = false
 var bedroomOutSofaReady = false
+var powerRoomWiringReady = false
+var powerRoomCardReady = false
+var medicalPlotReady = false
 
 var elevatorCtrlTrigger = false
 
@@ -83,7 +90,7 @@ var currentArriveRoom:String = "none"
 
 
 var powerRoomTerminalReady = false
-
+var powerRoomWiringStatue = false
 var ePower = false
 
 

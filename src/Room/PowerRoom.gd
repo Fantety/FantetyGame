@@ -26,8 +26,11 @@ func _process(_delta):
 
 
 func start_charge_game():
-	var chargeGame = load("res://scene/component/power_restore_game.tscn").instantiate()
-	add_child(chargeGame)
+	if Common.powerRoomWiringStatue == false:
+		DialogueManager.show_example_dialogue_balloon(Common.powerroomCtrlDialog,"start")
+	else:
+		var chargeGame = load("res://scene/component/power_restore_game.tscn").instantiate()
+		add_child(chargeGame)
 
 signal charge_machine_finish_charge
 func charge_machine_start_charge():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=307 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=312 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -126,6 +126,7 @@
 [ext_resource type="AudioStream" uid="uid://dwmvtcffpwf4c" path="res://asset/sound/effect/charge_light.wav" id="86_32gw0"]
 [ext_resource type="Script" path="res://src/furniture/PowerRoomOverheadDoor.gd" id="87_33qnm"]
 [ext_resource type="Script" path="res://src/furniture/DataRoomOverheadDoor.gd" id="88_h1e62"]
+[ext_resource type="Script" path="res://src/Room/DataRoom.gd" id="91_w6xr4"]
 [ext_resource type="PackedScene" uid="uid://cuuliw22oq6tb" path="res://scene/furniture/fantety_jar_broken.tscn" id="94_6unu2"]
 [ext_resource type="Texture2D" uid="uid://cj8nmy8xqua2d" path="res://asset/img/light/light4-2.png" id="95_dghp3"]
 [ext_resource type="Script" path="res://src/Room/FantetyLab.gd" id="96_0kdgq"]
@@ -1049,14 +1050,24 @@ animations = [{
 cull_mode = 2
 polygon = PackedVector2Array(31.9999, 2.66667, 31.9999, 16, -32.0001, 16, -32.0001, 2.66667)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycl1v"]
+size = Vector2(429, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntxtw"]
 size = Vector2(24, 18.1772)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grl6e"]
 size = Vector2(17.1177, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjob7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daitn"]
+size = Vector2(20, 10.5887)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o62p6"]
 b = Vector2(-17, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p281"]
 
 [sub_resource type="Animation" id="Animation_1bdc4"]
 resource_name = "BedBreathLight"
@@ -1561,6 +1572,13 @@ position = Vector2(1167, -34)
 position = Vector2(1226, -33)
 scale = Vector2(0.6, 0.6)
 
+[node name="GreenHousePlotArea" type="Area2D" parent="GreenHouse"]
+position = Vector2(1647.98, -20.1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenHouse/GreenHousePlotArea"]
+position = Vector2(-43.4807, -0.297287)
+shape = SubResource("RectangleShape2D_ycl1v")
+
 [node name="PowerRoom" type="Node2D" parent="."]
 script = ExtResource("82_bycuf")
 
@@ -1626,7 +1644,22 @@ shape = SubResource("RectangleShape2D_grl6e")
 [node name="PowerRoomDoorCtrlInner" parent="PowerRoom" instance=ExtResource("84_6ssbi")]
 position = Vector2(565, 91)
 
+[node name="PowerRoomWiringArea" type="Area2D" parent="PowerRoom"]
+position = Vector2(-95.4763, 97.8797)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerRoom/PowerRoomWiringArea"]
+position = Vector2(-0.523697, 5.12035)
+shape = SubResource("RectangleShape2D_wjob7")
+
+[node name="PowerRoomCardArea" type="Area2D" parent="PowerRoom"]
+position = Vector2(-303.176, 124.939)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerRoom/PowerRoomCardArea"]
+position = Vector2(0.176086, -3.93886)
+shape = SubResource("RectangleShape2D_daitn")
+
 [node name="DataRoom" type="Node2D" parent="."]
+script = ExtResource("91_w6xr4")
 
 [node name="DataRoomLight" type="Node2D" parent="DataRoom"]
 
@@ -2061,6 +2094,13 @@ position = Vector2(341, -34)
 position = Vector2(305, -33)
 scale = Vector2(0.6, 0.6)
 
+[node name="MedicalPlot" type="Area2D" parent="Medical"]
+position = Vector2(31.6701, -23.5196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medical/MedicalPlot"]
+position = Vector2(0, 0.166855)
+shape = SubResource("RectangleShape2D_5p281")
+
 [node name="Animation" type="Node" parent="."]
 
 [node name="BedroomAnimation" type="AnimationPlayer" parent="Animation"]
@@ -2377,19 +2417,28 @@ scale = Vector2(0.7, 0.7)
 
 [node name="Battery" parent="BackPack" instance=ExtResource("138_5rsiy")]
 
-[connection signal="signal_get_accress_card_level2" from="." to="BackPack/AccessCard" method="_on_main_signal_get_accress_card_level_2"]
+[connection signal="signal_get_access_card_level2" from="." to="BackPack/AccessCard" method="_on_main_signal_get_access_card_level_2"]
+[connection signal="signal_get_access_card_level3" from="." to="BackPack/AccessCard" method="_on_main_signal_get_access_card_level_3"]
 [connection signal="body_entered" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_entered"]
 [connection signal="body_exited" from="KuiKui/KuiKui2" to="Player" method="_on_kui_kui_body_exited"]
 [connection signal="door_ctrl_input_finished" from="GreenHouse/GreenHouseDoorCtrl" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="GreenHouse/GreenHouseDoorCtrlInner" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="change_light_statue" from="GreenHouse/GreenHouseLightSwitch" to="GreenHouse" method="_on_green_house_light_switch_change_light_statue"]
+[connection signal="charge_machine_finish_charge" from="PowerRoom" to="GreenHouse" method="_on_power_room_charge_machine_finish_charge"]
 [connection signal="charge_machine_finish_charge" from="PowerRoom" to="PowerRoom" method="_on_charge_machine_finish_charge"]
+[connection signal="charge_machine_finish_charge" from="PowerRoom" to="DataRoom" method="_on_power_room_charge_machine_finish_charge"]
+[connection signal="charge_machine_finish_charge" from="PowerRoom" to="FantetyLab" method="_on_power_room_charge_machine_finish_charge"]
+[connection signal="charge_machine_finish_charge" from="PowerRoom" to="Medical" method="_on_power_room_charge_machine_finish_charge"]
 [connection signal="body_entered" from="PowerRoom/PowerRoomTerminal" to="Player" method="_on_power_room_terminal_body_entered"]
 [connection signal="body_exited" from="PowerRoom/PowerRoomTerminal" to="Player" method="_on_power_room_terminal_body_exited"]
 [connection signal="door_ctrl_input_finished" from="PowerRoom/PowerRoomDoorCtrl" to="PowerRoom/OverheadDoor" method="_on_power_room_door_ctrl_door_ctrl_input_finished"]
 [connection signal="body_entered" from="PowerRoom/PowerRoomDoorCtrlArea" to="Player" method="_on_power_room_door_ctrl_area_body_entered"]
 [connection signal="body_exited" from="PowerRoom/PowerRoomDoorCtrlArea" to="Player" method="_on_power_room_door_ctrl_area_body_exited"]
 [connection signal="door_ctrl_inner_name" from="PowerRoom/PowerRoomDoorCtrlInner" to="PowerRoom/OverheadDoor" method="_on_power_room_door_ctrl_inner_door_ctrl_inner_name"]
+[connection signal="body_entered" from="PowerRoom/PowerRoomWiringArea" to="Player" method="_on_power_room_wiring_area_body_entered"]
+[connection signal="body_exited" from="PowerRoom/PowerRoomWiringArea" to="Player" method="_on_power_room_wiring_area_body_exited"]
+[connection signal="body_entered" from="PowerRoom/PowerRoomCardArea" to="Player" method="_on_power_room_card_area_body_entered"]
+[connection signal="body_exited" from="PowerRoom/PowerRoomCardArea" to="Player" method="_on_power_room_card_area_body_exited"]
 [connection signal="door_ctrl_input_finished" from="DataRoom/DataRoomDoorCtrl" to="DataRoom/OverheadDoor" method="_on_data_room_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="DataRoom/DataRoomDoorCtrlInner" to="DataRoom/OverheadDoor" method="_on_data_room_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="door_ctrl_input_finished" from="Bedroom/BedroomDoorCtrl" to="Bedroom/OverheadDoor" method="_on_bedroom_door_ctrl_door_ctrl_input_finished"]
@@ -2408,6 +2457,8 @@ scale = Vector2(0.7, 0.7)
 [connection signal="door_ctrl_input_finished" from="Medical/MedicalDoorCtrl" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="Medical/MedicalDoorCtrlInner" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="change_light_statue" from="Medical/MedicalLightSwitch" to="Medical" method="_on_medical_light_switch_change_light_statue"]
+[connection signal="body_entered" from="Medical/MedicalPlot" to="Player" method="_on_medical_plot_body_entered"]
+[connection signal="body_exited" from="Medical/MedicalPlot" to="Player" method="_on_medical_plot_body_exited"]
 [connection signal="body_entered" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_entered"]
 [connection signal="body_exited" from="Area/Bedroom/Bed" to="Player" method="_on_bed_body_exited"]
 [connection signal="body_entered" from="Area/Bedroom/BedroomTerminal" to="Player" method="_on_bedroom_terminal_body_entered"]

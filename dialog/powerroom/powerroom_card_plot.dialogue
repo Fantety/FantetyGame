@@ -1,0 +1,7 @@
+~ start
+
+我: 等等，地上这是什么东西
+我: 好像是一张门禁卡
+- 捡起来
+	do get_access_card_level3()
+- 离开 => END

@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bm3n1qiomi30e"
+path="res://.godot/imported/powerroom_wiring_plot.dialogue-b427f6a96766f3f54b1b48ed3f8bbd2b.tres"
+
+[deps]
+
+source_file="res://dialog/powerroom/powerroom_wiring_plot.dialogue"
+dest_files=["res://.godot/imported/powerroom_wiring_plot.dialogue-b427f6a96766f3f54b1b48ed3f8bbd2b.tres"]
+
+[params]
+

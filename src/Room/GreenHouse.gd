@@ -18,3 +18,8 @@ func _on_green_house_light_switch_change_light_statue(roomName,status):
 		change_green_house_room_light(status)
 		pass
 	pass # Replace with function body.
+
+
+func _on_power_room_charge_machine_finish_charge():
+	$GreenHouseDoorCtrl/PointLight2D.set_enabled(true)
+	pass # Replace with function body.

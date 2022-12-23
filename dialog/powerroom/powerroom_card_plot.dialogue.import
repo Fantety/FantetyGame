@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://wwleng31i2wv"
+path="res://.godot/imported/powerroom_card_plot.dialogue-6185cbc6a006b91d3220d9b5cc3d6c60.tres"
+
+[deps]
+
+source_file="res://dialog/powerroom/powerroom_card_plot.dialogue"
+dest_files=["res://.godot/imported/powerroom_card_plot.dialogue-6185cbc6a006b91d3220d9b5cc3d6c60.tres"]
+
+[params]
+

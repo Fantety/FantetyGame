@@ -14,11 +14,12 @@
 	
 ~ question1_1
 捌: 你还不知道吗?余芷,[wait=1]算了,不多说了,我的任务也只是转交给你这个东西而已,好让你离开
-do get_accress_card_level2()
+do get_access_card_level2()
 捌: 以及告诉你,你是柒
 - 你不打算离开吗? => question1_2
 
 ~ question1_2
 捌: 我? 我和你不一样,至少对她来说是这样的
+捌: 以为时间有限，我只能告诉你这些
 捌: 好了,我的任务已经完成了,接下来就靠你自己了
 do repos_camera()

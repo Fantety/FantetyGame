@@ -52,9 +52,11 @@ func _on_search_line_edit_text_submitted(new_text):
 	elif new_text.contains("日期"):
 		$Seach/Label.set_text("当前日期\n3073年12月18日")
 	elif new_text.contains("余芷"):
-		$Seach/Label.set_text("余芷\n性别:女\n生物学家,白止实验室负责人\n单身\n于3058年2月离世")
+		$Seach/Label.set_text("余芷\n性别:女\n生物学家,白止实验室负责人\n单***身\n于3051年12月去世")
 	elif new_text.contains("余柒"):
-		$Seach/Label.set_text("余柒\n性别:男\n白止负责人余芷的儿子\n出生于3055年5月\n于3057年12月离世\n供电室密码:984573")
+		$Seach/Label.set_text("余柒\n性别:男\n白止负责人余芷的儿子\n出生于3055年05月\n其他信息未知\n")
+	elif new_text.contains("FA-311"):
+		$Seach/Label.set_text("神经特化药物FA-311型\n白止制造的一种特殊生物药物\n是对生物神经系统进行数字化编辑的基础制剂\n后因公众舆论于3050年12月停止研究\n")
 	else:
 		$Seach/Label.set_text("无法查询到任何相关信息或无相关访问权限")
 		pass

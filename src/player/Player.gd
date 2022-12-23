@@ -73,6 +73,12 @@ func _physics_process(delta):
 				start_bedroom_wardrobe_ready()
 			elif Common.bedroomOutSofaReady:
 				start_bedroom_out_sofa_ready()
+			elif Common.powerRoomWiringReady:
+				start_power_room_wiring_ready()
+			elif Common.powerRoomCardReady:
+				start_powerroom_card_ready()
+			elif Common.medicalPlotReady:
+				start_medical_plot_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -595,4 +601,59 @@ func _on_bedroom_out_sofa_body_exited(body):
 
 func start_bedroom_out_sofa_ready():
 	DialogueManager.show_example_dialogue_balloon(Common.bedroomOutSofaDialog, "start")
+	pass
+
+
+func _on_power_room_wiring_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.powerRoomWiringReady = true
+	pass # Replace with function body.
+
+
+func _on_power_room_wiring_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.powerRoomWiringReady = false
+	pass # Replace with function body.
+
+func start_power_room_wiring_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.powerroomWiringDialog,"start")
+	pass
+
+
+func _on_power_room_card_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.powerRoomCardReady = true
+	pass # Replace with function body.
+
+
+func _on_power_room_card_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.powerRoomCardReady = false
+	pass # Replace with function body.
+
+
+func start_powerroom_card_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.powerroomCardDialog,"start")
+	pass
+
+
+func _on_medical_plot_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.medicalPlotReady = true
+	pass # Replace with function body.
+
+
+func _on_medical_plot_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.medicalPlotReady = false
+	pass # Replace with function body.
+
+func start_medical_plot_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.medicalDialog,"start")
 	pass

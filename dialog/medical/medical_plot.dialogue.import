@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://5jpya6v61qrq"
+path="res://.godot/imported/medical_plot.dialogue-7d9416fb71b10b2841699c2d7981a98d.tres"
+
+[deps]
+
+source_file="res://dialog/medical/medical_plot.dialogue"
+dest_files=["res://.godot/imported/medical_plot.dialogue-7d9416fb71b10b2841699c2d7981a98d.tres"]
+
+[params]
+

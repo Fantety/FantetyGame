@@ -53,12 +53,17 @@ func search_battery():
 	$BackPack/Battery/AnimationPlayer.play("default")
 
 
-signal signal_get_accress_card_level2
-func get_accress_card_level2():
-	emit_signal("signal_get_accress_card_level2")
+signal signal_get_access_card_level2
+func get_access_card_level2():
+	emit_signal("signal_get_access_card_level2")
 	Common.show_tips("获得：门禁卡（等级二）", true)
 	Backpack.playerLevel = Common.accessCardLevels.LEVEL2;
-	
+
+signal  signal_get_access_card_level3
+func get_access_card_level3():
+	emit_signal("signal_get_accress_card_level3")
+	Common.show_tips("获得：门禁卡（等级三）", true)
+	Backpack.playerLevel = Common.accessCardLevels.LEVEL3;
 
 func _on_dead_area_body_entered(body):
 	if body == get_node("Player"):
@@ -95,3 +100,8 @@ func repos_camera():
 	tween.play()
 	await tween.finished
 	Common.inputLock = false
+
+func wiring_power_room_wiring():
+	Common.powerRoomWiringStatue = true
+	Common.show_tips("线已接上", true)
+	pass

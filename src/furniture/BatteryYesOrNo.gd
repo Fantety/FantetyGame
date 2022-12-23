@@ -8,6 +8,7 @@ func _ready():
 signal battery_use_yes
 func _on_button_pressed():
 	emit_signal("battery_use_yes")
+	queue_free()
 	pass # Replace with function body.
 
 func _on_button_2_pressed():

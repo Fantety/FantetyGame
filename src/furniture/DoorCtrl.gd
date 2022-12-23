@@ -84,6 +84,7 @@ var batteryUsed = false
 
 func set_battery_used():
 	batteryUsed = true
+	$PointLight2D.set_enabled(true)
 	pass
 	
 func power_room_door_ctrl_function():
