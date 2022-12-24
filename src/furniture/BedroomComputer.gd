@@ -73,3 +73,15 @@ func _on_button_pressed():
 	$Seach.show()
 	$Panel2.hide()
 	pass # Replace with function body.
+
+
+func _on_button_2_pressed():
+	$ImgMap.show()
+	$Panel2.hide()
+	pass # Replace with function body.
+
+
+func _on_img_map_button_pressed():
+	$ImgMap.hide()
+	$Panel2.show()
+	pass # Replace with function body.

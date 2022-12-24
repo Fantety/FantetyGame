@@ -64,6 +64,7 @@ func get_access_card_level3():
 	emit_signal("signal_get_accress_card_level3")
 	Common.show_tips("获得：门禁卡（等级三）", true)
 	Backpack.playerLevel = Common.accessCardLevels.LEVEL3;
+	$PowerRoom/PowerRoomCardArea.set_monitoring(false)
 
 func _on_dead_area_body_entered(body):
 	if body == get_node("Player"):
@@ -104,4 +105,13 @@ func repos_camera():
 func wiring_power_room_wiring():
 	Common.powerRoomWiringStatue = true
 	Common.show_tips("线已接上", true)
+	pass
+
+
+func show_fantety_lab_desk_computer():
+	if find_child("DataComputer", false, false) != null:
+		get_node("DataComputer").show()
+	else:
+		var dataComputerUi = load("res://scene/furniture/data_computer.tscn").instantiate()
+		add_child(dataComputerUi)
 	pass

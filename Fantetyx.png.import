@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jata5nvpnrn5"
-path="res://.godot/imported/Fantety.png-6dc1c312e6c54c5ac26d362c3f5e071d.ctex"
+uid="uid://cotqq5bp331ps"
+path="res://.godot/imported/Fantetyx.png-f85fd71d3d8f1d7422c7f944236f1a9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fantety.png"
-dest_files=["res://.godot/imported/Fantety.png-6dc1c312e6c54c5ac26d362c3f5e071d.ctex"]
+source_file="res://Fantetyx.png"
+dest_files=["res://.godot/imported/Fantetyx.png-f85fd71d3d8f1d7422c7f944236f1a9a.ctex"]
 
 [params]
 

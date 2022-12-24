@@ -3,7 +3,6 @@ extends Node
 const ELEVATOR_SPEED = 200
 
 enum accessCardLevels{LEVEL1 = 0, LEVEL2, LEVEL3, LEVEL4, LEVEL5, LEVEL6}
-
 var inputLock = false
 
 @onready var bedDialog = load("res://dialog/bedroom/bed.dialogue")
@@ -18,6 +17,9 @@ var inputLock = false
 @onready var powerroomCtrlDialog = load("res://dialog/powerroom/powerroom_ctrl_plot.dialogue")
 @onready var powerroomCardDialog = load("res://dialog/powerroom/powerroom_card_plot.dialogue")
 @onready var medicalDialog = load("res://dialog/medical/medical_plot.dialogue")
+@onready var greenhouseDialog = load("res://dialog/greenhouse/plant_one.dialogue")
+@onready var fantetyBrokenJarDialog = load("res://dialog/fantetylab/fantety_lab_broken_jar.dialogue")
+@onready var fantetyDeskDialog = load("res://dialog/fantetylab/fantety_lab_desk.dialogue")
 
 var doorCardLock = load("res://asset/img/furniture/door_ctrl/door_card_lock.png")
 var doorCardUnlock = load("res://asset/img/furniture/door_ctrl/door_card_unlock.png")
@@ -47,6 +49,11 @@ var bedroomOutSofaReady = false
 var powerRoomWiringReady = false
 var powerRoomCardReady = false
 var medicalPlotReady = false
+var greenhousePlotReady = false
+var greenhouseComputerReady = false
+var dataRoomTerminalReady = false
+var fantetyLabBrokenJarReady = false
+var fantetyLabDeskReady = false
 
 var elevatorCtrlTrigger = false
 
@@ -92,6 +99,8 @@ var currentArriveRoom:String = "none"
 var powerRoomTerminalReady = false
 var powerRoomWiringStatue = false
 var ePower = false
+
+var select = false
 
 
 func show_tips(text, audio):

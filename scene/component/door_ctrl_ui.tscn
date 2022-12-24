@@ -14,69 +14,69 @@
 [ext_resource type="Texture2D" uid="uid://d38yfyx5xq3ub" path="res://asset/ui/Colored/green_pressed.png" id="6_cb0bn"]
 [ext_resource type="Texture2D" uid="uid://dmwnjlq7lto5r" path="res://asset/ui/Colored/red_pressed.png" id="6_o8pq0"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ngp2"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xur5e"]
 texture = ExtResource("2_pnfhw")
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0.309804, 0.309804, 0.309804, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajnyu"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ypdd"]
 texture = ExtResource("4_fnst1")
 margin_left = 3.0
 margin_right = 3.0
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0, 0.988235, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tp804"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmlpb"]
 texture = ExtResource("4_fnst1")
 margin_left = 3.0
 margin_right = 3.0
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0, 0.988235, 0.121569, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kv2nt"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c85pg"]
 texture = ExtResource("4_6xqd3")
 margin_left = 3.0
 margin_right = 3.0
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0, 0.937255, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8pgy"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndwdx"]
 texture = ExtResource("5_458bk")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1i6uh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1otll"]
 texture = ExtResource("5_458bk")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mjjc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5u2xa"]
 texture = ExtResource("6_o8pq0")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jb28d"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8r734"]
 texture = ExtResource("5_y0tve")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cojsa"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wghil"]
 texture = ExtResource("5_y0tve")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amc4s"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awdek"]
 texture = ExtResource("6_cb0bn")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="Animation" id="Animation_88kye"]
+[sub_resource type="Animation" id="Animation_lv5qo"]
 resource_name = "default"
 length = 0.5
 tracks/0/type = "value"
@@ -92,9 +92,9 @@ tracks/0/keys = {
 "values": [Vector2(-262, 275), Vector2(623.5, 266)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn0ca"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o126h"]
 _data = {
-"default": SubResource("Animation_88kye")
+"default": SubResource("Animation_lv5qo")
 }
 
 [node name="DoorCtrlUi" type="CanvasLayer"]
@@ -113,7 +113,7 @@ offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_8ngp2")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xur5e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 anchors_preset = 8
@@ -136,9 +136,9 @@ theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.152941, 0.152941, 0.152941, 1)
 theme_override_fonts/font = ExtResource("1_ajwsw")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_ajnyu")
-theme_override_styles/focus = SubResource("StyleBoxTexture_tp804")
-theme_override_styles/read_only = SubResource("StyleBoxTexture_kv2nt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3ypdd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_pmlpb")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_c85pg")
 placeholder_text = "输入密码"
 secret = true
 secret_character = "x"
@@ -315,9 +315,9 @@ offset_right = 53.0
 offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("1_ajwsw")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxTexture_a8pgy")
-theme_override_styles/hover = SubResource("StyleBoxTexture_1i6uh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8mjjc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ndwdx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1otll")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5u2xa")
 text = "<-"
 
 [node name="ButtonZero" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
@@ -342,14 +342,14 @@ offset_right = 167.0
 offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("1_ajwsw")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxTexture_jb28d")
-theme_override_styles/hover = SubResource("StyleBoxTexture_cojsa")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_amc4s")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8r734")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wghil")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_awdek")
 text = "OK"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hn0ca")
+"": SubResource("AnimationLibrary_o126h")
 }
 
 [connection signal="door_ctrl_ok_button_pressed" from="Panel/VBoxContainer/LineEdit" to="." method="_on_line_edit_door_ctrl_ok_button_pressed"]

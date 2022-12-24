@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsa0cvh52hahn"]
+[gd_scene load_steps=5 format=3 uid="uid://cqbyvq82wuee7"]
 
-[ext_resource type="Texture2D" uid="uid://d1naue52es460" path="res://icon.svg" id="1_2smph"]
 [ext_resource type="Script" path="res://src/Start.gd" id="1_meogf"]
 [ext_resource type="FontFile" uid="uid://12sem1xey4xj" path="res://asset/font/Default.ttf" id="2_ppghn"]
-[ext_resource type="Texture2D" uid="uid://jata5nvpnrn5" path="res://Fantety.png" id="3_qmslp"]
+[ext_resource type="Texture2D" uid="uid://d1naue52es460" path="res://godot.svg" id="2_vjjfs"]
+[ext_resource type="Texture2D" uid="uid://cotqq5bp331ps" path="res://Fantetyx.png" id="4_vqh3n"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_meogf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +25,7 @@ grow_vertical = 2
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(483, 698)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_2smph")
+texture = ExtResource("2_vjjfs")
 
 [node name="Label" type="Label" parent="Icon"]
 offset_left = 114.0
@@ -37,14 +38,17 @@ theme_override_font_sizes/font_size = 100
 text = "Powered with Godot"
 
 [node name="Fantety" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(701, 299)
-texture = ExtResource("3_qmslp")
+scale = Vector2(2, 2)
+texture = ExtResource("4_vqh3n")
 
 [node name="Label" type="Label" parent="Fantety"]
-offset_left = -199.0
-offset_top = 182.0
-offset_right = 265.0
-offset_bottom = 286.0
+offset_left = -98.0
+offset_top = 113.0
+offset_right = 366.0
+offset_bottom = 217.0
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ppghn")
 theme_override_font_sizes/font_size = 100

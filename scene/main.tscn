@@ -1,4 +1,4 @@
-[gd_scene load_steps=312 format=3 uid="uid://bbvt80c8yge01"]
+[gd_scene load_steps=320 format=3 uid="uid://bbvt80c8yge01"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_s3vct"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_8cdtn"]
@@ -135,6 +135,8 @@
 [ext_resource type="PackedScene" uid="uid://blj2u1qjppeus" path="res://scene/furniture/access_card.tscn" id="98_y8omd"]
 [ext_resource type="Script" path="res://src/Room/Medical.gd" id="101_mnevh"]
 [ext_resource type="Script" path="res://src/furniture/FantetyLabOverheadDoor.gd" id="103_chn0b"]
+[ext_resource type="AudioStream" uid="uid://vwwhmo25jm5s" path="res://asset/sound/effect/alarm.wav" id="106_7hp4c"]
+[ext_resource type="Script" path="res://src/furniture/FantetyLabAlarm.gd" id="107_hostv"]
 [ext_resource type="Script" path="res://src/Camera.gd" id="115_ns8k4"]
 [ext_resource type="Texture2D" uid="uid://dtquc7xiwii8m" path="res://asset/img/furniture/flashlight.png" id="118_oovlb"]
 [ext_resource type="Script" path="res://src/furniture/FlashLight.gd" id="119_ti8jk"]
@@ -1051,7 +1053,9 @@ cull_mode = 2
 polygon = PackedVector2Array(31.9999, 2.66667, 31.9999, 16, -32.0001, 16, -32.0001, 2.66667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycl1v"]
-size = Vector2(429, 20)
+size = Vector2(26, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmvjd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntxtw"]
 size = Vector2(24, 18.1772)
@@ -1064,8 +1068,22 @@ size = Vector2(17.1177, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_daitn"]
 size = Vector2(20, 10.5887)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ch57"]
+size = Vector2(58.0001, 19.8484)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7tk1"]
+size = Vector2(15.5, 21.75)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o62p6"]
 b = Vector2(-17, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxdhs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elpxc"]
+size = Vector2(157, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivg51"]
+size = Vector2(16.9332, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p281"]
 
@@ -1576,8 +1594,19 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(1647.98, -20.1024)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GreenHouse/GreenHousePlotArea"]
-position = Vector2(-43.4807, -0.297287)
+position = Vector2(-239.98, 6.1024)
 shape = SubResource("RectangleShape2D_ycl1v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GreenHouse/GreenHousePlotArea"]
+position = Vector2(-175.98, 6.1024)
+shape = SubResource("RectangleShape2D_ycl1v")
+
+[node name="GreenHouseComputerArea" type="Area2D" parent="GreenHouse"]
+position = Vector2(1331.67, -30.644)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenHouse/GreenHouseComputerArea"]
+position = Vector2(-0.67395, 4.64403)
+shape = SubResource("RectangleShape2D_tmvjd")
 
 [node name="PowerRoom" type="Node2D" parent="."]
 script = ExtResource("82_bycuf")
@@ -1757,6 +1786,20 @@ scale = Vector2(0.5, 0.5)
 
 [node name="DataRoomDoorCtrlInner" parent="DataRoom" instance=ExtResource("84_6ssbi")]
 position = Vector2(1096, 90)
+
+[node name="DataRoomTerminalArea" type="Area2D" parent="DataRoom"]
+position = Vector2(1471.08, 105.339)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DataRoom/DataRoomTerminalArea"]
+position = Vector2(0.923584, -0.263062)
+shape = SubResource("RectangleShape2D_6ch57")
+
+[node name="DataRoomDoorCtrlArea" type="Area2D" parent="DataRoom"]
+position = Vector2(1048, 86.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DataRoom/DataRoomDoorCtrlArea"]
+position = Vector2(-0.25, -1.375)
+shape = SubResource("RectangleShape2D_t7tk1")
 
 [node name="Bedroom" type="Node2D" parent="."]
 
@@ -2025,6 +2068,7 @@ texture = ExtResource("8_8ursp")
 [node name="PointLight2D" type="PointLight2D" parent="FantetyLab/FantetyLabLight"]
 position = Vector2(-207, 163)
 scale = Vector2(0.9, 0.4)
+energy = 0.2
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("95_dghp3")
@@ -2033,6 +2077,7 @@ offset = Vector2(3.05176e-05, 5)
 [node name="PointLight2D2" type="PointLight2D" parent="FantetyLab/FantetyLabLight"]
 position = Vector2(78, 164)
 scale = Vector2(0.9, 0.4)
+energy = 0.5
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("95_dghp3")
@@ -2049,6 +2094,7 @@ offset = Vector2(3.05176e-05, 5)
 [node name="PointLight2D4" type="PointLight2D" parent="FantetyLab/FantetyLabLight"]
 position = Vector2(656, 164)
 scale = Vector2(0.9, 0.4)
+energy = 0.4
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("95_dghp3")
@@ -2064,6 +2110,36 @@ scale = Vector2(0.5, 0.5)
 
 [node name="FantetyLabDoorCtrlInner" parent="FantetyLab" instance=ExtResource("84_6ssbi")]
 position = Vector2(789, 222)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="FantetyLab"]
+position = Vector2(15.1918, 238.836)
+stream = ExtResource("106_7hp4c")
+autoplay = true
+max_distance = 200.0
+attenuation = 0.554785
+bus = &"Effect"
+script = ExtResource("107_hostv")
+
+[node name="FantetyLabBrokenJarArea" type="Area2D" parent="FantetyLab"]
+position = Vector2(15.1816, 238.955)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FantetyLab/FantetyLabBrokenJarArea"]
+position = Vector2(0.818405, 0.0453796)
+shape = SubResource("RectangleShape2D_kxdhs")
+
+[node name="FantetyLabDeskArea" type="Area2D" parent="FantetyLab"]
+position = Vector2(332.119, 237.618)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FantetyLab/FantetyLabDeskArea"]
+position = Vector2(3.38129, -1.11363)
+shape = SubResource("RectangleShape2D_elpxc")
+
+[node name="FantetyLabDoorCtrlArea" type="Area2D" parent="FantetyLab"]
+position = Vector2(838.932, 215.409)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FantetyLab/FantetyLabDoorCtrlArea"]
+position = Vector2(2.53455, 1.33484)
+shape = SubResource("RectangleShape2D_ivg51")
 
 [node name="Medical" type="Node" parent="."]
 script = ExtResource("101_mnevh")
@@ -2424,6 +2500,10 @@ scale = Vector2(0.7, 0.7)
 [connection signal="door_ctrl_input_finished" from="GreenHouse/GreenHouseDoorCtrl" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="GreenHouse/GreenHouseDoorCtrlInner" to="GreenHouse/OverheadDoor" method="_on_green_house_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="change_light_statue" from="GreenHouse/GreenHouseLightSwitch" to="GreenHouse" method="_on_green_house_light_switch_change_light_statue"]
+[connection signal="body_entered" from="GreenHouse/GreenHousePlotArea" to="Player" method="_on_green_house_plot_area_body_entered"]
+[connection signal="body_exited" from="GreenHouse/GreenHousePlotArea" to="Player" method="_on_green_house_plot_area_body_exited"]
+[connection signal="body_entered" from="GreenHouse/GreenHouseComputerArea" to="Player" method="_on_green_house_computer_area_body_entered"]
+[connection signal="body_exited" from="GreenHouse/GreenHouseComputerArea" to="Player" method="_on_green_house_computer_area_body_exited"]
 [connection signal="charge_machine_finish_charge" from="PowerRoom" to="GreenHouse" method="_on_power_room_charge_machine_finish_charge"]
 [connection signal="charge_machine_finish_charge" from="PowerRoom" to="PowerRoom" method="_on_charge_machine_finish_charge"]
 [connection signal="charge_machine_finish_charge" from="PowerRoom" to="DataRoom" method="_on_power_room_charge_machine_finish_charge"]
@@ -2441,6 +2521,10 @@ scale = Vector2(0.7, 0.7)
 [connection signal="body_exited" from="PowerRoom/PowerRoomCardArea" to="Player" method="_on_power_room_card_area_body_exited"]
 [connection signal="door_ctrl_input_finished" from="DataRoom/DataRoomDoorCtrl" to="DataRoom/OverheadDoor" method="_on_data_room_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="DataRoom/DataRoomDoorCtrlInner" to="DataRoom/OverheadDoor" method="_on_data_room_door_ctrl_inner_door_ctrl_inner_name"]
+[connection signal="body_entered" from="DataRoom/DataRoomTerminalArea" to="Player" method="_on_data_room_terminal_area_body_entered"]
+[connection signal="body_exited" from="DataRoom/DataRoomTerminalArea" to="Player" method="_on_data_room_terminal_area_body_exited"]
+[connection signal="body_entered" from="DataRoom/DataRoomDoorCtrlArea" to="Player" method="_on_data_room_door_ctrl_area_body_entered"]
+[connection signal="body_exited" from="DataRoom/DataRoomDoorCtrlArea" to="Player" method="_on_data_room_door_ctrl_area_body_exited"]
 [connection signal="door_ctrl_input_finished" from="Bedroom/BedroomDoorCtrl" to="Bedroom/OverheadDoor" method="_on_bedroom_door_ctrl_door_ctrl_input_finished"]
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Bedroom/BedroomLightSwitch" method="_on_bedroom_light_switch_area_body_entered"]
 [connection signal="body_entered" from="Bedroom/BedroomLightSwitch/BedroomLightSwitchArea" to="Player" method="_on_bedroom_light_switch_area_body_entered"]
@@ -2454,6 +2538,13 @@ scale = Vector2(0.7, 0.7)
 [connection signal="balcony_plot_start" from="Balcony/OverheadDoor" to="Player" method="_on_overhead_door_balcony_plot_start"]
 [connection signal="door_ctrl_input_finished" from="FantetyLab/FantetyLabDoorCtrl" to="FantetyLab/OverheadDoor" method="_on_fantety_lab_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="FantetyLab/FantetyLabDoorCtrlInner" to="FantetyLab/OverheadDoor" method="_on_fantety_lab_door_ctrl_inner_door_ctrl_inner_name"]
+[connection signal="finished" from="FantetyLab/AudioStreamPlayer2D" to="FantetyLab/AudioStreamPlayer2D" method="_on_finished"]
+[connection signal="body_entered" from="FantetyLab/FantetyLabBrokenJarArea" to="Player" method="_on_fantety_lab_broken_jar_area_body_entered"]
+[connection signal="body_exited" from="FantetyLab/FantetyLabBrokenJarArea" to="Player" method="_on_fantety_lab_broken_jar_area_body_exited"]
+[connection signal="body_entered" from="FantetyLab/FantetyLabDeskArea" to="Player" method="_on_fantety_lab_desk_area_body_entered"]
+[connection signal="body_exited" from="FantetyLab/FantetyLabDeskArea" to="Player" method="_on_fantety_lab_desk_area_body_exited"]
+[connection signal="body_entered" from="FantetyLab/FantetyLabDoorCtrlArea" to="Player" method="_on_fantety_lab_door_ctrl_area_body_entered"]
+[connection signal="body_exited" from="FantetyLab/FantetyLabDoorCtrlArea" to="Player" method="_on_fantety_lab_door_ctrl_area_body_exited"]
 [connection signal="door_ctrl_input_finished" from="Medical/MedicalDoorCtrl" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_door_ctrl_input_finished"]
 [connection signal="door_ctrl_inner_name" from="Medical/MedicalDoorCtrlInner" to="Medical/OverheadDoor" method="_on_medical_door_ctrl_inner_door_ctrl_inner_name"]
 [connection signal="change_light_statue" from="Medical/MedicalLightSwitch" to="Medical" method="_on_medical_light_switch_change_light_statue"]
@@ -2476,6 +2567,7 @@ scale = Vector2(0.7, 0.7)
 [connection signal="body_entered" from="Area/Balcony/DeadArea" to="." method="_on_dead_area_body_entered"]
 [connection signal="body_entered" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_entered"]
 [connection signal="body_exited" from="Area/Balcony/BalconyDoorCtrlArea" to="Player" method="_on_balcony_door_ctrl_area_body_exited"]
+[connection signal="show_vending_machine_result" from="Area/BedroomOut" to="." method="_on_bedroom_out_show_vending_machine_result"]
 [connection signal="body_entered" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_entered"]
 [connection signal="body_exited" from="Area/BedroomOut/VendingMachines" to="Player" method="_on_vending_machines_body_exited"]
 [connection signal="body_entered" from="Area/BedroomOut/BedroomOutSofa" to="Player" method="_on_bedroom_out_sofa_body_entered"]

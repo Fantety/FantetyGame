@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://dxl0mtvrnqn40"
+path="res://.godot/imported/plant_one.dialogue-b303e5e3ee9cf774b1de984ebfad97b6.tres"
+
+[deps]
+
+source_file="res://dialog/greenhouse/plant_one.dialogue"
+dest_files=["res://.godot/imported/plant_one.dialogue-b303e5e3ee9cf774b1de984ebfad97b6.tres"]
+
+[params]
+

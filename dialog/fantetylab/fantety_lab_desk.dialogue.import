@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://dts16dttc8ske"
+path="res://.godot/imported/fantety_lab_desk.dialogue-847555908c16809795b998d6c2face88.tres"
+
+[deps]
+
+source_file="res://dialog/fantetylab/fantety_lab_desk.dialogue"
+dest_files=["res://.godot/imported/fantety_lab_desk.dialogue-847555908c16809795b998d6c2face88.tres"]
+
+[params]
+

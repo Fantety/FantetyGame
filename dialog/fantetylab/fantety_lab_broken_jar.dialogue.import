@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://cv70u2hxymcuc"
+path="res://.godot/imported/fantety_lab_broken_jar.dialogue-6655c00c2f619b56e0a8823f0af2e769.tres"
+
+[deps]
+
+source_file="res://dialog/fantetylab/fantety_lab_broken_jar.dialogue"
+dest_files=["res://.godot/imported/fantety_lab_broken_jar.dialogue-6655c00c2f619b56e0a8823f0af2e769.tres"]
+
+[params]
+

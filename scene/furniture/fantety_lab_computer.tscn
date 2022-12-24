@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://2d3uegqw071y"]
+
+[ext_resource type="Script" path="res://src/furniture/FantetyLabComputer.gd" id="1_8oc26"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="4_hjxy0"]
+
+[node name="GreenhouseComputer" type="CanvasLayer"]
+script = ExtResource("1_8oc26")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -341.5
+offset_right = 578.0
+offset_bottom = 341.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer"]
+offset_right = 576.0
+offset_bottom = 683.0
+size_flags_horizontal = 3
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_hjxy0")
+theme_override_font_sizes/font_size = 36
+text = "柒
+程序启动
+正在检测实验体
+- 肉体完整度100%
+- 神经系统完整度100%
+- 其余99.8%
+- 生物属性完整度 99.9%
+系统评级：完美
+开始执行
+[基础制剂] FA-311
+[剂量] 500
+[特化程序] GA-1224,保护S
+开始注入FA-311
+- 余芷 权限通过
+程序终止
+[基础制剂更改] FA-312
+[剂量更改] 1
+[特化程序] 无
+外部导入程序中
+导入完成
+重新开始执行
+ [基础制剂] FA-312
+[剂量] 1
+[外部程序] 未知
+开始注入FA-312
+注入完成
+开始写入
+写入完成
+完成"
+editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="TextEdit2" type="TextEdit" parent="HBoxContainer"]
+offset_left = 580.0
+offset_right = 1156.0
+offset_bottom = 683.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_hjxy0")
+theme_override_font_sizes/font_size = 36
+text = "捌
+程序启动
+正在检测实验体
+- 肉体完整度100%
+- 神经系统完整度70%
+- 其余81.3%
+- 生物属性完整度 79.2%
+系统评级：良好
+开始执行
+[基础制剂] FA-312
+[剂量] 1
+[特化程序] GA-1220,任务S
+开始注入FA-312
+注入完成
+开始写入
+写入完成
+完成"
+editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false

@@ -297,29 +297,6 @@ text = "不过依旧希望大家能喜欢"
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 32.0
-offset_top = 728.0
-offset_right = 608.0
-offset_bottom = 800.0
-
-[node name="Label2" type="Label" parent="VBoxContainer"]
-offset_right = 576.0
-offset_bottom = 30.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_gevwn")
-theme_override_font_sizes/font_size = 26
-text = "开源地址：https://github.com/Fantety/Fantety"
-
-[node name="Label3" type="Label" parent="VBoxContainer"]
-offset_top = 34.0
-offset_right = 576.0
-offset_bottom = 64.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_gevwn")
-theme_override_font_sizes/font_size = 26
-text = "引擎许可：https://godotengine.org/license"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Text"
 libraries = {

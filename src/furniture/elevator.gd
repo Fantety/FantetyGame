@@ -33,6 +33,8 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	emit_signal("player_exit",body)
+	if Common.select:
+		return
 	if self.name == "Elevator":
 		if Common.elevatorDoorStatus:
 			elevatorAnimation.play_backwards("OpenElevatorDoor")

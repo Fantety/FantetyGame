@@ -37,43 +37,55 @@ func _physics_process(_delta):
 	
 func bedroom_door_ctrl_function():
 	if self.name == "BedroomDoorCtrl":
-		if Input.is_action_just_pressed("action"):
-			if Common.bedroomDoorStatus:
-				emit_signal("door_ctrl_input_finished",self.name)
-			else :
-				$DoorCtrlUi.door_ctrl_ui_show()
+		if Input.is_action_just_pressed("action") :
+			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
+				if Common.bedroomDoorStatus:
+					emit_signal("door_ctrl_input_finished",self.name)
+				else :
+					$DoorCtrlUi.door_ctrl_ui_show()
+			else:
+				Common.show_tips("权限不足", true)
 
 func balcony_door_ctrl_function():
 	if self.name == "BalconyDoorCtrl":
 		if Input.is_action_just_pressed("action"):
-			if Common.balconyDoorStatus:
-				emit_signal("door_ctrl_input_finished",self.name)
-			else :
-				$DoorCtrlUi.door_ctrl_ui_show()
+			if Backpack.playerLevel >= Common.accessCardLevels.LEVEL1:
+				if Common.balconyDoorStatus:
+					emit_signal("door_ctrl_input_finished",self.name)
+				else :
+					$DoorCtrlUi.door_ctrl_ui_show()
+			else:
+				Common.show_tips("权限不足", true)
 
 
 func greenhouse_door_ctrl_function():
 	if self.name == "GreenHouseDoorCtrl":
 		if Input.is_action_just_pressed("action"):
 			if Common.ePower:
-				if Common.greenhouseDoorStatus:
-					emit_signal("door_ctrl_input_finished",self.name)
-				else :
-					$DoorCtrlUi.door_ctrl_ui_show()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL3:
+					if Common.greenhouseDoorStatus:
+						emit_signal("door_ctrl_input_finished",self.name)
+					else :
+						$DoorCtrlUi.door_ctrl_ui_show()
+				else:
+					Common.show_tips("权限不足", true)
 			else:
 				if theTrigger:
 					Common.show_tips("门禁需要供电！",true)
 					theTrigger = false
-					$Timer.start()
+					$Timer.start() 
 			
 func medical_door_ctrl_function():
 	if self.name == "MedicalDoorCtrl":
 		if Input.is_action_just_pressed("action"):
 			if Common.ePower:
-				if Common.medicalDoorStatus:
-					emit_signal("door_ctrl_input_finished",self.name)
-				else :
-					$DoorCtrlUi.door_ctrl_ui_show()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL3:
+					if Common.medicalDoorStatus:
+						emit_signal("door_ctrl_input_finished",self.name)
+					else :
+						$DoorCtrlUi.door_ctrl_ui_show()
+				else:
+					Common.show_tips("权限不足", true)
 			else:
 				if theTrigger:
 					Common.show_tips("门禁需要供电！",true)
@@ -85,16 +97,21 @@ var batteryUsed = false
 func set_battery_used():
 	batteryUsed = true
 	$PointLight2D.set_enabled(true)
+	Backpack.battery = false
+	get_parent().get_parent().get_node("BackPack/Battery").hide()
 	pass
 	
 func power_room_door_ctrl_function():
 	if self.name == "PowerRoomDoorCtrl":
 		if Input.is_action_just_pressed("action"):
 			if Common.ePower || batteryUsed:
-				if Common.powerRoomDoorStatus:
-					emit_signal("door_ctrl_input_finished",self.name)
-				else :
-					$DoorCtrlUi.door_ctrl_ui_show()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL2:
+					if Common.powerRoomDoorStatus:
+						emit_signal("door_ctrl_input_finished",self.name)
+					else :
+						$DoorCtrlUi.door_ctrl_ui_show()
+				else:
+					Common.show_tips("权限不足", true)
 			else:
 				if theTrigger:
 					if Backpack.battery == false:
@@ -109,10 +126,13 @@ func data_room_door_ctrl_function():
 	if self.name == "DataRoomDoorCtrl":
 		if Input.is_action_just_pressed("action"):
 			if Common.ePower:
-				if Common.dataRoomDoorStatus:
-					emit_signal("door_ctrl_input_finished",self.name)
-				else :
-					$DoorCtrlUi.door_ctrl_ui_show()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL3:
+					if Common.dataRoomDoorStatus:
+						emit_signal("door_ctrl_input_finished",self.name)
+					else :
+						$DoorCtrlUi.door_ctrl_ui_show()
+				else:
+					Common.show_tips("权限不足", true)
 			else:
 				if theTrigger:
 					Common.show_tips("门禁需要供电！",true)
@@ -123,11 +143,13 @@ func fantety_lab_door_ctrl_function():
 	if self.name == "FantetyLabDoorCtrl":
 		if Input.is_action_just_pressed("action"):
 			if Common.ePower:
-				if Common.fantetyLabDoorStatus:
-				#print(Common.medicalDoorStatus)
-					emit_signal("door_ctrl_input_finished",self.name)
-				else :
-					$DoorCtrlUi.door_ctrl_ui_show()
+				if Backpack.playerLevel >= Common.accessCardLevels.LEVEL5:
+					if Common.fantetyLabDoorStatus:
+						emit_signal("door_ctrl_input_finished",self.name)
+					else :
+						$DoorCtrlUi.door_ctrl_ui_show()
+				else:
+					Common.show_tips("权限不足", true)
 			else:
 				if theTrigger:
 					Common.show_tips("门禁需要供电！",true)
@@ -141,48 +163,48 @@ func _on_timer_timeout():
 
 func _on_door_ctrl_ui_door_ctrl_ui_input_finished(parentName, passward):
 	if parentName == "GreenHouseDoorCtrl":
-		if passward == "123456":
+		if passward == "311311":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:
 			emit_signal("passwd_error")
 	elif parentName == "BedroomDoorCtrl":
-		if passward == "123456":
+		if passward == "615237":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:
 			emit_signal("passwd_error")
 		pass
 	elif parentName == "BalconyDoorCtrl":
-		if passward == "123456":
+		if passward == "336178":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:
 			emit_signal("passwd_error")
 		pass
 	elif parentName == "MedicalDoorCtrl":
-		if passward == "123456":
+		if passward == "367238":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:
 			emit_signal("passwd_error")
 		pass
 	elif parentName == "PowerRoomDoorCtrl":
-		if passward == "123456":
+		if passward == "305505":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:
 			emit_signal("passwd_error")
 		pass
 	elif parentName == "DataRoomDoorCtrl":
-		if passward == "123456":
+		if passward == "710032":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:
 			emit_signal("passwd_error")
 		pass
 	elif parentName == "FantetyLabDoorCtrl":
-		if passward == "123456":
+		if passward == "777777":
 			emit_signal("door_ctrl_input_finished",self.name)
 			$DoorCtrlUi.door_ctrl_ui_hide()
 		else:

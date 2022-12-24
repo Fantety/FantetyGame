@@ -79,6 +79,16 @@ func _physics_process(delta):
 				start_powerroom_card_ready()
 			elif Common.medicalPlotReady:
 				start_medical_plot_ready()
+			elif Common.greenhousePlotReady:
+				start_green_house_plot_ready()
+			elif Common.greenhouseComputerReady:
+				start_green_house_computer_ready()
+			elif Common.dataRoomTerminalReady:
+				start_data_room_terminal_ready()
+			elif Common.fantetyLabBrokenJarReady:
+				start_fantety_lab_broken_jar_ready()
+			elif Common.fantetyLabDeskReady:
+				start_fantety_lab_desk_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -366,6 +376,7 @@ func _on_elevator_ctrl_ui_elevator_floor_selected(index):
 		get_node("CollisionShape").set_deferred("disabled",false)
 		set_z_index(2)
 		Common.inputLock = false
+		Common.select = false
 		Common.elevatorCtrlTrigger = false
 		gravity = 980
 		if Backpack.flashLight:
@@ -657,3 +668,131 @@ func _on_medical_plot_body_exited(body):
 func start_medical_plot_ready():
 	DialogueManager.show_example_dialogue_balloon(Common.medicalDialog,"start")
 	pass
+
+
+func _on_green_house_plot_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.greenhousePlotReady = true
+	pass # Replace with function body.
+
+
+func _on_green_house_plot_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.greenhousePlotReady = false
+	pass # Replace with function body.
+
+func start_green_house_plot_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.greenhouseDialog,"start")
+	pass
+
+
+func _on_green_house_computer_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.greenhouseComputerReady = true
+	pass # Replace with function body.
+
+
+func _on_green_house_computer_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.greenhouseComputerReady = false
+	pass # Replace with function body.
+	
+	
+func start_green_house_computer_ready():
+	if get_parent().find_child("GreenhouseComputer", false, false) != null:
+		get_parent().get_node("GreenhouseComputer").show()
+	else:
+		var greenhouseComputerUi = load("res://scene/furniture/greenhouse_computer.tscn").instantiate()
+		get_parent().add_child(greenhouseComputerUi)
+	pass
+
+
+func _on_data_room_terminal_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.dataRoomTerminalReady = true
+	pass # Replace with function body.
+
+
+func _on_data_room_terminal_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.dataRoomTerminalReady = false
+	pass # Replace with function body.
+
+
+func start_data_room_terminal_ready():
+	if get_parent().find_child("DataComputer", false, false) != null:
+		get_parent().get_node("DataComputer").show()
+	else:
+		var dataComputerUi = load("res://scene/furniture/data_computer.tscn").instantiate()
+		get_parent().add_child(dataComputerUi)
+
+
+func _on_fantety_lab_broken_jar_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.fantetyLabBrokenJarReady = true
+	pass # Replace with function body.
+
+
+func _on_fantety_lab_broken_jar_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.fantetyLabBrokenJarReady = false
+	pass # Replace with function body.
+
+func start_fantety_lab_broken_jar_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.fantetyBrokenJarDialog,"start")
+	pass
+
+func _on_fantety_lab_desk_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.fantetyLabDeskReady = true
+	pass # Replace with function body.
+
+
+func _on_fantety_lab_desk_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.fantetyLabDeskReady = false
+	pass # Replace with function body.
+
+func start_fantety_lab_desk_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.fantetyDeskDialog,"start")
+	pass
+
+
+
+
+func _on_data_room_door_ctrl_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.dataRoomDoorCtrlReady = true
+	pass # Replace with function body.
+
+
+func _on_data_room_door_ctrl_area_body_exited(body):
+	if body == self:
+		dialogBubble.hide()
+		Common.dataRoomDoorCtrlReady = false
+	pass # Replace with function body.
+
+
+func _on_fantety_lab_door_ctrl_area_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.fantetyLabDoorCtrlReady = true
+	pass # Replace with function body.
+
+
+func _on_fantety_lab_door_ctrl_area_body_exited(body):
+	if body == self:
+		dialogBubble.show()
+		Common.fantetyLabDoorCtrlReady = false
+	pass # Replace with function body.

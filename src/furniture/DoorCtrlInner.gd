@@ -8,6 +8,16 @@ func _ready():
 	set_frame(1)
 	if get_parent().name == "Bedroom":
 		needLevel = Common.accessCardLevels.LEVEL1
+	elif get_parent().name == "GreenHouse":
+		needLevel = Common.accessCardLevels.LEVEL3
+	elif get_parent().name == "PowerRoom":
+		needLevel = Common.accessCardLevels.LEVEL2
+	elif get_parent().name == "Medical":
+		needLevel = Common.accessCardLevels.LEVEL3
+	elif get_parent().name == "DataRoom":
+		needLevel = Common.accessCardLevels.LEVEL3
+	elif get_parent().name == "FantetyLab":
+		needLevel = Common.accessCardLevels.LEVEL5
 	self.door_ctrl_inner_entered.connect(Callable(get_parent().get_parent().get_node("Player"),"_on_door_ctrl_inner_door_ctrl_inner_entered"))
 	self.door_ctrl_inner_exited.connect(Callable(get_parent().get_parent().get_node("Player"),"_on_door_ctrl_inner_door_ctrl_inner_exited"))
 

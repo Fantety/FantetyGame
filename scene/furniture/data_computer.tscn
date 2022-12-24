@@ -1,0 +1,250 @@
+[gd_scene load_steps=17 format=3 uid="uid://frx7fxax8k1x"]
+
+[ext_resource type="Script" path="res://src/furniture/DataComputer.gd" id="1_ssibi"]
+[ext_resource type="AudioStream" uid="uid://dt772k3pi6a5k" path="res://asset/sound/effect/button_down.wav" id="2_uvjhl"]
+[ext_resource type="Texture2D" uid="uid://do4wpaycof2df" path="res://asset/ui/bk_tech_ui.png" id="3_ua1dh"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="4_i5kbl"]
+[ext_resource type="Texture2D" uid="uid://d3mniskqmlc62" path="res://asset/ui/tech_line_edit_ui.png" id="5_ol3ly"]
+[ext_resource type="Texture2D" uid="uid://bga00elvgfeps" path="res://asset/img/ui/progress_bar_over.png" id="6_pk4la"]
+[ext_resource type="Texture2D" uid="uid://dib0gwnimm4pg" path="res://asset/img/ui/progress_bar_progress.png" id="7_icrb5"]
+
+[sub_resource type="Animation" id="Animation_10q10"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/LineEdit:theme_override_styles/normal:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/LineEdit:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/LineEdit:secret")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t7c8t"]
+resource_name = "desktop_show"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_ah404"]
+resource_name = "login_progress"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="Animation" id="Animation_xngvg"]
+resource_name = "passwd_error"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/LineEdit:theme_override_styles/normal:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.988235, 0, 0, 1), Color(1, 1, 1, 1), Color(0.988235, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/LineEdit:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["密码错误", ""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/LineEdit:secret")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_enmu3"]
+resource_name = "show"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1gc0l"]
+_data = {
+"RESET": SubResource("Animation_10q10"),
+"desktop_show": SubResource("Animation_t7c8t"),
+"login_progress": SubResource("Animation_ah404"),
+"passwd_error": SubResource("Animation_xngvg"),
+"show": SubResource("Animation_enmu3")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qsns2"]
+texture = ExtResource("3_ua1dh")
+region_rect = Rect2(0, 0, 128, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or2ih"]
+texture = ExtResource("5_ol3ly")
+region_rect = Rect2(0, 0, 67, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqbs0"]
+texture = ExtResource("3_ua1dh")
+region_rect = Rect2(0, 0, 128, 132)
+
+[node name="DataComputer" type="CanvasLayer"]
+script = ExtResource("1_ssibi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1gc0l")
+}
+
+[node name="InputEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uvjhl")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -373.0
+offset_right = 590.0
+offset_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qsns2")
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -132.0
+offset_right = 367.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_i5kbl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_or2ih")
+placeholder_text = "密码"
+alignment = 1
+max_length = 6
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
+visible = false
+offset_left = 392.0
+offset_top = 457.0
+offset_right = 436.0
+offset_bottom = 465.0
+scale = Vector2(10, 10)
+nine_patch_stretch = true
+texture_over = ExtResource("6_pk4la")
+texture_progress = ExtResource("7_icrb5")
+
+[node name="TextFile" type="Panel" parent="."]
+visible = false
+offset_left = 168.0
+offset_top = 80.0
+offset_right = 1274.0
+offset_bottom = 729.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rqbs0")
+
+[node name="TextEdit" type="TextEdit" parent="TextFile"]
+offset_left = 91.0
+offset_top = 40.0
+offset_right = 1015.0
+offset_bottom = 622.0
+theme_override_fonts/font = ExtResource("4_i5kbl")
+theme_override_font_sizes/font_size = 32
+text = "壹
+FA-311x10 覆盖率1.6%
+数据编辑不完全
+失败
+
+贰
+FA-311X100 覆盖率19.3%
+损伤不可逆
+失败
+
+。。。。。。
+
+柒
+FA-311x*** 覆盖率*%
+***
+**
+该实验体信息与数据库连接中断
+信息获取异常
+
+捌
+FA-312x1 覆盖率100%
+暂未发现异常
+特化职能未知
+成功
+
+暂无其他数据
+
+-以下内容仅新用户可见-
+检测到新用户，已自动升级用户权限
+详细数据请往楼实验室
+密码为777777"
+editable = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]

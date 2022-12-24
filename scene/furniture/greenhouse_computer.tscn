@@ -1,17 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://cgvi1lqkhr00t"]
+[gd_scene load_steps=21 format=3 uid="uid://bclklg8owphep"]
 
-[ext_resource type="Texture2D" uid="uid://do4wpaycof2df" path="res://asset/ui/bk_tech_ui.png" id="1_asfdk"]
-[ext_resource type="Script" path="res://src/furniture/BedroomComputer.gd" id="1_u5taf"]
-[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="2_tipqs"]
-[ext_resource type="Texture2D" uid="uid://d3mniskqmlc62" path="res://asset/ui/tech_line_edit_ui.png" id="3_5l25n"]
-[ext_resource type="Texture2D" uid="uid://bvcpon7vrhidh" path="res://asset/ui/PixelIcon/find.png" id="4_kop20"]
-[ext_resource type="Texture2D" uid="uid://bga00elvgfeps" path="res://asset/img/ui/progress_bar_over.png" id="5_35wk5"]
-[ext_resource type="Texture2D" uid="uid://dib0gwnimm4pg" path="res://asset/img/ui/progress_bar_progress.png" id="6_qcvls"]
-[ext_resource type="Texture2D" uid="uid://r72qdpjo4534" path="res://asset/ui/PixelIcon/text_file32.png" id="8_o72ve"]
-[ext_resource type="Texture2D" uid="uid://dsheb3cnecmuc" path="res://asset/ui/PixelIcon/img_file_1.png" id="10_q2c3b"]
-[ext_resource type="AudioStream" uid="uid://dt772k3pi6a5k" path="res://asset/sound/effect/button_down.wav" id="11_67tuw"]
-[ext_resource type="Texture2D" uid="uid://d3vwhu6u8ffbt" path="res://asset/img/map.png" id="12_csidy"]
-[ext_resource type="Texture2D" uid="uid://dbd2jq1c5q6kr" path="res://asset/ui/close-square.png" id="12_fngee"]
+[ext_resource type="Script" path="res://src/furniture/GreenhouseComputer.gd" id="1_djvjd"]
+[ext_resource type="AudioStream" uid="uid://dt772k3pi6a5k" path="res://asset/sound/effect/button_down.wav" id="2_qt5ur"]
+[ext_resource type="Texture2D" uid="uid://do4wpaycof2df" path="res://asset/ui/bk_tech_ui.png" id="3_vfd60"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="4_1jtts"]
+[ext_resource type="Texture2D" uid="uid://d3mniskqmlc62" path="res://asset/ui/tech_line_edit_ui.png" id="5_plkbo"]
+[ext_resource type="Texture2D" uid="uid://bga00elvgfeps" path="res://asset/img/ui/progress_bar_over.png" id="6_d5nbd"]
+[ext_resource type="Texture2D" uid="uid://dib0gwnimm4pg" path="res://asset/img/ui/progress_bar_progress.png" id="7_6ifj4"]
+[ext_resource type="Texture2D" uid="uid://r72qdpjo4534" path="res://asset/ui/PixelIcon/text_file32.png" id="9_6mfar"]
+[ext_resource type="Texture2D" uid="uid://dbd2jq1c5q6kr" path="res://asset/ui/close-square.png" id="11_ahrq5"]
 
 [sub_resource type="Animation" id="Animation_10q10"]
 length = 0.001
@@ -138,7 +135,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjkin"]
-texture = ExtResource("1_asfdk")
+texture = ExtResource("3_vfd60")
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 1.0
@@ -146,36 +143,21 @@ margin_bottom = 1.0
 region_rect = Rect2(0, 0, 128, 132)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or2ih"]
-texture = ExtResource("3_5l25n")
+texture = ExtResource("5_plkbo")
 region_rect = Rect2(0, 0, 67, 26)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6fiy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1er8"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqbs0"]
-texture = ExtResource("1_asfdk")
+texture = ExtResource("3_vfd60")
 region_rect = Rect2(0, 0, 128, 132)
 
 [sub_resource type="LabelSettings" id="LabelSettings_udhnr"]
-font = ExtResource("2_tipqs")
-font_size = 60
+font = ExtResource("4_1jtts")
+font_size = 48
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18wtr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0.933333, 0.752941, 1)
-shadow_size = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_cmm1v"]
-font = ExtResource("2_tipqs")
-font_size = 36
-
-[node name="BedroomComputer" type="CanvasLayer"]
-script = ExtResource("1_u5taf")
+[node name="GreenhouseComputer" type="CanvasLayer"]
+script = ExtResource("1_djvjd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -191,7 +173,7 @@ libraries = {
 }
 
 [node name="InputEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_67tuw")
+stream = ExtResource("2_qt5ur")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -220,7 +202,7 @@ offset_right = 264.5
 offset_bottom = 69.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_tipqs")
+theme_override_fonts/font = ExtResource("4_1jtts")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_or2ih")
 placeholder_text = "密码"
@@ -235,8 +217,8 @@ offset_right = 424.5
 offset_bottom = 433.5
 scale = Vector2(10, 10)
 nine_patch_stretch = true
-texture_over = ExtResource("5_35wk5")
-texture_progress = ExtResource("6_qcvls")
+texture_over = ExtResource("6_d5nbd")
+texture_progress = ExtResource("7_6ifj4")
 
 [node name="Panel2" type="Panel" parent="."]
 visible = false
@@ -254,17 +236,6 @@ grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 theme_override_styles/panel = SubResource("StyleBoxTexture_bjkin")
 
-[node name="Button" type="Button" parent="Panel2"]
-offset_left = 8.65075e+06
-offset_top = 1.04858e+07
-offset_right = 2.14e+07
-offset_bottom = 2.34e+07
-theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
-shortcut_in_tooltip = false
-icon = ExtResource("4_kop20")
-icon_alignment = 1
-expand_icon = true
-
 [node name="Button4" type="Button" parent="Panel2"]
 offset_left = 2.77873e+07
 offset_top = 1.06168e+07
@@ -272,17 +243,8 @@ offset_right = 4.05873e+07
 offset_bottom = 2.34169e+07
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f6fiy")
 shortcut_in_tooltip = false
-icon = ExtResource("8_o72ve")
+icon = ExtResource("9_6mfar")
 icon_alignment = 1
-expand_icon = true
-
-[node name="Button2" type="Button" parent="Panel2"]
-offset_left = 4.71e+07
-offset_top = 1.06e+07
-offset_right = 5.99e+07
-offset_bottom = 2.34e+07
-theme_override_styles/normal = SubResource("StyleBoxEmpty_v1er8")
-icon = ExtResource("10_q2c3b")
 expand_icon = true
 
 [node name="TextFile" type="Panel" parent="."]
@@ -302,7 +264,7 @@ theme_override_colors/icon_normal_color = Color(0, 0.988235, 0.988235, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0.988235, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-icon = ExtResource("12_fngee")
+icon = ExtResource("11_ahrq5")
 flat = true
 clip_text = true
 text_overrun_behavior = 2
@@ -310,98 +272,23 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="TextFile"]
-offset_left = 64.0
-offset_top = 40.0
-offset_right = 1034.0
+offset_left = 100.0
+offset_top = 34.0
+offset_right = 1070.0
 offset_bottom = 624.0
-text = "#卧室门禁:615237
-这里是实验室顶楼
-你需要去找一个人
-他会告诉你的
-#这一层的另一个门禁密码:336178
-通过这个门禁会到达阳台
-他会在那等你
-还有其他门禁的密"
+text = "FA-311
+提取纯度低于20%
+缺陷
+神经网络覆盖率不足1%
+数据编辑失败率超过90%
+解决
+加大剂量，损伤不可逆转
+所有实验体失效
+详细数据
+数据库-710032"
 label_settings = SubResource("LabelSettings_udhnr")
-
-[node name="Seach" type="Panel" parent="."]
-visible = false
-offset_left = 168.0
-offset_top = 80.0
-offset_right = 1274.0
-offset_bottom = 729.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_rqbs0")
-
-[node name="SearchCloseButton" type="Button" parent="Seach"]
-offset_left = 969.0
-offset_top = 24.0
-offset_right = 1098.0
-offset_bottom = 168.0
-theme_override_colors/icon_normal_color = Color(0, 0.988235, 0.988235, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0.988235, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-icon = ExtResource("12_fngee")
-flat = true
-clip_text = true
-text_overrun_behavior = 2
-icon_alignment = 1
-expand_icon = true
-
-[node name="SearchLineEdit" type="LineEdit" parent="Seach"]
-offset_left = 88.0
-offset_top = 72.0
-offset_right = 921.0
-offset_bottom = 160.0
-theme_override_fonts/font = ExtResource("2_tipqs")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_18wtr")
-placeholder_text = "输入要查询的内容"
-
-[node name="Label" type="Label" parent="Seach"]
-offset_left = 88.0
-offset_top = 184.0
-offset_right = 921.0
-offset_bottom = 625.0
-label_settings = SubResource("LabelSettings_cmm1v")
-
-[node name="ImgMap" type="Panel" parent="."]
-visible = false
-offset_left = 168.0
-offset_top = 80.0
-offset_right = 1274.0
-offset_bottom = 729.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_rqbs0")
-
-[node name="TextureRect" type="TextureRect" parent="ImgMap"]
-offset_left = 152.0
-offset_top = 152.0
-offset_right = 950.0
-offset_bottom = 562.0
-texture = ExtResource("12_csidy")
-
-[node name="ImgMapButton" type="Button" parent="ImgMap"]
-offset_left = 969.0
-offset_top = 24.0
-offset_right = 1098.0
-offset_bottom = 168.0
-theme_override_colors/icon_normal_color = Color(0, 0.988235, 0.988235, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0.988235, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-icon = ExtResource("12_fngee")
-flat = true
-clip_text = true
-text_overrun_behavior = 2
-icon_alignment = 1
-expand_icon = true
 
 [connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="Panel2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel2/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="Panel2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="TextFile/TextFileCloseButton" to="." method="_on_text_file_close_button_pressed"]
-[connection signal="pressed" from="Seach/SearchCloseButton" to="." method="_on_search_close_button_pressed"]
-[connection signal="text_submitted" from="Seach/SearchLineEdit" to="." method="_on_search_line_edit_text_submitted"]
-[connection signal="pressed" from="ImgMap/ImgMapButton" to="." method="_on_img_map_button_pressed"]
