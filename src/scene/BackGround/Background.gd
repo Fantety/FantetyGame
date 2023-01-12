@@ -11,8 +11,9 @@ var backgroundMove = false
 #
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
+var moved = true
 func _physics_process(_delta):
-	if backgroundMove and !Common.inputLock:
+	if backgroundMove and !Common.inputLock and moved:
 		var direction = Input.get_axis("act_left", "act_right")
 		if direction:
 			get_node("Back").set_position(get_node("Back").position+Vector2(-direction*SPEED_BACK,0))
@@ -28,3 +29,15 @@ func _on_balcony_area_body_entered(body):
 func _on_balcony_area_body_exited(body):
 	if body == get_parent().get_node("Player"):
 		backgroundMove = false
+
+
+func _on_back_stop_area_body_entered(body):
+	if body.name == "Player":
+		moved = false
+	pass # Replace with function body.
+
+
+func _on_back_stop_area_body_exited(body):
+	if body.name == "Player":
+		moved = true
+	pass # Replace with function body.

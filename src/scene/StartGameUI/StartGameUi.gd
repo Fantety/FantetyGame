@@ -59,3 +59,20 @@ func _on_start_pressed():
 func _on_exit_pressed():
 	get_tree().quit() 
 	pass # Replace with function body.
+
+
+func _on_help_pressed():
+	ChangeScene.change_scene("res://scene/help_ui.tscn")
+	pass # Replace with function body.
+
+
+func _on_help_mouse_entered():
+	get_node("AnimationPlayer").stop()
+	get_node("AnimationPlayer").play("ButtonHelp")
+	pass # Replace with function body.
+
+
+func _on_help_mouse_exited():
+	get_node("AnimationPlayer").stop()
+	get_node("AnimationPlayer").play_backwards("ButtonHelp")
+	pass # Replace with function body.

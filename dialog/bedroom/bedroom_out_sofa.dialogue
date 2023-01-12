@@ -1,8 +1,10 @@
 ~ start
-
+do lock_move()
 我: 似乎只有这个沙发是破的
-- 找一找看看有没有什么东西
+- 找一找看看有没有什么东西 [if battery == false]
 	do search_battery()
 - 坐一坐
 	我: 屁股被撅了
-- 离开 => END
+	do unlock_move()
+- 离开
+	do unlock_move()

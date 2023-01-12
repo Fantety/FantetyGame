@@ -9,7 +9,7 @@ func _ready():
 	$ChargeSound.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$TextureProgressBar.set_value($TextureProgressBar.get_value()-1)
+	$TextureProgressBar.set_value($TextureProgressBar.get_value()-30*delta)
 	if !isEnd:
 		if Input.is_action_just_pressed("act_jump"):
 			$TextureProgressBar.set_value($TextureProgressBar.get_value()+10)

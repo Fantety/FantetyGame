@@ -361,9 +361,10 @@ placeholder_text = "输入要查询的内容"
 [node name="Label" type="Label" parent="Seach"]
 offset_left = 88.0
 offset_top = 184.0
-offset_right = 921.0
+offset_right = 1034.0
 offset_bottom = 625.0
 label_settings = SubResource("LabelSettings_cmm1v")
+autowrap_mode = 1
 
 [node name="ImgMap" type="Panel" parent="."]
 visible = false

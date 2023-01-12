@@ -15,10 +15,15 @@ func _on_line_edit_door_ctrl_ok_button_pressed():
 	pass # Replace with function body.
 
 func door_ctrl_ui_show():
+	Common.inputLock = true
 	set_visible(true)
+	Common.doorCtrlUiShow = true
 	$AnimationPlayer.play("default")
 	
 func door_ctrl_ui_hide():
+	Common.inputLock = false
 	$AnimationPlayer.play_backwards("default")
 	await $AnimationPlayer.animation_finished
 	set_visible(false)
+	Common.doorCtrlUiShow = false
+	$Panel/VBoxContainer/LineEdit.clear()

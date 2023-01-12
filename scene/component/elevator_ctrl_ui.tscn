@@ -18,13 +18,13 @@ offset_right = 73.0
 offset_bottom = 104.0
 theme_override_fonts/font = ExtResource("1_a7ulk")
 item_count = 4
-item_0/text = "一楼"
+item_0/text = "四楼"
 item_0/icon = ExtResource("2_o30yi")
-item_1/text = "二楼"
+item_1/text = "三楼"
 item_1/icon = ExtResource("2_o30yi")
-item_2/text = "三楼"
+item_2/text = "二楼"
 item_2/icon = ExtResource("2_o30yi")
-item_3/text = "四楼"
+item_3/text = "一楼"
 item_3/icon = ExtResource("2_o30yi")
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

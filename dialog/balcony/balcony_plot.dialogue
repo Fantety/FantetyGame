@@ -1,4 +1,5 @@
 ~ start
+do lock_move()
 ???: 你醒啦！
 - 你是？
 	???: 我嘛， [speed=0.2]emmmm [speed=1]，是你。
@@ -23,4 +24,6 @@ do get_access_card_level2()
 捌: 你需要先去启动供电，除了这一层和电梯是独立供电，其他都需要核心供电，密码是305505
 捌: 以为时间有限，我只能告诉你这些
 捌: 好了,我的任务已经完成了,接下来就靠你自己了
+do enable_balcony_second_plot()
 do repos_camera()
+do unlock_move()

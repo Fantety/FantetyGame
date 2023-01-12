@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://c58f6n37rjs8s"]
+
+[ext_resource type="Script" path="res://src/scene/HelpUi.gd" id="1_5m6k4"]
+[ext_resource type="FontFile" uid="uid://dlb3dglxf7aok" path="res://asset/font/Cubic.ttf" id="1_c8c0j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2swfh"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.741176)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1n0f"]
+line_spacing = 10.0
+font = ExtResource("1_c8c0j")
+font_size = 46
+
+[node name="HelpUi" type="CanvasLayer"]
+script = ExtResource("1_5m6k4")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2swfh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+offset_right = 1440.0
+offset_bottom = 810.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+offset_right = 1440.0
+offset_bottom = 725.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+text = "A-向左移动
+D-向右移动
+空格-跳跃（没什么用）
+E-物品交互
+P-暂停游戏"
+label_settings = SubResource("LabelSettings_m1n0f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+offset_top = 729.0
+offset_right = 1440.0
+offset_bottom = 810.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_c8c0j")
+theme_override_font_sizes/font_size = 48
+text = "返回"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

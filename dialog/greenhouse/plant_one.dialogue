@@ -1,1 +1,4 @@
+~start
+do lock_move()
 我: 看起来很普通的一种植物
+do unlock_move()

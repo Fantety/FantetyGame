@@ -1,4 +1,5 @@
 ~ start
-
+do lock_move()
 我: 似乎没什么反应
-- 离开 => END
+- 离开
+	do unlock_move()

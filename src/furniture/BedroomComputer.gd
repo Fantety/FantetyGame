@@ -4,6 +4,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if visible:
 			set_visible(false)
+			Common.inputLock = false
 
 func _ready():
 	$Panel/TextureProgressBar.hide()

@@ -10,14 +10,17 @@ signal passwd_error
 
 
 func _ready():
-	if !(self.name == "BedroomDoorCtrl" || self.name == "BalconyDoorCtrl"):
-		$PointLight2D.set_enabled(false)
 	self.lack_of_authority.connect(Callable(get_parent().get_parent(),"_on_player_lack_of_authority"))
 	self.passwd_error.connect(Callable(get_parent().get_parent(),"_on_player_passwd_error"))
 	add_child(doorCtrlUi)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
+	if Common.ePower:
+		$PointLight2D.set_enabled(true)
+	else:
+		if !(self.name == "BedroomDoorCtrl" || self.name == "BalconyDoorCtrl"):
+			$PointLight2D.set_enabled(false)
 	if Common.bedroomDoorCtrlReady and Common.bedroomDoorCtrlAllow:
 		bedroom_door_ctrl_function()
 	elif Common.balconyDoorCtrlReady and Common.balconyDoorCtrlAllow:

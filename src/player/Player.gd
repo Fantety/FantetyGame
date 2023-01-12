@@ -89,6 +89,8 @@ func _physics_process(delta):
 				start_fantety_lab_broken_jar_ready()
 			elif Common.fantetyLabDeskReady:
 				start_fantety_lab_desk_ready()
+			elif Common.balconyPlotSecondReady:
+				start_balcony_plot_second_ready()
 		elif Common.bedroomLightSwitchReady:
 			start_bedroom_light_switch_ready()
 		var direction = Input.get_axis("act_left", "act_right")
@@ -96,8 +98,9 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 			playerView.play("run")
 			playerView.set_flip_h(direction == -1)
-			if !runSound.playing:
-				runSound.play()
+			if is_on_floor():
+				if !runSound.playing:
+					runSound.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			playerView.play("stand")
@@ -748,6 +751,7 @@ func _on_fantety_lab_broken_jar_area_body_exited(body):
 
 func start_fantety_lab_broken_jar_ready():
 	DialogueManager.show_example_dialogue_balloon(Common.fantetyBrokenJarDialog,"start")
+	Common.fantetyLabOne = true
 	pass
 
 func _on_fantety_lab_desk_area_body_entered(body):
@@ -765,6 +769,7 @@ func _on_fantety_lab_desk_area_body_exited(body):
 
 func start_fantety_lab_desk_ready():
 	DialogueManager.show_example_dialogue_balloon(Common.fantetyDeskDialog,"start")
+	Common.fantetyLabTwo = true
 	pass
 
 
@@ -796,3 +801,21 @@ func _on_fantety_lab_door_ctrl_area_body_exited(body):
 		dialogBubble.show()
 		Common.fantetyLabDoorCtrlReady = false
 	pass # Replace with function body.
+
+
+func _on_balcony_plot_second_body_entered(body):
+	if body == self:
+		dialogBubble.show()
+		Common.balconyPlotSecondReady = true
+	pass # Replace with function body.
+
+
+func _on_balcony_plot_second_body_exited(body):
+	if body == self:
+		dialogBubble.show()
+		Common.balconyPlotSecondReady = false
+	pass # Replace with function body.
+
+func start_balcony_plot_second_ready():
+	DialogueManager.show_example_dialogue_balloon(Common.balconySecondDialog,"start")
+	pass

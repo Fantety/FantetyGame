@@ -9,7 +9,7 @@ func _ready():
 	await $AnimationPlayer.animation_finished
 	$Timer.start()
 	await $Timer.timeout
-	$Label.set_text("我这是怎么了")
+	$Label.set_text("也许并没有")
 	$AnimationPlayer.play_backwards("default")
 	$Timer.start()
 	await $Timer.timeout
@@ -17,7 +17,7 @@ func _ready():
 	await $AnimationPlayer.animation_finished
 	$Timer.start()
 	await $Timer.timeout
-	$Label.set_text("要不再躺会吧")
+	$Label.set_text("或许很短")
 	$AnimationPlayer.play_backwards("default")
 	$Timer.start()
 	await $Timer.timeout
@@ -25,7 +25,7 @@ func _ready():
 	await $AnimationPlayer.animation_finished
 	$Timer.start()
 	await $Timer.timeout
-	$Label.set_text("Z Z Z Z Z")
+	$Label.set_text("但是我希望")
 	$AnimationPlayer.play_backwards("default")
 	$Timer.start()
 	await $Timer.timeout
@@ -33,7 +33,7 @@ func _ready():
 	await $AnimationPlayer.animation_finished
 	$Timer.start()
 	await $Timer.timeout
-	$Label.set_text("睡了多久了")
+	$Label.set_text("还有未来")
 	$AnimationPlayer.play_backwards("default")
 	$Timer.start()
 	await $Timer.timeout
@@ -41,9 +41,9 @@ func _ready():
 	await $AnimationPlayer.animation_finished
 	$Timer.start()
 	await $Timer.timeout
-	$Label.set_text("不能再睡下去了")
+	$Label.set_text("谢谢")
 	$AnimationPlayer.play_backwards("default")
 	await $AnimationPlayer.animation_finished
-	ChangeScene.change_scene("res://scene/main.tscn")
+	ChangeScene.change_scene("res://scene/start_game_ui.tscn")
 	pass # Replace with function body.
 

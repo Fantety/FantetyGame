@@ -1,12 +1,15 @@
 ~ start
-
+do lock_move()
 我: 桌上好乱
 - 看看电脑
 	do show_fantety_lab_desk_computer()
+	do unlock_move()
 - 看看文件 => FILE
 - 看看你的
 	我: 不给看
+	do unlock_move()
 
 ~ FILE
 **: 《权限修改说明文件》
-**: 柒号，捌号实验体交由余芷全权负责，其他人员不得参与柒号与捌号的任何相关活动，对柒号和捌号无任何访问权限
+**: 柒号，捌号实验体交由余芷全权负责，其他人员不得参与柒与捌的任何相关活动，对柒号和捌号无任何访问权限
+do unlock_move()

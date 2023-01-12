@@ -1,8 +1,10 @@
 ~ start
-
+do lock_move()
 我: 等等，地上这是什么东西
 我: 好像是一张门禁卡
 - 捡起来
 	do get_access_card_level3()
 	我: 背面还有一串数字367238
-- 离开 => END
+	do unlock_move()
+- 离开
+	do unlock_move()

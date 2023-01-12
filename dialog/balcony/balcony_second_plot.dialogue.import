@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://n7anfdekjabe"
+path="res://.godot/imported/balcony_second_plot.dialogue-21f2546c325453e4487c40cff2ce9a9f.tres"
+
+[deps]
+
+source_file="res://dialog/balcony/balcony_second_plot.dialogue"
+dest_files=["res://.godot/imported/balcony_second_plot.dialogue-21f2546c325453e4487c40cff2ce9a9f.tres"]
+
+[params]
+

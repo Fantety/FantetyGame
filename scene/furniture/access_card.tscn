@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blj2u1qjppeus"]
+[gd_scene load_steps=16 format=3 uid="uid://blj2u1qjppeus"]
 
 [ext_resource type="Script" path="res://src/furniture/AccessCard.gd" id="1_fpoan"]
 [ext_resource type="Texture2D" uid="uid://c2bvx4dt0xty3" path="res://asset/img/furniture/access_card/access_card.png" id="1_tbugy"]
@@ -96,6 +96,12 @@ _data = {
 "default": SubResource("Animation_da28c")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kidff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_se66m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7efbc"]
+
 [node name="AccessCard" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_fpoan")
@@ -109,3 +115,14 @@ frames = SubResource("SpriteFrames_7ls0v")
 libraries = {
 "": SubResource("AnimationLibrary_kjbxk")
 }
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1319.0
+offset_top = 711.0
+offset_right = 1378.0
+offset_bottom = 781.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kidff")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_se66m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7efbc")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

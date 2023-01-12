@@ -20,6 +20,7 @@ var inputLock = false
 @onready var greenhouseDialog = load("res://dialog/greenhouse/plant_one.dialogue")
 @onready var fantetyBrokenJarDialog = load("res://dialog/fantetylab/fantety_lab_broken_jar.dialogue")
 @onready var fantetyDeskDialog = load("res://dialog/fantetylab/fantety_lab_desk.dialogue")
+@onready var balconySecondDialog = load("res://dialog/balcony/balcony_second_plot.dialogue")
 
 var doorCardLock = load("res://asset/img/furniture/door_ctrl/door_card_lock.png")
 var doorCardUnlock = load("res://asset/img/furniture/door_ctrl/door_card_unlock.png")
@@ -54,6 +55,7 @@ var greenhouseComputerReady = false
 var dataRoomTerminalReady = false
 var fantetyLabBrokenJarReady = false
 var fantetyLabDeskReady = false
+var balconyPlotSecondReady = false
 
 var elevatorCtrlTrigger = false
 
@@ -102,6 +104,10 @@ var ePower = false
 
 var select = false
 
+var doorCtrlUiShow = false
+
+var fantetyLabOne = false
+var fantetyLabTwo = false
 
 func show_tips(text, audio):
 	var tips = load("res://scene/tips.tscn").instantiate()
