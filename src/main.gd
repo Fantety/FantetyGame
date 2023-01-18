@@ -118,11 +118,11 @@ func wiring_power_room_wiring():
 
 
 func show_fantety_lab_desk_computer():
-	if find_child("DataComputer", false, false) != null:
-		get_node("DataComputer").show()
+	if find_child("FantetyLabComputer", false, false) != null:
+		get_node("FantetyLabComputer").show()
 	else:
-		var dataComputerUi = load("res://scene/furniture/data_computer.tscn").instantiate()
-		add_child(dataComputerUi)
+		var fantetyComputerUi = load("res://scene/furniture/fantety_lab_computer.tscn").instantiate()
+		add_child(fantetyComputerUi)
 	pass
 
 func lock_move():

@@ -14,69 +14,69 @@
 [ext_resource type="Texture2D" uid="uid://d38yfyx5xq3ub" path="res://asset/ui/Colored/green_pressed.png" id="6_cb0bn"]
 [ext_resource type="Texture2D" uid="uid://dmwnjlq7lto5r" path="res://asset/ui/Colored/red_pressed.png" id="6_o8pq0"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pdgl8"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mfie"]
 texture = ExtResource("2_pnfhw")
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0.309804, 0.309804, 0.309804, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gs5cv"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7ex1"]
 texture = ExtResource("4_fnst1")
 margin_left = 3.0
 margin_right = 3.0
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0, 0.988235, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xqsg"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plyxf"]
 texture = ExtResource("4_fnst1")
 margin_left = 3.0
 margin_right = 3.0
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0, 0.988235, 0.121569, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ssa1"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h10k6"]
 texture = ExtResource("4_6xqd3")
 margin_left = 3.0
 margin_right = 3.0
 region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(0, 0.937255, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xg2c"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cg60h"]
 texture = ExtResource("5_458bk")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcnmf"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0c6l"]
 texture = ExtResource("5_458bk")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uj7b8"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_of2ai"]
 texture = ExtResource("6_o8pq0")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2mtk"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pv5s2"]
 texture = ExtResource("5_y0tve")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfav4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnu4f"]
 texture = ExtResource("5_y0tve")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvsju"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbc6w"]
 texture = ExtResource("6_cb0bn")
 margin_left = 4.0
 margin_right = 4.0
 region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="Animation" id="Animation_330c7"]
+[sub_resource type="Animation" id="Animation_l8u34"]
 resource_name = "default"
 length = 0.5
 tracks/0/type = "value"
@@ -92,9 +92,9 @@ tracks/0/keys = {
 "values": [Vector2(-262, 275), Vector2(623.5, 266)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dah7i"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2mhb"]
 _data = {
-"default": SubResource("Animation_330c7")
+"default": SubResource("Animation_l8u34")
 }
 
 [node name="DoorCtrlUi" type="CanvasLayer"]
@@ -113,9 +113,10 @@ offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_pdgl8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1mfie")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -129,16 +130,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer"]
-offset_right = 167.0
-offset_bottom = 35.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.152941, 0.152941, 0.152941, 1)
 theme_override_fonts/font = ExtResource("1_ajwsw")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_gs5cv")
-theme_override_styles/focus = SubResource("StyleBoxTexture_3xqsg")
-theme_override_styles/read_only = SubResource("StyleBoxTexture_8ssa1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w7ex1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_plyxf")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_h10k6")
 placeholder_text = "输入密码"
 editable = false
 secret = true
@@ -152,14 +152,11 @@ script = ExtResource("2_oajge")
 stream = ExtResource("3_d5r50")
 
 [node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
-offset_top = 39.0
-offset_right = 167.0
-offset_bottom = 173.0
+layout_mode = 2
 columns = 3
 
 [node name="Button1" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_right = 53.0
-offset_bottom = 42.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -175,9 +172,7 @@ shortcut_feedback = false
 text = " 1 "
 
 [node name="Button2" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_left = 57.0
-offset_right = 110.0
-offset_bottom = 42.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -193,9 +188,7 @@ shortcut_feedback = false
 text = " 2 "
 
 [node name="Button3" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_left = 114.0
-offset_right = 167.0
-offset_bottom = 42.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -211,9 +204,7 @@ shortcut_feedback = false
 text = " 3 "
 
 [node name="Button4" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_top = 46.0
-offset_right = 53.0
-offset_bottom = 88.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -229,10 +220,7 @@ shortcut_feedback = false
 text = " 4 "
 
 [node name="Button5" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_left = 57.0
-offset_top = 46.0
-offset_right = 110.0
-offset_bottom = 88.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -248,10 +236,7 @@ shortcut_feedback = false
 text = " 5 "
 
 [node name="Button6" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_left = 114.0
-offset_top = 46.0
-offset_right = 167.0
-offset_bottom = 88.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -267,9 +252,7 @@ shortcut_feedback = false
 text = " 6 "
 
 [node name="Button7" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_top = 92.0
-offset_right = 53.0
-offset_bottom = 134.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -285,10 +268,7 @@ shortcut_feedback = false
 text = " 7 "
 
 [node name="Button8" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_left = 57.0
-offset_top = 92.0
-offset_right = 110.0
-offset_bottom = 134.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -304,10 +284,7 @@ shortcut_feedback = false
 text = " 8 "
 
 [node name="Button9" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-offset_left = 114.0
-offset_top = 92.0
-offset_right = 167.0
-offset_bottom = 134.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -323,28 +300,23 @@ shortcut_feedback = false
 text = " 9 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-offset_top = 177.0
-offset_right = 167.0
-offset_bottom = 219.0
+layout_mode = 2
 size_flags_stretch_ratio = 0.0
 alignment = 1
 
 [node name="ButtonDelete" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
-offset_right = 53.0
-offset_bottom = 42.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ajwsw")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxTexture_1xg2c")
-theme_override_styles/hover = SubResource("StyleBoxTexture_fcnmf")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_uj7b8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cg60h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j0c6l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_of2ai")
 shortcut_in_tooltip = false
 shortcut_feedback = false
 text = "<-"
 
 [node name="ButtonZero" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
-offset_left = 57.0
-offset_right = 110.0
-offset_bottom = 42.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -360,21 +332,19 @@ shortcut_feedback = false
 text = " 0 "
 
 [node name="ButtonOK" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
-offset_left = 114.0
-offset_right = 167.0
-offset_bottom = 42.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ajwsw")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxTexture_g2mtk")
-theme_override_styles/hover = SubResource("StyleBoxTexture_hfav4")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_xvsju")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pv5s2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bnu4f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bbc6w")
 shortcut_in_tooltip = false
 shortcut_feedback = false
 text = "OK"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dah7i")
+"": SubResource("AnimationLibrary_f2mhb")
 }
 
 [connection signal="door_ctrl_ok_button_pressed" from="Panel/VBoxContainer/LineEdit" to="." method="_on_line_edit_door_ctrl_ok_button_pressed"]

@@ -167,6 +167,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qsns2")
 
 [node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -187,6 +188,7 @@ max_length = 6
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
 visible = false
+layout_mode = 0
 offset_left = 392.0
 offset_top = 457.0
 offset_right = 436.0
@@ -197,7 +199,6 @@ texture_over = ExtResource("6_pk4la")
 texture_progress = ExtResource("7_icrb5")
 
 [node name="TextFile" type="Panel" parent="."]
-visible = false
 offset_left = 168.0
 offset_top = 80.0
 offset_right = 1274.0
@@ -205,6 +206,7 @@ offset_bottom = 729.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_rqbs0")
 
 [node name="TextEdit" type="TextEdit" parent="TextFile"]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 40.0
 offset_right = 1015.0

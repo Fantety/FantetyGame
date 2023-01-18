@@ -135,7 +135,6 @@ grow_vertical = 2
 script = ExtResource("1_dasvu")
 
 [node name="Sky" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -148,7 +147,6 @@ grow_vertical = 2
 texture = ExtResource("1_si5qa")
 
 [node name="Back" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = -121.0
 offset_top = -2.0
 offset_right = 1564.0
@@ -156,7 +154,6 @@ offset_bottom = 821.0
 texture = ExtResource("2_k501m")
 
 [node name="Front" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = -121.0
 offset_right = 1564.0
 offset_bottom = 820.0
@@ -177,7 +174,6 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_left = 435.0
 offset_top = 267.0
 offset_right = 999.0
@@ -187,7 +183,6 @@ theme_override_font_sizes/font_size = 128
 text = "FANTETY"
 
 [node name="Start" type="Button" parent="."]
-layout_mode = 0
 offset_left = 632.0
 offset_top = 464.0
 offset_right = 812.0
@@ -200,7 +195,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_y4bss")
 text = "开始游戏"
 
 [node name="Help" type="Button" parent="."]
-layout_mode = 0
 offset_left = 632.0
 offset_top = 552.0
 offset_right = 812.0
@@ -213,7 +207,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_y4bss")
 text = "帮助"
 
 [node name="Exit" type="Button" parent="."]
-layout_mode = 0
 offset_left = 632.0
 offset_top = 640.0
 offset_right = 812.0

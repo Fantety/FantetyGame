@@ -71,7 +71,6 @@ func _on_player_change_elevator_door_status(status, index):
 	if status and !Common.elevatorCtrlTrigger:
 		emit_signal("change_elevator_ctrl_status")
 	else:
-		Common.inputLock = true
 		if status:			
 			elevatorAnimation.play_backwards("OpenElevatorDoor")
 			await elevatorAnimation.animation_finished
